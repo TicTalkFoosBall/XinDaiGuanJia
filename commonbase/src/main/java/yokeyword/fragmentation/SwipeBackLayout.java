@@ -9,7 +9,6 @@ import android.support.annotation.FloatRange;
 import android.support.annotation.IntDef;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentationMagician;
 import android.support.v4.view.ViewCompat;
 import android.support.v4.widget.ViewDragHelper;
 import android.util.AttributeSet;
@@ -20,15 +19,12 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 
-import com.xingxiu.frame.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-
-import me.yokeyword.fragmentation_swipeback.core.ISwipeBackActivity;
 
 /**
  * Thx https://github.com/ikew0ng/SwipeBackLayout.

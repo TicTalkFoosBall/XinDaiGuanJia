@@ -15,7 +15,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.xingxiu.frame.R;
 
 import java.util.List;
 

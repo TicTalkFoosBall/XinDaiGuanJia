@@ -6,9 +6,6 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.ViewGroup;
 
-import me.yokeyword.fragmentation.ISupportActivity;
-import me.yokeyword.fragmentation.SwipeBackLayout;
-
 /**
  * Created by YoKey on 17/6/29.
  */

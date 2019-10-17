@@ -3,8 +3,6 @@ package yokeyword.fragmentation.anim;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.xingxiu.frame.R;
-
 
 /**
  * Created by YoKeyword on 16/2/5.

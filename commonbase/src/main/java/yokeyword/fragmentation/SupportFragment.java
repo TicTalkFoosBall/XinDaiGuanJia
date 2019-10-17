@@ -10,8 +10,6 @@ import android.view.animation.Animation;
 
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
-import me.yokeyword.fragmentation.anim.FragmentAnimator;
-
 /**
  * Base class for activities that use the support-based
  * {@link ISupportFragment} and

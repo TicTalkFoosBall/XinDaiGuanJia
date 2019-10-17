@@ -3,7 +3,6 @@ package yokeyword.fragmentation.anim;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import com.xingxiu.frame.R;
 
 
 /**

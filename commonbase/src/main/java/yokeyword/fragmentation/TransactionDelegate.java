@@ -8,21 +8,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.FragmentationMagician;
+
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import me.yokeyword.fragmentation.exception.AfterSaveStateTransactionWarning;
-import me.yokeyword.fragmentation.helper.internal.ResultRecord;
-import me.yokeyword.fragmentation.helper.internal.TransactionRecord;
-import me.yokeyword.fragmentation.queue.Action;
-import me.yokeyword.fragmentation.queue.ActionQueue;
 
 
 /**

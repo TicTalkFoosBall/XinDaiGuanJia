@@ -8,8 +8,6 @@ import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
 
-import me.yokeyword.fragmentation.ISupportFragment;
-import me.yokeyword.fragmentation.SwipeBackLayout;
 
 /**
  * Created by YoKey on 17/6/29.
