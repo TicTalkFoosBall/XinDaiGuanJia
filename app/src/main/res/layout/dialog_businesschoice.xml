@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="245dp"
+    android:layout_height="150dp"
+    android:orientation="vertical"
+
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/textcolor_bai"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:text="请选择业务种类"
+            android:textSize="12sp"
+            android:textColor="#787878"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp" 
+            android:background="#ebebeb"
+            android:layout_marginTop="54dp"
+            android:id="@+id/tv1"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tv1"
+            android:textColor="#212121"
+            android:textSize="15sp"
+            android:text="担保业务"
+            android:gravity="center"
+            android:id="@+id/tv_assure"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ebebeb"
+            android:layout_below="@+id/tv_assure"
+            android:id="@+id/tv2"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/tv2"
+            android:textColor="#212121"
+            android:textSize="15sp"
+            android:text="信贷业务"
+            android:gravity="center"
+            android:id="@+id/tv_credit"
+            />
+
+
+    </RelativeLayout>
+  
+
+
+   
+
+</LinearLayout>

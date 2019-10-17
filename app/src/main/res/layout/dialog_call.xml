@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="245dp"
+    android:layout_height="95dp"
+    android:orientation="vertical"
+    android:background="@drawable/textcolor_bai"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:gravity="center"
+            android:text="（0517）8989 5541"
+            android:textSize="15sp"
+            android:textColor="#212121"
+            android:id="@+id/tv_number"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp" 
+            android:background="#ebebeb"
+            android:layout_marginTop="56dp"
+            />
+        <TextView
+            android:layout_width="122.5dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="57dp"
+            android:text="取消"
+            android:gravity="center"
+            android:textColor="#398eeb"
+            android:textSize="15sp"
+            android:id="@+id/tv_cancel"
+            />
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:background="#ebebeb"
+            android:layout_marginLeft="122.5dp"
+            android:layout_marginTop="55dp"
+            />
+        <TextView
+            android:layout_width="125dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="57dp"
+            android:text="呼叫"
+            android:gravity="center"
+            android:textColor="#398eeb"
+            android:textSize="15sp"
+            android:layout_marginLeft="122.5dp"
+            android:id="@+id/tv_callout"
+            />
+
+    </RelativeLayout>
+  
+
+
+   
+
+</LinearLayout>

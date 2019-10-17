@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/s1"
+        android:title="首页" />
+    <item
+        android:id="@+id/navigation_list"
+        android:icon="@drawable/s2"
+        android:title="通讯录" />
+    <item
+        android:id="@+id/navigation_client"
+        android:icon="@drawable/s3"
+        android:title="客户" />
+    <item
+        android:id="@+id/navigation_business"
+        android:icon="@drawable/s4"
+        android:title="业务" />
+    <item
+        android:id="@+id/navigation_my"
+        android:icon="@drawable/s5"
+        android:title="我的" />
+
+</menu>

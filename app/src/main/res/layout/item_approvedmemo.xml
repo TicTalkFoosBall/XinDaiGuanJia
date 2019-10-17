@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--审核记录-->
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="159dp"
+    android:orientation="vertical"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="13dp"
+            android:layout_height="144dp"
+            android:background="#f2f2f2"
+            />
+
+        <RelativeLayout
+            android:layout_width="351dp"
+            android:layout_height="144dp"
+            android:orientation="vertical"
+            android:background="#ffffff"
+            android:layout_marginTop="15dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_company"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="18dp"
+                android:text="担保项目受理"
+                android:textColor="#212121"
+                android:textSize="16sp" />
+
+
+            <Button
+                android:layout_marginLeft="260dp"
+                android:id="@+id/b_1"
+                android:layout_width="83dp"
+                android:layout_height="22dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bottonyuanj"
+                android:text="审核不通过"
+                android:textSize="12dp"
+                android:textColor="#f1f1f1" />
+
+            <TextView
+                android:layout_width="340dp"
+                android:layout_height="40dp"
+                android:text="审批意见："
+                android:layout_marginTop="55dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="#2e2e2e"
+                android:textSize="12sp"
+                android:id="@+id/tv_opinion"
+                />
+
+            <TextView
+                android:layout_width="341dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="100dp"
+                android:background="#ebebeb"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="100dp"
+                >
+                
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="39dp"
+                    android:text="审批人："
+                    android:gravity="center"
+                    android:textSize="10sp"
+                    android:textColor="#2e2e2e"
+                    android:layout_marginLeft="10dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="39dp"
+                    android:text="系统管理员"
+                    android:gravity="center"
+                    android:textSize="10sp"
+                    android:textColor="#2e2e2e"
+                    android:id="@+id/tv_Administrator"
+                    />
+                <TextView
+                    android:layout_width="50dp"
+                    android:layout_height="39dp"
+                    android:text="审批日期："
+                    android:layout_marginLeft="130dp"
+                    android:gravity="center"
+                    android:textSize="10sp"
+                    android:textColor="#2e2e2e"
+                    />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="39dp"
+                    android:textSize="10sp"
+                    android:text="2019-01-02"
+                    android:textColor="#2e2e2e "
+                    android:id="@+id/tv_time"
+
+                    />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

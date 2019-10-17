@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#efefee"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="15dp"
+            android:layout_height="144dp"
+            android:background="#f2f2f2"
+            />
+        <RelativeLayout
+            android:layout_width="351dp"
+            android:layout_height="144dp"
+
+            android:layout_marginTop="25dp"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:id="@+id/iv_type"
+                android:src="@mipmap/survey_business"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="业务调查"
+                android:layout_marginLeft="48dp"
+                android:layout_marginTop="12dp"
+                android:id="@+id/tv_type"
+                android:textSize="14dp"
+                android:textColor="#212121"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="2019.08.28"
+                android:layout_marginLeft="285dp"
+                android:layout_marginTop="12dp"
+                android:textSize="12dp"
+                android:textColor="#969696"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:id="@+id/tv_company"
+                android:text="南京龙戈软件科技有限公司"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="20dp"
+                android:textColor="#212121"
+                android:textSize="16sp"
+                />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@mipmap/next"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="325dp"
+                android:id="@+id/iv_next"
+
+                />
+
+
+            <TextView
+                android:layout_width="341dp"
+                android:layout_height="1dp"
+                android:background="#ebebeb"
+                android:layout_marginTop="110dp"
+                android:layout_marginLeft="10dp"
+
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textSize="10sp"
+                android:text="调查人："
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:textColor="#2e2e2e "
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textSize="10sp"
+                android:text="李思尔"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="120dp"
+                android:textColor="#2e2e2e "
+                android:id="@+id/tv_survey"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textSize="10sp"
+                android:text="经办部门："
+                android:layout_marginLeft="260dp"
+                android:layout_marginTop="120dp"
+                android:textColor="#2e2e2e "
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textSize="10sp"
+                android:text="业务部"
+                android:layout_marginLeft="310dp"
+                android:layout_marginTop="120dp"
+                android:textColor="#2e2e2e "
+                android:id="@+id/tv_section"
+                />
+
+
+
+        </RelativeLayout>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="15dp"
+            android:layout_height="144dp"
+            android:background="#f2f2"
+            android:layout_marginLeft="345dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="#f2f2f2"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.LeaveRequestActivity"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/back"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/iv_back"
+                />
+            <TextView
+                android:layout_width="150dp"
+                android:layout_height="30dp"
+                android:text="请假申请"
+                android:textSize="22sp"
+                android:textColor="#212121"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                android:layout_marginLeft="27dp"
+                />
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#efefee"
+
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:text="申请人"
+                    android:textColor="#777777"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="张一武"
+                    android:layout_marginLeft="170dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_proposer"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#efefee"
+
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:text="请假类型"
+                    android:textColor="#777777"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="调休"
+                    android:layout_marginLeft="170dp"
+                    android:gravity="right"
+                    android:textSize="15sp"
+                    android:id="@+id/tv_source"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="#efefee"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:text="开始时间"
+                    android:textColor="#777777"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="2019.02.03"
+                    android:layout_marginLeft="170dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_time"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#efefee"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:text="结束时间"
+                    android:textColor="#777777"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="2019.02.09"
+                    android:layout_marginLeft="170dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_endtime"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#efefee"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:gravity="center"
+                    android:text="请假时长(天)"
+                    android:textColor="#777777"
+                    android:textSize="14sp" />
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="3"
+                    android:layout_marginLeft="150dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_skt"
+                    android:textSize="15sp"
+                    />
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#efefee"
+                />
+            <!--qqqqqq-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="#efefee"
+                />
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="请假事由"
+                android:textColor="#777777"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:id="@+id/tv_reason"
+                android:text=""
+                android:textSize="15sp"
+                android:padding="10sp"
+                android:textColor="#212121"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="20dp"
+                />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#f2f2f2"
+                    >
+                    <Button
+                        android:layout_marginTop="150dp"
+                        android:layout_width="351dp"
+                        android:layout_height="43dp"
+                        android:background="@drawable/bottonlan_xiaojiao"
+                        android:text="同   意"
+                        android:textColor="#ffffff"
+                        android:textSize="16sp"
+                        android:layout_marginLeft="20dp"
+
+                        />
+                </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</ScrollView>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.CustomerInformationActivity"
+    android:orientation="vertical"
+    >
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       >
+       <android.support.v7.widget.Toolbar
+           android:layout_width="match_parent"
+           android:layout_height="50dp">
+           <RelativeLayout
+               android:layout_width="match_parent"
+               android:layout_height="50dp">
+               <ImageView
+                   android:layout_width="30dp"
+                   android:layout_height="30dp"
+                   android:src="@mipmap/back"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginLeft="10dp"
+                   android:id="@+id/iv_back"
+                   />
+               <TextView
+                   android:layout_width="150dp"
+                   android:layout_height="30dp"
+                   android:text="客户信息"
+                   android:textSize="22sp"
+                   android:textColor="#212121"
+                   android:layout_marginLeft="150dp"
+                   android:layout_marginTop="10dp"
+                   />
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="1dp"
+                   android:background="#ffffff"
+                   android:layout_marginLeft="27dp"
+                   />
+           </RelativeLayout>
+
+
+       </android.support.v7.widget.Toolbar>
+
+
+       <!--body-->
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="200dp"
+           android:background="#DAD9D9"
+           android:orientation="vertical"
+           >
+
+           <RelativeLayout
+               android:layout_width="351dp"
+               android:layout_height="171dp"
+               android:layout_marginLeft="15sp"
+               android:layout_marginTop="20dp"
+               android:background="@drawable/contact_edit_edittext_focused_lan">
+
+               <TextView
+                   android:id="@+id/tv_name"
+                   android:layout_width="wrap_content"
+                   android:layout_height="30dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="15sp"
+                   android:text="南京龙戈软件科技有限公司"
+                   android:textColor="#fefefe"
+                   android:textSize="16sp" />
+
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="30dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="50sp"
+                   android:text="社会统一信用代码"
+                   android:textColor="#fefefe"
+                   android:textSize="12sp" />
+
+               <TextView
+                   android:layout_width="190dp"
+                   android:layout_height="30dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="68sp"
+                   android:text="9132084MA1N0252M8C"
+                   android:textColor="#fefefe"
+                   android:textSize="14sp" />
+
+               <TextView
+                   android:layout_width="310dp"
+                   android:layout_height="1dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="110dp"
+                   android:background="#ffffff" />
+
+               <ImageView
+                   android:layout_width="20dp"
+                   android:layout_height="20dp"
+                   android:layout_marginLeft="20dp"
+                   android:layout_marginTop="130sp"
+                   android:src="@mipmap/tel" />
+
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="30dp"
+                   android:layout_marginLeft="50dp"
+                   android:layout_marginTop="130sp"
+                   android:text="17801135230"
+                   android:textColor="#ffffff"
+                   android:textSize="12sp" />
+
+               <Button
+                   android:layout_width="86dp"
+                   android:layout_height="26dp"
+                   android:layout_marginLeft="250dp"
+                   android:layout_marginTop="125sp"
+                   android:background="@drawable/bottonbai"
+                   android:text="营业执照"
+                   android:textColor="#398eeb"
+                   android:textSize="12sp" />
+
+           </RelativeLayout>
+
+
+       </LinearLayout>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="30dp"
+           android:background="#DAD9D9"
+           />
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="135dp"
+           android:orientation="vertical"
+           >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:orientation="horizontal"
+               >
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="45dp"
+                   android:text="注册地址"
+                   android:textSize="14sp"
+                   android:textColor="#777777"
+                   android:gravity="center"
+                   />
+               <TextView
+                   android:layout_width="210dp"
+                   android:layout_height="45dp"
+                   android:textColor="#212121"
+                   android:text="江苏省淮安宇泰闲林路12号"
+                   android:layout_marginLeft="55dp"
+                   android:gravity="right"
+                   android:id="@+id/tv_register"
+                   />
+
+
+           </LinearLayout>
+           <TextView
+               android:layout_width="340dp"
+               android:layout_height="1dp"
+               android:background="#efefee"
+               android:layout_marginLeft="27dp"
+               />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:orientation="horizontal"
+               >
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="45dp"
+                   android:text="企业法人"
+                   android:textSize="14sp"
+                   android:textColor="#777777"
+                   android:gravity="center"
+                   />
+               <TextView
+                   android:layout_width="260dp"
+                   android:layout_height="45dp"
+                   android:textColor="#212121"
+                   android:text="张能量"
+                   android:layout_marginLeft="5dp"
+                   android:gravity="right"
+                   android:id="@+id/tv_name1"
+                   />
+
+
+           </LinearLayout>
+           <TextView
+               android:layout_width="340dp"
+               android:layout_height="1dp"
+               android:background="#efefee"
+               android:layout_marginLeft="27dp"
+               />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:orientation="horizontal"
+               >
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="45dp"
+                   android:text="法人电话"
+                   android:textSize="14sp"
+                   android:textColor="#777777"
+                   android:gravity="center"
+                   />
+               <TextView
+                   android:layout_width="260dp"
+                   android:layout_height="45dp"
+                   android:textColor="#212121"
+                   android:text="15050509786"
+                   android:layout_marginLeft="5dp"
+                   android:gravity="right"
+                   android:id="@+id/tv_call"
+                   />
+
+
+           </LinearLayout>
+           <TextView
+               android:layout_width="340dp"
+               android:layout_height="1dp"
+               android:background="#efefee"
+               android:layout_marginLeft="27dp"
+               />
+
+
+
+       </LinearLayout>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="15dp"
+           android:background="#f2f2f2"
+           />
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="180dp"
+           android:orientation="vertical"
+           >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:orientation="horizontal"
+               >
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="45dp"
+                   android:text="客户来源"
+                   android:textSize="14sp"
+                   android:textColor="#777777"
+                   android:gravity="center"
+                   />
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="45dp"
+                   android:textColor="#212121"
+                   android:text="银行推荐"
+                   android:layout_marginLeft="165dp"
+                   android:gravity="right"
+                   android:id="@+id/tv_source"
+                   />
+
+
+           </LinearLayout>
+           <TextView
+               android:layout_width="340dp"
+               android:layout_height="1dp"
+               android:background="#efefee"
+               android:layout_marginLeft="27dp"
+               />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:orientation="horizontal"
+               >
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="45dp"
+                   android:text="客户经理"
+                   android:textSize="14sp"
+                   android:textColor="#777777"
+                   android:gravity="center"
+                   />
+               <TextView
+                   android:layout_width="260dp"
+                   android:layout_height="45dp"
+                   android:textColor="#212121"
+                   android:text="李易信"
+                   android:layout_marginLeft="5dp"
+                   android:gravity="right"
+                   android:id="@+id/tv_manager"
+                   />
+
+
+           </LinearLayout>
+           <TextView
+               android:layout_width="340dp"
+               android:layout_height="1dp"
+               android:background="#efefee"
+               android:layout_marginLeft="27dp"
+               />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:orientation="horizontal"
+               >
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="45dp"
+                   android:text="经办部门"
+                   android:textSize="14sp"
+                   android:textColor="#777777"
+                   android:gravity="center"
+                   />
+               <TextView
+                   android:layout_width="260dp"
+                   android:layout_height="45dp"
+                   android:textColor="#212121"
+                   android:text="管理部"
+                   android:layout_marginLeft="5dp"
+                   android:gravity="right"
+                   android:id="@+id/tv_section"
+                   />
+
+
+           </LinearLayout>
+           <TextView
+               android:layout_width="340dp"
+               android:layout_height="1dp"
+               android:background="#efefee"
+               android:layout_marginLeft="27dp"
+               />
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:orientation="horizontal"
+               >
+               <TextView
+                   android:layout_width="100dp"
+                   android:layout_height="45dp"
+                   android:text="所属公司"
+                   android:textSize="14sp"
+                   android:textColor="#777777"
+                   android:gravity="center"
+                   />
+               <TextView
+                   android:layout_width="260dp"
+                   android:layout_height="45dp"
+                   android:textColor="#212121"
+                   android:text="南京龙戈软件科技有限公司"
+                   android:layout_marginLeft="5dp"
+                   android:gravity="right"
+                   android:id="@+id/tv_company"
+                   />
+
+
+           </LinearLayout>
+       </LinearLayout>
+       <TextView
+           android:layout_width="match_parent"
+           android:layout_height="15dp"
+           android:background="#f2f2f2"
+           />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="45dp"
+                android:text="备注信息"
+                android:textSize="14sp"
+                android:textColor="#777777"
+                android:gravity="center"
+                />
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:src="@mipmap/next"
+                android:layout_marginLeft="235dp"
+                />
+
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="340dp"
+            android:layout_height="1dp"
+            android:background="#efefee"
+            android:layout_marginLeft="27dp"
+
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:id="@+id/tv_news"
+            android:text="dsssssssssssssdssd"
+            android:textColor="#2e2e2e"
+            android:textSize="12sp"
+            android:padding="15dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="15sp"
+            android:layout_marginRight="15sp"
+            />
+
+
+    </RelativeLayout>
+
+
+
+
+   </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Main5Activity"
+    android:orientation="vertical"
+    >
+
+    <Button
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:id="@+id/b1"
+    android:text="拍照"
+    />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/b2"
+        android:text="相册"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/iv"
+        />
+    <org.angmarch.views.NiceSpinner
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/ns"
+       app:arrowDrawable="@drawable/selector_nicespinner"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        style="@style/spinner_style"
+        android:animationCache="true"
+        android:drawSelectorOnTop="true"
+        app:hideArrow="false"
+        />
+
+</LinearLayout>

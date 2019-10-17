@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--当天到期-->
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.DayOfMaturityActivity"
+
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <!--头部局-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/back"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="15dp"
+                android:id="@+id/iv_back"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="当天到期"
+                android:textSize="22sp"
+                android:textColor="#212121"
+                android:layout_marginLeft="150dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                android:layout_marginLeft="27dp"
+                />
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"
+
+            />
+        <!--主要内容-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="675dp"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="业务大类"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="担保业务"
+                    android:layout_marginLeft="185dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_kind"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="业务品种"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="中小企业委托贷款"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_variety"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="产品类型"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="200,00万元"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_producttype"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="贷款金额"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="200,00万元"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_sum"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="贷款利率"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="1.5%"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_rate"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="开始日期"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="2019.08.14"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_date"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="贷款期限"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="24个月"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_deadline"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="贷款用途"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="个体经营"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_use"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="还款方式"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="按月付息到期还本"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_way"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="100dp"
+                    android:layout_height="45dp"
+                    android:text="担保方式"
+                    android:textSize="14sp"
+                    android:textColor="#777777"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="45dp"
+                    android:textColor="#212121"
+                    android:text="抵押担保"
+                    android:layout_marginLeft="145dp"
+                    android:gravity="right"
+                    android:id="@+id/tv_way2"
+                    />
+
+
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffffff"
+                />
+
+
+            <!--结尾-->
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+</ScrollView>

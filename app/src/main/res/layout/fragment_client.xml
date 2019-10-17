@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.ClientFragment">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:text="客户管理"
+            android:textSize="22sp"
+            android:textColor="#212121"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="10dp"
+            />
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/add"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="335dp"
+            android:id="@+id/iv_more"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#EBEBEB"
+            android:layout_marginLeft="27dp"
+            />
+
+    </RelativeLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="42dp"
+        android:orientation="horizontal"
+        >
+
+        <ImageView
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:src="@mipmap/search"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/iv_search"
+            />
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="搜索"
+            android:textSize="19sp"
+            android:textColor="#a6a6a6"
+            android:gravity="center"
+            />
+        <TextView
+            android:layout_width="2dp"
+            android:layout_height="25dp"
+            android:text="|"
+            android:textColor="#EBEBEB"
+            android:gravity="center"
+            android:layout_marginLeft="200dp"
+
+            />
+        <TextView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="筛选"
+            android:textSize="19sp"
+            android:textColor="#a6a6a6"
+            android:gravity="center"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/iv_filtrate"
+            />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:src="@mipmap/filter"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+
+            />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginTop="80dp"
+        android:background="#F2F2F2"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="98dp"
+        >
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/mRv"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+        
+    </LinearLayout>
+
+    
+
+</FrameLayout>

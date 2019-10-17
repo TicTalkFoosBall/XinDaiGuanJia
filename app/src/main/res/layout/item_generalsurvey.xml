@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--业务一览-->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="15dp"
+            android:layout_height="144dp"
+            android:background="#f2f2f2"
+            />
+        <RelativeLayout
+            android:layout_width="351dp"
+            android:layout_height="144dp"
+
+            android:layout_marginTop="25dp"
+
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/tv_product"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="18dp"
+                android:text="三门财政三同产品"
+                android:textColor="#212121"
+                android:textSize="16sp" />
+
+
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="10dp"
+                android:text="贷款金额："
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="50dp"
+                android:text="￥"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="85dp"
+                android:text="200.00"
+                android:textSize="12sp"
+                android:id="@+id/tv_money"
+                />
+
+
+            <TextView
+                android:layout_width="70dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="10dp"
+                android:text="担保费率："
+                android:textColor="#2e2e2e"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/tv_variety"
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="80dp"
+                android:text="18"
+                android:textColor="#2e2e2e"
+                android:textSize="12sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginLeft="85dp"
+                android:layout_marginTop="80dp"
+                android:text="%"
+                android:textSize="12sp"
+                android:textColor="#2e2e2e"
+                />
+
+
+            <TextView
+                android:layout_width="341dp"
+                android:layout_height="1dp"
+                android:background="#ebebeb"
+                android:layout_marginTop="110dp"
+                android:layout_marginLeft="10dp"
+
+                />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textSize="10sp"
+                android:text="期限： "
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="125dp"
+                android:textColor="#2e2e2e "
+                />
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textSize="10sp"
+                android:text="2019.01.02"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="125dp"
+                android:textColor="#2e2e2e "
+                android:id="@+id/tv_starttime"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="95dp"
+                android:layout_marginTop="123dp"
+                android:textColor="#2e2e2e "
+                android:text="—"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:textSize="10sp"
+                android:text="2019.01.02"
+                android:layout_marginLeft="108dp"
+                android:layout_marginTop="125dp"
+                android:textColor="#2e2e2e "
+                android:id="@+id/tv_overtime"
+                />
+            <Button
+                android:layout_width="66dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="270dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/button_biankuang_jiaoduda"
+                android:id="@+id/b_time"
+                android:text="24个月"
+                android:textColor="#f6822b"
+                android:textSize="10dp"
+                />
+
+
+            <!--<Button-->
+                <!--android:layout_width="66dp"-->
+                <!--android:layout_height="20dp"-->
+                <!--android:layout_marginTop="120dp"-->
+                <!--android:layout_marginLeft="270dp"-->
+                <!--android:background="@drawable/button_biankuang_jiaoduda"-->
+                <!--android:id="@+id/b_time"-->
+                <!--android:text="24个月"-->
+                <!--android:textColor="#f2f2f2"-->
+                <!--android:textSize="10dp"-->
+                <!--/>-->
+
+            <Button
+                android:layout_width="75dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginLeft="270dp"
+                android:background="@drawable/bottonyuanj"
+                android:id="@+id/b_type"
+                android:text="审批中"
+                android:textColor="#f2f2f2"
+                android:textSize="12dp"
+                />
+
+
+        </RelativeLayout>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="15dp"
+            android:layout_height="144dp"
+            android:background="#f2f2"
+            android:layout_marginLeft="345dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="#f2f2f2"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ExpireActivity"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/back"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/iv_back"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="当天到期"
+            android:textSize="15sp"
+            android:textColor="#398eeb"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_expire1"
+            />
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="1dp"
+            android:id="@+id/tv_1"
+            android:layout_marginLeft="70dp"
+            android:layout_marginTop="40dp"
+            android:background="#398eeb"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="即将到期"
+            android:textSize="15sp"
+            android:textColor="#212121"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_expire2"
+            />
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="1dp"
+            android:id="@+id/tv_2"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="40dp"
+            android:background="#efefee"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="逾期提醒"
+            android:textSize="15sp"
+            android:textColor="#212121"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_expire3"
+            />
+        <TextView
+            android:layout_width="65dp"
+            android:layout_height="1dp"
+            android:id="@+id/tv_3"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="40dp"
+            android:background="#efefee"
+            />
+
+
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"
+            android:layout_marginLeft="27dp"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <!--<android.support.v7.widget.SearchView-->
+        <!--android:layout_width="351dp"-->
+        <!--android:layout_height="32dp"-->
+        <!--android:id="@+id/sv"-->
+        <!--android:layout_marginLeft="17dp"-->
+        <!--android:background="@drawable/search_style"-->
+        <!--android:gravity="center"-->
+        <!---->
+        <!--&gt;-->
+        <!--</android.support.v7.widget.SearchView>-->
+
+        <LinearLayout
+            android:layout_width="351dp"
+            android:layout_height="32dp"
+            android:orientation="horizontal"
+            android:layout_marginLeft="15sp"
+            android:layout_gravity="center"
+            android:background="#f2f2f2"
+            >
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/search"
+                android:layout_marginLeft="120dp"
+                />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:hint="搜索客户名称"
+                android:textSize="15sp"
+                android:background="@null"
+                android:textColor="#a6a6a6"
+                android:layout_marginLeft="5dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mRv"
+        >
+
+    </android.support.v7.widget.RecyclerView>
+
+
+
+</LinearLayout>

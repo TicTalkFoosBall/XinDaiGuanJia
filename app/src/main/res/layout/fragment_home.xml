@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeFragment">
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:orientation="vertical"-->
+        <!--&gt;-->
+        <!--<RelativeLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="50dp"-->
+            <!--android:background="#ffffff"-->
+            <!--&gt;-->
+            <!--<ImageView-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:src="@mipmap/back"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="15dp"-->
+                <!--android:id="@+id/iv_back"-->
+                <!--/>-->
+            <!--<TextView-->
+                <!--android:layout_width="150dp"-->
+                <!--android:layout_height="30dp"-->
+                <!--android:text="审批待办"-->
+                <!--android:textSize="22sp"-->
+                <!--android:textColor="#212121"-->
+                <!--android:layout_marginLeft="150dp"-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--/>-->
+
+            <!--<TextView-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="1dp"-->
+                <!--android:background="#ffffff"-->
+                <!--android:layout_marginLeft="27dp"-->
+                <!--/>-->
+        <!--</RelativeLayout>-->
+        <!--<android.support.v7.widget.RecyclerView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:id="@+id/mRv"-->
+            <!--android:layout_marginTop="15sp"-->
+            <!--&gt;-->
+
+        <!--</android.support.v7.widget.RecyclerView>-->
+
+    <!--</LinearLayout>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="#398EEB"
+            >
+
+            <LinearLayout
+                android:layout_width="301dp"
+                android:layout_height="32dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="20sp"
+                android:layout_gravity="center"
+                android:background="@drawable/bottonbai"
+                android:layout_marginTop="10dp"
+
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="32dp"
+                    android:src="@mipmap/search"
+                    android:layout_marginLeft="15dp"
+                    android:id="@+id/iv_search"
+                    />
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:hint="搜索"
+                    android:textSize="15sp"
+                    android:background="@null"
+                    android:textColor="#a6a6a6"
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/ev_search"
+                    />
+
+            </LinearLayout>
+            <ImageView
+                android:layout_width="21dp"
+                android:layout_height="21dp"
+                android:id="@+id/iv_scan"
+                android:src="@mipmap/home_ico_scan"
+                android:layout_marginTop="16dp"
+                android:layout_marginLeft="340dp"
+                />
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:src="@mipmap/home_ico_dt"
+                android:layout_marginTop="64dp"
+                android:layout_marginLeft="55dp"
+                android:id="@+id/iv_expire"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当天到期"
+                android:textSize="14sp"
+                android:textColor="#ffffff"
+               android:id="@+id/tv_expice"
+                android:layout_marginTop="114dp"
+                android:layout_marginLeft="48dp"
+                android:layout_marginBottom="16dp"
+                />
+
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:src="@mipmap/home_ico_jj"
+                android:layout_marginTop="64dp"
+                android:layout_marginLeft="175dp"
+                android:id="@+id/iv_aboutexpire"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="即将到期"
+                android:textSize="14sp"
+                android:textColor="#ffffff"
+                android:id="@+id/tv_aboutexpice"
+                android:layout_marginTop="114dp"
+                android:layout_marginLeft="168dp"
+                android:layout_marginBottom="16dp"
+                />
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:src="@mipmap/home_ico_yq"
+                android:layout_marginTop="64dp"
+                android:layout_marginLeft="295dp"
+                android:id="@+id/iv_overdueexpire"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="逾期到期"
+                android:textSize="14sp"
+                android:textColor="#ffffff"
+                android:id="@+id/tv_overdueexpice"
+                android:layout_marginTop="114dp"
+                android:layout_marginLeft="288dp"
+                android:layout_marginBottom="16dp"
+                />
+
+
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="#ebebeb"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:orientation="vertical"
+
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:id="@+id/rl"
+                >
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@mipmap/home_ico_spdb"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="待办审批"
+                    android:textColor="#212121"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/tv_examine"
+                />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最新待办审批消息提示，最新待办审批"
+                    android:textColor="#858585"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="35dp"
+                    />
+                 <TextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:textSize="11sp"
+                     android:textColor="#858585"
+                     android:text="上午 08:18"
+                     android:layout_marginLeft="310dp"
+                     android:layout_marginTop="10dp"
+                     />
+                <TextView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:textSize="11sp"
+                    android:textColor="#ffffff"
+                    android:text="4"
+                    android:layout_marginLeft="345dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/textcolor_red"
+                    android:gravity="center"
+                    />
+
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ebebeb"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+
+                >
+                <ImageView
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:src="@mipmap/home_ico_tzgg"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="15dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="消息公告"
+                    android:textColor="#212121"
+                    android:textSize="16sp"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="10dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="最新待办审批消息提示，最新待办审批"
+                    android:textColor="#858585"
+                    android:textSize="13sp"
+                    android:layout_marginLeft="75dp"
+                    android:layout_marginTop="35dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="11sp"
+                    android:textColor="#858585"
+                    android:text="上午 08:18"
+                    android:layout_marginLeft="310dp"
+                    android:layout_marginTop="10dp"
+                    />
+                <TextView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:textSize="11sp"
+                    android:textColor="#ffffff"
+                    android:text="4"
+                    android:layout_marginLeft="345dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/textcolor_red"
+                    android:gravity="center"
+                    />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="#ebebeb"
+            />
+
+        <com.tencent.qcloud.tim.uikit.modules.conversation.ConversationLayout
+            android:id="@+id/cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            />
+
+
+
+
+
+
+    </LinearLayout>
+</FrameLayout>

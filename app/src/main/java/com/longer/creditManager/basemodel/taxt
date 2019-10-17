@@ -1,0 +1,1 @@
+实现IBaseModel基类Model，项目里的请求数据model可以继承BaseModel   具有扩展性

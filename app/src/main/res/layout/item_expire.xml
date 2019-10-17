@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#efefee"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="15dp"
+            android:layout_height="144dp"
+            android:background="#f2f2f2"
+            />
+        <RelativeLayout
+            android:layout_width="351dp"
+            android:layout_height="184dp"
+            android:layout_marginTop="25dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_company"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="18dp"
+                android:text="南京龙戈软件有限公司"
+                android:textColor="#212121"
+                android:textSize="16sp" />
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/next"
+                android:layout_marginLeft="320dp"
+                android:layout_marginTop="16dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="18dp"
+                android:text="合计应还（应还款日2019.08.05）"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="18dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="80dp"
+                android:text="￥  "
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text=" 2,200,884,59"
+                android:textSize="20dp"
+                android:textColor="#212121"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="73dp"
+                />
+
+            <Button
+                android:layout_width="61dp"
+                android:layout_height="17dp"
+                android:layout_marginTop="50dp"
+               android:layout_marginLeft="210dp"
+                android:text="aaa"
+                android:background="@drawable/bottonyuanj"
+                android:id="@+id/b_1"
+                android:textColor="#f1f1f1"
+                />
+            <TextView
+                android:layout_width="341dp"
+                android:layout_height="1dp"
+                android:background="#ebebeb"
+                android:layout_marginTop="110dp"
+                android:layout_marginLeft="10dp"
+
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:layout_marginTop="112dp"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="应还本金"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="12dp"
+                    android:textColor="#2e2e2e"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="应还利息"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="12dp"
+                    android:textColor="#2e2e2e"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="￥"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="272dp"
+                    android:textSize="12dp"
+                    android:textColor="#2e2e2e"
+
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:id="@+id/tv_principal"
+                    android:text="2,555,566,6"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="285dp"
+                    android:textColor="#2e2e2e"
+                    android:textSize="12dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:text="￥"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginLeft="278dp"
+                    android:textSize="12dp"
+                    android:textColor="#2e2e2e"
+
+                    />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--android:id="@+id/tv_interest"-->
+                    <!--android:text="555,566,6"-->
+                    <!--android:layout_marginTop="35dp"-->
+                    <!--android:layout_marginLeft="285dp"-->
+                    <!--android:textColor="#2e2e2e"-->
+                    <!--android:textSize="12dp"-->
+
+                    <!--/>-->
+                <TextView
+                    android:layout_width="70dp"
+                    android:layout_height="20dp"
+                    android:id="@+id/ev_callnumber"
+                    android:text="555,646,66"
+                    android:textColor="#2e2e2e"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="275dp"
+                    android:gravity="right"
+                    android:layout_marginTop="35dp"
+
+                    />
+
+            </RelativeLayout>
+
+
+
+        </RelativeLayout>
+        <TextView
+            android:layout_marginTop="20dp"
+            android:layout_width="15dp"
+            android:layout_height="144dp"
+            android:background="#f2f2"
+            android:layout_marginLeft="345dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="15dp"
+            android:background="#f2f2f2"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

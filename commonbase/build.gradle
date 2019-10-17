@@ -1,0 +1,69 @@
+apply plugin: 'com.android.library'
+ext.rxjava_version = '2.2.8'
+ext.retrofit_version = '2.5.0'
+ext.rxndroid_version = '2.1.1'
+ext.interceptor_version = '3.14.1'
+
+android {
+    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
+    buildToolsVersion rootProject.ext.android["buildToolsVersion"]
+
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android["minSdkVersion"]
+        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // rx
+    api "io.reactivex.rxjava2:rxandroid:$rxndroid_version"
+    api "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    //event bus
+    //BottomNavigationView
+    api 'org.greenrobot:eventbus:3.1.1'
+    // titleBar  toast
+    api 'com.hjq:toast:6.0'
+    api 'com.hjq:titlebar:5.0'
+    //头条适方案
+    api 'me.jessyan:autosize:1.1.2'
+    //smart 刷新
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-22'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-22'
+    //base rv
+   // api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.46'
+    //design
+    api 'com.android.support:design:28.0.0'
+    //沉浸式状态栏
+    api 'com.gyf.immersionbar:immersionbar:3.0.0-beta02'
+    //json
+    api 'com.google.code.gson:gson:2.8.5'
+    // 动态权限申请
+    compile 'io.reactivex:rxjava:1.1.3'
+    api 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+
+    // banner轮播图
+    implementation'com.youth.banner:banner:1.4.10'
+
+}

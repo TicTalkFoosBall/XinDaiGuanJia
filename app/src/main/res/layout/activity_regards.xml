@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.RegardsActivity"
+    android:orientation="vertical"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+
+        >
+        <ImageView
+
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/back"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/iv_back"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="关于"
+            android:textSize="22sp"
+            android:textColor="#212121"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="10dp"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ffffff"
+            android:layout_marginLeft="27dp"
+            />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="234dp"
+        android:orientation="vertical"
+        android:background="#f2f2f2"
+        >
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/version_pic"
+            android:layout_marginTop="46dp"
+            android:layout_marginLeft="150dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="信贷管家"
+            android:textColor="#212121"
+            android:layout_marginLeft="140dp"
+            android:layout_marginTop="32dp"
+            android:textSize="21sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Version2.0"
+            android:textColor="#212121"
+            android:layout_marginLeft="150dp"
+            android:layout_marginTop="15dp"
+            android:textSize="14sp"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="功能介绍"
+            android:textSize="15sp"
+            android:textColor="#212121"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/next"
+            android:layout_marginLeft="275dp"
+            android:id="@+id/iv_introduce"
+            />
+
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="360dp"
+        android:layout_height="1dp"
+        android:background="#efefee"
+        android:layout_marginLeft="10dp"
+
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:text="关于我们"
+            android:textSize="15sp"
+            android:textColor="#212121"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            />
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="50dp"
+            android:src="@mipmap/next"
+            android:layout_marginLeft="275dp"
+            android:id="@+id/iv_we"
+            />
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#f2f2f2"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="《龙戈科技用户使用协议》|《龙戈科技因素保护指引》"
+            android:textSize="11sp"
+            android:textColor="#398EEB"
+            android:layout_marginLeft="55dp"
+            android:layout_marginTop="80dp"
+            android:id="@+id/tv_protocol"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="版权所有 南京龙戈科技"
+            android:textSize="11sp"
+            android:textColor="#adadad"
+            android:layout_marginLeft="135dp"
+            android:layout_marginTop="15dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:text="Copyright@2019Logersoft.ALLRights Reserved"
+            android:textSize="11sp"
+            android:textColor="#adadad"
+            android:layout_marginLeft="75dp"
+            android:layout_marginBottom="25dp"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

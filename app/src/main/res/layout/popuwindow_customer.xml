@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/aa"
+        >
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+        <ImageView
+            android:id="@+id/iv_1"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/dbpic_1" />
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="80dp"
+            android:background="#f2f2"
+            android:layout_marginTop="17dp"
+            android:visibility="gone"
+            android:id="@+id/i_1"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="73dp"
+
+            android:gravity="center"
+            android:text="客户附件"
+            android:textColor="#474747"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/iv_2"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/dbpic_2" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="200dp"
+            android:background="#f2f2"
+            android:layout_marginTop="17dp"
+            android:visibility="gone"
+            android:id="@+id/i_2"
+            />
+
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="65dp"
+            android:gravity="center"
+            android:text="关联人员"
+            android:textColor="#474747"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/iv_3"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="270dp"
+            android:layout_marginTop="20dp"
+            android:src="@mipmap/dbpic_3" />
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="300dp"
+            android:background="#f2f2"
+            android:layout_marginTop="17dp"
+            android:visibility="gone"
+            android:id="@+id/i_3"
+            />
+        <TextView
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="255dp"
+            android:layout_marginTop="65dp"
+            android:gravity="center"
+            android:text="关联企业"
+            android:textColor="#474747"
+            android:textSize="12sp" />
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="#f2f2f2"
+        android:layout_marginTop="15dp"
+        />
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:id="@+id/tv_6"
+            android:text="取消"
+            android:gravity="center"
+            android:textColor="#212121"
+            android:textSize="15sp"
+            />
+
+
+    </LinearLayout>
