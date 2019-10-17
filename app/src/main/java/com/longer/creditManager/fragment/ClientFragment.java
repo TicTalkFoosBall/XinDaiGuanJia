@@ -93,9 +93,6 @@ public class ClientFragment extends BaseMvpFragment implements View.OnClickListe
         mRv.setAdapter(adapter2);
 
 
-
-
-
     }
 
 
