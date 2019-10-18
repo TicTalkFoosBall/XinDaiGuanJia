@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
-
+def VERSION_NAME = rootProject.ext.android.versionName      //versionName
+def VERSION_CODE = rootProject.ext.android.versionCode       //versionCode
 android {
-    compileSdkVersion rootProject.ext.android["compileSdkVersion"]
-    buildToolsVersion '28.0.3'
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
 
     //防止打包失败
     lintOptions {
@@ -35,10 +35,10 @@ android {
 
     defaultConfig {
         applicationId "com.example.administrator.xindaiguanjia"
-        minSdkVersion rootProject.ext.android["minSdkVersion"]
-        targetSdkVersion rootProject.ext.android["targetSdkVersion"]
-        versionCode rootProject.ext.android["versionCode"]
-        versionName rootProject.ext.android["versionName"]
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
         ndk {

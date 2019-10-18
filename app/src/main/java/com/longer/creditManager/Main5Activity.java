@@ -22,11 +22,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 
 
-
-import com.longer.creditManager.util.AndroidBug54971Workaround;
 import com.tbruyelle.rxpermissions.RxPermissions;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.runtime.Permission;
+
 
 import org.angmarch.views.NiceSpinner;
 

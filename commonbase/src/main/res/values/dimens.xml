@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="toolbar_h">44dp</dimen>
+    <dimen name="toast_wh">90dp</dimen>
+    <dimen name="toast_bg_radius">10dp</dimen>
+    <dimen name="button_radius">10dp</dimen>
+    <dimen name="tab_radius">4dp</dimen>
+    <dimen name="base_margin_lr">16dp</dimen>
+</resources>

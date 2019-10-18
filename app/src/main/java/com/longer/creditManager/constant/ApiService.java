@@ -1,9 +1,6 @@
 package com.longer.creditManager.constant;
 
 
-
-
-
 import com.longer.creditManager.bean.Ba1;
 import com.longer.creditManager.bean.ExamineBean;
 import com.longer.creditManager.bean.LoginBeae;

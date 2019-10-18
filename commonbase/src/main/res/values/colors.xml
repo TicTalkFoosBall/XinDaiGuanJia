@@ -14,4 +14,8 @@
     <color name="blue_007AFF">#007AFF</color>
     <color name="gray_EFEFF4">#EFEFF4</color>
     <color name="gray_C8C7CC">#C8C7CC</color>
+
+    <color name="toast_backgroundColor">#CC000000</color>
+    <color name="toast_text_color">#ffffff</color>
+    <color name="toolbar_subtitle_textcolor">#66686E</color>
 </resources>
