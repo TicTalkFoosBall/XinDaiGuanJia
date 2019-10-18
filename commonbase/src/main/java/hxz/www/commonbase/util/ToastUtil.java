@@ -11,8 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.xingxiu.frame.R;
-import com.xingxiu.frame.app.BaseApplication;
+import hxz.www.commonbase.R;
+import hxz.www.commonbase.app.BaseApplication;
+
 
 /**
  * Created by Circle on 2019-07-02

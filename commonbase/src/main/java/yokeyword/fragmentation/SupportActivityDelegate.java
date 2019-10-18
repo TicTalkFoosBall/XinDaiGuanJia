@@ -7,7 +7,13 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentationMagician;
 import android.view.MotionEvent;
+
+import yokeyword.fragmentation.anim.DefaultVerticalAnimator;
+import yokeyword.fragmentation.anim.FragmentAnimator;
+import yokeyword.fragmentation.debug.DebugStackDelegate;
+import yokeyword.fragmentation.queue.Action;
 
 
 public class SupportActivityDelegate {

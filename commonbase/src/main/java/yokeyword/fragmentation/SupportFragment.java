@@ -10,6 +10,8 @@ import android.view.animation.Animation;
 
 import com.trello.rxlifecycle2.components.support.RxFragment;
 
+import yokeyword.fragmentation.anim.FragmentAnimator;
+
 /**
  * Base class for activities that use the support-based
  * {@link ISupportFragment} and
@@ -239,7 +241,7 @@ public class SupportFragment extends RxFragment implements ISupportFragment {
 
     /**
      * 在start(TargetFragment,LaunchMode)时,启动模式为SingleTask/SingleTop, 回调TargetFragment的该方法
-     * 类似 {@link Activity#onNewIntent(Intent)}
+     * 类似
      * <p>
      * Similar to {@link Activity#onNewIntent(Intent)}
      *

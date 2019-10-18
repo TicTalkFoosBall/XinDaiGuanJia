@@ -3,6 +3,8 @@ package yokeyword.fragmentation_swipeback.core;
 import android.support.annotation.FloatRange;
 import android.view.View;
 
+import yokeyword.fragmentation.SwipeBackLayout;
+
 /**
  * Created by YoKey on 17/6/29.
  */

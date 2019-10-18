@@ -2,6 +2,8 @@ package yokeyword.fragmentation;
 
 import android.view.MotionEvent;
 
+import yokeyword.fragmentation.anim.FragmentAnimator;
+
 /**
  * Created by YoKey on 17/6/13.
  */

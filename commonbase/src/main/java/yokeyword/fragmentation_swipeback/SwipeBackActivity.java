@@ -3,6 +3,11 @@ package yokeyword.fragmentation_swipeback;
 
 import android.os.Bundle;
 
+import yokeyword.fragmentation.SupportActivity;
+import yokeyword.fragmentation.SwipeBackLayout;
+import yokeyword.fragmentation_swipeback.core.ISwipeBackActivity;
+import yokeyword.fragmentation_swipeback.core.SwipeBackActivityDelegate;
+
 /**
  * You can also refer to {@link SwipeBackActivity} to implement YourSwipeBackActivity
  * (extends Activity and impl {@link })

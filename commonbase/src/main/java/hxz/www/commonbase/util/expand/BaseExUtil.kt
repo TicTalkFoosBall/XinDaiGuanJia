@@ -8,11 +8,12 @@ import android.support.v4.content.ContextCompat
 import android.text.TextUtils
 import android.widget.ImageView
 import android.widget.TextView
-import com.xingxiu.frame.app.BaseApplication
-import com.xingxiu.frame.util.DisplayUtil
-import com.xingxiu.frame.util.GsonUtil
 import com.xingxiu.frame.util.ImageLoader
-import com.xingxiu.frame.util.ToastUtil
+
+import hxz.www.commonbase.app.BaseApplication
+import hxz.www.commonbase.util.DisplayUtil
+import hxz.www.commonbase.util.GsonUtil
+import hxz.www.commonbase.util.ToastUtil
 
 
 /**

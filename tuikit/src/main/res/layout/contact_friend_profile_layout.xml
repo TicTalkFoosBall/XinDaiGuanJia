@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android.support.v4.app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -39,7 +39,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:name="@string/profile_id" />
+        android.support.v4.app:name="@string/profile_id" />
 
     <com.tencent.qcloud.tim.uikit.component.LineControllerView
         android:id="@+id/add_wording"
@@ -47,15 +47,15 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:visibility="gone"
-        app:name="@string/profile_add_wording" />
+        android.support.v4.app:name="@string/profile_add_wording" />
 
     <com.tencent.qcloud.tim.uikit.component.LineControllerView
         android:id="@+id/remark"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:canNav="true"
-        app:name="@string/profile_remark" />
+        android.support.v4.app:canNav="true"
+        android.support.v4.app:name="@string/profile_remark" />
 
     <com.tencent.qcloud.tim.uikit.component.LineControllerView
         android:id="@+id/chat_to_top"
@@ -63,16 +63,16 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:visibility="gone"
-        app:isSwitch="true"
-        app:name="@string/chat_to_top" />
+        android.support.v4.app:isSwitch="true"
+        android.support.v4.app:name="@string/chat_to_top" />
 
     <com.tencent.qcloud.tim.uikit.component.LineControllerView
         android:id="@+id/blackList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:isSwitch="true"
-        app:name="@string/profile_black" />
+        android.support.v4.app:isSwitch="true"
+        android.support.v4.app:name="@string/profile_black" />
 
     <LinearLayout
         android:layout_width="match_parent"

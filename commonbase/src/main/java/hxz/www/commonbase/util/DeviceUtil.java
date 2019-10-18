@@ -11,10 +11,9 @@ import android.support.v4.app.ActivityCompat;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 
-import com.xingxiu.frame.cache.Cache;
-import com.xingxiu.frame.cache.CacheUtil;
-
 import java.util.UUID;
+
+import hxz.www.commonbase.cache.CacheUtil;
 
 /**
  * Created by Circle on 2018/11/1

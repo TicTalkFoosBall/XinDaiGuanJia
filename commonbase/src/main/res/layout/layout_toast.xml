@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.xingxiu.frame.view.roundView.RoundRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp"
+    app:rv_backColor="@color/toast_backgroundColor"
+    app:rv_cornerRadius="@dimen/toast_bg_radius">
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:gravity="center"
+        android:lineSpacingExtra="2dp"
+        android:maxWidth="240dp"
+        android:textColor="@color/toast_text_color"
+        android:textSize="14dp"
+        tool:text="提示文字提示文字提示文字提示文字提示文字提示文字" />
+
+</com.xingxiu.frame.view.roundView.RoundRelativeLayout>

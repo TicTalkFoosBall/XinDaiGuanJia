@@ -3,12 +3,9 @@ package com.xingxiu.frame.util.expand
 import android.app.Activity
 import android.view.View
 import android.widget.EditText
-import com.xingxiu.frame.R
-import com.xingxiu.frame.app.Config
-import com.xingxiu.frame.util.DisplayUtil
-import com.xingxiu.frame.util.RegexUtil
-import com.xingxiu.frame.util.SoftKeyBoardListener
-import com.xingxiu.frame.util.log.LogShow
+import hxz.www.commonbase.util.DisplayUtil
+import hxz.www.commonbase.util.RegexUtil
+import hxz.www.commonbase.util.SoftKeyBoardListener
 import java.math.BigDecimal
 import kotlin.math.abs
 
@@ -18,16 +15,7 @@ import kotlin.math.abs
 @Descripe: 业务相关拓展
  **/
 
-/**
- * 获取头像,没有头像可以使用默认头像
- */
-fun String?.getAvator(): Any {
-    return if (this.isStrEmpty()) {
-        R.mipmap.default_head_circle
-    } else {
-        Config.formatAvatorUrl(this)
-    }
-}
+
 
 /**
  * 如果需要跟随键盘，需要跟随的模块（view）调用此方法即可

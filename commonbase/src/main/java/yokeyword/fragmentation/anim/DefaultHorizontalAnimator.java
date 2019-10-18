@@ -3,6 +3,7 @@ package yokeyword.fragmentation.anim;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import hxz.www.commonbase.R;
 
 
 /**

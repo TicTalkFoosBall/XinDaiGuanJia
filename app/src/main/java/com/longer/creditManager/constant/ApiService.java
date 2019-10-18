@@ -28,13 +28,13 @@ public interface ApiService {
     // 登录
 
     // http://192.168.1.121:8089/lfcp-app/auth
-    @POST("lfcp-app/auth")
+    @POST("lfcp-android.support.v4.app/auth")
     Single<LoginBeae> getLoginBeae(@Body LoginBody loginBody);
 
     // 审批待办列表
     // http://192.168.1.121:8089/lfcp-app/task/list
 
-    @GET("lfcp-app/task/list")
+    @GET("lfcp-android.support.v4.app/task/list")
     Single<ExamineBean> getExamineList(@Header("token") String token, @Body ListBody listBody);
 
 

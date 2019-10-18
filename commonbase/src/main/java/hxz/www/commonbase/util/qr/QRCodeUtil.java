@@ -10,13 +10,11 @@ import com.google.zxing.EncodeHintType;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
-import com.xingxiu.frame.R;
-import com.xingxiu.frame.rx.RxUtil;
-import com.xingxiu.frame.util.log.LogUtil;
 
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
+
 
 /**
  * Create by Circle on 2019/9/9

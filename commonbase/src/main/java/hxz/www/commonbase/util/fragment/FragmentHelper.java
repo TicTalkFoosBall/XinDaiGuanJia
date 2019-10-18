@@ -1,7 +1,8 @@
 package hxz.www.commonbase.util.fragment;
 
 import android.os.Bundle;
-import com.xingxiu.frame.base.BaseFragment;
+
+import hxz.www.commonbase.base.mvp.BaseFragment;
 
 /**
  * Fragment DialogFragment 帮助类

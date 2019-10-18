@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.xingxiu.frame.view.roundView.RoundRelativeLayout
+        android:layout_width="@dimen/toast_wh"
+        android:layout_height="@dimen/toast_wh"
+        app:rv_backColor="@color/toast_backgroundColor"
+        app:rv_cornerRadius="@dimen/toast_bg_radius">
+
+        <RelativeLayout
+            android:id="@+id/relTipText"
+            android:layout_width="@dimen/toast_wh"
+            android:layout_height="@dimen/toast_wh">
+
+            <ImageView
+                android:id="@+id/iv_tip_text"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
+                android:scaleType="centerCrop"
+                tool:background="@color/white" />
+
+            <TextView
+                android:id="@+id/tv_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_tip_text"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="5dp"
+                android:singleLine="true"
+                android:textColor="@color/toast_text_color"
+                android:textSize="14dp"
+                tool:text="提示文字" />
+
+
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/iv_tip"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:visibility="gone" />
+    </com.xingxiu.frame.view.roundView.RoundRelativeLayout>
+</FrameLayout>

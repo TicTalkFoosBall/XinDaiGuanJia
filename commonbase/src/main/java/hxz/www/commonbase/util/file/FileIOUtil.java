@@ -1,6 +1,5 @@
 package hxz.www.commonbase.util.file;
 
-import com.xingxiu.frame.util.CloseUtil;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
@@ -20,6 +19,9 @@ import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.List;
+
+import hxz.www.commonbase.util.CloseUtil;
+
 public class FileIOUtil {
     private FileIOUtil() {
     }

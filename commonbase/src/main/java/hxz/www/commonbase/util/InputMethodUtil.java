@@ -4,7 +4,8 @@ import android.content.Context;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-import com.xingxiu.frame.app.BaseApplication;
+import hxz.www.commonbase.app.BaseApplication;
+
 
 /**
  * Created by Circle on 2018/11/1

@@ -1,1 +1,1 @@
-include ':app',':commonbase',':tuikit'
+include ':android.support.v4.app',':commonbase',':tuikit'

@@ -11,6 +11,8 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+import yokeyword.fragmentation.helper.internal.TransactionRecord;
+
 /**
  * Created by YoKey on 16/11/24.
  */

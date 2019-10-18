@@ -1,6 +1,5 @@
 package hxz.www.commonbase.util;
 
-import com.xingxiu.frame.util.log.LogShow;
 
 /**
  * Created by Circle on 2019/1/29

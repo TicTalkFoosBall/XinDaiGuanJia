@@ -9,6 +9,8 @@ import android.view.MotionEvent;
 
 import com.trello.rxlifecycle2.components.support.RxAppCompatActivity;
 
+import yokeyword.fragmentation.anim.FragmentAnimator;
+
 /**
  * Base class for activities that use the support-based
  * {@link ISupportActivity} and

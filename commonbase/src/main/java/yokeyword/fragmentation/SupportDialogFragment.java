@@ -9,6 +9,8 @@ import android.view.animation.Animation;
 
 import com.trello.rxlifecycle2.components.support.RxDialogFragment;
 
+import yokeyword.fragmentation.anim.FragmentAnimator;
+
 /**
  * Created by Circle on 2019-06-27
  */

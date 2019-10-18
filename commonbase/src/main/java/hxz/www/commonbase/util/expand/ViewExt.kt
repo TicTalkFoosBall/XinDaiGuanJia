@@ -11,7 +11,7 @@ import android.os.Build
 import android.support.annotation.AttrRes
 import android.support.annotation.DimenRes
 import android.support.annotation.Dimension
-import android.support.design.widget.TabLayout
+
 import android.support.v4.view.ViewPager
 import android.support.v7.widget.RecyclerView
 import android.text.TextUtils
@@ -25,7 +25,7 @@ import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.Scroller
 import android.widget.TextView
-import com.xingxiu.frame.util.FastClickUtil
+import hxz.www.commonbase.util.FastClickUtil
 
 fun View.show() {
     if (!isShown && visibility != View.VISIBLE) visibility = View.VISIBLE
@@ -308,16 +308,6 @@ fun View.toBitmap(): Bitmap {
     }
 }
 
-fun forceSelectTabPosition(position: Int, tableLayout: TabLayout) {
-    val clz = tableLayout.javaClass
-    try {
-        val animateToTab = clz.getDeclaredMethod("selectTab", TabLayout.Tab::class.java)
-        animateToTab.isAccessible = true
-        animateToTab.invoke(tableLayout, tableLayout.getTabAt(position))
-    } catch (e: Exception) {
-        e.printStackTrace()
-    }
-}
 
 class FixedSpeedScroller : Scroller {
     private var mDuration = 1500

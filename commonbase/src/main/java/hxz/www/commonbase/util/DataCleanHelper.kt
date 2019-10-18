@@ -3,7 +3,7 @@ package com.xingxiu.frame.util
 import android.content.Context
 import android.os.Environment
 import android.text.TextUtils
-import com.xingxiu.frame.util.file.FileUtil
+import hxz.www.commonbase.util.file.FileUtil
 
 import java.io.File
 import java.math.BigDecimal

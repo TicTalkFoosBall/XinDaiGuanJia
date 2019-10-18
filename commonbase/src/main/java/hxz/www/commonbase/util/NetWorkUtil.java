@@ -4,10 +4,10 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-import com.xingxiu.frame.app.BaseApplication;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import hxz.www.commonbase.app.BaseApplication;
 
 /**
  * des:网络管理工具

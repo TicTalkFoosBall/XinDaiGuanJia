@@ -9,16 +9,9 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.RectF;
 import android.net.Uri;
-import android.os.SystemClock;
-import android.os.storage.StorageManager;
 import android.provider.MediaStore;
 import android.provider.OpenableColumns;
 import android.util.Base64;
-
-
-import com.xingxiu.frame.util.CloseUtil;
-import com.xingxiu.frame.util.storage.StorageType;
-import com.xingxiu.frame.util.storage.StorageUtil;
 
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -35,7 +28,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import io.rong.common.FileUtils;
+import hxz.www.commonbase.util.CloseUtil;
+import hxz.www.commonbase.util.storage.StorageType;
+import hxz.www.commonbase.util.storage.StorageUtil;
+
 
 /**
  * <pre>

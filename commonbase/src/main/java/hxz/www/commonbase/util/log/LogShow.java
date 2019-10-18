@@ -17,8 +17,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.util.SimpleArrayMap;
 import android.util.Log;
 
-import com.xingxiu.frame.app.BaseApplication;
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -36,6 +34,8 @@ import java.util.Locale;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import hxz.www.commonbase.app.BaseApplication;
 
 /**
  * @Author :rickBei

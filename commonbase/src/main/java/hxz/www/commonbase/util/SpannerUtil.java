@@ -49,13 +49,12 @@ import android.text.style.UnderlineSpan;
 import android.text.style.UpdateAppearance;
 import android.util.Log;
 
-
-import com.xingxiu.frame.app.BaseApplication;
-
 import java.io.InputStream;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
+
+import hxz.www.commonbase.app.BaseApplication;
 
 import static android.graphics.BlurMaskFilter.Blur;
 

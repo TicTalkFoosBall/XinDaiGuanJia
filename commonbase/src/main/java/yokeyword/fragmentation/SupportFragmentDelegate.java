@@ -11,10 +11,16 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-
+import android.support.v4.app.FragmentationMagician;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+
+import yokeyword.fragmentation.anim.FragmentAnimator;
+import yokeyword.fragmentation.helper.internal.AnimatorHelper;
+import yokeyword.fragmentation.helper.internal.ResultRecord;
+import yokeyword.fragmentation.helper.internal.TransactionRecord;
+import yokeyword.fragmentation.helper.internal.VisibleDelegate;
 
 public class SupportFragmentDelegate {
     private static final long NOT_FOUND_ANIM_TIME = 300L;

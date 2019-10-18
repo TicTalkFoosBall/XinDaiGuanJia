@@ -1,11 +1,10 @@
 package hxz.www.commonbase.util;
 
-import com.xingxiu.frame.util.expand.StringExtKt;
-import com.xingxiu.frame.util.log.LogShow;
 
 import java.util.regex.Pattern;
 
-import kotlin.text.StringsKt;
+import hxz.www.commonbase.util.log.LogShow;
+
 
 /**
  * 正则工具类

@@ -1,11 +1,11 @@
 package com.xingxiu.frame.util
 
-import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
-import com.example.pictureselector.PictureSelectionModel
-import com.example.pictureselector.PictureSelector
-import com.example.pictureselector.config.PictureConfig
-import com.example.pictureselector.config.PictureMimeType
+import com.luck.picture.lib.PictureSelectionModel
+import com.luck.picture.lib.PictureSelector
+import com.luck.picture.lib.config.PictureConfig
+import com.luck.picture.lib.config.PictureMimeType
+
 
 /**
 @Author  :rickBei
@@ -49,12 +49,12 @@ object PictureSelectionUtil {
      * 必须先调用prepare方法
      * 启动照片选择器,如果fragment中启动，activity参数为空即可，反之亦然
      */
-    fun prepare(fragment: Fragment? = null): PictureSelectionUtil {
-        fragment?.let {
-            pictureSelector = PictureSelector.create(it)
-        }
-        return this
-    }
+//    fun prepare(fragment: Fragment? = null): PictureSelectionUtil {
+//        fragment?.let {
+//            pictureSelector = PictureSelector.create(it)
+//        }
+//        return this
+//    }
 
     fun prepare(activity: AppCompatActivity? = null): PictureSelectionUtil {
         activity?.let {

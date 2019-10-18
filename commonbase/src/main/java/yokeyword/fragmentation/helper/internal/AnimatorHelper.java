@@ -6,6 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 
+import hxz.www.commonbase.R;
+import yokeyword.fragmentation.anim.FragmentAnimator;
+
 
 /**
  * @Hide Created by YoKeyword on 16/7/26.

@@ -2,12 +2,11 @@ package hxz.www.commonbase.util;
 
 import android.os.Looper;
 
-import com.xingxiu.frame.util.log.LogShow;
-import com.xingxiu.frame.util.log.LogUtil;
-
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
+
+import hxz.www.commonbase.util.log.LogShow;
 
 /**
  * Created by Circle on 2019-07-04
@@ -97,6 +96,5 @@ public class CrashHandler implements Thread.UncaughtExceptionHandler {
         String result = writer.toString();
         sb.append(result);
 
-        LogUtil.save("-----" + sb.toString());
     }
 }

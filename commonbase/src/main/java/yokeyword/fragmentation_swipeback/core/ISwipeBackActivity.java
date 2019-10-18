@@ -1,5 +1,7 @@
 package yokeyword.fragmentation_swipeback.core;
 
+import yokeyword.fragmentation.SwipeBackLayout;
+
 /*
  * Created by YoKey on 17/6/29.
  */

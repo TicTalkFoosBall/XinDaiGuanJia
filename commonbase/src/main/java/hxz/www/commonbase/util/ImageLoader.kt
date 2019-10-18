@@ -4,12 +4,9 @@ import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.widget.ImageView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.Priority
 import com.bumptech.glide.request.RequestOptions
-import com.xingxiu.frame.R
-import com.xingxiu.frame.app.BaseApplication
-import com.xingxiu.frame.app.Config
-import retrofit2.http.OPTIONS
+import hxz.www.commonbase.R
+import hxz.www.commonbase.app.BaseApplication
 import java.io.File
 
 /**
@@ -61,18 +58,7 @@ object ImageLoader {
     }
 
 
-    fun loadAvatar(url: String?, view: ImageView) {
-        if (TextUtils.isEmpty(url))
-            view.setImageResource(R.mipmap.default_head_circle)
-        else
-            Glide.with(BaseApplication.getInstance()).load(Config.formatAvatorUrl(url)).thumbnail(THUMBNAIL)
-                    .apply(RequestOptions().placeholder(R.mipmap.default_head_circle).error(R.mipmap.default_head_circle).dontAnimate()).into(view)
-    }
 
-
-    fun download(url: String?) {
-        Glide.with(BaseApplication.getInstance()).download(url).thumbnail(THUMBNAIL).apply(RequestOptions().priority(Priority.LOW).dontAnimate()).submit()
-    }
 
 
 }

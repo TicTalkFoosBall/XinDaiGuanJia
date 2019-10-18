@@ -4,7 +4,7 @@ import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 
-import com.xingxiu.frame.app.BaseApplication;
+import hxz.www.commonbase.app.BaseApplication;
 
 /**
  * 剪贴板相关工具类

@@ -7,10 +7,10 @@ import android.os.Environment;
 import android.os.StatFs;
 import android.text.TextUtils;
 
-import com.xingxiu.frame.app.BaseApplication;
-
 import java.io.File;
 import java.io.IOException;
+
+import hxz.www.commonbase.app.BaseApplication;
 
 /**
  * @Author :rickBei

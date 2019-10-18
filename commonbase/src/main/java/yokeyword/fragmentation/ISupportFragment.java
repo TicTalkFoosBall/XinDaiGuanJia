@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 
+import yokeyword.fragmentation.anim.FragmentAnimator;
+
 /**
  * Created by YoKey on 17/6/23.
  */
