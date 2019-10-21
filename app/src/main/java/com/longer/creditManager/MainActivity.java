@@ -13,7 +13,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 
-import com.longer.creditManager.fragment.Address_ListFragment;
 import com.longer.creditManager.fragment.BusinessFragment;
 import com.longer.creditManager.fragment.ClientFragment;
 import com.longer.creditManager.fragment.HomeFragment;
@@ -49,7 +48,6 @@ public class MainActivity extends  BaseActivity {
 
 
         fragments.add(new HomeFragment()); // 首页
-        fragments.add(new Address_ListFragment());// 通讯录
         fragments.add(new ClientFragment());// 客户
         fragments.add(new BusinessFragment()); //  业务
         fragments.add(new MyFragment());//  我的
@@ -103,21 +101,17 @@ public class MainActivity extends  BaseActivity {
 
                         vp.setCurrentItem(0);
                        return true;
-                    case R.id.navigation_list :
-
-                        vp.setCurrentItem(1);
-                        return true;
                     case R.id.navigation_client :
 
-                        vp.setCurrentItem(2);
+                            vp.setCurrentItem(1);
                         return true;
                     case R.id.navigation_business :
 
-                        vp.setCurrentItem(3);
+                        vp.setCurrentItem(2);
                         return true;
                     case R.id.navigation_my:
 
-                        vp.setCurrentItem(4);
+                        vp.setCurrentItem(3);
                         return true;
                 }
                 return false;

@@ -6,9 +6,9 @@ import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.contract.ExamineContracr;
 import com.longer.creditManager.net.BaseResultObserver;
 import com.longer.creditManager.specificmodel.MainModel;
-import com.tencent.qcloud.tim.uikit.utils.ToastUtil;
 
 import hxz.www.commonbase.base.mvp.BasePresenter;
+import hxz.www.commonbase.util.ToastUtil;
 import io.reactivex.disposables.Disposable;
 
 public class ExaminePreseenter extends BasePresenter<ExamineContracr.View>implements ExamineContracr.Presenter{
@@ -28,8 +28,7 @@ public class ExaminePreseenter extends BasePresenter<ExamineContracr.View>implem
 
                 @Override
                 protected void onFailure(Throwable e, String error) {
-                    ToastUtil.toastLongMessage("数据请求失败");
-
+                    ToastUtil.show("数据请求失败");
                 }
             });
 

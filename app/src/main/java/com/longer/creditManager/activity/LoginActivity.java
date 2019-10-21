@@ -23,16 +23,12 @@ import com.longer.creditManager.bean.Token;
 import com.longer.creditManager.bean.body.LoginBody;
 import com.longer.creditManager.contract.LoginContracr;
 import com.longer.creditManager.preseenter.LoginPreseenter;
-import com.longer.creditManager.util.AndroidBug54971Workaround;
-import com.tencent.qcloud.tim.uikit.TUIKit;
-import com.tencent.qcloud.tim.uikit.base.IUIKitCallBack;
-import com.tencent.qcloud.tim.uikit.signature.GenerateTestUserSig;
-import com.tencent.qcloud.tim.uikit.utils.ToastUtil;
 
 import hxz.www.commonbase.base.mvp.BaseActivity;
 import hxz.www.commonbase.base.mvp.BaseMvpActivity;
 import hxz.www.commonbase.base.mvp.BasePresenter;
 import hxz.www.commonbase.base.mvp.IBaseView;
+import hxz.www.commonbase.util.ToastUtil;
 
 public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements View.OnClickListener,LoginContracr.View{
 
@@ -127,7 +123,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
 
     @Override
     public void showMsg(String msg) {
-        ToastUtil.toastLongMessage(msg);
+        ToastUtil.show(msg);
     }
 
     @Override

@@ -17,7 +17,5 @@ public class Add_BusinessCustomerActivity extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_add__business_customer);
         AndroidBug54971Workaround.assistActivity(findViewById(android.R.id.content),this);
-
-
     }
 }

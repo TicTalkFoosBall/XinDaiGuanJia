@@ -110,19 +110,10 @@ public class Main5Activity extends AppCompatActivity implements View.OnClickList
                 take2Pic();
             } else {
                 int audioPermission = PermissionConstant.MICROPHONE;
-                if (PermissionUtil.isGranted(PermissionConstant.getPermissions(PermissionConstant.STORAGE),PermissionConstant.getPermissions(PermissionConstant.CAMERA)))
+                if (!PermissionUtil.isGranted(PermissionConstant.getPermissions(PermissionConstant.CAMERA)))
                 {
-
-                }
-                else
-                {
-                    take2Pic();
-                }
-                if (!AndPermission.hasPermissions(this, SET_PERMISSION)) {
                     testRxPermission();
                     take2Pic();
-                } else {
-
                 }
             }
 
@@ -132,8 +123,8 @@ public class Main5Activity extends AppCompatActivity implements View.OnClickList
                 Log.e("z", "num" + Build.VERSION_CODES.N + "-----" + Build.VERSION.SDK_INT);
                 pic2Images();
             } else {
-
-                if (!AndPermission.hasPermissions(this, SET_PERMISSION)) {
+                if (!PermissionUtil.isGranted(PermissionConstant.getPermissions(PermissionConstant.CAMERA)))
+                {
                     testRxPermission2();
                 } else {
                     pic2Images();

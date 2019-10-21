@@ -34,7 +34,6 @@ import static android.view.Gravity.apply;
  */
 public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
 
-    private TextView tv_phone; // 手机号
     private ImageView iv_headportrait,iv_regard; // 头像 关于
 
     public MyFragment() {
@@ -67,27 +66,12 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
 
     @Override
     protected void initView() {
-        tv_phone = mRootView.findViewById(R.id.tv_phone);
+
         iv_headportrait = mRootView.findViewById(R.id.iv_headportrait);
         iv_regard = mRootView.findViewById(R.id.iv_regard);
         iv_regard.setOnClickListener(this);
 
 
-        String phone_num = tv_phone.getText().toString();
-//        　String replace =phone_num.substring(3,7);
-//　　     String newStr = str.replace(replace ,"****");
-        String replace = phone_num.substring(3, 7);
-        String newPhone = phone_num.replace(replace, "****");
-        tv_phone.setText(newPhone);
-
-
-//        GlideUtils.loadImageCenterCrop(getActivity(),R.mipmap.rng,iv_headportrait);
-//        Glide.with(getContext())
-//                .load(item.getImage_src())
-//                .transform(new CenterCrop(getContext()), new GlideRoundTransform(getActivity(),4))
-//                .error(R.mipmap.deault_home3)
-//                .into(itemImge);
-//
 
         Glide.with(getContext()).load(R.mipmap.rng)
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
@@ -108,10 +92,7 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if (v.getId() == iv_regard.getId()){
-
             startActivity(new Intent(getContext(), RegardsActivity.class));
-
         }
-
     }
 }

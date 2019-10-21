@@ -5,51 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment">
 
-    <!--<LinearLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:orientation="vertical"-->
-        <!--&gt;-->
-        <!--<RelativeLayout-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="50dp"-->
-            <!--android:background="#ffffff"-->
-            <!--&gt;-->
-            <!--<ImageView-->
-                <!--android:layout_width="30dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:src="@mipmap/back"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_marginLeft="15dp"-->
-                <!--android:id="@+id/iv_back"-->
-                <!--/>-->
-            <!--<TextView-->
-                <!--android:layout_width="150dp"-->
-                <!--android:layout_height="30dp"-->
-                <!--android:text="审批待办"-->
-                <!--android:textSize="22sp"-->
-                <!--android:textColor="#212121"-->
-                <!--android:layout_marginLeft="150dp"-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--/>-->
-
-            <!--<TextView-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="1dp"-->
-                <!--android:background="#ffffff"-->
-                <!--android:layout_marginLeft="27dp"-->
-                <!--/>-->
-        <!--</RelativeLayout>-->
-        <!--<android.support.v7.widget.RecyclerView-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:id="@+id/mRv"-->
-            <!--android:layout_marginTop="15sp"-->
-            <!--&gt;-->
-
-        <!--</android.support.v7.widget.RecyclerView>-->
-
-    <!--</LinearLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -236,7 +191,6 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
-
                 >
                 <ImageView
                     android:layout_width="44dp"
@@ -293,18 +247,6 @@
             android:layout_height="15dp"
             android:background="#ebebeb"
             />
-
-        <com.tencent.qcloud.tim.uikit.modules.conversation.ConversationLayout
-            android:id="@+id/cl"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            />
-
-
-
-
-
 
     </LinearLayout>
 </FrameLayout>

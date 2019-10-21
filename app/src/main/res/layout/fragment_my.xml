@@ -11,15 +11,7 @@
         android:background="@mipmap/mine_topbg"
         android:id="@+id/r1"
         >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="30dp"
-            android:text="我的"
-            android:textSize="22sp"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="10dp"
-            />
+
         <ImageView
             android:layout_width="65dp"
             android:layout_height="65dp"
@@ -39,25 +31,8 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/tv_name"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/iv_headportrait"
-            android:text="187****11541"
-            android:textSize="16sp"
-            android:textColor="#ffffff"
-            android:layout_marginTop="90dp"
-            android:layout_marginLeft="20dp"
-            android:id="@+id/tv_phone"
-            />
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/next"
-            android:layout_marginTop="65dp"
-            android:layout_marginLeft="320dp"
 
-            />
+
 
     </RelativeLayout>
     <LinearLayout
@@ -69,158 +44,7 @@
         android:background="@drawable/bottonbai"
         android:orientation="vertical"
         >
-        <LinearLayout
-            android:layout_width="351dp"
-            android:layout_height="55dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@mipmap/mine_attendance"
-                android:layout_marginLeft="18dp"
-                android:layout_gravity="center"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="考勤签到"
-                android:textColor="#212121"
-                android:textSize="15sp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/next"
-               android:layout_gravity="center"
-                android:layout_marginLeft="200dp"
-                android:layout_marginRight="18dp"
-                android:id="@+id/iv_sign"
-                />
 
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#efefef"
-            />
-        <LinearLayout
-            android:layout_width="351dp"
-            android:layout_height="55dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@mipmap/mine_report"
-                android:layout_marginLeft="18dp"
-                android:layout_gravity="center"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="工作日志"
-                android:textColor="#212121"
-                android:textSize="15sp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/next"
-                android:layout_gravity="center"
-                android:layout_marginLeft="200dp"
-                android:layout_marginRight="18dp"
-                android:id="@+id/iv_log"
-                />
-
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#efefef"
-            />
-        <LinearLayout
-            android:layout_width="351dp"
-            android:layout_height="55dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@mipmap/mine_camera"
-                android:layout_marginLeft="18dp"
-                android:layout_gravity="center"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="拍照"
-                android:textColor="#212121"
-                android:textSize="15sp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/next"
-                android:layout_gravity="center"
-                android:layout_marginLeft="230dp"
-                android:layout_marginRight="18dp"
-                android:id="@+id/iv_photograph"
-                />
-
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#efefef"
-            />
-        <LinearLayout
-            android:layout_width="351dp"
-            android:layout_height="55dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_width="15dp"
-                android:layout_height="15dp"
-                android:src="@mipmap/mine_record"
-                android:layout_marginLeft="18dp"
-                android:layout_gravity="center"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="录音"
-                android:textColor="#212121"
-                android:textSize="15sp"
-                android:layout_gravity="center"
-                android:layout_marginLeft="10dp"
-                />
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@mipmap/next"
-                android:layout_gravity="center"
-                android:layout_marginLeft="230dp"
-                android:layout_marginRight="18dp"
-                android:id="@+id/iv_record"
-                />
-
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="#efefef"
-            />
         <LinearLayout
             android:layout_width="351dp"
             android:layout_height="55dp"

@@ -18,11 +18,7 @@
     <!-- 设置显示器圆角弧度-->
     <attr name="tl_indicator_corner_radius" format="dimension"/>
     <!-- 设置显示器上方还是下方,只对圆角矩形有用-->
-    <attr name="tl_indicator_gravity" format="enum">
-        <enum name="TOP" value="48"/>
-        <enum name="BOTTOM" value="80"/>
-    </attr>
-    <!-- 设置显示器为常规|三角形|背景色块|-->
+    flyco_tab_attrs    <!-- 设置显示器为常规|三角形|背景色块|-->
     <attr name="tl_indicator_style" format="enum">
         <enum name="NORMAL" value="0"/>
         <enum name="TRIANGLE" value="1"/>

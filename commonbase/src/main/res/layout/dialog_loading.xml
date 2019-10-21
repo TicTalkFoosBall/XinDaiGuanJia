@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.xingxiu.frame.view.roundView.RoundLinearLayout
+
+
+    <hxz.www.commonbase.view.roundView.RoundLinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -21,7 +23,7 @@
         app:rv_backColor="#80000000"
         app:rv_cornerRadius="10dp">
 
-        <com.xingxiu.frame.view.imageView.AnimImageView
+        <hxz.www.commonbase.view.imageView.AnimImageView
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:src="@drawable/banban_loading" />
@@ -35,6 +37,6 @@
             android:textSize="12dp"
             tools:text="@string/loading" />
 
-    </com.xingxiu.frame.view.roundView.RoundLinearLayout>
+    </hxz.www.commonbase.view.roundView.RoundLinearLayout>
 
 </android.support.constraint.ConstraintLayout>

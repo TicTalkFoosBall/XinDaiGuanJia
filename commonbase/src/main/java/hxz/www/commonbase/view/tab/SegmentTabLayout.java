@@ -21,13 +21,13 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.xingxiu.frame.R;
-import com.xingxiu.frame.view.tab.listener.OnTabSelectListener;
-import com.xingxiu.frame.view.tab.utils.FragmentChangeManager;
-import com.xingxiu.frame.view.tab.utils.UnreadMsgUtils;
-import com.xingxiu.frame.view.tab.widget.MsgView;
-
 import java.util.ArrayList;
+
+import hxz.www.commonbase.R;
+import hxz.www.commonbase.view.MsgView;
+import hxz.www.commonbase.view.tab.listener.OnTabSelectListener;
+import hxz.www.commonbase.view.tab.utils.FragmentChangeManager;
+
 
 public class SegmentTabLayout extends FrameLayout implements ValueAnimator.AnimatorUpdateListener {
     private Context mContext;
@@ -624,43 +624,8 @@ public class SegmentTabLayout extends FrameLayout implements ValueAnimator.Anima
     private Paint mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private SparseArray<Boolean> mInitSetMap = new SparseArray<>();
 
-    /**
-     * 显示未读消息
-     *
-     * @param position 显示tab位置
-     * @param num      num小于等于0显示红点,num大于0显示数字
-     */
-    public void showMsg(int position, int num) {
-        if (position >= mTabCount) {
-            position = mTabCount - 1;
-        }
 
-        View tabView = mTabsContainer.getChildAt(position);
-        MsgView tipView = (MsgView) tabView.findViewById(R.id.rtv_msg_tip);
-        if (tipView != null) {
-            UnreadMsgUtils.show(tipView, num);
 
-            if (mInitSetMap.get(position) != null && mInitSetMap.get(position)) {
-                return;
-            }
-
-            setMsgMargin(position, 2, 2);
-
-            mInitSetMap.put(position, true);
-        }
-    }
-
-    /**
-     * 显示未读红点
-     *
-     * @param position 显示tab位置
-     */
-    public void showDot(int position) {
-        if (position >= mTabCount) {
-            position = mTabCount - 1;
-        }
-        showMsg(position, 0);
-    }
 
     public void hideMsg(int position) {
         if (position >= mTabCount) {

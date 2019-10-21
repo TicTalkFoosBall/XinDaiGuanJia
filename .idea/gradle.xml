@@ -11,11 +11,11 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/commonbase" />
             <option value="$PROJECT_DIR$/pictureselector" />
-            <option value="$PROJECT_DIR$/tuikit" />
             <option value="$PROJECT_DIR$/ucrop" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>

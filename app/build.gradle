@@ -36,7 +36,10 @@ android {
         }
     }
 
-
+    compileOptions {
+        sourceCompatibility = '1.8'
+        targetCompatibility = '1.8'
+    }
 
     defaultConfig {
         applicationId "com.example.administrator.xindaiguanjia"
@@ -81,7 +84,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':commonbase')
-    implementation project(':tuikit')
     implementation 'com.github.arcadefire:nice-spinner:1.3.1'
     //api 'com.tencent.imsdk:imsdk:4.4.900'
 

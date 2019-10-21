@@ -23,7 +23,6 @@
         android:layout_width="match_parent"
         android:layout_height="75dp"
         app:menu="@menu/menu"
-        app:labelVisibilityMode="labeled"
         android:paddingBottom="30dp"
         />
 

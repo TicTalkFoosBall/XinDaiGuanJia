@@ -28,13 +28,13 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.xingxiu.frame.R;
-import com.xingxiu.frame.view.tab.listener.OnTabSelectListener;
-import com.xingxiu.frame.view.tab.utils.UnreadMsgUtils;
-import com.xingxiu.frame.view.tab.widget.MsgView;
-
 import java.util.ArrayList;
 import java.util.Collections;
+
+import hxz.www.commonbase.R;
+import hxz.www.commonbase.view.MsgView;
+import hxz.www.commonbase.view.tab.listener.OnTabSelectListener;
+
 
 /**
  * 滑动TabLayout,对于ViewPager的依赖性强
@@ -902,57 +902,9 @@ public class SlidingTabLayout extends HorizontalScrollView implements ViewPager.
     private Paint mTextPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private SparseArray<Boolean> mInitSetMap = new SparseArray<>();
 
-    /**
-     * 显示未读消息
-     *
-     * @param position 显示tab位置
-     * @param num      num小于等于0显示红点,num大于0显示数字
-     */
-    public void showMsg(int position, int num) {
-        if (position >= mTabCount) {
-            position = mTabCount - 1;
-        }
 
-        View tabView = mTabsContainer.getChildAt(position);
-        MsgView tipView = (MsgView) tabView.findViewById(R.id.rtv_msg_tip);
-        if (tipView != null) {
-            UnreadMsgUtils.show(tipView, num);
 
-            if (mInitSetMap.get(position) != null && mInitSetMap.get(position)) {
-                return;
-            }
 
-            setMsgMargin(position, 4, 2);
-            mInitSetMap.put(position, true);
-        }
-    }
-
-    /**
-     * 显示未读红点
-     *
-     * @param position 显示tab位置
-     */
-    public void showDot(int position) {
-        if (position >= mTabCount) {
-            position = mTabCount - 1;
-        }
-        showMsg(position, 0);
-    }
-
-    /**
-     * 隐藏未读消息
-     */
-    public void hideMsg(int position) {
-        if (position >= mTabCount) {
-            position = mTabCount - 1;
-        }
-
-        View tabView = mTabsContainer.getChildAt(position);
-        MsgView tipView = (MsgView) tabView.findViewById(R.id.rtv_msg_tip);
-        if (tipView != null) {
-            tipView.setVisibility(View.GONE);
-        }
-    }
 
     /**
      * 设置未读消息偏移,原点为文字的右上角.当控件高度固定,消息提示位置易控制,显示效果佳

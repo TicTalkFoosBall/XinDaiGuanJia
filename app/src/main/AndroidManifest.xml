@@ -102,7 +102,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".chat.ChatActivity" />
-        <activity android:name=".activity.FriendProfileActivity" />
         <activity android:name=".activity.LeaveRequestActivity" />
         <activity android:name=".activity.AccessoryActivity" />
         <activity android:name=".activity.GeneraLsurveyActivity" />

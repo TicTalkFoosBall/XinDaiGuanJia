@@ -25,8 +25,6 @@ public class ExamineActivity extends BaseMvpActivity<ExaminePreseenter> implemen
     private ImageView iv_back;
     private RecyclerView mRv;
 
-
-
     @Override
     protected boolean checkDeviceHasNavigationBar(Context context) {
         return false;

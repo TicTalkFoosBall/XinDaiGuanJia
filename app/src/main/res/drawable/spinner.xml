@@ -3,7 +3,7 @@
     <item android:right="10dp">
         <bitmap
             android:gravity="end"
-            android:src="@drawable/file_icon" />
+            android:src="@mipmap/add" />
     </item>
 
 </layer-list>

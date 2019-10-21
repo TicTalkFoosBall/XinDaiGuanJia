@@ -12,12 +12,7 @@ import com.hjq.toast.style.ToastBlackStyle;
 import com.longer.creditManager.bean.Token;
 import com.longer.creditManager.constant.ApiService;
 import com.longer.creditManager.net.HttpManger;
-import com.tencent.imsdk.TIMSdkConfig;
-import com.tencent.qcloud.tim.uikit.TUIKit;
-import com.tencent.qcloud.tim.uikit.config.CustomFaceConfig;
-import com.tencent.qcloud.tim.uikit.config.GeneralConfig;
-import com.tencent.qcloud.tim.uikit.config.TUIKitConfigs;
-import com.tencent.qcloud.tim.uikit.signature.GenerateTestUserSig;
+
 
 public class MyApplication extends MultiDexApplication{
 
@@ -49,8 +44,6 @@ public class MyApplication extends MultiDexApplication{
         mContext = getApplicationContext();
         initLunZiUi();
         initHttp();
-        initTengXunYun();
-
         token = new Token();
 
 
@@ -96,23 +89,6 @@ public class MyApplication extends MultiDexApplication{
 
     public static MyApplication get() {
         return app;
-    }
-
-    /**
-     *
-     * 腾讯云集成
-     *
-     */
-    private void initTengXunYun(){
-        // 配置 Config，请按需配置
-        TUIKitConfigs configs = TUIKit.getConfigs();
-        configs.setSdkConfig(new TIMSdkConfig(Integer.parseInt(id)));
-        configs.setCustomFaceConfig(new CustomFaceConfig());
-        configs.setGeneralConfig(new GeneralConfig());
-
-//        TUIKit.init(this, Integer.parseInt(id), configs);
-      //  TUIKit.init(this, Integer.parseInt(id), configs);
-        TUIKit.init(this, GenerateTestUserSig.SDKAPPID, configs);
     }
 
 
