@@ -31,13 +31,13 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainCon
     private long mBackPressTime = 0;
     private int mCurrentPosition = 0;
 
-    private final int[] mIconUnselectIds = {R.mipmap.main_bottom_tab_discover_normal, R.mipmap.main_bottom_tab_club_normal, R.mipmap.main_bottom_tab_message_normal, R.mipmap.main_bottom_tab_me_normal};
+    private final int[] mIconUnselectIds = {R.mipmap.menu_1, R.mipmap.menu_2, R.mipmap.menu_3, R.mipmap.menu_4};
 
     private final int[] mIconSelectIds = {
-            R.drawable.anim_list_discover,
-            R.drawable.anim_list_club,
-            R.drawable.anim_list_msg,
-            R.drawable.anim_list_mine};
+            R.drawable.menu_1_hl,
+            R.drawable.menu_2_hl,
+            R.drawable.menu_3_hl,
+            R.drawable.menu_4_hl};
     private ArrayList<CustomTabEntity> mTabEntities = new ArrayList<>();
     private BaseFragment[] mFragments = new BaseFragment[mIconSelectIds.length];
 

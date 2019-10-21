@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tabLayout" />
+
+
+    <com.xingxiu.frame.view.tab.CommonTabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/skin_theme"
+        app:tl_iconHeight="24dp"
+        app:tl_iconMargin="3dp"
+        app:tl_iconWidth="24dp"
+        app:tl_iconGravity="BOTTOM"
+        app:tl_indicator_color="@color/transparent"
+        app:tl_indicator_height="0dp"
+        app:tl_textSelectColor="#6448FF"
+        app:tl_textUnselectColor="#9FA1A9"
+        app:tl_textsize="10dp" />
+
+</RelativeLayout>
