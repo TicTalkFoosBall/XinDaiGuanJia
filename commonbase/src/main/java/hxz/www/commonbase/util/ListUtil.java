@@ -1,11 +1,7 @@
 package hxz.www.commonbase.util;
 
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Circle on 2019-06-28
- */
 public class ListUtil {
     private ListUtil() {
     }

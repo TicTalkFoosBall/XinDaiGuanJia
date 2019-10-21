@@ -1,12 +1,6 @@
 package hxz.www.commonbase.util.storage;
 
 
-/**
- * @Author :rickBei
- * @Date :2019/6/27 10:20
- * @Descripe: 存储类型
- **/
-
 public enum StorageType {
     TYPE_LOG(DirectoryName.LOG_DIRECTORY_NAME),
     TYPE_SKIN(DirectoryName.SKIN_DIRECTORY_NAME),

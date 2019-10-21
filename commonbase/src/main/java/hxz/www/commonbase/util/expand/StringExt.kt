@@ -3,11 +3,6 @@ package com.xingxiu.frame.util.expand
 import android.text.TextUtils
 import java.util.regex.Pattern
 
-/**
- * Copyright (C)
- * Author: junChenChow
- * Date: 2019/8/8 15:11
- */
 
 fun String?.value(): String = this ?: ""
 

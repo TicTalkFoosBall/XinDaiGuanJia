@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.xingxiu.frame.view.roundView.RoundRelativeLayout
+    <hxz.www.commonbase.view.roundView.RoundRelativeLayout
         android:layout_width="@dimen/toast_wh"
         android:layout_height="@dimen/toast_wh"
         app:rv_backColor="@color/toast_backgroundColor"
@@ -49,5 +49,5 @@
             android:layout_centerInParent="true"
             android:scaleType="centerCrop"
             android:visibility="gone" />
-    </com.xingxiu.frame.view.roundView.RoundRelativeLayout>
+    </hxz.www.commonbase.view.roundView.RoundRelativeLayout>
 </FrameLayout>

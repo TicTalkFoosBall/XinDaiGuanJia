@@ -4,7 +4,6 @@ import java.lang.reflect.ParameterizedType;
 
 /**
  * 类转换初始化
- * Created by Circle on 2019-06-27
  */
 public class TUtil {
     public static <T> T getT(Object o, int i) {

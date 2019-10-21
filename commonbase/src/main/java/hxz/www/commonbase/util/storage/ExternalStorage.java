@@ -12,11 +12,6 @@ import java.io.IOException;
 
 import hxz.www.commonbase.app.BaseApplication;
 
-/**
- * @Author :rickBei
- * @Date :2019/6/27 10:21
- * @Descripe: 存储操作类
- **/
 public class ExternalStorage {
 
     private static String storageRootName = "kela";

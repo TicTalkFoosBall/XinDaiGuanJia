@@ -9,9 +9,6 @@ import hxz.www.commonbase.R
 import hxz.www.commonbase.app.BaseApplication
 import java.io.File
 
-/**
- * Create by Circle on 2019/7/22
- */
 object ImageLoader {
 
     private val THUMBNAIL = 0.5f//默认初始清晰度

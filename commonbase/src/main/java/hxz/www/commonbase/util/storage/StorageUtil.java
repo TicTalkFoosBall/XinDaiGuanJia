@@ -5,12 +5,6 @@ import android.text.TextUtils;
 
 import java.io.File;
 
-/**
- * @Author :rickBei
- * @Date :2019/6/27 10:20
- * @Descripe: 存储工具类
- **/
-
 public class StorageUtil {
     public final static long K = 1024;
     public final static long M = 1024 * 1024;

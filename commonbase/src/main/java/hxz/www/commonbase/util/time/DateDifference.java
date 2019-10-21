@@ -1,9 +1,6 @@
 package hxz.www.commonbase.util.time;
 
-/**
- * 时间差计算结果封装类
- * Created by Circle on 2018/11/1
- */
+
 public class DateDifference {
     private long millisecond;
     private long second;

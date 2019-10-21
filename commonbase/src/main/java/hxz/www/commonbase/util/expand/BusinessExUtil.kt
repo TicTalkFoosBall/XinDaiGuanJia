@@ -9,13 +9,6 @@ import hxz.www.commonbase.util.SoftKeyBoardListener
 import java.math.BigDecimal
 import kotlin.math.abs
 
-/**
-@Author  :rickBei
-@Date    :2019/7/30 11:20
-@Descripe: 业务相关拓展
- **/
-
-
 
 /**
  * 如果需要跟随键盘，需要跟随的模块（view）调用此方法即可

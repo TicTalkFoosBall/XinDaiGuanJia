@@ -16,9 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-/**
- * Create by Circle on 2019/9/9
- */
+
 public class QRCodeUtil {
 //    public static Bitmap generateBitmap(String content, int width, int height) {
 //        QRCodeWriter qrCodeWriter = new QRCodeWriter();

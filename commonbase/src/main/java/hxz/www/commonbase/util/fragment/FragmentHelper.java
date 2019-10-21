@@ -4,10 +4,6 @@ import android.os.Bundle;
 
 import hxz.www.commonbase.base.mvp.BaseFragment;
 
-/**
- * Fragment DialogFragment 帮助类
- * Created by Circle on 2019-06-27
- */
 public class FragmentHelper {
 
     public static final String PARAMS = "params";

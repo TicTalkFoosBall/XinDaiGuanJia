@@ -5,12 +5,6 @@ import android.widget.EditText
 
 
 /**
-@Author  :rickBei
-@Date    :2019/7/27 17:18
-@Descripe: 控件拓展
- **/
-
-/**
  * 获取edittext内容
  */
 fun EditText?.getTextStr(): String {

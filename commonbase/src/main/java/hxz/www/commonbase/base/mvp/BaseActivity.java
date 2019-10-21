@@ -1,7 +1,6 @@
 package hxz.www.commonbase.base.mvp;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -10,16 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 
-import java.lang.reflect.Method;
-
 import hxz.www.commonbase.util.Logger;
 
 
-/**
- *
- * Email:15901419691@163.com
- * Dec: Activity 基类
- */
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected View mView;

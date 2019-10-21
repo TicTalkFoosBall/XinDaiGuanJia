@@ -5,10 +5,6 @@ import android.text.TextUtils;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * 用来计算显示的时间是多久之前的！
- * Created by Circle on 2018/11/1
- */
 public class FormatTimeUtil {
     private FormatTimeUtil() {
 

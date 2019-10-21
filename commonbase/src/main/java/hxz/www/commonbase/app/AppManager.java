@@ -6,10 +6,7 @@ import android.content.Context;
 
 import java.util.Stack;
 
-/**
- * activity管理
- * Created by Circle on 2019-07-02
- */
+
 public class AppManager {
     private static Stack<Activity> activityStack = new Stack();
     private volatile static AppManager instance;

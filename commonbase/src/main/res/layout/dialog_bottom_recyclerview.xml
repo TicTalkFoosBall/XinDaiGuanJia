@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:textColor="@color/gray_999999"
+        android:textSize="14dp" />
+
+    <View
+        android:id="@+id/view_line5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/gray_EEEEEE" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/ryContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/view_line"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:background="@color/gray_EEEEEE" />
+
+    <TextView
+        android:id="@+id/tvCancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/red_FF6666"
+        android:textSize="16dp" />
+
+
+</LinearLayout>

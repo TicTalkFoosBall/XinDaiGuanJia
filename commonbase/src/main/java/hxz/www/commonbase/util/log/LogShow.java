@@ -37,11 +37,7 @@ import java.util.concurrent.Executors;
 
 import hxz.www.commonbase.app.BaseApplication;
 
-/**
- * @Author :rickBei
- * @Date :2019/7/11 13:14
- * @Descripe: 参考blankj
- **/
+
 public class LogShow {
 
     public static final int V = Log.VERBOSE;

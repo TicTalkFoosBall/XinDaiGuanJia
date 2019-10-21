@@ -4,9 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 
-/**
- * Created by Circle on 2019-07-01
- */
+
 public class BaseApplication extends Application {
     private static BaseApplication baseApplication;
     private ActivityLifecycleCallbacks mActivityLifecycleCallbacks;

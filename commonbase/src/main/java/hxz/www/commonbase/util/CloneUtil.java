@@ -6,9 +6,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 
-/**
- * Created by Circle on 2019-07-03
- */
 public class CloneUtil {
     /**
      * Deep clone.

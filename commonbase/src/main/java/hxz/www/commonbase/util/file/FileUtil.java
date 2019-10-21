@@ -32,15 +32,6 @@ import hxz.www.commonbase.util.CloseUtil;
 import hxz.www.commonbase.util.storage.StorageType;
 import hxz.www.commonbase.util.storage.StorageUtil;
 
-
-/**
- * <pre>
- *     author: Blankj
- *     blog  : http://blankj.com
- *     time  : 2016/05/03
- *     desc  : 文件相关工具类
- * </pre>
- */
 public final class FileUtil {
 
     private FileUtil() {

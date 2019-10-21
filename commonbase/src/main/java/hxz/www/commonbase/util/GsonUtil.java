@@ -2,16 +2,12 @@ package hxz.www.commonbase.util;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.Reader;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-/**
- * Created by Circle on 2018/11/1
- */
 public class GsonUtil {
     private static final Gson GSON = createGson(true);
 

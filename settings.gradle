@@ -1,1 +1,1 @@
-include ':app',':commonbase',':tuikit'
+include ':app',':commonbase',':tuikit',  ':pictureselector', ':ucrop'

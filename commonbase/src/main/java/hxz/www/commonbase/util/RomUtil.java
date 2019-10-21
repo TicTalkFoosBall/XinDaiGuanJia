@@ -8,11 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-/**
- * Copyright (C)
- * Author: junChenChow
- * Date: 2019/9/23 19:29
- */
+
 public class RomUtil {
     private static final String TAG = "Rom";
 

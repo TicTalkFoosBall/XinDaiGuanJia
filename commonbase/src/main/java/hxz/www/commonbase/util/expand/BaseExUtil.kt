@@ -16,13 +16,6 @@ import hxz.www.commonbase.util.GsonUtil
 import hxz.www.commonbase.util.ToastUtil
 
 
-/**
- * Author: rick
- * Time  : 2019/3/12 14:21
- * email : b13673465144@163.com
- * Describe : 基础拓展类
- **/
-
 
 /**
  * 资源地址转color

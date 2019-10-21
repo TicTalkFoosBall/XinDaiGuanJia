@@ -2,9 +2,6 @@ package hxz.www.commonbase.util.walle;
 
 import java.util.Map;
 
-/**
- * Created by chentong on 17/11/2016.
- */
 public class ChannelInfo {
     private final String channel;
     private final Map<String, String> extraInfo;

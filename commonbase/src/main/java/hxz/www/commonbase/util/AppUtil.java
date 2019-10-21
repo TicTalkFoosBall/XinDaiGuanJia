@@ -12,9 +12,6 @@ import java.util.Iterator;
 import java.util.List;
 
 
-/**
- * Created by Circle on 2019-06-28
- */
 public class AppUtil {
 
     public static String getCurProcessName(Context context) {
