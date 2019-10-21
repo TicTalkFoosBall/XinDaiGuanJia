@@ -1,0 +1,103 @@
+apply plugin: 'com.android.library'
+ext.rxjava_version = '2.2.8'
+ext.retrofit_version = '2.5.0'
+ext.rxndroid_version = '2.1.1'
+ext.interceptor_version = '3.14.1'
+
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'org.jetbrains.kotlin.kapt'
+def VERSION_NAME = rootProject.ext.android.versionName      //versionName
+def VERSION_CODE = rootProject.ext.android.versionCode       //versionCode
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode VERSION_CODE
+        versionName VERSION_NAME
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api project(':pictureselector')
+    // rx
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    api "com.squareup.retrofit2:converter-scalars:$retrofit_version"
+
+    // titleBar  toast
+    api 'com.hjq:toast:6.0'
+    api 'com.hjq:titlebar:5.0'
+    //头条适方案
+    api 'me.jessyan:autosize:1.1.2'
+    //smart 刷新
+    api 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-22'
+    api 'com.scwang.smartrefresh:SmartRefreshHeader:1.1.0-alpha-22'
+
+    // 动态权限申请
+    compile 'io.reactivex:rxjava:1.1.3'
+    api 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+//    api 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.4'
+
+    api rootProject.ext.deps.constraint
+    api rootProject.ext.deps.design
+    api rootProject.ext.deps.recyclerview
+    api rootProject.ext.deps.supportV7
+    api rootProject.ext.deps.supportV4
+    api rootProject.ext.deps.rxlifecycle
+    api rootProject.ext.deps.immersionbar
+    api rootProject.ext.deps.butterknife
+    kapt rootProject.ext.deps.butterknifeCompiler
+    api rootProject.ext.deps.eventbus
+    api rootProject.ext.deps.okhttp
+    api rootProject.ext.deps.retrofit
+    api rootProject.ext.deps.okhttp
+    api rootProject.ext.deps.okhttpLogging
+    api rootProject.ext.deps.retorfitrxjava
+    api rootProject.ext.deps.gson
+    api rootProject.ext.deps.multidex
+    api rootProject.ext.deps.glide
+    //kotlin
+    api rootProject.ext.deps.kotlinReflect
+    api rootProject.ext.deps.kotlinStdlib
+    //数据库
+    debugApi rootProject.ext.deps.objectboxBrower
+    releaseApi rootProject.ext.deps.objectbox
+    //bugly
+    api rootProject.ext.deps.bugly
+    //融云
+//    api rootProject.ext.deps.imlib
+    //banner
+    api rootProject.ext.deps.banner
+    //pinyin
+    api rootProject.ext.deps.pinyin
+    api rootProject.ext.deps.okhttpProfiler
+
+//    api rootProject.ext.deps.shareWechat
+//    api rootProject.ext.deps.hmsBase
+//    api rootProject.ext.deps.hmsPush
+//    api rootProject.ext.deps.flymePush
+
+}
