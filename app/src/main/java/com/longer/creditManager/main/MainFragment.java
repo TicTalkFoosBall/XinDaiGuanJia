@@ -1,5 +1,6 @@
 package com.longer.creditManager.main;
 
+import android.app.Application;
 import android.os.Bundle;
 
 import com.longer.creditManager.R;
@@ -68,21 +69,12 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainCon
         }
         initTab();
 
-        App.getInstance().getLocationService().start();
+        Application.getInstance().getLocationService().start();
     }
 
-    @Override
-    public boolean getSwipeBackEnable() {
-        return false;
-    }
 
-    @Override
-    protected boolean registerEventBus() {
-        return true;
-    }
 
     public void setCurrentTab(int position) {
-        LogUtil.d("setCurrentTab position=" + position + " currentPosition= " + mCurrentPosition + " tabLayout=" + tabLayout);
         if (mCurrentPosition == position && tabLayout != null)
             return;
         try {
@@ -115,14 +107,11 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainCon
 
             }
         });
-        LogUtil.d("initTab currentPosition=" + mCurrentPosition);
+
         tabLayout.setCurrentTab(mCurrentPosition);
     }
 
-    @Override
-    public void showError(int reqCode, String msg) {
 
-    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
@@ -152,49 +141,15 @@ public class MainFragment extends BaseFragment<MainPresenter> implements MainCon
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        stopLocation();
     }
 
-    private void stopLocation() {
-        BaseApplication.getInstance().getLocationService().stop();
-    }
 
-    public void setUnreadCount(int count) {
-        if (count > 0) {
-            tabLayout.showDot(2);
-        } else {
-            tabLayout.hideMsg(2);
-        }
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onLocationEvent(LocationEvent event) {
-        if (isReportLocation || !SpCache.getLocationSwitchStat()) {
-            return;
-        }
-        if (event.code == 1) {
-            return;
-        }
-
-        if (event.code == 0) {
-            isReportLocation = true;
-            mPresenter.updateLocation(event.location);
-        }
-    }
 
     @Override
     public void reportLocationResult(boolean isSucc) {
         isReportLocation = isSucc;
     }
 
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onUserLocationEvent(UserLocationEvent event) {
-        if (event.getOpen()) {
-            isReportLocation = false;
-        } else {
-            mPresenter.updateLocation();
-        }
-    }
 
 
     @Override
