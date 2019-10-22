@@ -1,12 +1,14 @@
-package hxz.www.commonbase.uibase;
+package hxz.www.commonbase.baseui;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.LayoutInflaterCompat;
 import android.view.LayoutInflater;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.trello.rxlifecycle2.LifecycleTransformer;
+
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -19,17 +21,16 @@ import hxz.www.commonbase.uibase.mvp.BasePresenterImpl;
 import hxz.www.commonbase.uibase.mvp.BaseView;
 import hxz.www.commonbase.util.TUtil;
 import yokeyword.fragmentation.SupportActivity;
-
+import yokeyword.fragmentation.SupportHelper;
 
 /**
  * Created by Circle on 2019-06-27
  */
-public abstract class BaseActivity<T extends BasePresenterImpl> extends SupportActivity implements BaseView2 {
+public abstract class BaseActivity2<T extends BasePresenterImpl> extends SupportActivity implements BaseView2 {
 
     protected Context mContext;
 
     protected T mPresenter;
-
 
 
     protected abstract int getLayoutId();
@@ -71,7 +72,7 @@ public abstract class BaseActivity<T extends BasePresenterImpl> extends SupportA
 //            BaseApplication.getInstance().reloadApp();
 //        }
 
-        registerSkin();
+
 
         setContentView(getLayoutId());
 
@@ -107,15 +108,18 @@ public abstract class BaseActivity<T extends BasePresenterImpl> extends SupportA
     @Override
     protected void onResume() {
         super.onResume();
+
     }
 
     @Override
     protected void onPause() {
         super.onPause();
+
     }
 
     @Override
     protected void onDestroy() {
+
         if (registerEventBus()) {
             EventBus.getDefault().unregister(this);
         }
@@ -124,22 +128,5 @@ public abstract class BaseActivity<T extends BasePresenterImpl> extends SupportA
             mPresenter.detachView();
     }
 
-
-    private void registerSkin() {
-
-        LayoutInflater layoutInflater = LayoutInflater.from(this);
-        //获得Activity的布局加载器
-        try {
-            //Android 布局加载器 使用 mFactorySet 标记是否设置过Factory,
-            //如设置过抛出一次
-            //设置 mFactorySet 标签为false
-            Field field = LayoutInflater.class.getDeclaredField("mFactorySet");
-            field.setAccessible(true);
-            field.setBoolean(layoutInflater, false);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-    }
 
 }

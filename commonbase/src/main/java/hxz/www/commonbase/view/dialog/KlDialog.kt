@@ -1,14 +1,14 @@
-package com.xingxiu.frame.view.dialog
-
+package hxz.www.commonbase.adapter
 import android.app.Dialog
 import android.content.Context
 import android.view.Gravity
 import android.view.View
-import com.xingxiu.frame.util.expand.click
-import com.xingxiu.frame.util.expand.getColor
-import com.xingxiu.frame.util.expand.setText
+import click
+import getColor
+
 import hxz.www.commonbase.R
 import kotlinx.android.synthetic.main.layout_dialog.*
+import setText
 
 
 /**

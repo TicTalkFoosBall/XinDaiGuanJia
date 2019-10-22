@@ -23,7 +23,7 @@ public class MyApplication extends MultiDexApplication{
 
     static MyApplication app;
      private static Token token;
-    public static String TOKEN;
+    public static String TOKEN="";
     public MyApplication() {
 
     }

@@ -1,4 +1,3 @@
-package com.xingxiu.frame.view.dialog
 
 import android.content.Context
 import android.os.Bundle

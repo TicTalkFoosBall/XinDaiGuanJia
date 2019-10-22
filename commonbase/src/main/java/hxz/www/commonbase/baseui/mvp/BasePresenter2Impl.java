@@ -1,14 +1,11 @@
-package hxz.www.commonbase.uibase.mvp;
+package hxz.www.commonbase.baseui.mvp;
 
 import android.content.Context;
-
-import hxz.www.commonbase.baseui.mvp.BasePresenter2;
-import hxz.www.commonbase.baseui.mvp.BaseView2;
 
 /**
  * Created by Circle on 2019-06-27
  */
-public abstract class BasePresenterImpl<V extends BaseView2> implements BasePresenter2<V> {
+public abstract class BasePresenter2Impl<V extends BaseView2> implements BasePresenter2<V> {
     protected Context mContext;
     protected V mView;
 

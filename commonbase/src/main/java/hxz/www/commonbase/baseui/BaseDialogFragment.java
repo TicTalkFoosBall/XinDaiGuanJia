@@ -1,4 +1,4 @@
-package hxz.www.commonbase.uibase;
+package hxz.www.commonbase.baseui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

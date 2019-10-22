@@ -1,4 +1,3 @@
-package com.xingxiu.frame.util.expand
 
 import android.text.TextUtils
 import java.util.regex.Pattern

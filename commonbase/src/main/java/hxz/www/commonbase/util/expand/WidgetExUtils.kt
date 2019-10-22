@@ -1,7 +1,8 @@
-package com.xingxiu.frame.util.expand
+
 
 import android.view.View
 import android.widget.EditText
+
 
 
 /**

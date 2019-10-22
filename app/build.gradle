@@ -85,6 +85,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation project(':commonbase')
     implementation 'com.github.arcadefire:nice-spinner:1.3.1'
+    implementation rootProject.ext.deps.butterknife
     //api 'com.tencent.imsdk:imsdk:4.4.900'
 
 }

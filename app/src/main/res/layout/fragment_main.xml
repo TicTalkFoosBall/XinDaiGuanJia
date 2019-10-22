@@ -11,7 +11,7 @@
         android:layout_above="@+id/tabLayout" />
 
 
-    <com.xingxiu.frame.view.tab.CommonTabLayout
+    <hxz.www.commonbase.view.tab.CommonTabLayout
         android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="49dp"

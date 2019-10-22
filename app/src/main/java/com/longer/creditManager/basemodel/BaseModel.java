@@ -12,9 +12,9 @@ import hxz.www.commonbase.base.mvp.IBaseModel;
 
 public abstract class BaseModel implements IBaseModel{
 
-    ApiService apiService;
+  private   volatile static ApiService apiService;
 
-    protected ApiService getApiService(){
+    protected static  ApiService getApiService(){
         if (apiService == null){
             apiService = HttpManger.getInstance().getApiService(ApiService.class);
         }

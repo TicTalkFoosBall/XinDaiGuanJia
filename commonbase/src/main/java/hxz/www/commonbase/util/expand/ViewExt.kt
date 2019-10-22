@@ -1,4 +1,3 @@
-package com.xingxiu.frame.util.expand
 
 import android.app.Activity
 import android.content.Context

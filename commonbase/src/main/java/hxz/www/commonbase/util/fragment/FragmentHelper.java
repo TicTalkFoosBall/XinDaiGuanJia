@@ -3,6 +3,7 @@ package hxz.www.commonbase.util.fragment;
 import android.os.Bundle;
 
 import hxz.www.commonbase.base.mvp.BaseFragment;
+import hxz.www.commonbase.baseui.BaseFragment2;
 
 public class FragmentHelper {
 
@@ -15,7 +16,7 @@ public class FragmentHelper {
      * @param params 传递的参数
      * @return
      */
-    public static <T extends BaseFragment> T newInstance(Class clazz, Object... params) {
+    public static <T extends BaseFragment2> T newInstance(Class clazz, Object... params) {
         T mFragment = null;
         try {
             mFragment = (T) clazz.newInstance();

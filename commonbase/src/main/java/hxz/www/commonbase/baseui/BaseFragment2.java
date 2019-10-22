@@ -1,4 +1,4 @@
-package hxz.www.commonbase.uibase;
+package hxz.www.commonbase.baseui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -28,7 +28,7 @@ import yokeyword.fragmentation_swipeback.SwipeBackFragment;
 /**
  * Created by Circle on 2019-06-27
  */
-public abstract class BaseFragment<T extends BasePresenterImpl> extends SwipeBackFragment implements BaseView2 {
+public abstract class BaseFragment2<T extends BasePresenterImpl> extends SwipeBackFragment implements BaseView2 {
 
     private String TAG = getClass().getSimpleName();
 
@@ -44,7 +44,7 @@ public abstract class BaseFragment<T extends BasePresenterImpl> extends SwipeBac
 
     private LoadingDialog loadingDialog;
 
-//    private ImageWatcherHelper watcherHelper;
+
 
     /**
      * 是否注册eventBus
@@ -78,7 +78,7 @@ public abstract class BaseFragment<T extends BasePresenterImpl> extends SwipeBac
      * 初始化沉浸式 如果需要重新该方法 则实现的方法必须在super.initImmersionBar()之前
      */
     protected void initImmersionBar() {
-        updateSkin();
+
     }
 
     /**
@@ -161,7 +161,6 @@ public abstract class BaseFragment<T extends BasePresenterImpl> extends SwipeBac
     }
 
     protected void dismissDialog() {
-
         if (!_mActivity.isFinishing()) {
             if (loadingDialog != null) {
                 loadingDialog.dismiss();
@@ -209,11 +208,13 @@ public abstract class BaseFragment<T extends BasePresenterImpl> extends SwipeBac
     @Override
     public void onResume() {
         super.onResume();
+
     }
 
     @Override
     public void onPause() {
         super.onPause();
+
     }
 
     @Override
@@ -246,7 +247,7 @@ public abstract class BaseFragment<T extends BasePresenterImpl> extends SwipeBac
         }
 
         if (isImmersionBarEnabled()) {
-            ImmersionBar.with(this).statusBarColor(R.color.statusBarColor).statusBarDarkFont(true).keyboardEnable(false).init();
+            ImmersionBar.with(this).statusBarColor(R.color.statusBarColorBoy).statusBarDarkFont(false).keyboardEnable(false).init();
         }
     }
 

@@ -16,8 +16,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.view.WindowManager;
 
-import com.xingxiu.frame.view.dialog.KlDialog;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -26,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 
 import hxz.www.commonbase.R;
+import hxz.www.commonbase.adapter.KlDialog;
 import hxz.www.commonbase.app.BaseApplication;
 import hxz.www.commonbase.base.mvp.BaseActivity;
 

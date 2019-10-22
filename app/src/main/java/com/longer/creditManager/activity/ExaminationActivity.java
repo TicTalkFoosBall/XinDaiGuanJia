@@ -3,8 +3,8 @@ package com.longer.creditManager.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
-import android.support.annotation.Nullable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,13 +18,11 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
-
 import com.longer.creditManager.R;
 import com.longer.creditManager.dialog.ExaminationDialog;
-import com.longer.creditManager.util.AndroidBug54971Workaround;
-
 
 import hxz.www.commonbase.base.mvp.BaseActivity;
+import hxz.www.commonbase.util.log.LogShow;
 
 /**
  * ExaminationActivity  项目初审
@@ -158,7 +156,8 @@ public class ExaminationActivity extends BaseActivity implements View.OnClickLis
 
     @Override
     protected void init(@Nullable Bundle savedInstanceState) {
-        AndroidBug54971Workaround.assistActivity(findViewById(android.R.id.content),this);
+        LogShow.i("ExaminationActivity  init");
+//        AndroidBug54971Workaround.assistActivity(findViewById(android.R.id.content),this);
         iv_back  = findViewById(R.id.iv_back);
         iv_back.setOnClickListener(this);
         iv_more = findViewById(R.id.iv_more);

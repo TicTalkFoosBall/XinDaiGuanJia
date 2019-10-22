@@ -1,12 +1,12 @@
 package com.longer.creditManager.net;
 
 
-
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.net.UnknownServiceException;
 
+import hxz.www.commonbase.util.log.LogShow;
 import io.reactivex.observers.DisposableSingleObserver;
 import retrofit2.HttpException;
 
@@ -35,6 +35,7 @@ public abstract class BaseResultObserver<T> extends DisposableSingleObserver<T> 
             }
 
         }
+        LogShow.i("BaseResultObserver  onSuccess");
         onResult(t);
     }
 
@@ -55,6 +56,7 @@ public abstract class BaseResultObserver<T> extends DisposableSingleObserver<T> 
         } else if (e instanceof Error) {
             msgError = e.getMessage();
         }
+        LogShow.i("BaseResultObserver  onError",msgError,e.getMessage());
         onFailure(e, msgError);
 
     }

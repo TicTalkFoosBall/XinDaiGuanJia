@@ -1,5 +1,4 @@
-package com.xingxiu.frame.adapter
-
+package hxz.www.commonbase.adapter
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import hxz.www.commonbase.R
