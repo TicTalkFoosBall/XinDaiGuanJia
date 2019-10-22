@@ -11,7 +11,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
- *
  * Dec: Http  网络请求管理  final 修饰 不行被修改
  *
  * @author 韩湘子 on  2019/5/11
@@ -44,7 +43,6 @@ public final class HttpManger {
      * 设置 OkHttpClient
      *
      * @param mOkHttpClient
-     *
      * @return
      */
     public HttpManger setOkHttpClient(OkHttpClient mOkHttpClient) {
@@ -55,6 +53,7 @@ public final class HttpManger {
 
     /**
      * 设置retrofit
+     *
      * @param mRetrofit
      * @return
      */
@@ -105,8 +104,9 @@ public final class HttpManger {
                 .connectTimeout(timeOut, TimeUnit.SECONDS)
                 .readTimeout(timeOut, TimeUnit.SECONDS)
                 .writeTimeout(timeOut, TimeUnit.SECONDS)
-             //   .addInterceptor(new LoggerInterceptor("HttpManger", debug))
+                .addInterceptor(new LoggerInterceptor("HttpManger", true))
                 .addInterceptor(new NetCheckInterceptor())
+
                 //请求失败重试
                 .retryOnConnectionFailure(true)
                 .proxy(Proxy.NO_PROXY);

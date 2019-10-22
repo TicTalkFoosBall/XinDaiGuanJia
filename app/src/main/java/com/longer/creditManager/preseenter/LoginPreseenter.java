@@ -22,9 +22,7 @@ public class LoginPreseenter extends BasePresenter<LoginContracr.View> implement
             mDisposable = mainModel.getLoginBeae(loginBody, new BaseResultObserver<LoginBeae>() {
                 @Override
                 protected void onResult(LoginBeae loginBeae) {
-
                     mView.showData(loginBeae);
-
                 }
 
                 @Override

@@ -59,6 +59,7 @@ dependencies {
     // 动态权限申请
     compile 'io.reactivex:rxjava:1.1.3'
     api 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0@aar'
+    api 'com.itkacher.okhttpprofiler:okhttpprofiler:1.0.5'
 //    api 'com.github.LuckSiege.PictureSelector:picture_library:v2.2.4'
 
     api rootProject.ext.deps.constraint
