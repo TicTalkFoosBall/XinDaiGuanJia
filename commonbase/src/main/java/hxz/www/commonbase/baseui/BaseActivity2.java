@@ -53,7 +53,7 @@ public abstract class BaseActivity2<T extends BasePresenterImpl> extends Support
      * @return
      */
     protected boolean isImmersionBarEnabled() {
-        return true;
+        return false;
     }
 
 

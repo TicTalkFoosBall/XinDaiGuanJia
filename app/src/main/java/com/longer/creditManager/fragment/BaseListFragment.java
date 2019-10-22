@@ -68,6 +68,7 @@ public abstract class BaseListFragment<T extends BasePresenterImpl, A extends Ba
     @Override
     protected void initEventAndData(Bundle savedInstanceState) {
         refreshLayout=rootView.findViewById(R.id.refreshLayout);
+        mAdapter = bindAdapter();
         initRefreshLayout(refreshLayout);
         refreshLayout.setAdapter(mAdapter);
         refreshLayout.setOnRetryClick(new View.OnClickListener() {

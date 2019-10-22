@@ -62,7 +62,7 @@ public abstract class BaseFragment2<T extends BasePresenterImpl> extends SwipeBa
      * @return
      */
     protected boolean isImmersionBarEnabled() {
-        return true;
+        return false;
     }
 
     /**
@@ -237,19 +237,7 @@ public abstract class BaseFragment2<T extends BasePresenterImpl> extends SwipeBa
         }
     }
 
-    /**
-     * 换肤 更换状态栏
-     */
-    public void updateSkin() {
-        if (isTransparentStatusBar()) {
-            ImmersionBar.with(this).transparentStatusBar().keyboardEnable(false).init();
-            return;
-        }
 
-        if (isImmersionBarEnabled()) {
-            ImmersionBar.with(this).statusBarColor(R.color.statusBarColorBoy).statusBarDarkFont(false).keyboardEnable(false).init();
-        }
-    }
 
     public View.OnClickListener navBackListener() {
         return v -> pop();

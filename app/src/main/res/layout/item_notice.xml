@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:ignore="MissingDefaultResource">
 
     <LinearLayout
@@ -18,8 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
-            android:layout_marginTop="6dp"
+            android:text=""
             android:textSize="15sp"
             android:textColor="#212121"
             android:id="@+id/tv_content"
@@ -30,10 +30,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ebebeb"
+        android:textColor="#2e2e2e"
         android:layout_marginLeft="20dp"
-        tools:text="sdhshd"
-android:id="@+id/tv_time"
+        android:layout_marginTop="20dp"
+        android:textSize="12sp"
+        android:text="sdhshd"
+        android:id="@+id/tv_time"
         />
 
 </LinearLayout>

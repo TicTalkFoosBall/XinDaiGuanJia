@@ -11,6 +11,7 @@
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginTop="20dp"
         tools:ignore="MissingConstraints">
         <ImageView
             android:layout_width="30dp"
@@ -42,6 +43,7 @@
         android:id="@+id/refreshLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:background="#f2f2f2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rl_title"

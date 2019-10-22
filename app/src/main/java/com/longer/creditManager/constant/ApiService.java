@@ -7,6 +7,7 @@ import com.longer.creditManager.bean.LoginBeae;
 import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.bean.body.LoginBody;
 import com.longer.creditManager.blacklist.NoticeListModel;
+import com.longer.creditManager.net.BaseResult;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public interface ApiService {
 
     // 通知公告
     @GET("notice/list")
-    Single<List<NoticeListModel>> getNotice(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);
+    Single<BaseResult<NoticeListModel>> getNotice(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);
 
     // 审批待办列表
     // http://192.168.1.121:8089/lfcp-app/task/list

@@ -10,7 +10,7 @@ import hxz.www.commonbase.baseui.mvp.BaseView2
  **/
 class NoticeListContract {
     interface View : BaseView2 {
-        fun onQueryBlackList(list: MutableList<NoticeListModel>?)
+        fun onQueryBlackList(list: NoticeListModel?)
     }
 
 

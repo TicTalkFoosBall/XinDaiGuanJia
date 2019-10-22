@@ -10,6 +10,7 @@ import hxz.www.commonbase.adapter.ItemClickSupport
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
+import kotlin.math.log
 
 /**
 @Author  :rickBei
@@ -46,11 +47,12 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
         refresh()
     }
 
-    override fun onQueryBlackList(list: MutableList<NoticeListModel>?) {
-        onQuery(list)
+    override fun onQueryBlackList(list: NoticeListModel?) {
+        list?.let {    onQuery(list?.list) }
     }
 
-    private fun onQuery(list: MutableList<NoticeListModel>?) {
+    private fun onQuery(list: MutableList<NoticeItem>?) {
+         LogShow.i(" onQuery  ",list?.size,mAdapter);
         refreshLayout?.postDelayed({
             mAdapter?.data = list
             refreshLayout?.finishLoad()
