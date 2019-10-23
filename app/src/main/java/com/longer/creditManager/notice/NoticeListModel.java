@@ -1,4 +1,4 @@
-package com.longer.creditManager.blacklist;
+package com.longer.creditManager.notice;
 
 import android.support.annotation.NonNull;
 

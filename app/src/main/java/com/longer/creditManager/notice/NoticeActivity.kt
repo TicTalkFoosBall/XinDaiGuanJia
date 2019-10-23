@@ -1,4 +1,4 @@
-package com.longer.creditManager.blacklist
+package com.longer.creditManager.notice
 
 import android.os.Bundle
 import com.longer.creditManager.R
@@ -11,7 +11,7 @@ class NoticeActivity : BaseActivity2<Nothing>()
     override fun getLayoutId()=R.layout.activity_container
 
     override fun initEventAndData(savedInstanceState: Bundle?) {
-         LogShow.i("NoticeActivity initEventAndData   ","");
+         LogShow.i("SystemMsgActivity initEventAndData   ","");
         loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(NoticeListFragment::class.java))
     }
 

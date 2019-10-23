@@ -103,7 +103,8 @@
         </activity>
         <activity android:name=".chat.ChatActivity" />
         <activity android:name=".activity.LeaveRequestActivity" />
-        <activity android:name=".blacklist.NoticeActivity" />
+        <activity android:name=".notice.SystemMsgActivity" />
+        <activity android:name=".notice.NoticeActivity" />
         <activity android:name=".activity.AccessoryActivity" />
         <activity android:name=".activity.GeneraLsurveyActivity" />
         <activity android:name=".activity.CustomerChoiceActivity" />

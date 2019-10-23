@@ -1,16 +1,12 @@
-package com.longer.creditManager.blacklist
+package com.longer.creditManager.notice
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.View
 import com.longer.creditManager.R
 import com.longer.creditManager.fragment.BaseListFragment
-import hxz.www.commonbase.adapter.ItemClickSupport
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
-import kotlin.math.log
 
 /**
 @Author  :rickBei

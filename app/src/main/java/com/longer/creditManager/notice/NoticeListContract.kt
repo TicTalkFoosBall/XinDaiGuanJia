@@ -1,5 +1,4 @@
-package com.longer.creditManager.blacklist
-import hxz.www.commonbase.baseui.mvp.BasePresenter2
+package com.longer.creditManager.notice
 import hxz.www.commonbase.baseui.mvp.BaseView2
 
 

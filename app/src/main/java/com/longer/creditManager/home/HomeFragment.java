@@ -11,11 +11,10 @@ import com.longer.creditManager.activity.ExaminationActivity;
 import com.longer.creditManager.activity.ExamineActivity;
 import com.longer.creditManager.adapter.Adapter;
 import com.longer.creditManager.bean.LoginBeae;
-import com.longer.creditManager.blacklist.NoticeActivity;
+import com.longer.creditManager.notice.NoticeActivity;
+import com.longer.creditManager.notice.SystemMsgActivity;
 
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
-import hxz.www.commonbase.base.mvp.BasePresenter;
-import hxz.www.commonbase.base.mvp.IBaseView;
 import hxz.www.commonbase.util.log.LogShow;
 
 /**
@@ -99,7 +98,7 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
             startActivity(new Intent(getContext(), NoticeActivity.class));
         }
         else if (v.getId() == rl_syetmMsg.getId()) {
-            startActivity(new Intent(getContext(), ExamineActivity.class));
+            startActivity(new Intent(getContext(), SystemMsgActivity.class));
         }
     }
 

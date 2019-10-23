@@ -1,6 +1,5 @@
-package com.longer.creditManager.blacklist
+package com.longer.creditManager.notice
 import com.longer.creditManager.basemodel.Api
-import com.longer.creditManager.bean.LoginBeae
 import com.longer.creditManager.net.BaseResult
 import com.longer.creditManager.net.BaseResultObserver
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl

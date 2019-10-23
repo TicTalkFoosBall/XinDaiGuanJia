@@ -6,10 +6,9 @@ import com.longer.creditManager.bean.ExamineBean;
 import com.longer.creditManager.bean.LoginBeae;
 import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.bean.body.LoginBody;
-import com.longer.creditManager.blacklist.NoticeListModel;
 import com.longer.creditManager.net.BaseResult;
-
-import java.util.List;
+import com.longer.creditManager.notice.NoticeListModel;
+import com.longer.creditManager.systemmsg.SystemMsgModel;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
@@ -22,7 +21,7 @@ public interface ApiService {
     String BASE_URL = "http://120.79.56.152:9010/lfcp-app/";
 
     @GET("dish_list.php")
-    Single<Ba1> getBa1(@Query("stage_id")String stage_id, @Query("limit") String limitm, @Query("page")  String page);
+    Single<Ba1> getBa1(@Query("stage_id") String stage_id, @Query("limit") String limitm, @Query("page") String page);
 
 
     // 登录
@@ -31,14 +30,23 @@ public interface ApiService {
 
     // 通知公告
     @GET("notice/list")
-    Single<BaseResult<NoticeListModel>> getNotice(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);
+    Single<BaseResult<NoticeListModel>> getNotice(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);  // 通知公告
+
+    // 系统消息
+    @GET("systemMsg/list")
+    Single<BaseResult<SystemMsgModel>> getSystemMsg(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);
+
+    //客户列表
+    @GET("customer/list")
+    Single<BaseResult<NoticeListModel>> getCustomer(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount
+            , @Query("keyword  ") String keyword);
+
 
     // 审批待办列表
     // http://192.168.1.121:8089/lfcp-app/task/list
 
     @GET("lfcp-android.support.v4.app/task/list")
     Single<ExamineBean> getExamineList(@Header("token") String token, @Body ListBody listBody);
-
 
 
 }
