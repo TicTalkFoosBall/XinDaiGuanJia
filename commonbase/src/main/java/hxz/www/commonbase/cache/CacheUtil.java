@@ -9,6 +9,7 @@ import java.io.ObjectOutputStream;
 
 import hxz.www.commonbase.app.BaseApplication;
 import hxz.www.commonbase.util.log.LogShow;
+import hxz.www.commonbase.util.storage.ExternalStorage;
 
 
 public class CacheUtil {

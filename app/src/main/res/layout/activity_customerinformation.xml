@@ -46,7 +46,6 @@
 
        </android.support.v7.widget.Toolbar>
 
-
        <!--body-->
        <LinearLayout
            android:layout_width="match_parent"
@@ -137,104 +136,112 @@
            />
        <LinearLayout
            android:layout_width="match_parent"
-           android:layout_height="135dp"
+           android:layout_height="wrap_content"
            android:orientation="vertical"
            >
-           <LinearLayout
+           <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="45dp"
                android:orientation="horizontal"
+               android:paddingRight="15dp"
+               android:paddingLeft="15dp"
                >
                <TextView
-                   android:layout_width="100dp"
+                   android:layout_width="wrap_content"
                    android:layout_height="45dp"
                    android:text="性         别"
                    android:textSize="14sp"
                    android:textColor="#777777"
+                   android:layout_centerVertical="true"
                    android:gravity="center"
                    />
                <TextView
-                   android:layout_width="50dp"
-                   android:layout_height="45dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
                    android:textColor="#212121"
                    android:text="男"
-                   android:layout_marginLeft="215dp"
-                   android:gravity="right"
+                   android:gravity="center"
                    android:id="@+id/tv_sex"
                    />
 
+           </RelativeLayout>
 
-           </LinearLayout>
            <TextView
                android:layout_width="340dp"
                android:layout_height="1dp"
                android:background="#efefee"
                android:layout_marginLeft="27dp"
                />
-           <LinearLayout
+           <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="45dp"
                android:orientation="horizontal"
+               android:paddingRight="15dp"
+               android:paddingLeft="15dp"
                >
                <TextView
-                   android:layout_width="100dp"
+                   android:layout_width="wrap_content"
                    android:layout_height="45dp"
                    android:text="联系地址"
                    android:textSize="14sp"
                    android:textColor="#777777"
+                   android:layout_centerVertical="true"
                    android:gravity="center"
                    />
                <TextView
-                   android:layout_width="260dp"
-                   android:layout_height="45dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="江苏省南京市"
-                   android:layout_marginLeft="10dp"
-                   android:gravity="right"
-                   android:id="@+id/tv_site"
+                   android:text="联系地址"
+                   android:gravity="center"
+                   android:id="@+id/tv_location"
                    />
 
-
-           </LinearLayout>
+           </RelativeLayout>
            <TextView
                android:layout_width="340dp"
                android:layout_height="1dp"
                android:background="#efefee"
                android:layout_marginLeft="27dp"
                />
-           <LinearLayout
+           <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="45dp"
                android:orientation="horizontal"
+               android:paddingRight="15dp"
+               android:paddingLeft="15dp"
                >
                <TextView
-                   android:layout_width="100dp"
+                   android:layout_width="wrap_content"
                    android:layout_height="45dp"
-                   android:text="婚姻状态"
+                   android:text="婚姻状况"
                    android:textSize="14sp"
                    android:textColor="#777777"
+                   android:layout_centerVertical="true"
                    android:gravity="center"
                    />
                <TextView
-                   android:layout_width="260dp"
-                   android:layout_height="45dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="已婚"
-                   android:layout_marginLeft="10dp"
-                   android:gravity="right"
-                   android:id="@+id/tv_state"
+                   android:text="婚姻状况"
+                   android:gravity="center"
+                   android:id="@+id/tv_marry"
                    />
 
-
-           </LinearLayout>
+           </RelativeLayout>
            <TextView
                android:layout_width="340dp"
                android:layout_height="1dp"
                android:background="#efefee"
                android:layout_marginLeft="27dp"
                />
-
-
 
        </LinearLayout>
        <TextView
@@ -248,179 +255,143 @@
            android:layout_height="180dp"
            android:orientation="vertical"
            >
-           <LinearLayout
+           <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="45dp"
                android:orientation="horizontal"
+               android:paddingRight="15dp"
+               android:paddingLeft="15dp"
                >
                <TextView
-                   android:layout_width="100dp"
+                   android:layout_width="wrap_content"
                    android:layout_height="45dp"
                    android:text="客户来源"
                    android:textSize="14sp"
                    android:textColor="#777777"
+                   android:layout_centerVertical="true"
                    android:gravity="center"
                    />
                <TextView
-                   android:layout_width="100dp"
-                   android:layout_height="45dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="银行推荐"
-                   android:layout_marginLeft="175dp"
-                   android:gravity="right"
-                   android:id="@+id/tv_source"
+                   android:text="客户来源"
+                   android:gravity="center"
+                   android:id="@+id/tv_from"
                    />
 
-
-           </LinearLayout>
+           </RelativeLayout>
            <TextView
                android:layout_width="340dp"
                android:layout_height="1dp"
                android:background="#efefee"
                android:layout_marginLeft="27dp"
                />
-           <LinearLayout
+
+           <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="45dp"
                android:orientation="horizontal"
+               android:paddingRight="15dp"
+               android:paddingLeft="15dp"
                >
                <TextView
-                   android:layout_width="100dp"
+                   android:layout_width="wrap_content"
                    android:layout_height="45dp"
                    android:text="客户经理"
                    android:textSize="14sp"
                    android:textColor="#777777"
+                   android:layout_centerVertical="true"
                    android:gravity="center"
                    />
                <TextView
-                   android:layout_width="260dp"
-                   android:layout_height="45dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="李易信"
-                   android:layout_marginLeft="10dp"
-                   android:gravity="right"
+                   android:text="客户经理"
+                   android:gravity="center"
                    android:id="@+id/tv_manager"
                    />
+           </RelativeLayout>
 
-
-           </LinearLayout>
            <TextView
                android:layout_width="340dp"
                android:layout_height="1dp"
                android:background="#efefee"
                android:layout_marginLeft="27dp"
                />
-           <LinearLayout
+
+           <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="45dp"
                android:orientation="horizontal"
+               android:paddingRight="15dp"
+               android:paddingLeft="15dp"
                >
                <TextView
-                   android:layout_width="100dp"
+                   android:layout_width="wrap_content"
                    android:layout_height="45dp"
                    android:text="经办部门"
                    android:textSize="14sp"
                    android:textColor="#777777"
+                   android:layout_centerVertical="true"
                    android:gravity="center"
                    />
                <TextView
-                   android:layout_width="260dp"
-                   android:layout_height="45dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="管理部"
-                   android:layout_marginLeft="10dp"
-                   android:gravity="right"
-                   android:id="@+id/tv_section"
+                   android:text="经办部门"
+                   android:gravity="center"
+                   android:id="@+id/tv_owner"
                    />
+           </RelativeLayout>
 
-
-           </LinearLayout>
            <TextView
                android:layout_width="340dp"
                android:layout_height="1dp"
                android:background="#efefee"
                android:layout_marginLeft="27dp"
                />
-           <LinearLayout
+           <RelativeLayout
                android:layout_width="match_parent"
                android:layout_height="45dp"
                android:orientation="horizontal"
+               android:paddingRight="15dp"
+               android:paddingLeft="15dp"
                >
                <TextView
-                   android:layout_width="100dp"
+                   android:layout_width="wrap_content"
                    android:layout_height="45dp"
                    android:text="所属公司"
                    android:textSize="14sp"
                    android:textColor="#777777"
+                   android:layout_centerVertical="true"
                    android:gravity="center"
                    />
                <TextView
-                   android:layout_width="260dp"
-                   android:layout_height="45dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentRight="true"
+                   android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="南京龙戈软件科技有限公司"
-                   android:layout_marginLeft="10dp"
-                   android:gravity="right"
+                   android:text="所属公司"
+                   android:gravity="center"
                    android:id="@+id/tv_company"
                    />
-
-
-           </LinearLayout>
+           </RelativeLayout>
        </LinearLayout>
        <TextView
            android:layout_width="match_parent"
-           android:layout_height="15dp"
+           android:layout_height="match_parent"
            android:background="#f2f2f2"
            />
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:orientation="horizontal"
-            >
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="45dp"
-                android:text="备注信息"
-                android:textSize="14sp"
-                android:textColor="#777777"
-                android:gravity="center"
-                />
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="45dp"
-                android:src="@mipmap/next"
-                android:layout_marginLeft="240dp"
-                />
-
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="340dp"
-            android:layout_height="1dp"
-            android:background="#efefee"
-            android:layout_marginLeft="27dp"
-
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="156dp"
-            android:id="@+id/tv_news"
-            android:text="dsssssssssssssdssd"
-            android:textColor="#2e2e2e"
-            android:textSize="12sp"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="15sp"
-            android:layout_marginRight="15sp"
-            />
-
-
-    </RelativeLayout>
-
-
 
 
    </LinearLayout>

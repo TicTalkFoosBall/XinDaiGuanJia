@@ -14,7 +14,7 @@ import hxz.www.commonbase.app.BaseApplication;
 
 public class ExternalStorage {
 
-    private static String storageRootName = "kela";
+    private static String storageRootName = "xindaizhushou";
     /**
      * 外部存储目录
      */

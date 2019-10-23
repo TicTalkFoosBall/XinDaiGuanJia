@@ -21,7 +21,6 @@ public class BaseApplication extends Application {
         return baseApplication;
     }
 
-
     public void reloadApp(){
 
     }

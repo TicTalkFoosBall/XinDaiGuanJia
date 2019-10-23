@@ -23,11 +23,6 @@ import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
 import kotlinx.android.synthetic.main.fragment_noticelist.*
 
-/**
-@Author  :rickBei
-@Date    :2019/8/9 16:09
-@Descripe: From bug to bugs
- **/
 class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), ClientContract.View {
 
     override fun bindAdapter() = ClientAdapter()
