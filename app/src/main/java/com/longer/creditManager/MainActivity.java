@@ -1,9 +1,9 @@
 package com.longer.creditManager;
 
-import android.content.Context;
-import android.content.res.Resources;
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -14,32 +14,35 @@ import android.view.MenuItem;
 
 
 import com.longer.creditManager.fragment.BusinessFragment;
-import com.longer.creditManager.fragment.ClientFragment;
 import com.longer.creditManager.home.HomeFragment;
 import com.longer.creditManager.fragment.MyFragment;
+import com.longer.creditManager.notice.ClientFragment;
 import com.longer.creditManager.util.AndroidBug54971Workaround;
 
-import java.lang.reflect.Method;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-import hxz.www.commonbase.base.mvp.BaseActivity;
+import hxz.www.commonbase.baseui.BaseActivity2;
 
 /**
  *
  *  主Activity
  *  APP 入口
  */
-public class MainActivity extends  BaseActivity {
+public class MainActivity extends BaseActivity2 {
     private ViewPager vp;
     private BottomNavigationView bnv;
     private List<Fragment> fragments = new ArrayList<>();
     private FragMentAdapter adapter; // fragment适配器
 
-
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
 
     @Override
-    protected void init(@Nullable Bundle savedInstanceState) {
+    protected void initEventAndData(Bundle savedInstanceState) {
         AndroidBug54971Workaround.assistActivity(findViewById(android.R.id.content),this);
 
         vp = findViewById(R.id.vp);
@@ -55,15 +58,6 @@ public class MainActivity extends  BaseActivity {
         initView();
         vp.setAdapter(adapter);
         vp.setOffscreenPageLimit(4);
-
-       // loginYun();
-
-    }
-
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_main;
     }
 
 
@@ -72,7 +66,7 @@ public class MainActivity extends  BaseActivity {
 //        if (AndroidWorkaround.checkDeviceHasNavigationBar(this)) {
 //            AndroidWorkaround.assistActivity(findViewById(android.R.id.content));
 //        }
-
+        disableShiftMode(bnv);
         vp.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int i, float v, int i1) {
@@ -118,36 +112,37 @@ public class MainActivity extends  BaseActivity {
             }
         });
 
-
-
-
     }
 
+
+//    @Override
+//    protected boolean checkDeviceHasNavigationBar(Context context) {
+//        boolean hasNavigationBar = false;
+//        Resources rs = context.getResources();
+//        int id = rs.getIdentifier("config_showNavigationBar", "bool", "android");
+//        if (id > 0) {
+//            hasNavigationBar = rs.getBoolean(id);
+//        }
+//        try {
+//            Class systemPropertiesClass = Class.forName("android.os.SystemProperties");
+//            Method m = systemPropertiesClass.getMethod("get", String.class);
+//            String navBarOverride = (String) m.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
+//            if ("1".equals(navBarOverride)) {
+//                hasNavigationBar = false;
+//            } else if ("0".equals(navBarOverride)) {
+//                hasNavigationBar = true;
+//            }
+//        } catch (Exception e) {
+//
+//        }
+//        return hasNavigationBar;
+//
+//    }
 
     @Override
-    protected boolean checkDeviceHasNavigationBar(Context context) {
-        boolean hasNavigationBar = false;
-        Resources rs = context.getResources();
-        int id = rs.getIdentifier("config_showNavigationBar", "bool", "android");
-        if (id > 0) {
-            hasNavigationBar = rs.getBoolean(id);
-        }
-        try {
-            Class systemPropertiesClass = Class.forName("android.os.SystemProperties");
-            Method m = systemPropertiesClass.getMethod("get", String.class);
-            String navBarOverride = (String) m.invoke(systemPropertiesClass, "qemu.hw.mainkeys");
-            if ("1".equals(navBarOverride)) {
-                hasNavigationBar = false;
-            } else if ("0".equals(navBarOverride)) {
-                hasNavigationBar = true;
-            }
-        } catch (Exception e) {
-
-        }
-        return hasNavigationBar;
+    public void showError(int reqCode, String msg) {
 
     }
-
 
 
     class FragMentAdapter extends FragmentPagerAdapter{
@@ -168,7 +163,25 @@ public class MainActivity extends  BaseActivity {
     }
 
 
-
+    @SuppressLint("RestrictedApi")
+    public static void disableShiftMode(BottomNavigationView view) {
+        BottomNavigationMenuView menuView = (BottomNavigationMenuView) view.getChildAt(0);
+        try {
+            Field shiftingMode = menuView.getClass().getDeclaredField("mShiftingMode");
+            shiftingMode.setAccessible(true);
+            shiftingMode.setBoolean(menuView, false);
+            shiftingMode.setAccessible(false);
+            for (int i = 0; i < menuView.getChildCount(); i++) {
+                BottomNavigationItemView item = (BottomNavigationItemView) menuView.getChildAt(i);
+                item.setShiftingMode(false);
+                item.setChecked(item.getItemData().isChecked());
+            }
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
 
 
 }

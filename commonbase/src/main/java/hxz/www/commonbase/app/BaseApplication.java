@@ -28,11 +28,9 @@ public class BaseApplication extends Application {
 
     /**
      * token过期
-     *
-     * @param code
-     * @param msg
+
      */
-    public void tokenExpire(int code, String msg) {
+    public void tokenExpire (){
         AppManager.getInstance().finishAllActivity();
     }
 

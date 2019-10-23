@@ -11,12 +11,12 @@ import io.reactivex.disposables.Disposable
 
 class SystemMsgPresenter : BasePresenterImpl<SystemMsgContract.View>() {
     private var mDisposable: Disposable? = null
-    fun queryNoticeList(page: Int) {
-         LogShow.i("  queryNoticeList ",page);
+    fun queryMsgList(page: Int) {
+         LogShow.i("queryMsgList ",page);
             mDisposable= Api.getApiService().getSystemMsg(page,20).
         subscribeWith(object : BaseResultObserver<BaseResult<SystemMsgModel>>() {
             override fun onResult(loginBeae: BaseResult<SystemMsgModel>?) {
-                 LogShow.i("queryNoticeList   ",loginBeae?.result?.toString());
+                 LogShow.i("queryMsgList   ",loginBeae?.result?.toString());
 
                 mView.onQueryBlackList(loginBeae?.result)
             }

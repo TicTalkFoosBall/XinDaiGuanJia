@@ -11,7 +11,6 @@ class NoticeActivity : BaseActivity2<Nothing>()
     override fun getLayoutId()=R.layout.activity_container
 
     override fun initEventAndData(savedInstanceState: Bundle?) {
-         LogShow.i("SystemMsgActivity initEventAndData   ","");
         loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(NoticeListFragment::class.java))
     }
 

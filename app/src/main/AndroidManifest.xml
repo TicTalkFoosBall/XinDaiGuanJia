@@ -94,6 +94,7 @@
         <activity android:name=".Main3Activity" />
         <activity android:name=".Main4Activity" />
         <activity android:name=".Main5Activity" />
+        <activity android:name=".activity.AboutActivity" />
         <activity android:name=".login.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -117,6 +118,7 @@
         <activity android:name=".activity.ReimbursementActivity" />
         <activity android:name=".activity.RegardsActivity" />
         <activity android:name=".activity.AttachmentActivity" />
+        <activity android:name=".clientdetail.ClientDetailActivity" />
         <activity android:name=".activity.NewSurveyActivity" />
         <activity android:name=".activity.ApprovedMemoActivity" />
         <activity android:name=".activity.CustomerInformationActivity2" />

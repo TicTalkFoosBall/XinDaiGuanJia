@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.ClientFragment">
-
-
+    tools:ignore="MissingDefaultResource"
+    android:orientation="vertical">
 
     <RelativeLayout
+        android:id="@+id/rl_title"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="50dp"
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
 
         <TextView
             android:layout_width="150dp"
@@ -17,46 +20,49 @@
             android:text="客户管理"
             android:textSize="22sp"
             android:textColor="#212121"
-            android:layout_marginLeft="130dp"
+            android:layout_marginLeft="150dp"
             android:layout_marginTop="10dp"
             />
-        <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@mipmap/add"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="335dp"
-            android:id="@+id/iv_more"
-            />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#EBEBEB"
+            android:background="#ffffff"
             android:layout_marginLeft="27dp"
             />
-
     </RelativeLayout>
-    <LinearLayout
-
+<View
+    android:layout_width="wrap_content"
+    android:layout_height="10dp"
+    android:background="@color/gray_base"
+    ></View>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:layout_marginTop="42dp"
         android:orientation="horizontal"
-        >
+        android:background="@color/white"
+        tools:ignore="MissingConstraints">
 
         <ImageView
             android:layout_width="36dp"
             android:layout_height="36dp"
             android:src="@mipmap/search"
             android:layout_marginLeft="10dp"
+            android:layout_centerVertical="true"
             android:id="@+id/iv_search"
+            android:visibility="gone"
             />
-        <TextView
-            android:layout_width="40dp"
+        <EditText
+            android:background="@null"
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="搜索"
-            android:textSize="19sp"
-            android:textColor="#a6a6a6"
+            android:hint="搜索内容"
+            android:textSize="15sp"
+            android:layout_marginLeft="10dp"
+           android:layout_toRightOf="@id/iv_search"
+            android:textColor="#212121"
+            android:textColorHint="#a6a6a6"
             android:gravity="center"
             />
         <TextView
@@ -68,50 +74,43 @@
             android:layout_marginLeft="200dp"
 
             />
+
         <TextView
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:text="筛选"
             android:textSize="19sp"
-            android:textColor="#a6a6a6"
+            android:textColor="#212121"
             android:gravity="center"
             android:layout_marginLeft="15dp"
             android:id="@+id/iv_filtrate"
+            android:layout_toLeftOf="@id/iv_arrow"
             />
+
         <ImageView
+            android:id="@+id/iv_arrow"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:src="@mipmap/filter"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true"
             />
-    </LinearLayout>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="15dp"
-        android:layout_marginTop="80dp"
-        android:background="#F2F2F2"
-        />
+    </RelativeLayout>
 
-
-    <LinearLayout
+    <hxz.www.commonbase.view.KLRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_marginTop="98dp"
-        >
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/mRv"
-            >
+        android:layout_marginTop="10dp"
+        android:background="#f2f2f2"
+        app:srlEnableLoadMore="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_title"
+        app:layout_constraintRight_toRightOf="parent"
+     />
 
-        </android.support.v7.widget.RecyclerView>
-
-        
-    </LinearLayout>
-
-    
-
-</FrameLayout>
+</LinearLayout>

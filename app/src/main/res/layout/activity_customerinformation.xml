@@ -50,15 +50,17 @@
        <!--body-->
        <LinearLayout
            android:layout_width="match_parent"
-           android:layout_height="200dp"
+           android:layout_height="match_parent"
            android:background="#DAD9D9"
            android:orientation="vertical"
            >
            <RelativeLayout
-               android:layout_width="351dp"
+               android:layout_width="match_parent"
                android:layout_height="171dp"
+               android:padding="10dp"
                android:layout_marginTop="20dp"
-               android:layout_marginLeft="15sp"
+               android:layout_marginLeft="15dp"
+               android:layout_marginRight="15dp"
                android:background="@drawable/contact_edit_edittext_focused_lan"
                >
                <TextView

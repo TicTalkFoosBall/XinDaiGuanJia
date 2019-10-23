@@ -14,13 +14,12 @@ import hxz.www.commonbase.util.log.LogShow
 class SystemMsgAdapter : BaseAdapter<SystemMsgtem>() {
 
 
-    override fun getItemLayoutResId(data: SystemMsgtem, position: Int) = R.layout.item_notice
+    override fun getItemLayoutResId(data: SystemMsgtem, position: Int) = R.layout.item_systemmsg
 
     override fun bindData(holder: ViewHolder, data: SystemMsgtem, position: Int) {
          LogShow.i(" SystemMsgAdapter  ",data.toString());
         holder.setText(R.id.tv_time,data.createtime)
-        holder.setText(R.id.tv_content,data.title)
+        holder.setText(R.id.tv_content,data.content)
+        holder.setText(R.id.tv_title,data.title)
     }
-
-
 }
