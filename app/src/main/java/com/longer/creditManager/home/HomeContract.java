@@ -7,11 +7,14 @@ import hxz.www.commonbase.base.mvp.IBaseView;
 
 public interface HomeContract {
 
-     interface View extends IBaseView{
+    interface View extends IBaseView {
 
         void showData(LoginBeae loginBeae);
 
+        void onQueryUnread();
+
     }
+
     interface Presenter {
         void getNoticeList(LoginBody loginBody);
     }

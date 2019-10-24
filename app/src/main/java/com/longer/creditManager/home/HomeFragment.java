@@ -19,15 +19,12 @@ import hxz.www.commonbase.util.log.LogShow;
 
 /**
  * A simple {@link Fragment} subclass.
- *
+ * <p>
  * 首页
- *
  */
-public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Adapter.OnItemClickListener,View.OnClickListener,HomeContract.View {
+public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Adapter.OnItemClickListener, View.OnClickListener, HomeContract.View {
 
-//    private List<Deathdata> deathdata = new ArrayList<>();
-//    private Adapter adapter;
-//    private RecyclerView mRV;
+
 
     private RelativeLayout rl;
     private RelativeLayout rl_notice;
@@ -48,7 +45,6 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
     @Override
     protected void initView() {
 
-        //   initView1();
 
         rl = mRootView.findViewById(R.id.rl);
         rl_syetmMsg = mRootView.findViewById(R.id.rl_syetmMsg);
@@ -59,9 +55,11 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
         rl_notice.setOnClickListener(this);
         rl_syetmMsg.setOnClickListener(this);
         tv_examine.setOnClickListener(this);
-
+        mPresenter.getUnreadCount();
 
     }
+
+
 
     @Override
     protected HomePreseenter getPresenter() {
@@ -93,17 +91,20 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
             startActivity(new Intent(getContext(), ExamineActivity.class));
         } else if (v.getId() == tv_examine.getId()) {
             startActivity(new Intent(getContext(), ExamineActivity.class));
-        }
-        else if (v.getId() == rl_notice.getId()) {
+        } else if (v.getId() == rl_notice.getId()) {
             startActivity(new Intent(getContext(), NoticeActivity.class));
-        }
-        else if (v.getId() == rl_syetmMsg.getId()) {
+        } else if (v.getId() == rl_syetmMsg.getId()) {
             startActivity(new Intent(getContext(), SystemMsgActivity.class));
         }
     }
 
     @Override
     public void showData(LoginBeae loginBeae) {
+
+    }
+
+    @Override
+    public void onQueryUnread() {
 
     }
 }

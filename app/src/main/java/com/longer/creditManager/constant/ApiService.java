@@ -7,6 +7,7 @@ import com.longer.creditManager.bean.LoginBeae;
 import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.bean.body.LoginBody;
 import com.longer.creditManager.client.ClientModel;
+import com.longer.creditManager.home.UnreadBean;
 import com.longer.creditManager.net.BaseResult;
 import com.longer.creditManager.notice.NoticeListModel;
 import com.longer.creditManager.systemmsg.SystemMsgModel;
@@ -44,8 +45,15 @@ public interface ApiService {
     Single<BaseResult<List<ClientModel>>> getCustomer(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount
             , @Query("keyword") String keyword);
 
+    // 首页未读数
+    @GET("return")
+    Single<BaseResult<UnreadBean>> getUnreadCount();
+
+
     // 审批待办列表
     // http://192.168.1.121:8089/lfcp-app/task/list
+//    点击 系统消息界面，调用这个接口http://localhost:8089/lfcp-app/systemMsg/read
+//    http://localhost:8089/lfcp-app/return
 
     @GET("lfcp-android.support.v4.app/task/list")
     Single<ExamineBean> getExamineList(@Header("token") String token, @Body ListBody listBody);

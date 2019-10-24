@@ -33,7 +33,6 @@ class SystemMsgFragment : BaseListFragment<SystemMsgPresenter, SystemMsgAdapter>
         refreshLayout?.recyclerView?.let {
 //            ItemClickSupport.addTo(it).addOnChildClickListener(R.id.iv_delete, object : ItemClickSupport.OnChildClickListener {
 //                override fun onChildClicked(recyclerView: RecyclerView, position: Int, v: View) {
-//
 //                }
 //            })
         }
