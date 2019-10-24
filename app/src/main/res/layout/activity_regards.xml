@@ -11,7 +11,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-
         >
         <ImageView
 
@@ -20,7 +19,7 @@
             android:src="@mipmap/back"
             android:layout_marginTop="10dp"
             android:layout_marginLeft="15dp"
-            android:id="@+id/iv_back"
+            android:id="@+id/iv_back_about"
             />
         <TextView
             android:layout_width="wrap_content"
@@ -71,41 +70,12 @@
             android:textSize="14sp"
             />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:text="功能介绍"
-            android:textSize="15sp"
-            android:textColor="#212121"
-            android:gravity="center"
-            android:layout_marginLeft="10dp"
-            />
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="50dp"
-            android:src="@mipmap/next"
-            android:layout_marginLeft="275dp"
-            android:id="@+id/iv_introduce"
-            />
-
-
-    </LinearLayout>
-    <TextView
-        android:layout_width="360dp"
-        android:layout_height="1dp"
-        android:background="#efefee"
-        android:layout_marginLeft="10dp"
-
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
+        android:id="@+id/ll_about"
         >
         <TextView
             android:layout_width="wrap_content"
@@ -127,42 +97,48 @@
 
 
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="#f2f2f2"
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:text="《龙戈科技用户使用协议》|《龙戈科技因素保护指引》"
-            android:textSize="11sp"
-            android:textColor="#398EEB"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="80dp"
-            android:id="@+id/tv_protocol"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:text="版权所有 南京龙戈科技"
-            android:textSize="11sp"
-            android:textColor="#adadad"
-            android:layout_marginLeft="135dp"
-            android:layout_marginTop="15dp"
-            />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:text="Copyright@2019Logersoft.ALLRights Reserved"
-            android:textSize="11sp"
-            android:textColor="#adadad"
-            android:layout_marginLeft="75dp"
-            android:layout_marginBottom="25dp"
-            />
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+         android:layout_alignParentBottom="true"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="《龙戈科技用户使用协议》|《龙戈科技因素保护指引》"
+                android:textSize="11sp"
+                android:textColor="#398EEB"
+                android:layout_marginLeft="55dp"
+                android:layout_marginTop="80dp"
+                android:id="@+id/tv_protocol"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="版权所有 南京龙戈科技"
+                android:textSize="11sp"
+                android:textColor="#adadad"
+                android:layout_marginLeft="135dp"
+                android:layout_marginTop="15dp"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:text="Copyright@2019Logersoft.ALLRights Reserved"
+                android:textSize="11sp"
+                android:textColor="#adadad"
+                android:layout_marginLeft="75dp"
+                android:layout_marginBottom="25dp"
+                />
 
-    </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
 
 
 </LinearLayout>

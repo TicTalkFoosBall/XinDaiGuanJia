@@ -25,7 +25,6 @@
         <TextView
             android:layout_width="270dp"
             android:layout_height="30dp"
-
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
             android:text="啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊"
@@ -41,7 +40,6 @@
             android:layout_marginTop="20dp"
             android:id="@+id/iv_call"
             />
-
 
     </LinearLayout>
 

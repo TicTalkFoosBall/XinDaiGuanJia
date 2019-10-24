@@ -10,7 +10,6 @@ import hxz.www.commonbase.R
 import kotlinx.android.synthetic.main.layout_dialog.*
 import setText
 
-
 /**
  *            demo for java:
  *            KlDialog.builder(getContext())

@@ -21,18 +21,15 @@ public class BaseApplication extends Application {
         return baseApplication;
     }
 
-
     public void reloadApp(){
 
     }
 
     /**
      * token过期
-     *
-     * @param code
-     * @param msg
+
      */
-    public void tokenExpire(int code, String msg) {
+    public void tokenExpire (){
         AppManager.getInstance().finishAllActivity();
     }
 

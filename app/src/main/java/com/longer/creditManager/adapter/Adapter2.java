@@ -57,7 +57,7 @@ public class Adapter2 extends RecyclerView.Adapter<Adapter2.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int i) {
 
-        calldialog = new Calldialog(context);
+//        calldialog = new Calldialog(context);
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,14 +89,14 @@ public class Adapter2 extends RecyclerView.Adapter<Adapter2.ViewHolder>{
         viewHolder.iv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (calldialog == null){
-                    calldialog = new Calldialog(context);
-
-                }else
-                {
-                    calldialog.show();
-
-                }
+//                if (calldialog == null){
+//                    calldialog = new Calldialog(context);
+//
+//                }else
+//                {
+//                    calldialog.show();
+//
+//                }
             }
         });
 

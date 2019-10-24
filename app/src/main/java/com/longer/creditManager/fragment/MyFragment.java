@@ -7,7 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -17,11 +19,14 @@ import com.bumptech.glide.request.RequestOptions;
 import com.longer.creditManager.MyApplication;
 import com.longer.creditManager.R;
 import com.longer.creditManager.activity.RegardsActivity;
+import com.longer.creditManager.login.LoginActivity;
 
 
+import hxz.www.commonbase.app.BaseApplication;
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
 import hxz.www.commonbase.base.mvp.BasePresenter;
 import hxz.www.commonbase.base.mvp.IBaseView;
+import hxz.www.commonbase.cache.Cache;
 
 import static android.view.Gravity.apply;
 
@@ -35,6 +40,8 @@ import static android.view.Gravity.apply;
 public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
 
     private ImageView iv_headportrait,iv_regard; // 头像 关于
+    private LinearLayout share,about; // 头像 关于
+    private Button exit;
 
     public MyFragment() {
         // Required empty public constructor
@@ -69,9 +76,13 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
 
         iv_headportrait = mRootView.findViewById(R.id.iv_headportrait);
         iv_regard = mRootView.findViewById(R.id.iv_regard);
+        share = mRootView.findViewById(R.id.ll_share);
+        about = mRootView.findViewById(R.id.ll_about);
+        exit = mRootView.findViewById(R.id.bt_exit);
         iv_regard.setOnClickListener(this);
-
-
+        share.setOnClickListener(this);
+        about.setOnClickListener(this);
+        exit.setOnClickListener(this);
 
         Glide.with(getContext()).load(R.mipmap.rng)
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
@@ -94,5 +105,21 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
         if (v.getId() == iv_regard.getId()){
             startActivity(new Intent(getContext(), RegardsActivity.class));
         }
+        else
+        if (v.getId() == share.getId()){
+        }
+        else
+        if (v.getId() == about.getId()){
+            startActivity(new Intent(getContext(), RegardsActivity.class));
+        }
+        else
+        if (v.getId() == exit.getId()){
+            Cache.setUserInfo(null);
+            BaseApplication.getInstance().tokenExpire();
+            Intent intent = new Intent(getContext(), LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+
     }
 }

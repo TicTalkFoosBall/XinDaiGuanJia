@@ -26,7 +26,7 @@ import hxz.www.commonbase.view.KLRefreshLayout;
  * Created by Circle on 2019-06-27
  */
 public abstract class BaseListFragment<T extends BasePresenterImpl, A extends BaseAdapter> extends BaseFragment2<T> {
-
+    
     @Nullable
     @BindView(R.id.refreshLayout)
     public KLRefreshLayout refreshLayout;

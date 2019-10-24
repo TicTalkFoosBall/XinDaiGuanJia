@@ -19,5 +19,8 @@
         <item name="android:paddingLeft">5dip</item>
     </style>
 
-
+    <style name="item_client">
+        <item name="android:background">@drawable/selector_nicespinner</item>
+        <item name="android:paddingLeft">5dip</item>
+    </style>
 </resources>

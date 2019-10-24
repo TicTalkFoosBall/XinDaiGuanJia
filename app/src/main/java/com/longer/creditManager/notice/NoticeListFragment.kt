@@ -2,11 +2,13 @@ package com.longer.creditManager.notice
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import click
 import com.longer.creditManager.R
 import com.longer.creditManager.fragment.BaseListFragment
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
+import kotlinx.android.synthetic.main.fragment_noticelist.*
 
 /**
 @Author  :rickBei
@@ -30,6 +32,9 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
 //
 //                }
 //            })
+        }
+        iv_back_notice.click {
+            _mActivity.finish()
         }
          LogShow.i("initData   ","");
     }

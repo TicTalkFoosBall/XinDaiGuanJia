@@ -6,9 +6,12 @@ import com.longer.creditManager.bean.ExamineBean;
 import com.longer.creditManager.bean.LoginBeae;
 import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.bean.body.LoginBody;
+import com.longer.creditManager.client.ClientModel;
 import com.longer.creditManager.net.BaseResult;
 import com.longer.creditManager.notice.NoticeListModel;
 import com.longer.creditManager.systemmsg.SystemMsgModel;
+
+import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
@@ -38,9 +41,8 @@ public interface ApiService {
 
     //客户列表
     @GET("customer/list")
-    Single<BaseResult<NoticeListModel>> getCustomer(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount
-            , @Query("keyword  ") String keyword);
-
+    Single<BaseResult<List<ClientModel>>> getCustomer(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount
+            , @Query("keyword") String keyword);
 
     // 审批待办列表
     // http://192.168.1.121:8089/lfcp-app/task/list
