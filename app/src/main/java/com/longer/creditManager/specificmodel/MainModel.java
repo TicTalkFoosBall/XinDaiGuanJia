@@ -10,7 +10,7 @@ import com.longer.creditManager.bean.ExamineBean;
 import com.longer.creditManager.bean.LoginBeae;
 import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.bean.body.LoginBody;
-import com.longer.creditManager.net.BaseResultObserver;
+import hxz.www.commonbase.net.BaseResultObserver;
 
 import io.reactivex.disposables.Disposable;
 

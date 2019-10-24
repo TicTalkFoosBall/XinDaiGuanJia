@@ -3,7 +3,7 @@ package com.longer.creditManager.preseenter;
 
 import com.longer.creditManager.bean.Ba1;
 import com.longer.creditManager.contract.MainContracr;
-import com.longer.creditManager.net.BaseResultObserver;
+import hxz.www.commonbase.net.BaseResultObserver;
 import com.longer.creditManager.specificmodel.MainModel;
 
 

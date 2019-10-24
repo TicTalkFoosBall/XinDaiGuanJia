@@ -51,7 +51,7 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".MyApplication"
+        android:name="hxz.www.commonbase.app.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -119,8 +119,10 @@
         <activity android:name=".activity.RegardsActivity" />
         <activity android:name=".activity.AttachmentActivity" />
         <activity android:name=".clientdetail.ClientDetailActivity" />
+        <activity android:name=".todo.list.TodoActivity" />
         <activity android:name=".activity.NewSurveyActivity" />
         <activity android:name=".activity.ApprovedMemoActivity" />
+        <activity android:name=".activity.SplashActivity" />
         <activity android:name=".activity.CustomerInformationActivity2" />
         <activity android:name=".activity.CustomerInformationcompanyActivity" />
         <activity android:name=".activity.ForgetThePasswordActivity" />

@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 
 
-import hxz.www.commonbase.app.BaseApplication
 import hxz.www.commonbase.util.DisplayUtil
 import hxz.www.commonbase.util.GsonUtil
 import hxz.www.commonbase.util.ToastUtil
@@ -19,7 +18,7 @@ import hxz.www.commonbase.util.ToastUtil
 /**
  * 资源地址转color
  */
-fun Int.getColor(context: Context = BaseApplication.getInstance()): Int {
+fun Int.getColor(context: Context =  BaseApplication.getInstance()): Int {
     return try {
         ContextCompat.getColor(context, this)
     } catch (ignore: Resources.NotFoundException) {
@@ -29,7 +28,7 @@ fun Int.getColor(context: Context = BaseApplication.getInstance()): Int {
 
 fun Int.getColor(): Int {
     return try {
-        ContextCompat.getColor(BaseApplication.getInstance(), this)
+        ContextCompat.getColor(com.longer.creditManager.BaseApplication.getInstance(), this)
     } catch (ignore: Resources.NotFoundException) {
         0
     }
@@ -39,7 +38,7 @@ fun Int.getColor(): Int {
  */
 fun Int.getDrawable(): Drawable {
     return try {
-        ContextCompat.getDrawable(BaseApplication.getInstance(), this)!!
+        ContextCompat.getDrawable(com.longer.creditManager.BaseApplication.getInstance(), this)!!
     } catch (ignore: Resources.NotFoundException) {
         ColorDrawable()
     }
@@ -50,7 +49,7 @@ fun Int.getDrawable(): Drawable {
  */
 fun Int.getString(): String {
     return try {
-        BaseApplication.getInstance().resources.getString(this)
+        com.longer.creditManager.BaseApplication.getInstance().resources.getString(this)
     } catch (ignore: Resources.NotFoundException) {
         ""
     }

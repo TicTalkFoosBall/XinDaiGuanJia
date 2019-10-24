@@ -149,7 +149,7 @@
                 android:layout_marginTop="120dp"
                 android:layout_marginLeft="260dp"
                 android:background="@drawable/button_biankuang"
-                android:id="@+id/b_2"
+                android:id="@+id/bt_time"
                 android:textColor="#f6822b"
                 android:textSize="10dp"
                 android:text="3天6时前"

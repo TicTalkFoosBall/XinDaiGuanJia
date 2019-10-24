@@ -4,11 +4,11 @@ package com.longer.creditManager.basemodel;
 
 
 
-
 import com.longer.creditManager.constant.ApiService;
-import com.longer.creditManager.net.HttpManger;
+
 
 import hxz.www.commonbase.base.mvp.IBaseModel;
+import hxz.www.commonbase.net.HttpManger;
 
 public abstract class BaseModel implements IBaseModel{
 

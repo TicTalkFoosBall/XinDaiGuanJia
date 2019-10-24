@@ -1,11 +1,11 @@
-package com.longer.creditManager.net;
+package hxz.www.commonbase.net;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 
-import com.longer.creditManager.MyApplication;
+import hxz.www.commonbase.app.BaseApplication;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
@@ -23,7 +23,7 @@ import okhttp3.Response;
 public class NetCheckInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
-        if (!isNetworkConnected(MyApplication.getContext())) {
+        if (!isNetworkConnected(BaseApplication.getInstance())) {
             throw new UnknownHostException("Network not connected");
         }
         return chain.proceed(chain.request().newBuilder().build());

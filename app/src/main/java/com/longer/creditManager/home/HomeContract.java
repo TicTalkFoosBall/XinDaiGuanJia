@@ -11,7 +11,7 @@ public interface HomeContract {
 
         void showData(LoginBeae loginBeae);
 
-        void onQueryUnread();
+        void onQueryUnread(UnreadBean unreadBean);
 
     }
 

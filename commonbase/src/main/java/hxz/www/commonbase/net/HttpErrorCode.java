@@ -1,4 +1,4 @@
-package com.longer.creditManager.net;
+package hxz.www.commonbase.net;
 /**
  *
  * Dec:错误码

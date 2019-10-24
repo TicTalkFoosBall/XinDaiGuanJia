@@ -12,15 +12,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.longer.creditManager.MainActivity;
-import com.longer.creditManager.MyApplication;
 import com.longer.creditManager.R;
 import com.longer.creditManager.activity.ForgetThePasswordActivity;
 import com.longer.creditManager.bean.LoginBeae;
-import com.longer.creditManager.bean.Token;
 import com.longer.creditManager.bean.body.LoginBody;
 
 
 import hxz.www.commonbase.base.mvp.BaseMvpActivity;
+import hxz.www.commonbase.cache.Cache;
 import hxz.www.commonbase.util.EncryptUtil;
 import hxz.www.commonbase.util.ToastUtil;
 import hxz.www.commonbase.util.log.LogShow;
@@ -134,10 +133,8 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
     public void showData(LoginBeae loginBeae) {
         if (loginBeae != null&&loginBeae.getResult()!=null) {
             String code = loginBeae.getCode();
-            Token token = new Token();
-            MyApplication.TOKEN = loginBeae.getResult().getToken();
-            token.setToken(loginBeae.getResult().getToken());
-            LogShow.i("LoginActivity  showData",e_username.getText().toString(),token.getToken());
+            Cache.setUserInfo(loginBeae.getResult());
+            LogShow.i("LoginActivity  showData",e_username.getText().toString());
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();

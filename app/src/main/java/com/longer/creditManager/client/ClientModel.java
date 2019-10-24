@@ -3,7 +3,7 @@ package com.longer.creditManager.client;
 import android.support.annotation.NonNull;
 
 import com.google.gson.Gson;
-import com.longer.creditManager.notice.NoticeItem;
+
 
 import java.util.List;
 

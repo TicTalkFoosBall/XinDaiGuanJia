@@ -1,16 +1,11 @@
-package com.longer.creditManager.net;
+package hxz.www.commonbase.net;
 
-import android.text.TextUtils;
-
-import com.longer.creditManager.MyApplication;
 
 import java.io.IOException;
 import java.net.Proxy;
 import java.util.concurrent.TimeUnit;
 
-import hxz.www.commonbase.app.BaseApplication;
-import hxz.www.commonbase.util.DeviceUtil;
-import hxz.www.commonbase.util.log.LogShow;
+import hxz.www.commonbase.cache.Cache;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -18,16 +13,10 @@ import okhttp3.Request;
 import okhttp3.Response;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-/**
- * Dec: Http  网络请求管理  final 修饰 不行被修改
- *
- * @author 韩湘子 on  2019/5/11
- */
-public final class HttpManger {
 
+public final class HttpManger {
 
     private Retrofit mRetrofit;
     private String mBaseUrl;
@@ -128,10 +117,10 @@ public final class HttpManger {
     Interceptor headerIntercepteor = new Interceptor() {
         @Override
         public Response intercept(Chain chain) throws IOException {
- LogShow.i("HttpManger  intercept ",MyApplication.TOKEN);
+
             Request request = chain.request().newBuilder()
 //                        .header("Connection", "close")
-                    .header("token", MyApplication.TOKEN)
+                    .header("token", Cache.getToken())
 
                     .build();
             return chain.proceed(request);

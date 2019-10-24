@@ -7,9 +7,9 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
+
 import hxz.www.commonbase.app.BaseApplication;
 import hxz.www.commonbase.util.log.LogShow;
-import hxz.www.commonbase.util.storage.ExternalStorage;
 
 
 public class CacheUtil {
@@ -32,7 +32,7 @@ public class CacheUtil {
                     oos.close();
                 }
             } catch (Exception e) {
-                LogShow.e(e, false);
+               LogShow.i("CacheUtil  saveCache ",e.getMessage());
             }
         }
 
@@ -66,6 +66,7 @@ public class CacheUtil {
     }
 
     public static boolean deleteCache(String key) {
+         LogShow.i("CacheUtil  deleteCache ",BaseApplication.getInstance() );
         File file = new File(BaseApplication.getInstance().getFilesDir().getPath() + File.separator + key);
         if (file.exists()) {
             return file.delete();

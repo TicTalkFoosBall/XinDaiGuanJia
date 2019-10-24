@@ -1,4 +1,4 @@
-package com.longer.creditManager.activity;
+package om.longer.creditManager.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 
 
 import com.longer.creditManager.R;
+import com.longer.creditManager.activity.AboutActivity;
 import com.longer.creditManager.util.AndroidBug54971Workaround;
 
 

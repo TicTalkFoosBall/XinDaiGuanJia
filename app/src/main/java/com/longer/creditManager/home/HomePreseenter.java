@@ -3,8 +3,8 @@ package com.longer.creditManager.home;
 import com.longer.creditManager.basemodel.Api;
 import com.longer.creditManager.bean.LoginBeae;
 import com.longer.creditManager.bean.body.LoginBody;
-import com.longer.creditManager.net.BaseResult;
-import com.longer.creditManager.net.BaseResultObserver;
+import hxz.www.commonbase.net.BaseResult;
+import hxz.www.commonbase.net.BaseResultObserver;
 import com.longer.creditManager.specificmodel.MainModel;
 
 import hxz.www.commonbase.base.mvp.BasePresenter;
@@ -39,8 +39,25 @@ public class HomePreseenter extends BasePresenter<HomeContract.View> implements 
         if (!isNotDisposed(mDisposable)){
             mDisposable = Api.getApiService().getUnreadCount().subscribeWith( new BaseResultObserver<BaseResult<UnreadBean>>() {
                 @Override
-                protected void onResult(BaseResult<UnreadBean> loginBeae) {
-                    mView.onQueryUnread();
+                protected void onResult(BaseResult<UnreadBean> unreadBean) {
+                    mView.onQueryUnread(unreadBean.getResult());
+                }
+
+                @Override
+                protected void onFailure(Throwable e, String error) {
+                    ToastUtil.show(error);
+                }
+            });
+
+        }
+    }
+
+    public  void readSystemMSg()
+    {
+        if (!isNotDisposed(mDisposable)){
+            mDisposable = Api.getApiService().readSystemMSg().subscribeWith( new BaseResultObserver<BaseResult>() {
+                @Override
+                protected void onResult(BaseResult unreadBean) {
                 }
 
                 @Override

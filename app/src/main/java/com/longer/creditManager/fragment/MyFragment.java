@@ -2,23 +2,16 @@ package com.longer.creditManager.fragment;
 
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
 import com.bumptech.glide.request.RequestOptions;
-import com.longer.creditManager.MyApplication;
 import com.longer.creditManager.R;
-import com.longer.creditManager.activity.RegardsActivity;
 import com.longer.creditManager.login.LoginActivity;
 
 
@@ -103,14 +96,14 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if (v.getId() == iv_regard.getId()){
-            startActivity(new Intent(getContext(), RegardsActivity.class));
+            startActivity(new Intent(getContext(), om.longer.creditManager.activity.RegardsActivity.class));
         }
         else
         if (v.getId() == share.getId()){
         }
         else
         if (v.getId() == about.getId()){
-            startActivity(new Intent(getContext(), RegardsActivity.class));
+            startActivity(new Intent(getContext(), om.longer.creditManager.activity.RegardsActivity.class));
         }
         else
         if (v.getId() == exit.getId()){

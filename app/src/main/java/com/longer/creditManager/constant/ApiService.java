@@ -8,17 +8,20 @@ import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.bean.body.LoginBody;
 import com.longer.creditManager.client.ClientModel;
 import com.longer.creditManager.home.UnreadBean;
-import com.longer.creditManager.net.BaseResult;
+
 import com.longer.creditManager.notice.NoticeListModel;
 import com.longer.creditManager.systemmsg.SystemMsgModel;
 
+
 import java.util.List;
 
+import hxz.www.commonbase.model.TodoBean;
 import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -48,6 +51,14 @@ public interface ApiService {
     // 首页未读数
     @GET("return")
     Single<BaseResult<UnreadBean>> getUnreadCount();
+
+    // 系统消息已读
+    @PUT("systemMsg/read")
+    Single<BaseResult> readSystemMSg();
+
+    // 代办审批
+    @GET("task/list")
+    Single<BaseResult<TodoBean>> getTodoList(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);
 
 
     // 审批待办列表

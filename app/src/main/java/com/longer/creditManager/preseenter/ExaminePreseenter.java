@@ -1,10 +1,9 @@
 package com.longer.creditManager.preseenter;
 
 import com.longer.creditManager.bean.ExamineBean;
-import com.longer.creditManager.bean.LoginBeae;
 import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.contract.ExamineContracr;
-import com.longer.creditManager.net.BaseResultObserver;
+import hxz.www.commonbase.net.BaseResultObserver;
 import com.longer.creditManager.specificmodel.MainModel;
 
 import hxz.www.commonbase.base.mvp.BasePresenter;

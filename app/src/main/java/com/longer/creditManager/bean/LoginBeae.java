@@ -1,6 +1,6 @@
 package com.longer.creditManager.bean;
 
-import com.longer.creditManager.login.UserInfo;
+import hxz.www.commonbase.cache.UserInfo;
 
 public class LoginBeae {
 

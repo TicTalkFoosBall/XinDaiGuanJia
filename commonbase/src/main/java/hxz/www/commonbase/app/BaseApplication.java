@@ -1,11 +1,17 @@
 package hxz.www.commonbase.app;
 
 import android.app.Activity;
-import android.app.Application;
 import android.os.Bundle;
+import android.support.multidex.MultiDexApplication;
+
+import com.hjq.bar.TitleBar;
+import com.hjq.bar.style.TitleBarLightStyle;
+import com.hjq.toast.ToastUtils;
+import com.hjq.toast.style.ToastBlackStyle;
 
 
-public class BaseApplication extends Application {
+
+public class BaseApplication extends MultiDexApplication {
     private static BaseApplication baseApplication;
     private ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
 
@@ -14,8 +20,36 @@ public class BaseApplication extends Application {
         super.onCreate();
         baseApplication = this;
         registerActivityListener();
+        initLunZiUi();
+        initHttp();
 
     }
+
+    /**
+     * 初始化网络请求
+     */
+    private void initHttp() {
+        HttpManger.getInstance()
+                .setBaseUrl(ApiService.BASE_URL)
+                .setOkHttpClient(HttpManger.getInstance().createDefaultClient())
+                .setRetrofit(HttpManger.getInstance().createRetrofit());
+    }
+
+
+    /***
+     *  初始化轮子全家桶
+     */
+    private void initLunZiUi() {
+        /**
+         * ToastBlackStyle  不是固定的可以自己实现自己的风格
+         */
+        ToastUtils.init(this, new ToastBlackStyle());
+        /**
+         * TitleBarLightStyle  不是固定的可以自己实现自己的风格
+         */
+        TitleBar.initStyle(new TitleBarLightStyle(this));
+    }
+
 
     public static BaseApplication getInstance() {
         return baseApplication;

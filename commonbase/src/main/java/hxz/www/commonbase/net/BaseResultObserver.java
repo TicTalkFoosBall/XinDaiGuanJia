@@ -1,4 +1,4 @@
-package com.longer.creditManager.net;
+package hxz.www.commonbase.net;
 
 
 import java.net.ConnectException;
@@ -6,6 +6,7 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.net.UnknownServiceException;
 
+import hxz.www.commonbase.util.ToastUtil;
 import hxz.www.commonbase.util.log.LogShow;
 import io.reactivex.observers.DisposableSingleObserver;
 import retrofit2.HttpException;
@@ -57,6 +58,7 @@ public abstract class BaseResultObserver<T> extends DisposableSingleObserver<T> 
             msgError = e.getMessage();
         }
         LogShow.i("BaseResultObserver  onError",msgError,e.getMessage());
+        ToastUtil.show(msgError);
         onFailure(e, msgError);
 
     }
