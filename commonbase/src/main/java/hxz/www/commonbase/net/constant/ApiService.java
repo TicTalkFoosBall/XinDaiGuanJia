@@ -1,21 +1,21 @@
-package com.longer.creditManager.constant;
+package hxz.www.commonbase.net.constant;
 
 
-import com.longer.creditManager.bean.Ba1;
-import com.longer.creditManager.bean.ExamineBean;
-import com.longer.creditManager.bean.LoginBeae;
-import com.longer.creditManager.bean.body.ListBody;
-import com.longer.creditManager.bean.body.LoginBody;
-import com.longer.creditManager.client.ClientModel;
-import com.longer.creditManager.home.UnreadBean;
-
-import com.longer.creditManager.notice.NoticeListModel;
-import com.longer.creditManager.systemmsg.SystemMsgModel;
-
-
+import java.util.HashMap;
 import java.util.List;
 
+import hxz.www.commonbase.model.Ba1;
+import hxz.www.commonbase.model.ClientModel;
+import hxz.www.commonbase.model.ExamineBean;
+import hxz.www.commonbase.model.ListBody;
+import hxz.www.commonbase.model.LoginBeae;
+import hxz.www.commonbase.model.LoginBody;
+import hxz.www.commonbase.model.NoticeListModel;
+import hxz.www.commonbase.model.SystemMsgModel;
 import hxz.www.commonbase.model.TodoBean;
+import hxz.www.commonbase.model.UnreadBean;
+import hxz.www.commonbase.model.todo.TodoDetailItem;
+import hxz.www.commonbase.net.BaseResult;
 import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -25,7 +25,7 @@ import retrofit2.http.PUT;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    String BASE_URL = "http://120.79.56.152:9010/lfcp-app/";
+      String BASE_URL = "http://120.79.56.152:9010/lfcp-app/";
 
     @GET("dish_list.php")
     Single<Ba1> getBa1(@Query("stage_id") String stage_id, @Query("limit") String limitm, @Query("page") String page);
@@ -60,7 +60,14 @@ public interface ApiService {
     @GET("task/list")
     Single<BaseResult<TodoBean>> getTodoList(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);
 
+    // 代办详情
+    @GET("task/detailHistoryApproval")
+    Single<BaseResult<TodoDetailItem>> getTodoDetail(@Query("taskId") String taskId, @Query("procInstId") String procInstId);
 
+
+    //附件列表
+    @POST(" formGroup/formGroupCode/attachment/masterId")
+    Single<BaseResult<TodoDetailItem>> getAttachments(@Body HashMap params);
     // 审批待办列表
     // http://192.168.1.121:8089/lfcp-app/task/list
 //    点击 系统消息界面，调用这个接口http://localhost:8089/lfcp-app/systemMsg/read

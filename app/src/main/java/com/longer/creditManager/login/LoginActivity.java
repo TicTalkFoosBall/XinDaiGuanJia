@@ -14,8 +14,8 @@ import android.widget.TextView;
 import com.longer.creditManager.MainActivity;
 import com.longer.creditManager.R;
 import com.longer.creditManager.activity.ForgetThePasswordActivity;
-import com.longer.creditManager.bean.LoginBeae;
-import com.longer.creditManager.bean.body.LoginBody;
+import hxz.www.commonbase.model.LoginBeae;
+import hxz.www.commonbase.model.LoginBody;
 
 
 import hxz.www.commonbase.base.mvp.BaseMvpActivity;

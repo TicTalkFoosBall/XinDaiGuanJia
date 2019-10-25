@@ -3,25 +3,18 @@ package com.longer.creditManager.notice
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import click
-import com.longer.creditManager.MainActivity
 import com.longer.creditManager.R
-import com.longer.creditManager.client.ClientModel
+import hxz.www.commonbase.model.ClientModel
 import com.longer.creditManager.clientdetail.ClientDetailActivity
-import com.longer.creditManager.dialog.Calldialog
 import com.longer.creditManager.fragment.BaseListFragment
-import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ItemClickSupport
 import hxz.www.commonbase.adapter.KlDialog
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
-import kotlinx.android.synthetic.main.fragment_noticelist.*
 
 class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), ClientContract.View {
 

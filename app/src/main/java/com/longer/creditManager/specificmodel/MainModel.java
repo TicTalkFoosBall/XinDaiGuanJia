@@ -5,11 +5,11 @@ package com.longer.creditManager.specificmodel;
  */
 
 import com.longer.creditManager.basemodel.BaseModel;
-import com.longer.creditManager.bean.Ba1;
-import com.longer.creditManager.bean.ExamineBean;
-import com.longer.creditManager.bean.LoginBeae;
-import com.longer.creditManager.bean.body.ListBody;
-import com.longer.creditManager.bean.body.LoginBody;
+import hxz.www.commonbase.model.Ba1;
+import hxz.www.commonbase.model.ExamineBean;
+import hxz.www.commonbase.model.LoginBeae;
+import hxz.www.commonbase.model.ListBody;
+import hxz.www.commonbase.model.LoginBody;
 import hxz.www.commonbase.net.BaseResultObserver;
 
 import io.reactivex.disposables.Disposable;

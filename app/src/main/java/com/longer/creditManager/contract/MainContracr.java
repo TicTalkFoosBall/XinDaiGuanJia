@@ -1,7 +1,7 @@
 package com.longer.creditManager.contract;
 
 
-import com.longer.creditManager.bean.Ba1;
+import hxz.www.commonbase.model.Ba1;
 
 
 import hxz.www.commonbase.base.mvp.IBaseView;

@@ -1,16 +1,18 @@
 package com.longer.creditManager.todo.list
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.longer.creditManager.R
 import com.longer.creditManager.basemodel.Api
 import com.longer.creditManager.fragment.BaseListFragment
-import hxz.www.commonbase.net.BaseResult
-import hxz.www.commonbase.net.BaseResultObserver
+import com.longer.creditManager.todo.detail.TodoDetailActivity
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
 import hxz.www.commonbase.model.TodoBean
 import hxz.www.commonbase.model.TodoItem
+import hxz.www.commonbase.net.BaseResult
+import hxz.www.commonbase.net.BaseResultObserver
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.ToastUtil
@@ -19,13 +21,12 @@ import hxz.www.commonbase.view.KLRefreshLayout
 import io.reactivex.disposables.Disposable
 
 
-
 class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(), TodoListView {
 
     override fun bindAdapter() = TodolistAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
-         LogShow.i("initRefreshLayout  ",refreshLayout);
+        LogShow.i("initRefreshLayout  ", refreshLayout);
         refreshLayout?.setLayoutManager(LinearLayoutManager(_mActivity))
         refreshLayout?.setEnableLoadMore(true)
         refreshLayout?.recyclerView?.addItemDecoration(VerticalItemDecoration(8))
@@ -38,10 +39,18 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
 //        iv_back_notice.click {
 //            _mActivity.finish()
 //        }
-        mAdapter.setOnItemClickListener{view,data,position->
+        mAdapter.setOnItemClickListener { view, data, position ->
 
+            startActivity(Intent(_mActivity, TodoDetailActivity::class.java).apply {
+                putExtra("params",
+                        Bundle().apply {
+                            putSerializable("todoItem",data)
+//                            putString("taskId", data.taskId)
+//                            putString("procInstId", data.masterId)
+                        })
+            })
         }
-         LogShow.i("initData   ","");
+        LogShow.i("initData   ", "");
     }
 
     override fun loadData(page: Int) {
@@ -49,14 +58,13 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
-         LogShow.i("onLazyInitView ","");
+        LogShow.i("onLazyInitView ", "");
         refresh()
     }
 
 
-
-      override fun onQuery(list: MutableList<TodoItem>?) {
-         LogShow.i(" onQuery  ",list?.size,mAdapter);
+    override fun onQuery(list: MutableList<TodoItem>?) {
+        LogShow.i(" onQuery  ", list?.size, mAdapter);
         refreshLayout?.postDelayed({
             mAdapter?.data = list
             refreshLayout?.finishLoad()
@@ -70,25 +78,23 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
 class TodoListPresenter : BasePresenterImpl<TodoListView>() {
     private var mDisposable: Disposable? = null
     fun queryodoList(page: Int) {
-        LogShow.i("queryodoList ",page);
-        mDisposable= Api.getApiService().getTodoList(page,20).
-                subscribeWith(object : BaseResultObserver<BaseResult<TodoBean>>() {
-                    override fun onResult(todoBean: BaseResult<TodoBean>?) {
-                        LogShow.i("queryodoList   ",todoBean?.result?.list?.size);
-mView.onQuery(todoBean?.result?.list)
-                    }
+        LogShow.i("queryodoList ", page);
+        mDisposable = Api.getApiService().getTodoList(page, 20).subscribeWith(object : BaseResultObserver<BaseResult<TodoBean>>() {
+            override fun onResult(todoBean: BaseResult<TodoBean>?) {
+                LogShow.i("queryodoList   ", todoBean?.result?.list?.size);
+                mView.onQuery(todoBean?.result?.list)
+            }
 
-                    override fun onFailure(e: Throwable, error: String) {
-                        ToastUtil.show(error)
-                    }
-                } )
+            override fun onFailure(e: Throwable, error: String) {
+                ToastUtil.show(error)
+            }
+        })
 
     }
 }
 
-interface  TodoListView:BaseView2
-{
+interface TodoListView : BaseView2 {
 
-    fun onQuery(list:MutableList<TodoItem>?)
+    fun onQuery(list: MutableList<TodoItem>?)
 }
 

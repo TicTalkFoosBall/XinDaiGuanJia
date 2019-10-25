@@ -1,4 +1,4 @@
-package com.longer.creditManager.systemmsg;
+package hxz.www.commonbase.model;
 
 import android.support.annotation.NonNull;
 
@@ -7,13 +7,13 @@ import java.util.List;
 import hxz.www.commonbase.util.GsonUtil;
 
 
-public  class SystemMsgModel {
+public  class NoticeListModel {
 
 private int pageno;
 private int pagesize;
 private int pages;
 private int total;
-private List<SystemMsgtem> list;
+private List<NoticeItem> list;
 private int pagestart;
 public void setPageno(int pageno) {
         this.pageno = pageno;
@@ -43,10 +43,10 @@ public int getTotal() {
         return total;
         }
 
-public void setList(List<SystemMsgtem> list) {
+public void setList(List<NoticeItem> list) {
         this.list = list;
         }
-public List<SystemMsgtem> getList() {
+public List<NoticeItem> getList() {
         return list;
         }
 

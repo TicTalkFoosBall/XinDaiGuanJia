@@ -2,6 +2,8 @@ package hxz.www.commonbase.cache;
 
 import android.text.TextUtils;
 
+import hxz.www.commonbase.util.log.LogShow;
+
 public class Cache {
     private static final String KEY_USER = "user.ser";//用户信息存数文件名
     private static volatile UserInfo mUserInfo;
@@ -44,6 +46,7 @@ public class Cache {
             if (mToken == null)
                 mToken = "";
         }
+        LogShow.i("Cache  getToken",mToken);
         return mToken;
     }
 

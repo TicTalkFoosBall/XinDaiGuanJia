@@ -1,9 +1,10 @@
 package com.longer.creditManager.home;
 
-import com.longer.creditManager.bean.LoginBeae;
-import com.longer.creditManager.bean.body.LoginBody;
+import hxz.www.commonbase.model.LoginBeae;
+import hxz.www.commonbase.model.LoginBody;
 
 import hxz.www.commonbase.base.mvp.IBaseView;
+import hxz.www.commonbase.model.UnreadBean;
 
 public interface HomeContract {
 

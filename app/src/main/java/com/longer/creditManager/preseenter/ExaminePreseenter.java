@@ -1,7 +1,7 @@
 package com.longer.creditManager.preseenter;
 
-import com.longer.creditManager.bean.ExamineBean;
-import com.longer.creditManager.bean.body.ListBody;
+import hxz.www.commonbase.model.ExamineBean;
+import hxz.www.commonbase.model.ListBody;
 import com.longer.creditManager.contract.ExamineContracr;
 import hxz.www.commonbase.net.BaseResultObserver;
 import com.longer.creditManager.specificmodel.MainModel;

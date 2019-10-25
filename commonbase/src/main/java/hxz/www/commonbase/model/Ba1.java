@@ -1,5 +1,5 @@
 
-package com.longer.creditManager.bean;
+package hxz.www.commonbase.model;
 
 
 import java.util.List;

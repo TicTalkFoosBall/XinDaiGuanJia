@@ -1,4 +1,4 @@
-package com.longer.creditManager.bean;
+package hxz.www.commonbase.model;
 
 import hxz.www.commonbase.cache.UserInfo;
 

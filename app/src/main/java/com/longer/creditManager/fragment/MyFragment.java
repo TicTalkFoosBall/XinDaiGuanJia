@@ -14,14 +14,11 @@ import com.bumptech.glide.request.RequestOptions;
 import com.longer.creditManager.R;
 import com.longer.creditManager.login.LoginActivity;
 
-
 import hxz.www.commonbase.app.BaseApplication;
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
 import hxz.www.commonbase.base.mvp.BasePresenter;
 import hxz.www.commonbase.base.mvp.IBaseView;
 import hxz.www.commonbase.cache.Cache;
-
-import static android.view.Gravity.apply;
 
 
 /**
@@ -96,14 +93,14 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if (v.getId() == iv_regard.getId()){
-            startActivity(new Intent(getContext(), om.longer.creditManager.activity.RegardsActivity.class));
+            startActivity(new Intent(getContext(), com.longer.creditManager.activity.RegardsActivity.class));
         }
         else
         if (v.getId() == share.getId()){
         }
         else
         if (v.getId() == about.getId()){
-            startActivity(new Intent(getContext(), om.longer.creditManager.activity.RegardsActivity.class));
+            startActivity(new Intent(getContext(), com.longer.creditManager.activity.RegardsActivity.class));
         }
         else
         if (v.getId() == exit.getId()){

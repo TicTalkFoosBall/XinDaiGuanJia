@@ -1,4 +1,4 @@
-package com.longer.creditManager.bean.body;
+package hxz.www.commonbase.model;
 /**
  *
  * 审批待办

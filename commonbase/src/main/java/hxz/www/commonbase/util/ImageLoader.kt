@@ -4,6 +4,7 @@ import android.text.TextUtils
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
+import hxz.www.commonbase.R
 import hxz.www.commonbase.app.BaseApplication
 import java.io.File
 

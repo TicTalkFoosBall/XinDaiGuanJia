@@ -2,7 +2,7 @@ package com.longer.creditManager.notice
 import com.longer.creditManager.basemodel.Api
 import hxz.www.commonbase.net.BaseResult
 import hxz.www.commonbase.net.BaseResultObserver
-import com.longer.creditManager.systemmsg.SystemMsgModel
+import hxz.www.commonbase.model.SystemMsgModel
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.ToastUtil
 import hxz.www.commonbase.util.log.LogShow

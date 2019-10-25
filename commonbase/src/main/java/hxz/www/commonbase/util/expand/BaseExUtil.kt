@@ -7,6 +7,7 @@ import android.support.v4.content.ContextCompat
 import android.text.TextUtils
 import android.widget.ImageView
 import android.widget.TextView
+import hxz.www.commonbase.app.BaseApplication
 
 
 import hxz.www.commonbase.util.DisplayUtil
@@ -28,7 +29,7 @@ fun Int.getColor(context: Context =  BaseApplication.getInstance()): Int {
 
 fun Int.getColor(): Int {
     return try {
-        ContextCompat.getColor(com.longer.creditManager.BaseApplication.getInstance(), this)
+        ContextCompat.getColor(BaseApplication.getInstance(), this)
     } catch (ignore: Resources.NotFoundException) {
         0
     }
@@ -38,7 +39,7 @@ fun Int.getColor(): Int {
  */
 fun Int.getDrawable(): Drawable {
     return try {
-        ContextCompat.getDrawable(com.longer.creditManager.BaseApplication.getInstance(), this)!!
+        ContextCompat.getDrawable(BaseApplication.getInstance(), this)!!
     } catch (ignore: Resources.NotFoundException) {
         ColorDrawable()
     }
@@ -48,8 +49,7 @@ fun Int.getDrawable(): Drawable {
  * 资源地址转string
  */
 fun Int.getString(): String {
-    return try {
-        com.longer.creditManager.BaseApplication.getInstance().resources.getString(this)
+    return try {BaseApplication.getInstance().resources.getString(this)
     } catch (ignore: Resources.NotFoundException) {
         ""
     }

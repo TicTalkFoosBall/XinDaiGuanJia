@@ -1,4 +1,4 @@
-package com.longer.creditManager.home
+package hxz.www.commonbase.model
 
 /**
 @Author  :rickBei
@@ -7,9 +7,9 @@ package com.longer.creditManager.home
  **/
 
 data class UnreadBean(
-    val notices: Notices,
-    val systemMsgs: SystemMsgs,
-    val tasks: Tasks
+        val notices: Notices,
+        val systemMsgs: SystemMsgs,
+        val tasks: Tasks
 )
 
 data class Notices(

@@ -1,6 +1,6 @@
 package com.longer.creditManager.notice
 import com.longer.creditManager.R
-import com.longer.creditManager.systemmsg.SystemMsgtem
+import hxz.www.commonbase.model.SystemMsgtem
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.util.log.LogShow

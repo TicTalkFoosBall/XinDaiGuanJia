@@ -1,4 +1,4 @@
-package com.longer.creditManager.bean.body;
+package hxz.www.commonbase.model;
 
 public class LoginBody {
 

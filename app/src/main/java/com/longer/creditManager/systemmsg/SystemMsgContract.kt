@@ -1,5 +1,5 @@
 package com.longer.creditManager.notice
-import com.longer.creditManager.systemmsg.SystemMsgModel
+import hxz.www.commonbase.model.SystemMsgModel
 import hxz.www.commonbase.baseui.mvp.BaseView2
 
 

@@ -7,12 +7,12 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.longer.creditManager.R;
-import com.longer.creditManager.bean.ExamineBean;
-import com.longer.creditManager.bean.body.ListBody;
 import com.longer.creditManager.contract.ExamineContracr;
 import com.longer.creditManager.preseenter.ExaminePreseenter;
 
 import hxz.www.commonbase.base.mvp.BaseMvpActivity;
+import hxz.www.commonbase.model.ExamineBean;
+import hxz.www.commonbase.model.ListBody;
 import hxz.www.commonbase.util.log.LogShow;
 
 public class ExamineActivity extends BaseMvpActivity<ExaminePreseenter> implements ExamineContracr.View,View.OnClickListener {

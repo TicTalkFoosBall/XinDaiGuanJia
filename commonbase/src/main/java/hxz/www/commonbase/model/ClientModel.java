@@ -1,11 +1,6 @@
-package com.longer.creditManager.client;
+package hxz.www.commonbase.model;
 
 import android.support.annotation.NonNull;
-
-import com.google.gson.Gson;
-
-
-import java.util.List;
 
 import hxz.www.commonbase.util.GsonUtil;
 

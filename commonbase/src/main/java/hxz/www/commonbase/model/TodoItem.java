@@ -1,12 +1,9 @@
 package hxz.www.commonbase.model;
 
-import android.support.annotation.NonNull;
-
-import java.util.Date;
-import java.util.List;
+import java.io.Serializable;
 
 
-public class TodoItem {
+public class TodoItem implements Serializable {
 
     private String type;
     private String taskId;

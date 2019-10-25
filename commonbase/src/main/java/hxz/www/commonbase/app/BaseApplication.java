@@ -9,6 +9,8 @@ import com.hjq.bar.style.TitleBarLightStyle;
 import com.hjq.toast.ToastUtils;
 import com.hjq.toast.style.ToastBlackStyle;
 
+import hxz.www.commonbase.net.HttpManger;
+import hxz.www.commonbase.net.constant.ApiService;
 
 
 public class BaseApplication extends MultiDexApplication {
@@ -29,6 +31,7 @@ public class BaseApplication extends MultiDexApplication {
      * 初始化网络请求
      */
     private void initHttp() {
+
         HttpManger.getInstance()
                 .setBaseUrl(ApiService.BASE_URL)
                 .setOkHttpClient(HttpManger.getInstance().createDefaultClient())

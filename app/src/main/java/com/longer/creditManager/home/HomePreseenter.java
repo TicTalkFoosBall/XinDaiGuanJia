@@ -1,8 +1,9 @@
 package com.longer.creditManager.home;
 
 import com.longer.creditManager.basemodel.Api;
-import com.longer.creditManager.bean.LoginBeae;
-import com.longer.creditManager.bean.body.LoginBody;
+import hxz.www.commonbase.model.LoginBeae;
+import hxz.www.commonbase.model.LoginBody;
+import hxz.www.commonbase.model.UnreadBean;
 import hxz.www.commonbase.net.BaseResult;
 import hxz.www.commonbase.net.BaseResultObserver;
 import com.longer.creditManager.specificmodel.MainModel;

@@ -1,4 +1,4 @@
-package com.longer.creditManager.systemmsg;
+package hxz.www.commonbase.model;
 
 import android.support.annotation.NonNull;
 

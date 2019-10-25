@@ -9,12 +9,16 @@ import android.widget.TextView;
 import com.longer.creditManager.R;
 import com.longer.creditManager.activity.ExaminationActivity;
 import com.longer.creditManager.adapter.Adapter;
-import com.longer.creditManager.bean.LoginBeae;
+import hxz.www.commonbase.model.LoginBeae;
 import com.longer.creditManager.notice.NoticeActivity;
 import com.longer.creditManager.notice.SystemMsgActivity;
 import com.longer.creditManager.todo.list.TodoActivity;
 
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
+import hxz.www.commonbase.model.Notices;
+import hxz.www.commonbase.model.SystemMsgs;
+import hxz.www.commonbase.model.Tasks;
+import hxz.www.commonbase.model.UnreadBean;
 import hxz.www.commonbase.util.log.LogShow;
 import hxz.www.commonbase.util.time.DateUtil;
 

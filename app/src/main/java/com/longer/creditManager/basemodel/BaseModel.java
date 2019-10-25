@@ -4,7 +4,7 @@ package com.longer.creditManager.basemodel;
 
 
 
-import com.longer.creditManager.constant.ApiService;
+import hxz.www.commonbase.net.constant.ApiService;
 
 
 import hxz.www.commonbase.base.mvp.IBaseModel;
