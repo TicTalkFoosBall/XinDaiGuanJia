@@ -68,10 +68,7 @@ public interface ApiService {
     //附件列表
     @POST(" formGroup/formGroupCode/attachment/masterId")
     Single<BaseResult<TodoDetailItem>> getAttachments(@Body HashMap params);
-    // 审批待办列表
-    // http://192.168.1.121:8089/lfcp-app/task/list
-//    点击 系统消息界面，调用这个接口http://localhost:8089/lfcp-app/systemMsg/read
-//    http://localhost:8089/lfcp-app/return
+
 
     @GET("lfcp-android.support.v4.app/task/list")
     Single<ExamineBean> getExamineList(@Header("token") String token, @Body ListBody listBody);

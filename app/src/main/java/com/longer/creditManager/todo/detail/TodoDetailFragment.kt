@@ -12,7 +12,6 @@ import android.view.animation.AccelerateInterpolator
 import android.view.animation.Animation
 import android.view.animation.TranslateAnimation
 import android.widget.PopupWindow
-import android.widget.Toast
 import com.longer.creditManager.R
 import com.longer.creditManager.activity.ExaminationActivity
 import com.longer.creditManager.basemodel.Api
@@ -53,7 +52,7 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         taskId = todoItem?.taskId.value()
         procInstId = todoItem?.masterId.value()
         refreshLayout?.recyclerView?.let {
-            initPopupWindow()
+
         }
 //        iv_back_notice.click {
 //            _mActivity.finish()
@@ -67,7 +66,7 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         }).setRightImage(R.mipmap.more)
                 .setRightClick(object : View.OnClickListener {
                     override fun onClick(v: View?) {
-
+                        initPopupWindow()
                     }
 
                 })
@@ -76,7 +75,7 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
     // 弹出PopupWindow
     private fun initPopupWindow() {
 
-        val view = LayoutInflater.from(this).inflate(R.layout.popuwindow, null, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.popuwindow, null, false)
         var popupWindow = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
         popupWindow.setBackgroundDrawable(BitmapDrawable())
         popupWindow.setFocusable(true)
@@ -115,20 +114,16 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         //        });
         view.findViewById<View>(R.id.iv_5).setOnClickListener {
             lighton()
-            Toast.makeText(this@ExaminationActivity, "5", Toast.LENGTH_SHORT).show()
         }
 
         view.findViewById<View>(R.id.iv_6).setOnClickListener {
             lighton()
-            Toast.makeText(this@ExaminationActivity, "6", Toast.LENGTH_SHORT).show()
         }
         view.findViewById<View>(R.id.iv_7).setOnClickListener {
             lighton()
-            Toast.makeText(this@ExaminationActivity, "7", Toast.LENGTH_SHORT).show()
         }
         view.findViewById<View>(R.id.iv_8).setOnClickListener {
             lighton()
-            Toast.makeText(this@ExaminationActivity, "8", Toast.LENGTH_SHORT).show()
         }
 
     }
@@ -138,9 +133,9 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
      * 设置手机屏幕亮度显示正常
      */
     private fun lighton() {
-        val lp = getWindow().getAttributes()
+        val lp = _mActivity.getWindow().getAttributes()
         lp.alpha = 1f
-        getWindow().setAttributes(lp)
+        _mActivity.getWindow().setAttributes(lp)
     }
 
     override fun loadData(page: Int) {
@@ -184,7 +179,25 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
                 ToastUtil.show(error)
             }
         })
+    }
 
+    fun queryAttachments(todoItem: TodoItem) {
+        var params= mutableMapOf<String,String>().apply {    this["masterId"] = todoItem.masterId
+            this["formGroupCode"] = todoItem.formGroupCode
+            this["formCode"] = todoItem.type
+        }
+        LogShow.i("queryAttachments ",todoItem.toString())
+
+        mDisposable = Api.getApiService().getAttachments(params).subscribeWith(object : BaseResultObserver<BaseResult<TodoDetailItem>>() {
+            override fun onResult(todoBean: BaseResult<TodoDetailItem>?) {
+                LogShow.i("queryodoList   ", todoBean?.result?.fieldList?.size);
+                mView.onQuery(todoBean?.result?.fieldList)
+            }
+
+            override fun onFailure(e: Throwable, error: String) {
+                ToastUtil.show(error)
+            }
+        })
     }
 }
 
