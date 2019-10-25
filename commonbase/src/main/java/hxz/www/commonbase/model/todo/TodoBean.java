@@ -1,4 +1,4 @@
-package hxz.www.commonbase.model;
+package hxz.www.commonbase.model.todo;
 
 
 import java.util.List;

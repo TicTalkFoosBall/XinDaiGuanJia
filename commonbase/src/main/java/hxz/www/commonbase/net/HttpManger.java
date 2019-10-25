@@ -119,7 +119,6 @@ public final class HttpManger {
         public Response intercept(Chain chain) throws IOException {
 
             Request request = chain.request().newBuilder()
-//                        .header("Connection", "close")
                     .header("token", Cache.getToken())
 
                     .build();

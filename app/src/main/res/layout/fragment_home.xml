@@ -126,7 +126,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="最新待办审批消息提示，最新待办审批"
+                    android:singleLine="true"
                     android:textColor="#858585"
+
                     android:textSize="13sp"
                     android:layout_marginLeft="75dp"
                     android:layout_marginTop="35dp"
@@ -150,7 +152,8 @@
                     android:text="4"
                    android:layout_alignParentRight="true"
                     android:layout_marginRight="30dp"
-                    android:layout_centerVertical="true"
+    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true"
                     android:background="@drawable/textcolor_red"
                     android:gravity="center"
                     />
@@ -192,6 +195,7 @@
                     android:textColor="#858585"
                     android:textSize="13sp"
                     android:layout_marginLeft="75dp"
+                    android:singleLine="true"
                     android:layout_marginTop="35dp"
                     />
                 <TextView
@@ -213,8 +217,8 @@
                     android:text="4"
                      android:layout_alignParentRight="true"
                     android:layout_marginRight="30dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true"
                     android:background="@drawable/textcolor_red"
                     android:gravity="center"
                     />
@@ -257,6 +261,7 @@
                     android:textSize="13sp"
                     android:layout_marginLeft="75dp"
                     android:layout_marginTop="35dp"
+                    android:singleLine="true"
                     />
                 <TextView
                     android:id="@+id/tv_systemMsgTime"
@@ -275,8 +280,8 @@
                     android:textColor="#ffffff"
                     android:text="4"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="30dp"
-                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="10dp"
+                    android:layout_alignParentBottom="true"
                     android:id="@+id/tv_systemMsgCount"
                     android:background="@drawable/textcolor_red"
                     android:gravity="center"

@@ -1,39 +1,44 @@
 package hxz.www.commonbase.model.todo;
 
+import android.support.annotation.NonNull;
+
+import java.io.Serializable;
 import java.util.List;
 
-public class TaskHistoryInfoBean {
-    /**
-     * data : []
-     * totalCount : 0
-     * resultMap : null
-     */
+import hxz.www.commonbase.util.GsonUtil;
 
-    private int totalCount;
-    private Object resultMap;
-    private List<?> data;
+public class TaskHistoryInfoBean implements Serializable {
 
-    public int getTotalCount() {
-        return totalCount;
+    @NonNull
+    @Override
+    public String toString() {
+        return GsonUtil.toJson(this);
     }
 
-    public void setTotalCount(int totalCount) {
-        this.totalCount = totalCount;
-    }
+        private List<HistoryData> data;
+        private String resultMap;
+        private int totalCount;
+        public void setData(List<HistoryData> data) {
+            this.data = data;
+        }
+        public List<HistoryData> getData() {
+            return data;
+        }
 
-    public Object getResultMap() {
-        return resultMap;
-    }
+        public void setResultMap(String resultMap) {
+            this.resultMap = resultMap;
+        }
+        public String getResultMap() {
+            return resultMap;
+        }
 
-    public void setResultMap(Object resultMap) {
-        this.resultMap = resultMap;
-    }
+        public void setTotalCount(int totalCount) {
+            this.totalCount = totalCount;
+        }
+        public int getTotalCount() {
+            return totalCount;
+        }
 
-    public List<?> getData() {
-        return data;
-    }
 
-    public void setData(List<?> data) {
-        this.data = data;
+
     }
-}

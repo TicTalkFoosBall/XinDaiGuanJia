@@ -1,8 +1,8 @@
 package hxz.www.commonbase.net.constant;
 
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import hxz.www.commonbase.model.Ba1;
 import hxz.www.commonbase.model.ClientModel;
@@ -12,7 +12,7 @@ import hxz.www.commonbase.model.LoginBeae;
 import hxz.www.commonbase.model.LoginBody;
 import hxz.www.commonbase.model.NoticeListModel;
 import hxz.www.commonbase.model.SystemMsgModel;
-import hxz.www.commonbase.model.TodoBean;
+import hxz.www.commonbase.model.todo.TodoBean;
 import hxz.www.commonbase.model.UnreadBean;
 import hxz.www.commonbase.model.todo.TodoDetailItem;
 import hxz.www.commonbase.net.BaseResult;
@@ -22,6 +22,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
@@ -64,10 +65,13 @@ public interface ApiService {
     @GET("task/detailHistoryApproval")
     Single<BaseResult<TodoDetailItem>> getTodoDetail(@Query("taskId") String taskId, @Query("procInstId") String procInstId);
 
+    //附件列表
+    @GET("formGroup/formGroupCode/attachment/masterId")
+    Single<BaseResult<TodoDetailItem>> getAttachments(@Body Map<String,String> params);
 
     //附件列表
-    @POST(" formGroup/formGroupCode/attachment/masterId")
-    Single<BaseResult<TodoDetailItem>> getAttachments(@Body HashMap params);
+    @GET(" formGroup/tabs/{formGroupCode} ")
+    Single<BaseResult<TodoDetailItem>> getMoreMenu(@Path("formGroupCode") String formGroupCode);
 
 
     @GET("lfcp-android.support.v4.app/task/list")

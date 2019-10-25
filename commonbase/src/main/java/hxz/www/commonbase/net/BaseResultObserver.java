@@ -1,11 +1,15 @@
 package hxz.www.commonbase.net;
 
 
+import android.content.Intent;
+
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.net.UnknownServiceException;
 
+import hxz.www.commonbase.app.BaseApplication;
+import hxz.www.commonbase.cache.Cache;
 import hxz.www.commonbase.util.ToastUtil;
 import hxz.www.commonbase.util.log.LogShow;
 import io.reactivex.observers.DisposableSingleObserver;
@@ -32,7 +36,11 @@ public abstract class BaseResultObserver<T> extends DisposableSingleObserver<T> 
              */
             ResponseBean responseBean = (ResponseBean) t;
             if (responseBean.getCode().equals(HttpErrorCode.USER_NO_LOGIN)) {
-               // ChooseActivity.jumpActivity(MyApplication.getContext());
+                Cache.setUserInfo(null);
+//                BaseApplication.getInstance().tokenExpire();
+//                Intent intent = new Intent( BaseApplication.getInstance(), LoginActivity.class);
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//                BaseApplication.getInstance().startActivity(intent);
             }
 
         }

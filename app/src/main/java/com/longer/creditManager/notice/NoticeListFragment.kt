@@ -35,10 +35,12 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
 //                }
 //            })
         }
+        toolbar.setTitle("通知公告")
         toolbar.setLeftClick(View.OnClickListener
         {
             _mActivity.finish()
         })
+
          LogShow.i("initData   ","");
     }
 

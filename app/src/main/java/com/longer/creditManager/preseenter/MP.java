@@ -4,7 +4,7 @@ package com.longer.creditManager.preseenter;
 import hxz.www.commonbase.model.Ba1;
 import com.longer.creditManager.contract.MainContracr;
 import hxz.www.commonbase.net.BaseResultObserver;
-import com.longer.creditManager.specificmodel.MainModel;
+import com.longer.creditManager.login.MainModel;
 
 
 import hxz.www.commonbase.base.mvp.BasePresenter;

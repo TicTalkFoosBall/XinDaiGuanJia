@@ -1,34 +1,33 @@
-package com.longer.creditManager.todo.list
+package com.longer.creditManager.recording
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.longer.creditManager.R
-import com.longer.creditManager.basemodel.Api
 import com.longer.creditManager.fragment.BaseListFragment
 import com.longer.creditManager.todo.detail.TodoDetailActivity
+import com.longer.creditManager.todo.list.TodoListPresenter
+import com.longer.creditManager.todo.list.TodoListView
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
-import hxz.www.commonbase.model.todo.TodoBean
+import hxz.www.commonbase.model.todo.HistoryData
+import hxz.www.commonbase.model.todo.TaskHistoryInfoBean
 import hxz.www.commonbase.model.todo.TodoItem
-import hxz.www.commonbase.net.BaseResult
-import hxz.www.commonbase.net.BaseResultObserver
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
-import hxz.www.commonbase.util.ToastUtil
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
-import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_noticelist.*
 
 
-class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(), TodoListView {
+class RecordListFragment : BaseListFragment<RecorListPresenter, RecordlistAdapter>(), RecorListView {
 
-    override fun bindAdapter() = TodolistAdapter()
+    override fun bindAdapter() = RecordlistAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
-        LogShow.i("initRefreshLayout  ", refreshLayout);
+
         refreshLayout?.setLayoutManager(LinearLayoutManager(_mActivity))
         refreshLayout?.setEnableLoadMore(true)
         refreshLayout?.recyclerView?.addItemDecoration(VerticalItemDecoration(8))
@@ -43,22 +42,22 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
         {
             _mActivity.finish()
         })
+        var history=getParameter(0) as TaskHistoryInfoBean
+         LogShow.i("initData   ",history.toString());
         mAdapter.setOnItemClickListener { view, data, position ->
-
             startActivity(Intent(_mActivity, TodoDetailActivity::class.java).apply {
                 putExtra("params",
                         Bundle().apply {
                             putSerializable("todoItem",data)
-//                            putString("taskId", data.taskId)
-//                            putString("procInstId", data.masterId)
                         })
             })
         }
+        onQuery(history.data)
         LogShow.i("initData   ", "");
     }
 
     override fun loadData(page: Int) {
-        mPresenter.queryodoList(page)
+        
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
@@ -67,8 +66,8 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
     }
 
 
-    override fun onQuery(list: MutableList<TodoItem>?) {
-        LogShow.i(" onQuery  ", list?.size, mAdapter);
+    override fun onQuery(list: MutableList<HistoryData>?) {
+        LogShow.i("onQuery  ", list?.size, mAdapter);
         refreshLayout?.postDelayed({
             mAdapter?.data = list
             refreshLayout?.finishLoad()
@@ -79,26 +78,12 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
     override fun getLayoutId() = R.layout.fragment_noticelist
 }
 
-class TodoListPresenter : BasePresenterImpl<TodoListView>() {
-    private var mDisposable: Disposable? = null
-    fun queryodoList(page: Int) {
-        LogShow.i("queryodoList ", page);
-        mDisposable = Api.getApiService().getTodoList(page, 20).subscribeWith(object : BaseResultObserver<BaseResult<TodoBean>>() {
-            override fun onResult(todoBean: BaseResult<TodoBean>?) {
-                LogShow.i("queryodoList   ", todoBean?.result?.list?.size);
-                mView.onQuery(todoBean?.result?.list)
-            }
+class RecorListPresenter : BasePresenterImpl<RecorListView>() {
 
-            override fun onFailure(e: Throwable, error: String) {
-                ToastUtil.show(error)
-            }
-        })
-
-    }
 }
 
-interface TodoListView : BaseView2 {
+interface RecorListView : BaseView2 {
 
-    fun onQuery(list: MutableList<TodoItem>?)
+    fun onQuery(list: MutableList<HistoryData>?)
 }
 

@@ -4,7 +4,7 @@ import hxz.www.commonbase.model.ExamineBean;
 import hxz.www.commonbase.model.ListBody;
 import com.longer.creditManager.contract.ExamineContracr;
 import hxz.www.commonbase.net.BaseResultObserver;
-import com.longer.creditManager.specificmodel.MainModel;
+import com.longer.creditManager.login.MainModel;
 
 import hxz.www.commonbase.base.mvp.BasePresenter;
 import hxz.www.commonbase.util.ToastUtil;

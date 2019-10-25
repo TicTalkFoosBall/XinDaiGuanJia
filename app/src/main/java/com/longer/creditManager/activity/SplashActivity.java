@@ -2,8 +2,6 @@ package com.longer.creditManager.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
 
 import com.longer.creditManager.MainActivity;
 import com.longer.creditManager.R;

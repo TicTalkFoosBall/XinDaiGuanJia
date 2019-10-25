@@ -3,7 +3,7 @@ package com.longer.creditManager.login;
 import hxz.www.commonbase.model.LoginBeae;
 import hxz.www.commonbase.model.LoginBody;
 import hxz.www.commonbase.net.BaseResultObserver;
-import com.longer.creditManager.specificmodel.MainModel;
+
 
 import hxz.www.commonbase.base.mvp.BasePresenter;
 import hxz.www.commonbase.util.ToastUtil;

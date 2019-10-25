@@ -1,6 +1,10 @@
-package hxz.www.commonbase.model;
+package hxz.www.commonbase.model.todo;
+
+import android.support.annotation.NonNull;
 
 import java.io.Serializable;
+
+import hxz.www.commonbase.util.GsonUtil;
 
 
 public class TodoItem implements Serializable {
@@ -12,6 +16,7 @@ public class TodoItem implements Serializable {
     private String startTime;
     private String timeout;
     private String formGroupCode;
+    private String procInstId;
     private String masterId;
     public void setType(String type) {
         this.type = type;
@@ -69,4 +74,17 @@ public class TodoItem implements Serializable {
         return masterId;
     }
 
+    public String getProcInstId() {
+        return procInstId;
+    }
+
+    public void setProcInstId(String procInstId) {
+        this.procInstId = procInstId;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return GsonUtil.toJson(this);
+    }
 }

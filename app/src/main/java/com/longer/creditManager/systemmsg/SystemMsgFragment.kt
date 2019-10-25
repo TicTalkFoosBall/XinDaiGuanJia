@@ -36,6 +36,7 @@ class SystemMsgFragment : BaseListFragment<SystemMsgPresenter, SystemMsgAdapter>
 //                }
 //            })
         }
+        toolbar.setTitle("系统消息")
         toolbar.setLeftClick(View.OnClickListener
         {
             _mActivity.finish()

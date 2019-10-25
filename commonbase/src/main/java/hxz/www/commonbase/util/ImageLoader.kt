@@ -4,8 +4,8 @@ import android.text.TextUtils
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import hxz.www.commonbase.R
 import hxz.www.commonbase.app.BaseApplication
+
 import java.io.File
 
 object ImageLoader {
@@ -24,10 +24,10 @@ object ImageLoader {
 
 
     fun load(url: String?, imageView: ImageView) {
-        if (TextUtils.isEmpty(url)) {
-            imageView.setImageResource(R.drawable.transparent)
-            return
-        }
+//        if (TextUtils.isEmpty(url)) {
+//            imageView.setImageResource(R.drawable.transparent)
+//            return
+//        }
         Glide.with(BaseApplication.getInstance()).load(url).thumbnail(THUMBNAIL).into(imageView)
 
     }

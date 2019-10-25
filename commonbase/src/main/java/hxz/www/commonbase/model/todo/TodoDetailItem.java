@@ -1,10 +1,9 @@
 package hxz.www.commonbase.model.todo;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class TodoDetailItem {
-
-
+public class TodoDetailItem implements Serializable {
 
         /**
          * fieldList : [{"fieldName":"BusinessNo","fieldNote":"业务编号","controlType":"searchComponent","value":""},{"fieldName":"KehuName","fieldNote":"客户名称","controlType":"0","value":""},{"fieldName":"CardId","fieldNote":"证件号码","controlType":"0","value":""},{"fieldName":"Amount","fieldNote":"贷款金额","controlType":"0"},{"fieldName":"QiShu","fieldNote":"贷款期限","controlType":"0"},{"fieldName":"BeginDate","fieldNote":"放款日期","controlType":"7"},{"fieldName":"EndDate","fieldNote":"到期日期","controlType":"7"},{"fieldName":"Status","fieldNote":"审批状态","controlType":"17","value":""},{"fieldName":"F_ID","fieldNote":"外键","controlType":"0"}]

@@ -1,4 +1,4 @@
-package com.longer.creditManager.specificmodel;
+package com.longer.creditManager.login;
 /**
  *
  * 填写网络方法
@@ -18,7 +18,7 @@ public class MainModel extends BaseModel {
 
     public Disposable getBa1(String a, String b, String c, BaseResultObserver<Ba1> observer){
 
-        return getApiService().getBa1(a,b,c).subscribeWith(observer);
+        return BaseModel.getApiService().getBa1(a,b,c).subscribeWith(observer);
     }
 
 
@@ -26,14 +26,14 @@ public class MainModel extends BaseModel {
 
     public Disposable getLoginBeae (LoginBody loginBody , BaseResultObserver<LoginBeae> observer){
 
-        return getApiService().getLoginBeae(loginBody).subscribeWith(observer);
+        return BaseModel.getApiService().getLoginBeae(loginBody).subscribeWith(observer);
     }
 
 
     // 审批待办列表
 
     public Disposable getExamineBean(String token, ListBody listBody, BaseResultObserver<ExamineBean> observer){
-        return getApiService().getExamineList(token,listBody).subscribeWith(observer);
+        return BaseModel.getApiService().getExamineList(token,listBody).subscribeWith(observer);
     }
 
 
