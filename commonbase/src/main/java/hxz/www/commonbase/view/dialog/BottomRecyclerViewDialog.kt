@@ -1,3 +1,4 @@
+package hxz.www.commonbase.view.dialog
 
 import android.content.Context
 import android.os.Bundle
@@ -9,12 +10,10 @@ import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.model.PopModel
 import hxz.www.commonbase.util.FastClickUtil
-import hxz.www.commonbase.view.dialog.BottomUpDialog
 import kotlinx.android.synthetic.main.dialog_bottom_recyclerview.*
 
 
-
-class BottomRecyclerViewDialog constructor(context: Context,
+public class BottomRecyclerViewDialog constructor(context: Context,
                                            list: MutableList<PopModel>
 ) : BottomUpDialog(context, R.layout.dialog_bottom_recyclerview, null) {
 

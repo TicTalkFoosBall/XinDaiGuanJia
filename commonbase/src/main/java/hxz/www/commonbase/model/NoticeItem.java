@@ -2,9 +2,11 @@ package hxz.www.commonbase.model;
 
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
+
 import hxz.www.commonbase.util.GsonUtil;
 
-public class NoticeItem {
+public class NoticeItem implements Serializable {
 
     private long id;
     private String title;

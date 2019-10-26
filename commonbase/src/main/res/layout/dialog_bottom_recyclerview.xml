@@ -35,7 +35,7 @@
         android:layout_height="50dp"
         android:gravity="center"
         android:text="取消"
-        android:textColor="@color/red_FF6666"
+        android:textColor="@color/gray_999999"
         android:textSize="16dp" />
 
 

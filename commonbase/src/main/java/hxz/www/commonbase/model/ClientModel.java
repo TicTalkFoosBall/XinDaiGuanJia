@@ -2,10 +2,12 @@ package hxz.www.commonbase.model;
 
 import android.support.annotation.NonNull;
 
+import java.io.Serializable;
+
 import hxz.www.commonbase.util.GsonUtil;
 
 
-public  class ClientModel {
+public  class ClientModel implements Serializable {
         private String name;
                 private String mobile;
                 private String id;

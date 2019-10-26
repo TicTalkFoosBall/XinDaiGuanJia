@@ -3,14 +3,17 @@ package com.longer.creditManager.notice
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import com.longer.creditManager.R
 import com.longer.creditManager.fragment.BaseListFragment
+import com.longer.creditManager.recording.NoticeDetailFragment
+import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.model.NoticeItem
 import hxz.www.commonbase.model.NoticeListModel
 import hxz.www.commonbase.state.MultiStateView
+import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
 import kotlinx.android.synthetic.main.fragment_noticelist.*
+
 
 /**
 @Author  :rickBei
@@ -22,18 +25,17 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
     override fun bindAdapter() = NoticelistAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
-         LogShow.i("initRefreshLayout  ",refreshLayout);
+        LogShow.i("initRefreshLayout  ", refreshLayout);
         refreshLayout?.setLayoutManager(LinearLayoutManager(_mActivity))
+        refreshLayout?.recyclerView?.addItemDecoration(VerticalItemDecoration(8))
         refreshLayout?.setEnableLoadMore(true)
     }
 
     override fun initData() {
-        refreshLayout?.recyclerView?.let {
-//            ItemClickSupport.addTo(it).addOnChildClickListener(R.id.iv_delete, object : ItemClickSupport.OnChildClickListener {
-//                override fun onChildClicked(recyclerView: RecyclerView, position: Int, v: View) {
-//
-//                }
-//            })
+
+        mAdapter.setOnItemClickListener { view, data, position ->
+            LogShow.i("NoticeListFragment.kt  initData", data.content)
+            start(FragmentHelper.newInstance(NoticeDetailFragment::class.java, getHtmlData(data.content),data))
         }
         toolbar.setTitle("通知公告")
         toolbar.setLeftClick(View.OnClickListener
@@ -41,7 +43,15 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
             _mActivity.finish()
         })
 
-         LogShow.i("initData   ","");
+        LogShow.i("initData   ", "")
+    }
+
+    private fun getHtmlData(bodyHTML: String): String {
+        val head = ("<head>"
+                + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"> "
+                + "<style>img{max-width: 100%; width:100%; height:auto;}*{margin:0px;}</style>"
+                + "</head>")
+        return "<html>$head<body>$bodyHTML</body></html>"
     }
 
     override fun loadData(page: Int) {
@@ -49,16 +59,16 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
-         LogShow.i("  onLazyInitView ","");
+        LogShow.i("  onLazyInitView ", "")
         refresh()
     }
 
     override fun onQueryBlackList(list: NoticeListModel?) {
-        list?.let {    onQuery(list?.list) }
+        list?.let { onQuery(list?.list) }
     }
 
     private fun onQuery(list: MutableList<NoticeItem>?) {
-         LogShow.i(" onQuery  ",list?.size,mAdapter);
+        LogShow.i(" onQuery  ", list?.size, mAdapter);
         refreshLayout?.postDelayed({
             mAdapter?.data = list
             refreshLayout?.finishLoad()
@@ -66,6 +76,6 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
         }, 500)
     }
 
-    override fun getLayoutId() = R.layout.fragment_noticelist
+    override fun getLayoutId() = com.longer.creditManager.R.layout.fragment_noticelist
 
 }

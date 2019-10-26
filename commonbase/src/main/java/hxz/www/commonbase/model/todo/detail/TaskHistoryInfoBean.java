@@ -1,4 +1,4 @@
-package hxz.www.commonbase.model.todo;
+package hxz.www.commonbase.model.todo.detail;
 
 import android.support.annotation.NonNull;
 

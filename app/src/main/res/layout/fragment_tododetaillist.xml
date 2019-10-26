@@ -1,53 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
-<android.support.constraint.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/skin_theme"
-    tools:ignore="MissingDefaultResource">
+    android:layout_height="match_parent">
 
+    <android.support.v4.widget.NestedScrollView
 
-    <hxz.www.commonbase.view.KLToolbar
-        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:tb_leftImage="@mipmap/back"
-        android:layout_height="wrap_content" />
+        android:paddingBottom="100dp"
+        android:layout_height="match_parent">
 
-    <hxz.www.commonbase.view.KLRefreshLayout
-        android:id="@+id/refreshLayout"
-        android:layout_width="0dp"
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/skin_theme"
+            tools:ignore="MissingDefaultResource">
+
+
+            <hxz.www.commonbase.view.KLToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tb_leftImage="@mipmap/back" />
+
+            <hxz.www.commonbase.view.KLRefreshLayout
+                android:id="@+id/refreshLayout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="#f2f2f2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar"
+                app:srlEnableLoadMore="true" />
+
+            <TextView
+                android:id="@+id/tv_recording"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="审核记录"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/refreshLayout"></TextView>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#f2f2f2"
-        app:srlEnableLoadMore="true"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        app:layout_constraintRight_toRightOf="parent"
-     />
-    <TextView
-        android:id="@+id/tv_recording"
-        android:layout_width="0dp"
-        android:background="@color/white"
-        android:textSize="15sp"
-        android:text="审核记录"
-        android:paddingBottom="15dp"
-        android:paddingTop="15dp"
-        android:paddingLeft="15dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/refreshLayout"
-        android:textColor="@color/black_333333"
-        android:layout_height="wrap_content"></TextView>
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/bt_examine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bottonlan_xiaojiao"
+            android:text="立即审批"
+            android:textColor="#ffffff"
+            android:textSize="14sp" />
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
-
-</android.support.v4.widget.NestedScrollView>

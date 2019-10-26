@@ -1,133 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    >
-    <LinearLayout
-        android:layout_width="match_parent"
+    android:background="#f2f2f2"
+
+    android:orientation="horizontal">
+
+    <TextView
+        android:layout_width="12dp"
+        android:layout_height="144dp"
+        android:layout_marginTop="20dp"
+        android:background="#f2f2f2" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#f2f2f2"
-        >
+        android:background="#ffffff"
+        android:paddingBottom="20dp"
+        android:paddingTop="20dp"
+        android:orientation="vertical">
+
         <TextView
-            android:layout_marginTop="20dp"
-            android:layout_width="12dp"
-            android:layout_height="144dp"
-            android:background="#f2f2f2"
-            />
-        <RelativeLayout
+            android:id="@+id/tv_company"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="#ffffff"
-            >
-            <TextView
-                android:id="@+id/tv_company"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="18dp"
-                android:text="南京龙戈软件有限公司"
-                android:textColor="#212121"
-                android:textSize="16sp" />
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="18dp"
+            android:text="南京龙戈软件有限公司"
+            android:textColor="#212121"
+            android:textSize="16sp" />
 
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="50dp"
-                android:text="审批意见："
-                android:textColor="#212121"
-                android:textSize="12sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="70dp"
-                android:layout_marginTop="50dp"
-                android:textColor="#212121"
-                android:text=""
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="15dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="85dp"
-                android:text="200.000.000"
-                android:textSize="12sp"
-                android:id="@+id/tv_opinion"
-                />
+        <TextView
+            android:id="@+id/tv_optionTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="50dp"
+            android:text="审批意见："
+            android:textColor="#212121"
+            android:textSize="12sp" />
 
 
-            <TextView
-                android:layout_width="70dp"
-                android:layout_height="15dp"
-                android:layout_above="@+id/tv_variety"
-                android:layout_alignStart="@+id/tv_company"
-                android:layout_marginBottom="-95dp"
-                android:text="业务品种："
-                android:textSize="12sp" />
+        <TextView
+            android:id="@+id/tv_opinion"
+            android:layout_width="wrap_content"
+            android:layout_height="15dp"
+         android:layout_toRightOf="@id/tv_optionTip"
+            android:layout_marginTop="50dp"
+            android:text="200.000.000"
+            android:textSize="12sp" />
 
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:text=" "
-                android:background="@drawable/bottonyuanj"
-                android:id="@+id/b_1"
-                android:textColor="#f1f1f1"
-                />
-            <View
-                android:id="@+id/line1"
-                android:layout_width="341dp"
-                android:layout_height="1dp"
-                android:background="#ebebeb"
-                android:layout_marginTop="110dp"
-                android:layout_marginLeft="10dp"
-                />
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:textSize="10sp"
-                android:text="审批人： "
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/line1"
-                android:textColor="#2e2e2e "
-                android:id="@+id/tv_owner"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="10sp"
-                android:text="2019.01.02"
-                android:layout_marginLeft="65dp"
-                android:layout_marginTop="20dp"
-             android:layout_below="@id/line1"
-                android:textColor="#2e2e2e "
-                android:id="@+id/tv_starttime"
-                />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_below="@id/line1"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="20dp"
-                android:background="@drawable/button_biankuang"
-                android:id="@+id/bt_time"
-                android:textColor="#f6822b"
-                android:textSize="10dp"
-                android:text="3天6时前"
-                />
-        </RelativeLayout>
-    </LinearLayout>
+
+        <TextView
+            android:id="@+id/b_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bottonyuanj"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingRight="15dp"
+            android:paddingBottom="5dp"
+            android:text=" "
+            android:textColor="#f1f1f1"
+            tools:text="同意" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/tv_opinion"
+            android:layout_marginTop="20dp"
+           android:layout_marginRight="20dp"
+            android:background="#ebebeb" />
+
+        <TextView
+            android:id="@+id/tv_owner_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:text="审批人： "
+            android:textColor="#2e2e2e "
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_owner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line1"
+            android:layout_toRightOf="@id/tv_owner_tip"
+            android:layout_marginTop="20dp"
+            android:text="2019.01.02"
+            android:textColor="#2e2e2e "
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/line1"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:text=""
+            android:textColor="#2e2e2e "
+            android:textSize="10sp" />
+    </RelativeLayout>
+
 </LinearLayout>

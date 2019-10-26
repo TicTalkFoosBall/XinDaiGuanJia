@@ -12,7 +12,7 @@ import hxz.www.commonbase.cache.Cache;
 
 
 public class SplashActivity extends BaseActivity2 {
-    
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_splash;
@@ -20,15 +20,12 @@ public class SplashActivity extends BaseActivity2 {
 
     @Override
     protected void initEventAndData(Bundle savedInstanceState) {
-        if (Cache.isLogin())
-        {
+        if (Cache.isLogin()) {
             startActivity(new Intent(this, MainActivity.class));
-        }
-        else
-        {
+        } else {
             startActivity(new Intent(this, LoginActivity.class));
         }
-
+        finish();
     }
 
 

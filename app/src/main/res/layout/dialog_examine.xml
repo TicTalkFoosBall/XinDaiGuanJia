@@ -1,170 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="351dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="351dp"
     android:layout_height="350dp"
     android:orientation="vertical"
 
     >
 
     <EditText
-        android:layout_marginTop="20dp"
+        android:id="@+id/ev_opinion"
         android:layout_width="315dp"
         android:layout_height="93dp"
-        android:background="@drawable/bg_edittext"
-        android:padding="15dp"
-        android:textSize="14sp"
-        android:hint="请填写审批意见"
         android:layout_marginLeft="20dp"
-        android:textColor="#949494"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/bg_edittext"
         android:gravity="left"
-        android:id="@+id/ev_opinion"
-        />
+        android:hint="请填写审批意见"
+        android:padding="15dp"
+        android:textColor="#949494"
+        android:textSize="14sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
-            />
         <LinearLayout
+            android:id="@+id/ll_result"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:orientation="horizontal"
-
             >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
-                android:text="产品名称"
                 android:gravity="center"
+                android:text="审批结果"
                 android:textColor="#777777"
-                android:textSize="14sp"
-                />
+                android:textSize="14sp" />
 
             <TextView
-
+                android:id="@+id/tv_result"
+                android:layout_width="150dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="90dp"
                 android:gravity="right"
-                android:layout_width="150dp"
-                android:layout_height="30dp"
                 android:text="请选择审批结果"
-                android:textSize="14sp"
                 android:textColor="#bcbcbc"
-                android:id="@+id/tv_result"
-                />
+                android:textSize="14sp" />
+
             <org.angmarch.views.NiceSpinner
-                android:layout_width="wrap_content"
-                android:layout_marginTop="17dp"
-                android:layout_height="10dp"
-
-
                 android:id="@+id/sp_result"
-                />
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="315dp"
-            android:layout_marginLeft="20dp"
-            android:layout_height="1dp"
-            android:background="#efefee"
-
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:orientation="horizontal"
-
-            >
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="15dp"
-                android:text="下一审批人"
-                android:gravity="center"
-                android:textColor="#777777"
-                android:textSize="14sp"
-                />
-
-            <TextView
-
-                android:layout_marginLeft="75dp"
-                android:gravity="right"
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:text="请选择下一审批人"
-                android:textSize="14sp"
-                android:textColor="#bcbcbc"
-                android:id="@+id/tv_approver"
-                />
-            <org.angmarch.views.NiceSpinner
                 android:layout_width="wrap_content"
-                android:layout_marginTop="17dp"
                 android:layout_height="10dp"
-                android:id="@+id/sp_approver"
-                />
+
+                android:layout_marginTop="17dp" />
 
         </LinearLayout>
+
         <TextView
             android:layout_width="315dp"
+            android:layout_height="1dp"
             android:layout_marginLeft="20dp"
-            android:layout_height="1dp"
-            android:background="#efefee"
+            android:background="#efefee" />
 
-            />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:orientation="horizontal"
-
-            >
-            <TextView
-                android:layout_width="80dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="10dp"
-                android:text="下一环节"
-                android:gravity="center"
-                android:textColor="#777777"
-                android:textSize="14sp"
-                />
-
-            <TextView
-
-                android:layout_marginLeft="75dp"
-                android:gravity="right"
-                android:layout_width="150dp"
-                android:layout_height="30dp"
-                android:text="请选择下一审批环节"
-                android:textSize="14sp"
-                android:textColor="#bcbcbc"
-                android:id="@+id/tv_link"
-                />
-            <org.angmarch.views.NiceSpinner
-                android:layout_width="wrap_content"
-                android:layout_marginTop="17dp"
-                android:layout_height="10dp"
-                android:id="@+id/sp_link"
-                />
-
-        </LinearLayout>
-        <TextView
-            android:layout_width="315dp"
-            android:layout_height="1dp"
-            android:background="#efefee"
-            android:layout_marginLeft="27dp"
-            />
     </LinearLayout>
+
     <Button
+        android:id="@+id/b_submit"
         android:layout_width="315dp"
         android:layout_height="43dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/bottonlan_xiaojiao"
         android:text="提     交"
         android:textColor="#ffffff"
-        android:textSize="16sp"
-        android:layout_marginTop="3dp"
-        android:layout_marginLeft="20dp"
-        android:background="@drawable/bottonlan_xiaojiao"
-        android:id="@+id/b_submit"
-        />
+        android:textSize="16sp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="20dp" />

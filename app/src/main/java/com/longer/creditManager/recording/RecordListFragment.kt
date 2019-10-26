@@ -1,20 +1,14 @@
 package com.longer.creditManager.recording
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.longer.creditManager.R
 import com.longer.creditManager.fragment.BaseListFragment
-import com.longer.creditManager.todo.detail.TodoDetailActivity
-import com.longer.creditManager.todo.list.TodoListPresenter
-import com.longer.creditManager.todo.list.TodoListView
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
-import hxz.www.commonbase.model.todo.HistoryData
-import hxz.www.commonbase.model.todo.TaskHistoryInfoBean
-import hxz.www.commonbase.model.todo.TodoItem
+import hxz.www.commonbase.model.todo.detail.HistoryData
+import hxz.www.commonbase.model.todo.detail.TaskHistoryInfoBean
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.log.LogShow
@@ -37,23 +31,16 @@ class RecordListFragment : BaseListFragment<RecorListPresenter, RecordlistAdapte
         refreshLayout?.recyclerView?.let {
 
         }
-        toolbar.setTitle("审批代办")
+        toolbar.setTitle("审核记录")
         toolbar.setLeftClick(View.OnClickListener
         {
-            _mActivity.finish()
+            pop()
         })
         var history=getParameter(0) as TaskHistoryInfoBean
          LogShow.i("initData   ",history.toString());
-        mAdapter.setOnItemClickListener { view, data, position ->
-            startActivity(Intent(_mActivity, TodoDetailActivity::class.java).apply {
-                putExtra("params",
-                        Bundle().apply {
-                            putSerializable("todoItem",data)
-                        })
-            })
-        }
+
         onQuery(history.data)
-        LogShow.i("initData   ", "");
+
     }
 
     override fun loadData(page: Int) {

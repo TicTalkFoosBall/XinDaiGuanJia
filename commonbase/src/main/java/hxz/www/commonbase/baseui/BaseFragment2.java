@@ -3,12 +3,10 @@ package hxz.www.commonbase.baseui;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gyf.immersionbar.ImmersionBar;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
 import org.greenrobot.eventbus.EventBus;
@@ -17,7 +15,6 @@ import butterknife.ButterKnife;
 import hxz.www.commonbase.R;
 import hxz.www.commonbase.baseui.mvp.BaseView2;
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl;
-import hxz.www.commonbase.uibase.mvp.BaseView;
 import hxz.www.commonbase.util.TUtil;
 import hxz.www.commonbase.util.fragment.FragmentHelper;
 import hxz.www.commonbase.view.dialog.LoadingDialog;
@@ -87,7 +84,7 @@ public abstract class BaseFragment2<T extends BasePresenterImpl> extends SwipeBa
      * @return
      */
     public boolean getSwipeBackEnable() {
-        return true;
+        return false;
     }
 
     public void initParams(Object[] params) {
@@ -129,7 +126,7 @@ public abstract class BaseFragment2<T extends BasePresenterImpl> extends SwipeBa
         setSwipeBackEnable(getSwipeBackEnable());
 
         if (getTitleBar() != 0) {
-            ImmersionBar.setTitleBarMarginTop(this, rootView.findViewById(getTitleBar()));
+//            ImmersionBar.setTitleBarMarginTop(this, rootView.findViewById(getTitleBar()));
         }
 
 

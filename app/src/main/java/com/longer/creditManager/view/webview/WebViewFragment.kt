@@ -11,8 +11,10 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.gyf.immersionbar.ImmersionBar
 import com.longer.creditManager.R
+import com.longer.creditManager.recording.AttachmentFragment
 import hxz.www.commonbase.baseui.BaseFragment2
 import hxz.www.commonbase.util.ToastUtil
+import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.dialog.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_webview.*
@@ -40,11 +42,12 @@ class WebViewFragment : BaseFragment2<Nothing>() {
             } else {
                 "?"
             }
-
         }
-
+        var showToolbar = true
+        var isUrl = true
+        var showRightTxt = false
         if (len > 1) {
-            val showToolbar = mParams[1] as Boolean
+            showToolbar = mParams[1] as Boolean
             toolbar?.setLeftClick(navBackListener())
             if (!showToolbar) {
                 toolbar?.visibility = View.GONE
@@ -56,6 +59,21 @@ class WebViewFragment : BaseFragment2<Nothing>() {
             toolbar?.setTitle(mTitle)
         }
 
+        if (len > 3) {
+            isUrl = mParams[3] as Boolean
+        }
+
+        if (len > 4) {
+            showRightTxt = mParams[4] as Boolean
+            if (showRightTxt) {
+                toolbar?.setRightText("附件")
+                toolbar?.setRightClick(View.OnClickListener {
+                    start(FragmentHelper.newInstance(AttachmentFragment::class.java))
+                })
+            }
+
+        }
+        LogShow.i("WebViewFragment.kt  initEventAndData", showToolbar, isUrl)
 
         webView.webChromeClient = object : WebChromeClient() {
 
@@ -98,8 +116,11 @@ class WebViewFragment : BaseFragment2<Nothing>() {
 
         LogShow.d("url=$mUrl")
 
-        webView.loadUrl(mUrl)
-
+        if (isUrl) {
+            webView.loadUrl(mUrl)
+        } else {
+            webView.loadDataWithBaseURL(null, mUrl, "text/html", "utf-8", null);
+        }
     }
 
     private fun toLoadInnerApp(url: String) {

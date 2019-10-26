@@ -7,14 +7,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.longer.creditManager.R
-import hxz.www.commonbase.model.ClientModel
 import com.longer.creditManager.clientdetail.ClientDetailActivity
 import com.longer.creditManager.fragment.BaseListFragment
 import hxz.www.commonbase.adapter.ItemClickSupport
 import hxz.www.commonbase.adapter.KlDialog
+import hxz.www.commonbase.model.ClientModel
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
+import kotlinx.android.synthetic.main.fragment_noticelist.*
 
 class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), ClientContract.View {
 
@@ -42,9 +43,16 @@ class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), Clien
             })
 
 mAdapter.setOnItemClickListener{view, data, position ->
- startActivity(Intent(activity, ClientDetailActivity::class.java))
+ startActivity(Intent(activity, ClientDetailActivity::class.java).apply {
+     putExtra("params",Bundle().apply { putSerializable("client",data) })
+ })
 }
         }
+
+        toolbar.setLeftClick(View.OnClickListener
+        {
+            _mActivity.finish()
+        })
          LogShow.i("initData   ","");
     }
 

@@ -96,11 +96,7 @@
         <activity android:name=".Main5Activity" />
         <activity android:name=".activity.AboutActivity" />
         <activity android:name=".login.LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".chat.ChatActivity" />
         <activity android:name=".activity.LeaveRequestActivity" />
@@ -122,7 +118,13 @@
         <activity android:name=".todo.list.TodoActivity" />
         <activity android:name=".activity.NewSurveyActivity" />
         <activity android:name=".activity.ApprovedMemoActivity" />
-        <activity android:name=".activity.SplashActivity" />
+        <activity android:name=".activity.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.CustomerInformationActivity2" />
         <activity android:name=".todo.detail.TodoDetailActivity" />
         <activity android:name=".activity.CustomerInformationcompanyActivity" />

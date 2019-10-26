@@ -11,16 +11,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-
-import com.hjq.bar.R;
 import com.longer.creditManager.MainActivity;
-
-import hxz.www.commonbase.model.LoginBeae;
-import hxz.www.commonbase.model.LoginBody;
-
+import com.longer.creditManager.R;
+import com.longer.creditManager.activity.ForgetThePasswordActivity;
 
 import hxz.www.commonbase.base.mvp.BaseMvpActivity;
 import hxz.www.commonbase.cache.Cache;
+import hxz.www.commonbase.model.LoginBeae;
+import hxz.www.commonbase.model.LoginBody;
 import hxz.www.commonbase.util.EncryptUtil;
 import hxz.www.commonbase.util.ToastUtil;
 import hxz.www.commonbase.util.log.LogShow;

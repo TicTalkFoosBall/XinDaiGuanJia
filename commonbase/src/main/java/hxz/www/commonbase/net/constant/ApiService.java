@@ -4,6 +4,7 @@ package hxz.www.commonbase.net.constant;
 import java.util.List;
 import java.util.Map;
 
+import hxz.www.commonbase.model.Attachment;
 import hxz.www.commonbase.model.Ba1;
 import hxz.www.commonbase.model.ClientModel;
 import hxz.www.commonbase.model.ExamineBean;
@@ -12,9 +13,10 @@ import hxz.www.commonbase.model.LoginBeae;
 import hxz.www.commonbase.model.LoginBody;
 import hxz.www.commonbase.model.NoticeListModel;
 import hxz.www.commonbase.model.SystemMsgModel;
-import hxz.www.commonbase.model.todo.TodoBean;
 import hxz.www.commonbase.model.UnreadBean;
-import hxz.www.commonbase.model.todo.TodoDetailItem;
+import hxz.www.commonbase.model.todo.TodoBean;
+import hxz.www.commonbase.model.todo.detail.Approval;
+import hxz.www.commonbase.model.todo.detail.TodoDetailItem;
 import hxz.www.commonbase.net.BaseResult;
 import io.reactivex.Single;
 import retrofit2.http.Body;
@@ -69,9 +71,18 @@ public interface ApiService {
     @GET("formGroup/formGroupCode/attachment/masterId")
     Single<BaseResult<TodoDetailItem>> getAttachments(@Body Map<String,String> params);
 
-    //附件列表
-    @GET(" formGroup/tabs/{formGroupCode} ")
+    //公告附件列表
+    @GET("file/files/{noticeId}")
+    Single<BaseResult<List<Attachment>>> getNoticeAttachments(@Path("noticeId") String noticeId);
+
+    //
+    @GET(" formGroup/tabs/{formGroupCode}")
     Single<BaseResult<TodoDetailItem>> getMoreMenu(@Path("formGroupCode") String formGroupCode);
+
+
+    //提交审核
+    @POST("task/handler")
+    Single<BaseResult<TodoDetailItem>> commitApproval(@Body Approval loginBody);
 
 
     @GET("lfcp-android.support.v4.app/task/list")

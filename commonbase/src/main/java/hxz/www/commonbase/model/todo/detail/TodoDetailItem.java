@@ -1,7 +1,9 @@
-package hxz.www.commonbase.model.todo;
+package hxz.www.commonbase.model.todo.detail;
 
 import java.io.Serializable;
 import java.util.List;
+
+import hxz.www.commonbase.model.todo.FieldListBean;
 
 public class TodoDetailItem implements Serializable {
 
