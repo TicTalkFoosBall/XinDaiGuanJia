@@ -9,12 +9,12 @@ import android.widget.TextView;
 import com.longer.creditManager.R;
 import com.longer.creditManager.activity.ExaminationActivity;
 import com.longer.creditManager.adapter.Adapter;
-import hxz.www.commonbase.model.LoginBeae;
 import com.longer.creditManager.notice.NoticeActivity;
 import com.longer.creditManager.notice.SystemMsgActivity;
 import com.longer.creditManager.todo.list.TodoActivity;
 
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
+import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.Notices;
 import hxz.www.commonbase.model.SystemMsgs;
 import hxz.www.commonbase.model.Tasks;
@@ -114,10 +114,6 @@ addToPresenters(mPresenter);
         }
     }
 
-    @Override
-    public void showData(LoginBeae loginBeae) {
-
-    }
 
     @Override
     public void onQueryUnread(UnreadBean unreadBean) {

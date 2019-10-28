@@ -4,12 +4,12 @@ package hxz.www.commonbase.net.constant;
 import java.util.List;
 import java.util.Map;
 
+import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.Attachment;
 import hxz.www.commonbase.model.Ba1;
 import hxz.www.commonbase.model.ClientModel;
 import hxz.www.commonbase.model.ExamineBean;
 import hxz.www.commonbase.model.ListBody;
-import hxz.www.commonbase.model.LoginBeae;
 import hxz.www.commonbase.model.LoginBody;
 import hxz.www.commonbase.model.NoticeListModel;
 import hxz.www.commonbase.model.SystemMsgModel;
@@ -36,7 +36,7 @@ public interface ApiService {
 
     // 登录
     @POST("auth")
-    Single<LoginBeae> getLoginBeae(@Body LoginBody loginBody);
+    Single<BaseResult<UserInfo>> getLoginBeae(@Body LoginBody loginBody);
 
     // 通知公告
     @GET("notice/list")

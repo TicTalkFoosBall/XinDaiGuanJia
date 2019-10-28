@@ -1,14 +1,11 @@
 package hxz.www.commonbase.net;
 
 
-import android.content.Intent;
-
 import java.net.ConnectException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.net.UnknownServiceException;
 
-import hxz.www.commonbase.app.BaseApplication;
 import hxz.www.commonbase.cache.Cache;
 import hxz.www.commonbase.util.ToastUtil;
 import hxz.www.commonbase.util.log.LogShow;
@@ -30,22 +27,29 @@ public abstract class BaseResultObserver<T> extends DisposableSingleObserver<T> 
     @Override
     public void onSuccess(T t) {
         dispose();
-        if (t instanceof ResponseBean) {
+        LogShow.i("BaseResultObserver  onSuccess begin",t instanceof BaseResult);
+        if (t instanceof BaseResult) {
             /**
              * 处理接口返回的code码
              */
-            ResponseBean responseBean = (ResponseBean) t;
+            BaseResult responseBean = (BaseResult) t;
             if (responseBean.getCode().equals(HttpErrorCode.USER_NO_LOGIN)) {
                 Cache.setUserInfo(null);
-//                BaseApplication.getInstance().tokenExpire();
-//                Intent intent = new Intent( BaseApplication.getInstance(), LoginActivity.class);
-//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-//                BaseApplication.getInstance().startActivity(intent);
             }
-
+            LogShow.i("BaseResultObserver  onSuccess",responseBean.getCode());
+            if (responseBean.getCode().equals(HttpErrorCode.SUCCESS))
+            {
+                LogShow.i("BaseResultObserver  onSuccess");
+                onResult(t);
+            }
+            else {
+                dispose();
+                onFailure(new Throwable(),((BaseResult) t).getMsg());
+            }
         }
-        LogShow.i("BaseResultObserver  onSuccess");
-        onResult(t);
+
+
+
     }
 
     @Override
@@ -68,7 +72,6 @@ public abstract class BaseResultObserver<T> extends DisposableSingleObserver<T> 
         LogShow.i("BaseResultObserver  onError",msgError,e.getMessage());
         ToastUtil.show(msgError);
         onFailure(e, msgError);
-
     }
 
     /**

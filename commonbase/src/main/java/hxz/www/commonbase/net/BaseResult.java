@@ -4,13 +4,13 @@ import java.io.Serializable;
 
  public class BaseResult<T> implements Serializable {
 
-    private int code;
+    private String code;
     private String msg;
     private T result;
 
 
 
-    public int getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -20,7 +20,7 @@ import java.io.Serializable;
 
 
 
-    public void setCode(int code) {
+    public void setCode(String code) {
         this.code = code;
     }
 

@@ -1,15 +1,14 @@
 package com.longer.creditManager.login;
 
-import hxz.www.commonbase.model.LoginBeae;
-import hxz.www.commonbase.model.LoginBody;
-
 import hxz.www.commonbase.base.mvp.IBaseView;
+import hxz.www.commonbase.cache.UserInfo;
+import hxz.www.commonbase.model.LoginBody;
 
 public interface LoginContracr {
 
      interface View extends IBaseView{
 
-        void showData(LoginBeae loginBeae);
+        void showData(UserInfo loginBeae);
 
     }
     interface Presenter {

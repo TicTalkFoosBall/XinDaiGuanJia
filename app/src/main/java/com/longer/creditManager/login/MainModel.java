@@ -5,13 +5,14 @@ package com.longer.creditManager.login;
  */
 
 import com.longer.creditManager.basemodel.BaseModel;
+
+import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.Ba1;
 import hxz.www.commonbase.model.ExamineBean;
-import hxz.www.commonbase.model.LoginBeae;
 import hxz.www.commonbase.model.ListBody;
 import hxz.www.commonbase.model.LoginBody;
+import hxz.www.commonbase.net.BaseResult;
 import hxz.www.commonbase.net.BaseResultObserver;
-
 import io.reactivex.disposables.Disposable;
 
 public class MainModel extends BaseModel {
@@ -24,7 +25,7 @@ public class MainModel extends BaseModel {
 
     // 登录
 
-    public Disposable getLoginBeae (LoginBody loginBody , BaseResultObserver<LoginBeae> observer){
+    public Disposable getLoginBeae (LoginBody loginBody , BaseResultObserver<BaseResult<UserInfo>> observer){
 
         return BaseModel.getApiService().getLoginBeae(loginBody).subscribeWith(observer);
     }

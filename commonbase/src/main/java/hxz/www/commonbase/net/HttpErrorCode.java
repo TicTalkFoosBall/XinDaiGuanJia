@@ -1,6 +1,6 @@
 package hxz.www.commonbase.net;
+
 /**
- *
  * Dec:错误码
  */
 public interface HttpErrorCode {
@@ -9,5 +9,6 @@ public interface HttpErrorCode {
      * 用户未登录
      */
     String USER_NO_LOGIN = "30036";
+    String SUCCESS = "000000";
 
 }

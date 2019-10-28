@@ -5,7 +5,6 @@ import android.widget.EditText
 import hxz.www.commonbase.util.DisplayUtil
 import hxz.www.commonbase.util.RegexUtil
 import hxz.www.commonbase.util.SoftKeyBoardListener
-import java.math.BigDecimal
 import kotlin.math.abs
 
 
@@ -29,17 +28,7 @@ fun View?.followKeybord(activity: Activity, moduleHeight: Int) {
     })
 }
 
-/**
- * 转换格式，用于钻石等，比如将13000转换为1.3W
- */
-fun Long?.covertUnit(): String {
-    this?.let {
-        if (this >= 10000)
-            return "${BigDecimal(this.toDouble() / 10000).setScale(2, BigDecimal.ROUND_HALF_UP).toDouble()}w"
-        return this.toString()
-    }
-    return "0"
-}
+
 
 /**
  * toast服务器返回的错误提示，统一处理

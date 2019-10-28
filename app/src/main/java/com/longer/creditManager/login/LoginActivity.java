@@ -17,7 +17,7 @@ import com.longer.creditManager.activity.ForgetThePasswordActivity;
 
 import hxz.www.commonbase.base.mvp.BaseMvpActivity;
 import hxz.www.commonbase.cache.Cache;
-import hxz.www.commonbase.model.LoginBeae;
+import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.LoginBody;
 import hxz.www.commonbase.util.EncryptUtil;
 import hxz.www.commonbase.util.ToastUtil;
@@ -129,10 +129,10 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
     }
 
     @Override
-    public void showData(LoginBeae loginBeae) {
-        if (loginBeae != null&&loginBeae.getResult()!=null) {
-            String code = loginBeae.getCode();
-            Cache.setUserInfo(loginBeae.getResult());
+    public void showData(UserInfo userInfo) {
+        if (userInfo != null) {
+
+            Cache.setUserInfo(userInfo);
             LogShow.i("LoginActivity  showData",e_username.getText().toString());
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
