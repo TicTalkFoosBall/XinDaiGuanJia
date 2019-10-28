@@ -85,39 +85,37 @@
             android:value="portrait|landscape" />
         <!-- 全面屏状态栏屏幕适配结束 -->
 
-        <activity android:name=".Main2Activity" />
-        <activity android:name=".activity.ExaminationActivity" />
-        <activity android:name=".activity.CustomerInformationActivity" />
-        <activity android:name=".activity.Add_ConsumerClientActivity" />
-        <activity android:name=".activity.Add_BusinessCustomerActivity" />
-        <activity android:name=".activity.BusinessdetailsActivity" />
-        <activity android:name=".Main3Activity" />
-        <activity android:name=".Main4Activity" />
-        <activity android:name=".Main5Activity" />
-        <activity android:name=".activity.AboutActivity" />
-        <activity android:name=".login.LoginActivity">
-
-        </activity>
-        <activity android:name=".chat.ChatActivity" />
-        <activity android:name=".activity.LeaveRequestActivity" />
-        <activity android:name=".notice.SystemMsgActivity" />
-        <activity android:name=".notice.NoticeActivity" />
-        <activity android:name=".activity.AccessoryActivity" />
-        <activity android:name=".activity.GeneraLsurveyActivity" />
-        <activity android:name=".activity.CustomerChoiceActivity" />
-        <activity android:name=".activity.GuaranteeBusinessActivity" />
-        <activity android:name=".activity.CollectActivity" />
-        <activity android:name=".activity.SurveyActivity" />
-        <activity android:name=".activity.AcceptTheSummaryActivity" />
-        <activity android:name=".activity.DayOfMaturityActivity" />
-        <activity android:name=".activity.ExpireActivity" />
-        <activity android:name=".activity.ReimbursementActivity" />
-        <activity android:name=".activity.RegardsActivity" />
-        <activity android:name=".activity.AttachmentActivity" />
-        <activity android:name=".clientdetail.ClientDetailActivity" />
-        <activity android:name=".todo.list.TodoActivity" />
-        <activity android:name=".activity.NewSurveyActivity" />
-        <activity android:name=".activity.ApprovedMemoActivity" />
+        <activity android:name=".Main2Activity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ExaminationActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.CustomerInformationActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.Add_ConsumerClientActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.Add_BusinessCustomerActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.BusinessdetailsActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".Main3Activity"  android:screenOrientation="portrait"/>
+        <activity android:name=".Main4Activity"  android:screenOrientation="portrait"/>
+        <activity android:name=".Main5Activity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AboutActivity" android:screenOrientation="portrait" />
+        <activity android:name=".login.LoginActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".chat.ChatActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.LeaveRequestActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".notice.SystemMsgActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".notice.NoticeActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AccessoryActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.GeneraLsurveyActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.CustomerChoiceActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.GuaranteeBusinessActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.CollectActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.SurveyActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AcceptTheSummaryActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DayOfMaturityActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ExpireActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ReimbursementActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.RegardsActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.AttachmentActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".clientdetail.ClientDetailActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".todo.list.TodoActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.NewSurveyActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ApprovedMemoActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -125,11 +123,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.CustomerInformationActivity2" />
-        <activity android:name=".todo.detail.TodoDetailActivity" />
-        <activity android:name=".activity.CustomerInformationcompanyActivity" />
-        <activity android:name=".activity.ForgetThePasswordActivity" />
-        <activity android:name=".activity.ExamineActivity"></activity>
+        <activity android:name=".activity.CustomerInformationActivity2"  android:screenOrientation="portrait"/>
+        <activity android:name=".todo.detail.TodoDetailActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.CustomerInformationcompanyActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ForgetThePasswordActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".activity.ExamineActivity"  android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

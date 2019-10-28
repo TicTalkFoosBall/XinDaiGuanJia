@@ -2,7 +2,6 @@ package hxz.www.commonbase.net.constant;
 
 
 import java.util.List;
-import java.util.Map;
 
 import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.Attachment;
@@ -15,6 +14,7 @@ import hxz.www.commonbase.model.NoticeListModel;
 import hxz.www.commonbase.model.SystemMsgModel;
 import hxz.www.commonbase.model.UnreadBean;
 import hxz.www.commonbase.model.todo.TodoBean;
+import hxz.www.commonbase.model.todo.buinese.BusineseTab;
 import hxz.www.commonbase.model.todo.detail.Approval;
 import hxz.www.commonbase.model.todo.detail.TodoDetailItem;
 import hxz.www.commonbase.net.BaseResult;
@@ -29,6 +29,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
       String BASE_URL = "http://120.79.56.152:9010/lfcp-app/";
+      String FILE_URL = "http://120.79.56.152:8010";
 
     @GET("dish_list.php")
     Single<Ba1> getBa1(@Query("stage_id") String stage_id, @Query("limit") String limitm, @Query("page") String page);
@@ -68,8 +69,8 @@ public interface ApiService {
     Single<BaseResult<TodoDetailItem>> getTodoDetail(@Query("taskId") String taskId, @Query("procInstId") String procInstId);
 
     //附件列表
-    @GET("formGroup/formGroupCode/attachment/masterId")
-    Single<BaseResult<TodoDetailItem>> getAttachments(@Body Map<String,String> params);
+    @GET("{formGroup}/{formGroupCode}/attachment/{masterId}")
+    Single<BaseResult<List<Attachment>>> getAttachments(@Path("formGroup") String formGroup,@Path("formGroupCode") String formGroupCode,@Path("masterId") String masterId);
 
     //公告附件列表
     @GET("file/files/{noticeId}")
@@ -83,6 +84,11 @@ public interface ApiService {
     //提交审核
     @POST("task/handler")
     Single<BaseResult<TodoDetailItem>> commitApproval(@Body Approval loginBody);
+
+
+    //统计菜单
+    @GET("statistics/list")
+    Single<BaseResult<BusineseTab>> getStatisticsTab();
 
 
     @GET("lfcp-android.support.v4.app/task/list")

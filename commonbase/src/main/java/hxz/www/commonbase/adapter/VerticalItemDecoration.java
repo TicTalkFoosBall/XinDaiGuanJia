@@ -18,6 +18,5 @@ public class VerticalItemDecoration extends RecyclerView.ItemDecoration {
 
         outRect.bottom = space;
 
-
     }
 }

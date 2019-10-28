@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.longer.creditManager.R
 import com.longer.creditManager.basemodel.Api
-import com.longer.creditManager.fragment.BaseListFragment
+import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.todo.detail.TodoDetailActivity
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2

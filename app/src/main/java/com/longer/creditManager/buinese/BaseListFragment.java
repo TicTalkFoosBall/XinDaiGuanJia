@@ -1,4 +1,4 @@
-package com.longer.creditManager.fragment;
+package com.longer.creditManager.buinese;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

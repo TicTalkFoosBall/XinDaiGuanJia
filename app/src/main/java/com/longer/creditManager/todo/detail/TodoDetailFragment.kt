@@ -16,10 +16,11 @@ import com.longer.creditManager.R
 import com.longer.creditManager.basemodel.Api
 import com.longer.creditManager.dialog.ExaminationDialog
 import com.longer.creditManager.dialog.OptionDialogListener
-import com.longer.creditManager.fragment.BaseListFragment
+import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.recording.RecordListFragment
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
+import hxz.www.commonbase.model.Attachment
 import hxz.www.commonbase.model.PopModel
 import hxz.www.commonbase.model.todo.FieldListBean
 import hxz.www.commonbase.model.todo.TodoItem
@@ -110,6 +111,9 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
             })
             commitDialog?.show()
         }
+        mPresenter.queryMore( todoItem?.formGroupCode.value())
+        mPresenter.queryAttachments(null)
+//        mPresenter.queryAttachments(todoItem)
     }
 
     var commitDialog: ExaminationDialog? = null
@@ -251,18 +255,23 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
         })
     }
 
-    fun queryAttachments(todoItem: TodoItem) {
-        var params = mutableMapOf<String, String>().apply {
-            this["masterId"] = todoItem.masterId
-            this["formGroupCode"] = todoItem.formGroupCode
-            this["formCode"] = todoItem.type
+    fun queryAttachments(todoItem: TodoItem?) {
+        todoItem?.let {
+            var params = mutableMapOf<String, String>().apply {
+                this["masterId"] = todoItem.masterId
+                this["formGroupCode"] = todoItem.formGroupCode
+                this["formCode"] = todoItem.type
+            }
+
         }
+        var formGroupCode="CustomerMgt"
+        var masterId="98380080077602817"
+        var formCode="BIZ_Attachments"
         LogShow.i("queryAttachments ", todoItem.toString())
 
-        mDisposable = Api.getApiService().getAttachments(params).subscribeWith(object : BaseResultObserver<BaseResult<TodoDetailItem>>() {
-            override fun onResult(todoBean: BaseResult<TodoDetailItem>?) {
-                LogShow.i("queryodoList   ", todoBean?.result?.fieldList?.size);
-                mView.onQuery(todoBean?.result?.fieldList)
+        mDisposable = Api.getApiService().getAttachments( formGroupCode,formCode,masterId).subscribeWith(object : BaseResultObserver<BaseResult<List<Attachment>>>() {
+            override fun onResult(todoBean: BaseResult<List<Attachment>>?) {
+                LogShow.i("queryAttachments   ", todoBean?.result)
             }
 
             override fun onFailure(e: Throwable, error: String) {
@@ -271,18 +280,18 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
         })
     }
 
-    fun queryMore(fromcode: String) {
-//        LogShow.i("queryMore   ", fromcode);
-//        mDisposable = Api.getApiService().getMoreMenu(fromcode).subscribeWith(object : BaseResultObserver<BaseResult<TodoDetailItem>>() {
-//            override fun onResult(todoBean: BaseResult<TodoDetailItem>?) {
-//                mView.onQuery(todoBean?.result?.fieldList)
-//
-//            }
-//
-//            override fun onFailure(e: Throwable, error: String) {
-//                ToastUtil.show(error)
-//            }
-//        })
+    fun queryMore(fromGroupcode: String) {
+        LogShow.i("queryMore   ", fromGroupcode);
+        mDisposable = Api.getApiService().getMoreMenu(fromGroupcode).subscribeWith(object : BaseResultObserver<BaseResult<TodoDetailItem>>() {
+            override fun onResult(todoBean: BaseResult<TodoDetailItem>?) {
+                mView.onQuery(todoBean?.result?.fieldList)
+
+            }
+
+            override fun onFailure(e: Throwable, error: String) {
+                ToastUtil.show(error)
+            }
+        })
     }
 
 
@@ -313,5 +322,6 @@ interface TodoDetailView : BaseView2 {
     fun onQueryCommitOption(approval: MutableList<ApprovalResultListBean>?)
 
     fun onCommitApproal(isSUccess: Boolean)
+
 }
 

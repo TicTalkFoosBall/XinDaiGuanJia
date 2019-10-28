@@ -6,11 +6,11 @@ import android.net.Uri
 import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
+import android.webkit.DownloadListener
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.gyf.immersionbar.ImmersionBar
-import com.longer.creditManager.R
 import com.longer.creditManager.recording.AttachmentFragment
 import hxz.www.commonbase.baseui.BaseFragment2
 import hxz.www.commonbase.util.ToastUtil
@@ -18,13 +18,14 @@ import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.dialog.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_webview.*
+import toast
 
 
 class WebViewFragment : BaseFragment2<Nothing>() {
     private var mUrl: String = ""
     private val delegate = DefaultDelegate()
     override fun getLayoutId(): Int {
-        return R.layout.fragment_webview
+        return com.longer.creditManager.R.layout.fragment_webview
     }
 
     override fun initEventAndData(savedInstanceState: Bundle?) {
@@ -37,11 +38,6 @@ class WebViewFragment : BaseFragment2<Nothing>() {
 
             mUrl = mParams[0] as String
 
-            mUrl += if (mUrl.contains("?")) {
-                "&"
-            } else {
-                "?"
-            }
         }
         var showToolbar = true
         var isUrl = true
@@ -74,7 +70,7 @@ class WebViewFragment : BaseFragment2<Nothing>() {
 
         }
         LogShow.i("WebViewFragment.kt  initEventAndData", showToolbar, isUrl)
-
+        initWebview()
         webView.webChromeClient = object : WebChromeClient() {
 
         }
@@ -83,19 +79,6 @@ class WebViewFragment : BaseFragment2<Nothing>() {
             override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
                 LogShow.d("override url:$url")
                 var shouldOverride = false
-                url?.let {
-                    if (!url.toLowerCase().startsWith("https://") && !url.toLowerCase().startsWith("http://")) {
-                        //加载手机内置支付
-                        toLoadInnerApp(url)
-                        return true
-                    }
-                    shouldOverride = delegate.shouldOverrideUrl(this@WebViewFragment, view, url)
-                    if (url.contains("payCenter.html")) {
-                        // 关闭当前页面
-                        pop()
-                    }
-
-                }
 
                 return shouldOverride
             }
@@ -116,11 +99,43 @@ class WebViewFragment : BaseFragment2<Nothing>() {
 
         LogShow.d("url=$mUrl")
 
-        if (isUrl) {
-            webView.loadUrl(mUrl)
+        if (mUrl.endsWith("pdf") || mUrl.endsWith("doc") || mUrl.endsWith("xls") || mUrl.endsWith("other")) {
+            "格式不支持".toast()
         } else {
-            webView.loadDataWithBaseURL(null, mUrl, "text/html", "utf-8", null);
+            if (isUrl) {
+                webView.loadUrl(mUrl)
+            } else {
+                webView.loadDataWithBaseURL(null, mUrl, "text/html", "utf-8", null);
+            }
         }
+
+
+    }
+
+    private fun readPdf() {
+        webView.setDownloadListener(object : DownloadListener {
+            override fun onDownloadStart(url: String?, userAgent: String?, contentDisposition: String?, mimetype: String?, contentLength: Long) {
+                var uri = Uri.parse(url)
+                var intent = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(intent)
+            }
+        })
+    }
+
+    private fun initWebview() {
+        val settings = webView.settings
+        // 设置WebView支持JavaScript
+        settings.javaScriptEnabled = true
+        //支持自动适配
+        settings.useWideViewPort = true
+        settings.loadWithOverviewMode = true
+        settings.setSupportZoom(true)  //支持放大缩小
+        settings.builtInZoomControls = true //显示缩放按钮
+        settings.blockNetworkImage = true// 把图片加载放在最后来加载渲染
+        settings.allowFileAccess = true // 允许访问文件
+        settings.saveFormData = true
+        settings.setGeolocationEnabled(true)
+        settings.domStorageEnabled = true
     }
 
     private fun toLoadInnerApp(url: String) {
@@ -147,7 +162,7 @@ class WebViewFragment : BaseFragment2<Nothing>() {
     }
 
     override fun getTitleBar(): Int {
-        return R.id.viewTop
+        return com.longer.creditManager.R.id.viewTop
     }
 
     override fun showError(reqCode: Int, msg: String) {

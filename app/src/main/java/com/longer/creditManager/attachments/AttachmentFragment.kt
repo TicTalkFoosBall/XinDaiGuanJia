@@ -5,7 +5,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.longer.creditManager.R
 import com.longer.creditManager.basemodel.Api
-import com.longer.creditManager.fragment.BaseListFragment
+import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.view.webview.WebViewFragment
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
@@ -13,6 +13,7 @@ import hxz.www.commonbase.model.Attachment
 import hxz.www.commonbase.model.NoticeItem
 import hxz.www.commonbase.net.BaseResult
 import hxz.www.commonbase.net.BaseResultObserver
+import hxz.www.commonbase.net.constant.ApiService
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.ToastUtil
@@ -47,14 +48,19 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
 
         mAdapter.setOnItemClickListener { view, data, position ->
             LogShow.i("NoticeListFragment.kt  initData", data.toString())
-            start(FragmentHelper.newInstance(WebViewFragment::class.java, data.url))
+            start(FragmentHelper.newInstance(WebViewFragment::class.java,ApiService.FILE_URL+ data.realPath))
         }
     }
 
     override fun onQueryAttachment(attachment: MutableList<Attachment>?) {
         LogShow.i(" onQuery  ", attachment?.size, mAdapter);
+        var list= mutableListOf<Attachment>()
+        attachment?.let {
+            list.addAll(attachment)
+        }
+
         refreshLayout?.postDelayed({
-            mAdapter?.data = attachment
+            mAdapter?.data = list
             refreshLayout?.finishLoad()
             refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
         }, 500)

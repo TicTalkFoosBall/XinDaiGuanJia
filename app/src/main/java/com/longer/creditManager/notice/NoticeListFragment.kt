@@ -3,7 +3,7 @@ package com.longer.creditManager.notice
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
-import com.longer.creditManager.fragment.BaseListFragment
+import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.recording.NoticeDetailFragment
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.model.NoticeItem
