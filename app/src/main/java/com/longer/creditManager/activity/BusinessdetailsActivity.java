@@ -1,13 +1,10 @@
 package com.longer.creditManager.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
-
-
 import com.longer.creditManager.R;
-import com.longer.creditManager.util.AndroidBug54971Workaround;
 
 
 public class BusinessdetailsActivity extends AppCompatActivity {
@@ -17,6 +14,6 @@ public class BusinessdetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_businessdetails);
-        AndroidBug54971Workaround.assistActivity(findViewById(android.R.id.content),this);
+
     }
 }

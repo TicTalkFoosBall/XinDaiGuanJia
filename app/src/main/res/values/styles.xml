@@ -23,4 +23,13 @@
         <item name="android:background">@drawable/selector_nicespinner</item>
         <item name="android:paddingLeft">5dip</item>
     </style>
+
+
+    <style name="tv_busTv">
+        <item name="android:layout_width">100dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center</item>
+
+    </style>
 </resources>

@@ -116,6 +116,7 @@
         <activity android:name=".todo.list.TodoActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.NewSurveyActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.ApprovedMemoActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".buinese.detail.BusineseDetailActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
