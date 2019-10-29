@@ -14,7 +14,7 @@ import hxz.www.commonbase.util.log.LogShow
 class BusineseTitleAdapter : BaseAdapter<TitleBean>() {
     override fun getItemLayoutResId(data: TitleBean?, position: Int) = R.layout.adapter_title
     override fun bindData(holder: ViewHolder?, data: TitleBean?, position: Int) {
-        LogShow.i("BusineDataAdapter.ktter.kt  bindData", data)
+        LogShow.i("BusineDataAdapter.ktter.kt  bindData", data?.fieldName)
         holder?.setText(R.id.tv_name, data?.fieldNote)
     }
 

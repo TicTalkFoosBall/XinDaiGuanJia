@@ -10,19 +10,16 @@
     <TextView
         android:id="@+id/tv_busData1"
         style="@style/tv_busTv"
-        android:layout_width="wrap_content"
         tools:text="sds"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/tv_busData2"
         style="@style/tv_busTv"
-        android:layout_width="wrap_content"
         tools:text="sds"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/tv_busData3"
         style="@style/tv_busTv"
-        android:layout_width="wrap_content"
         tools:text="sds"
         android:layout_height="wrap_content" />
 
@@ -35,13 +32,11 @@
     <TextView
         android:id="@+id/tv_busData5"
         style="@style/tv_busTv"
-        android:layout_width="wrap_content"
         tools:text="sds"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/tv_busData6"
         style="@style/tv_busTv"
-        android:layout_width="wrap_content"
         tools:text="sds"
         android:layout_height="wrap_content" />
     <TextView
@@ -54,7 +49,6 @@
     <TextView
         android:id="@+id/tv_busData8"
         style="@style/tv_busTv"
-        android:layout_width="wrap_content"
         tools:text="sds"
         android:layout_height="wrap_content" />
 
@@ -67,13 +61,11 @@
     <TextView
         android:id="@+id/tv_busData10"
         style="@style/tv_busTv"
-        android:layout_width="wrap_content"
         tools:text="sds"
         android:layout_height="wrap_content" />
     <TextView
         android:id="@+id/tv_busData11"
         style="@style/tv_busTv"
-        android:layout_width="wrap_content"
         tools:text="sds"
         android:layout_height="wrap_content" />
 

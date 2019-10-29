@@ -1,5 +1,6 @@
 package hxz.www.commonbase.model.todo.buinese;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public   class TitleListBean {
@@ -8,7 +9,7 @@ public   class TitleListBean {
              * fieldNote : 选择产品
              */
 
-            private List<TitleBean> titleList;
+            private List<TitleBean> titleList=new ArrayList<>();
 
     public List<TitleBean> getTitleList() {
         return titleList;

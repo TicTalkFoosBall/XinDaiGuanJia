@@ -25,10 +25,9 @@ class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
     override fun onQuery(detail: BusineseDetailBean) {
         var databean = DataBean()
         var titelList=TitleListBean()
-        titelList.titleList=detail.title
+        titelList.titleList.addAll(detail.title)
         var titlejsoon = GsonUtil.toJson( titelList)
 
-        LogShow.i("BusinessDetailFragmentilFragment.kt  onQuery", titlejsoon)
         databean.lilv = titlejsoon
         var dataList= mutableListOf<DataBean>()
         dataList.addAll(detail.data)
