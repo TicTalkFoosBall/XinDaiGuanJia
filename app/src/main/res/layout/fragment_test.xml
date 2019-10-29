@@ -10,15 +10,14 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:tb_leftImage="@mipmap/back"
         app:tb_title="测试" />
-
-
-
 
     <HorizontalScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/toolbar"
         android:scrollbars="none">
 
         <android.support.v7.widget.RecyclerView
@@ -30,8 +29,9 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/ry_test2"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content" />
+        android:layout_width="120dp"
+        android:layout_below="@id/toolbar"
+        android:layout_height="match_parent" />
 
 
 </RelativeLayout>

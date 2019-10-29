@@ -1,6 +1,8 @@
 package hxz.www.commonbase.model.todo.buinese;
 
-public   class TitleBean {
+import java.io.Serializable;
+
+public   class TitleBean implements Serializable {
             /**
              * fieldName : ProductCode
              * fieldNote : 选择产品

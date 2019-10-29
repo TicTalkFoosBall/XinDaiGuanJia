@@ -9,7 +9,7 @@ public class SystemMsgtem {
     private long id;
     private String title;
 
-    private String createtime;
+    private Long createdTime;
     private String content;
 
     public void setId(long id) {
@@ -28,12 +28,12 @@ public class SystemMsgtem {
         return title;
     }
 
-    public void setCreatetime(String createtime) {
-        this.createtime = createtime;
+    public void setCreatetime(Long createtime) {
+        this.createdTime = createtime;
     }
 
-    public String getCreatetime() {
-        return createtime;
+    public Long getCreatetime() {
+        return createdTime;
     }
 
     public void setContent(String content) {
