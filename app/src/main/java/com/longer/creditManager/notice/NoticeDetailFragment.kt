@@ -27,6 +27,10 @@ class NoticeDetailFragment : BaseFragment2<NoticeDetailPresenter>(), NoticeDetai
         {
             start(FragmentHelper.newInstance(AttachmentFragment::class.java,item))
         })
+        toolbar.setLeftClick(View.OnClickListener
+        {
+         pop()
+        })
 
 
         initWeb()

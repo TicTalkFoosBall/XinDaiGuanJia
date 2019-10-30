@@ -13,6 +13,7 @@ import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
 import kotlinx.android.synthetic.main.fragment_noticelist.*
+import value
 
 
 /**
@@ -35,7 +36,7 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
 
         mAdapter.setOnItemClickListener { view, data, position ->
             LogShow.i("NoticeListFragment.kt  initData", data.content)
-            start(FragmentHelper.newInstance(NoticeDetailFragment::class.java, getHtmlData(data.content),data))
+            start(FragmentHelper.newInstance(NoticeDetailFragment::class.java, getHtmlData(data.content.value()),data))
         }
         toolbar.setTitle("通知公告")
         toolbar.setLeftClick(View.OnClickListener

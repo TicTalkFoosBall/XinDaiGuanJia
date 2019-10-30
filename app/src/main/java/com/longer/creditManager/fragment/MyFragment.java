@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
@@ -32,6 +33,7 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
     private ImageView iv_headportrait,iv_regard; // 头像 关于
     private LinearLayout share,about; // 头像 关于
     private Button exit;
+    private TextView name;
 
     public MyFragment() {
         // Required empty public constructor
@@ -69,6 +71,7 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
         share = mRootView.findViewById(R.id.ll_share);
         about = mRootView.findViewById(R.id.ll_about);
         exit = mRootView.findViewById(R.id.bt_exit);
+        name = mRootView.findViewById(R.id.tv_name);
         iv_regard.setOnClickListener(this);
         share.setOnClickListener(this);
         about.setOnClickListener(this);
@@ -78,6 +81,7 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
                 .apply(RequestOptions.bitmapTransform(new CircleCrop()))
                 .into(iv_headportrait);
 
+        name.setText(Cache.getUserInfo().getFullname());
     }
 
     @Override

@@ -49,8 +49,6 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
                 putExtra("params",
                         Bundle().apply {
                             putSerializable("todoItem",data)
-//                            putString("taskId", data.taskId)
-//                            putString("procInstId", data.masterId)
                         })
             })
         }

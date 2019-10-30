@@ -13,8 +13,6 @@ class TodoDetailActivity : BaseActivity2<Nothing>()
 
     override fun initEventAndData(savedInstanceState: Bundle?) {
         var params=intent.getBundleExtra("params")
-//        var taskId=params.getString("taskId")
-//        var procInstId=params.getString("procInstId")
         var item=params.getSerializable("todoItem")
          LogShow.i("TodoDetailActivity.kt  initEventAndData",item.toString(),item is TodoItem)
         loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(TodoDetailFragment::class.java,item))
