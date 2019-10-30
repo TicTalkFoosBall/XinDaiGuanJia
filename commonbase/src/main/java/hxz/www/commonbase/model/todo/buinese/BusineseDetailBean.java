@@ -1,5 +1,6 @@
 package hxz.www.commonbase.model.todo.buinese;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * @Date :2019/10/29 13:45
  * @Descripe: From bug to bugs
  **/
-public class BusineseDetailBean {
+public class BusineseDetailBean implements Serializable {
 
         private List<TitleBean> title;
         private List<DataBean> data;

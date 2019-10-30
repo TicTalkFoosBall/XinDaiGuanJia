@@ -5,6 +5,7 @@ import hxz.www.commonbase.net.BaseResult
 import hxz.www.commonbase.net.BaseResultObserver
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.ToastUtil
+import hxz.www.commonbase.util.log.LogShow
 
 
 /**
@@ -18,6 +19,7 @@ class TestPresenter : BasePresenterImpl<TestView>() {
 
            Api.getApiService().getStatisticsDetail(code).subscribeWith(object : BaseResultObserver<BaseResult<BusineseDetailBean>>() {
                 override fun onResult(unreadBean: BaseResult<BusineseDetailBean>) {
+                     LogShow.i("getBusineseDetail   ",unreadBean.result.data.toString());
                     mView.onQuery(unreadBean.result)
                 }
 

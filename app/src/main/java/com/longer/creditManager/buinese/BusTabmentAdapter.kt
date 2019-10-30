@@ -15,8 +15,18 @@ class BusTabmentAdapter : BaseAdapter<DefaultListBean>() {
 
     override fun bindData(holder: ViewHolder, data: DefaultListBean, position: Int) {
         LogShow.i("BusTabmentAdapter  ", data.toString())
+
         holder.setText(R.id.attachment_name, data.name)
-        ImageLoader.load(ApiService.FILE_URL+data.icon,  holder.getView<ImageView>(R.id.attachment_cover))
+        var cover= holder.getView<ImageView>(R.id.attachment_cover)
+        if (data.iconRes!=0)
+        {
+            cover.setImageResource(data.iconRes)
+        }
+        else
+        {
+            ImageLoader.load(ApiService.FILE_URL+data.icon,cover )
+        }
+
     }
 
 

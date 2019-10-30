@@ -22,12 +22,6 @@ import hxz.www.commonbase.base.mvp.IBaseView;
 import hxz.www.commonbase.cache.Cache;
 
 
-/**
- * A simple {@link Fragment} subclass.
- *
- * 我的界面
- *
- */
 public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
 
     private ImageView iv_headportrait,iv_regard; // 头像 关于

@@ -16,11 +16,6 @@ import kotlinx.android.synthetic.main.fragment_noticelist.*
 import value
 
 
-/**
-@Author  :rickBei
-@Date    :2019/8/9 16:09
-@Descripe: From bug to bugs
- **/
 class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(), NoticeListContract.View {
 
     override fun bindAdapter() = NoticelistAdapter()

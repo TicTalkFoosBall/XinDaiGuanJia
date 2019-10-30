@@ -12,6 +12,7 @@ public class DefaultListBean {
 
     private String code;
     private String icon;
+    private int iconRes;
     private String name;
     private String style;
 
@@ -47,6 +48,13 @@ public class DefaultListBean {
         this.style = style;
     }
 
+    public int getIconRes() {
+        return iconRes;
+    }
+
+    public void setIconRes(int iconRes) {
+        this.iconRes = iconRes;
+    }
 
     @Override
     public String toString() {

@@ -13,8 +13,9 @@ class BusineseDetailActivity : BaseActivity2<Nothing>()
 
     override fun initEventAndData(savedInstanceState: Bundle?) {
         var code=intent.getStringExtra("code")
-         LogShow.i("BusineseDetailActivity.kt  initEventAndData",code)
-        loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(BusinessDetailFragment::class.java,code))
+        var name=intent.getStringExtra("name")
+         LogShow.i("BusineseDetailActivity.kt  initEventAndData",code,name)
+        loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(BusinessDetailFragment::class.java,code,name))
 
     }
 

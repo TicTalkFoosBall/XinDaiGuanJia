@@ -11,15 +11,14 @@ import com.longer.creditManager.R;
 import com.longer.creditManager.buinese.detail.BusineseDetailActivity;
 import com.longer.creditManager.recording.BusTabmentAdapter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
 import hxz.www.commonbase.model.todo.buinese.BusineseTab;
+import hxz.www.commonbase.model.todo.buinese.DefaultListBean;
 import hxz.www.commonbase.util.log.LogShow;
 
-/**
- * A simple {@link Fragment} subclass.
- * <p>
- * 业务界面
- */
 public class BusinessFragment extends BaseMvpFragment<BusinesePreseenter> implements View.OnClickListener, BusineseView {
 
     private BusTabmentAdapter adapter;
@@ -69,9 +68,9 @@ public class BusinessFragment extends BaseMvpFragment<BusinesePreseenter> implem
 //        tabRecy.addItemDecoration(new VerticalItemDecoration(DisplayUtil.dp2px(8)));
         adapter.setOnItemClickListener((view, model, position) ->
         {
-            LogShow.i("BusinessFragment  initRecycleview");
             Intent intent = new Intent(getContext(), BusineseDetailActivity.class);
             intent.putExtra("code",tab.getDefaultList().get(position).getCode());
+            intent.putExtra("name",tab.getDefaultList().get(position).getName());
             startActivity(intent);
         });
 
@@ -90,7 +89,13 @@ public class BusinessFragment extends BaseMvpFragment<BusinesePreseenter> implem
         if (tab != null) {
             if (tab.getDefaultList() != null) {
                 this.tab = tab;
-                adapter.setData(tab.getDefaultList());
+                List<DefaultListBean> list=new ArrayList<>();
+                DefaultListBean bean=    new DefaultListBean();
+                bean.setName("更多统计");
+                bean.setIconRes(R.mipmap.business_ico_09);
+                list.addAll(tab.getDefaultList());
+                list.add(bean);
+                adapter.setData(list);
 
             }
 
