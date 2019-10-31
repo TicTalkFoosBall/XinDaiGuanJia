@@ -19,43 +19,41 @@ import kotlinx.android.synthetic.main.fragment_test.*
 class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
 
 
-    var leftList= mutableListOf<String>()
+    var leftList = mutableListOf<String>()
     override fun onQuery(detail: BusineseDetailBean) {
 
-        var titelList=TitleListBean()
+        var titelList = TitleListBean()
         titelList.titleList.addAll(detail.title)
-        var titlejsoon = GsonUtil.toJson( titelList)
-         LogShow.i("onQuery  data ",detail.title.size)
+        var titlejsoon = GsonUtil.toJson(titelList)
+        LogShow.i("onQuery  data ", detail.title.size)
         adapter?.setTitleList(titlejsoon)
-        var dataList= mutableListOf<DataBean>()
+        var dataList = mutableListOf<DataBean>()
         dataList.addAll(detail.data)
-        dataList.add(0,DataBean())
+        dataList.add(0, DataBean())
         adapter?.data = dataList
         leftList.clear()
 
         leftList.add(detail.title.get(0).fieldNote)
 
         detail.data.forEach {
-            var json=GsonUtil.toJson(it)
-            if (json.contains(detail.title.get(0).fieldName))
-            {
-                var value=json.substringAfter(detail.title.get(0).fieldName)
-                 value=value.substringBefore(",")
-                if (value.contains("}"))
-                {
-                    value=value.substringBefore("}")
+            var json = GsonUtil.toJson(it)
+            if (json.contains(detail.title.get(0).fieldName)) {
+                var value = json.substringAfter(detail.title.get(0).fieldName)
+                value = value.substringBefore(",")
+                if (value.contains("}")) {
+                    value = value.substringBefore("}")
                 }
-                if (value.contains(":"))
-                {
-                    value=value.substringAfter(":")
+                if (value.contains(":")) {
+                    value = value.substringAfter(":")
                 }
-                value=value.substring(1,value.length-1)
+                value = value.substring(1, value.length - 1)
                 leftList.add(value)
             }
         }
-        LogShow.i("onQuery  add   ",leftList.size)
+        LogShow.i("onQuery  add   ", leftList.size)
         adapter2?.data = leftList
     }
+
     private var adapter: BusineDataAdapter? = null
     private var adapter2: BusineseTitleAdapter? = null
 
@@ -69,12 +67,14 @@ class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
         toolbar.setTitle(getParameter(1) as String)
         toolbar.setLeftClick(View.OnClickListener
         {
-           _mActivity.finish()
+            _mActivity.finish()
         })
 
         scroll.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
             LogShow.i("BusinessDetailFragment.ktragment.kt  initEventAndData", scrollY - oldScrollY)
-            ry_test2.isVisible = true
+            if (!ry_test2.isVisible) {
+                ry_test2.isVisible = true
+            }
         }
 
     }
@@ -86,8 +86,10 @@ class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
         ry_test.setAdapter(adapter)
         ry_test.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
-                LogShow.i("BusinessDetailFragmentilFragment.kt  onScrolled", dx)
-                ry_test2.isVisible = false
+                if (ry_test2.isVisible) {
+                    ry_test2.isVisible = false
+                }
+
                 super.onScrolled(recyclerView, dx, dy)
             }
         })
@@ -96,6 +98,16 @@ class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
         adapter2 = BusineseTitleAdapter()
         ry_test2.setLayoutManager(manager2)
         ry_test2.setAdapter(adapter2)
+
+        ry_test2.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView?, dx: Int, dy: Int) {
+                if (ry_test2.isVisible) {
+                    ry_test2.isVisible = false
+                }
+
+                super.onScrolled(recyclerView, dx, dy)
+            }
+        })
     }
 
 

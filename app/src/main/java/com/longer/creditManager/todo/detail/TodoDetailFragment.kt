@@ -211,6 +211,7 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
 
         list?.forEach {   LogShow.i("onQueryMore  ", it.name)  }
         list?.let {
+
             mPresenter.queryAttachments(todoItem, it[0]?.code.value())
         }
 
