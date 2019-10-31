@@ -22,14 +22,12 @@ class ClientPreviewAdapter : BaseAdapter<ClientPreviewModel>() {
         var content=data.summary?.split(",")
         var contentStr=""
         content?.forEach { it ->
-            contentStr+=it+"\n"
+            contentStr+=it+"\n"+"   \n"
         }
         holder.setText(R.id.tv_content,contentStr)
         holder.setText(R.id.tv_title,data?.title.value())
         holder.setText(R.id.tv_duration,data.right.value()+"个月")
         holder.setText(R.id.tv_time,data.left.value())
-
-
     }
 
 }

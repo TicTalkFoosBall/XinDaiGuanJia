@@ -1,8 +1,10 @@
 package com.longer.creditManager.clientdetail
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.longer.creditManager.R
+import com.longer.creditManager.client.preview.ClientPreviewActivity
 import com.longer.creditManager.notice.ClientDetailView
 import hxz.www.commonbase.baseui.BaseActivity2
 import hxz.www.commonbase.model.client.ClientDetail
@@ -34,6 +36,10 @@ class ClientDetailActivity: BaseActivity2<ClientDetailPresenter>(),ClientDetailV
         {
             finish()
         })
+        tv_clientPreview.setOnClickListener {
+            startActivity(Intent(this, ClientPreviewActivity::class.java).apply { putExtra("params",model?.id) })
+
+        }
         mPresenter.getClientPerson(model?.id.value())
     }
 

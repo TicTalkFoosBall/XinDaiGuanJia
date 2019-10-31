@@ -22,7 +22,7 @@ class BusineDataAdapter : BaseAdapter<MutableMap<String,String>>() {
     override fun bindData(holder: ViewHolder, data: MutableMap<String,String>?, position: Int) {
         var container = holder.getView<LinearLayout>(R.id.ll_container)
          LogShow.i("BusineDataAdapter   ",data?.get("Status"),data.toString());
-        
+
         tvList.clear()
         for (i in 0 until container.childCount) {
             container.getChildAt(i)?.let {

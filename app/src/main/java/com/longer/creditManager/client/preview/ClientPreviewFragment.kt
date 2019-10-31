@@ -6,6 +6,7 @@ import android.view.View
 import com.longer.creditManager.R
 import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.client.preview.ClientPreviewView
+import dp2px
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.model.ClientPreviewModel
 import hxz.www.commonbase.state.MultiStateView
@@ -15,17 +16,17 @@ import kotlinx.android.synthetic.main.fragment_noticelist.*
 
 class ClientPreviewFragment : BaseListFragment<ClientPreviewPresenter, ClientPreviewAdapter>(), ClientPreviewView {
 
-
     override fun bindAdapter() = ClientPreviewAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
-        LogShow.i("initRefreshLayout  ", refreshLayout);
+
         refreshLayout?.setLayoutManager(LinearLayoutManager(_mActivity))
         refreshLayout?.setEnableLoadMore(true)
-        refreshLayout?.recyclerView?.addItemDecoration(VerticalItemDecoration(10))
+        refreshLayout?.recyclerView?.addItemDecoration(VerticalItemDecoration(10f.dp2px()))
     }
 
     override fun initData() {
+        LogShow.i("initRefreshLayout  ", refreshLayout);
         refreshLayout?.recyclerView?.let {
 
             mAdapter.setOnItemClickListener { view, data, position ->
@@ -37,8 +38,9 @@ class ClientPreviewFragment : BaseListFragment<ClientPreviewPresenter, ClientPre
         {
             _mActivity.finish()
         })
-        LogShow.i("initData   ", "")
-        mPresenter.queryClient("98367323471091545")
+        var id=getParameter(0) as String
+        LogShow.i("initData   ", id)
+        mPresenter.queryClient(id)
     }
 
 

@@ -97,6 +97,7 @@
         <activity android:name=".activity.AboutActivity" android:screenOrientation="portrait" />
         <activity android:name=".login.LoginActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".chat.ChatActivity"  android:screenOrientation="portrait"/>
+        <activity android:name=".client.preview.ClientPreviewActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".activity.LeaveRequestActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".notice.SystemMsgActivity"  android:screenOrientation="portrait"/>
         <activity android:name=".notice.NoticeActivity"  android:screenOrientation="portrait"/>

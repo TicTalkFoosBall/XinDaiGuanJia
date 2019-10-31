@@ -16,7 +16,6 @@ class ClientPreviewPresenter : BasePresenterImpl<ClientPreviewView>() {
             mDisposable=Api.getApiService().getCustomerPreview(code).
         subscribeWith(object : BaseResultObserver<BaseResult<MutableList<ClientPreviewModel>>>() {
             override fun onResult(loginBeae: BaseResult<MutableList<ClientPreviewModel>>?) {
-                 LogShow.i("queryClient   ",loginBeae?.result?.toString())
                 mView.onQueryPreview(loginBeae?.result)
 
             }
