@@ -55,10 +55,29 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
     override fun onQueryAttachment(attachment: MutableList<Attachment>?) {
         LogShow.i(" onQuery  ", attachment?.size, mAdapter);
         var list= mutableListOf<Attachment>()
-        attachment?.let {
-            list.addAll(attachment)
+//        attachment?.let {
+//            list.addAll(attachment)
+//        }
+        attachment?.forEachIndexed { index, attachment ->
+            if (index%2==0)
+            {
+                var att=Attachment()
+                att.type="name"
+                att.remark="哈哈哈"
+                list.add(att)
+                var att1=Attachment()
+                att.type="holder"
+                list.add(att1)
+                var att2=Attachment()
+                att.type="holder"
+                list.add(att2)
+                var att3=Attachment()
+                att.type="holder"
+                list.add(att3)
+            }
+            attachment.type="attachment"
+            list.add(attachment)
         }
-
 
         refreshLayout?.postDelayed({
             mAdapter?.data = list
