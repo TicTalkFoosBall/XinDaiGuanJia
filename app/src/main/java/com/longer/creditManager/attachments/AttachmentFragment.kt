@@ -59,6 +59,7 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
             list.addAll(attachment)
         }
 
+
         refreshLayout?.postDelayed({
             mAdapter?.data = list
             refreshLayout?.finishLoad()

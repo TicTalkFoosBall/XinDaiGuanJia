@@ -40,8 +40,17 @@ public class Attachment {
         private String fileSuffix;
         private String url;
         private String realPath;
+        private String type;//holde->占位  name->标题  attachment 附件
 
-        public long getId() {
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public long getId() {
             return id;
         }
 

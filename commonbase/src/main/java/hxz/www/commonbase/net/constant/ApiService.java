@@ -77,8 +77,8 @@ public interface ApiService {
     Single<BaseResult<TodoDetailItem>> getTodoDetail(@Query("taskId") String taskId, @Query("procInstId") String procInstId);
 
     //附件列表
-    @GET("{formGroup}/{formGroupCode}/attachment/{masterId}")
-    Single<BaseResult<List<Attachment>>> getAttachments(@Path("formGroup") String formGroup,@Path("formGroupCode") String formGroupCode,@Path("masterId") String masterId);
+    @GET("formGroup/formGroupCode/attachment/masterId")
+    Single<BaseResult<List<Attachment>>> getAttachments(@Query("formGroupCode") String formGroupCode,@Query("formCode") String formCode,@Query("masterId") String masterId);
 
     //公告附件列表
     @GET("file/files/{noticeId}")

@@ -89,7 +89,7 @@ class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
                 if (ry_test2.isVisible) {
                     ry_test2.isVisible = false
                 }
-
+                ry_test2.scrollTo(0,ry_test.scrollY)
                 super.onScrolled(recyclerView, dx, dy)
             }
         })
