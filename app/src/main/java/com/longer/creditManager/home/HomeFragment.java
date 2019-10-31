@@ -219,22 +219,33 @@ private CircleImageView iv_icon1,iv_icon2,iv_icon3;
                 tabList=tab.getHomeList();
                 for (int i = 0; i <tab.getHomeList().size() ; i++) {
                     HomeListBean bean=tab.getHomeList().get(i);
-                     LogShow.i("onQueryBusineseTab ",bean.getName());
+                     LogShow.i("onQueryBusineseTab ",bean.getName(),bean.getIcon());
+                     String url=bean.getIcon();
+                     CircleImageView img=null;
                     if (i==0)
                     {
+                        img=iv_icon1;
                         tv_option1.setText(bean.getName());
-                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL+bean.getIcon(),iv_icon1);
+
                     }
                     else if (i==1)
                     {
-                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL+bean.getIcon(),iv_icon2);
+                        img=iv_icon2;
                         tv_option2.setText(bean.getName());
                     }
-                    else if (i==3)
+                    else if (i==2)
                     {
-                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL+bean.getIcon(),iv_icon3);
+                        img=iv_icon3;
                         tv_option3.setText(bean.getName());
                     }
+                    if (url.isEmpty())
+                    {
+                        img.setImageResource(R.mipmap.business_ico_06);
+                    }else
+                    {
+                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL+url,img);
+                    }
+
                 }
             }
 

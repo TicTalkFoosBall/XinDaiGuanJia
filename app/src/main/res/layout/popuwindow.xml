@@ -211,15 +211,7 @@
             android:textColor="#474747"
             android:textSize="12sp" />
 
-        <ImageView
-            android:id="@+id/iv_8"
-            android:layout_width="44dp"
-            android:layout_height="45dp"
-            android:layout_alignStart="@+id/iv_2"
-            android:layout_marginTop="110dp"
-            android:src="@mipmap/dbpic_6"
-            android:layout_marginLeft="170dp"
-            />
+
         <ImageView
             android:layout_width="15dp"
             android:layout_height="15dp"
@@ -230,17 +222,7 @@
             android:id="@+id/i_7"
             />
 
-        <TextView
-            android:layout_width="70dp"
-            android:layout_height="30dp"
 
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="27dp"
-            android:layout_marginLeft="280dp"
-            android:gravity="center"
-            android:text="还款计划"
-            android:textColor="#474747"
-            android:textSize="12sp" />
 
 
     </RelativeLayout>
