@@ -18,12 +18,13 @@ import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.dialog.ExaminationDialog
 import com.longer.creditManager.dialog.OptionDialogListener
 import com.longer.creditManager.recording.RecordListFragment
+import com.longer.creditManager.todo.RefreshTodoEvent
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
 import hxz.www.commonbase.model.Attachment
 import hxz.www.commonbase.model.PopModel
-import hxz.www.commonbase.model.todo.FieldListBean
 import hxz.www.commonbase.model.todo.TodoItem
+import hxz.www.commonbase.model.todo.TodoMoreMenuModel
 import hxz.www.commonbase.model.todo.detail.Approval
 import hxz.www.commonbase.model.todo.detail.ApprovalResultListBean
 import hxz.www.commonbase.model.todo.detail.TaskHistoryInfoBean
@@ -42,6 +43,7 @@ import io.reactivex.disposables.Disposable
 import isVisible
 import kotlinx.android.synthetic.main.fragment_noticelist.toolbar
 import kotlinx.android.synthetic.main.fragment_tododetaillist.*
+import org.greenrobot.eventbus.EventBus
 import value
 
 
@@ -112,7 +114,7 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
             })
             commitDialog?.show()
         }
-//        mPresenter.queryMore( todoItem?.formGroupCode.value())
+        mPresenter.queryMore(todoItem?.formGroupCode.value())
 //        mPresenter.queryAttachments(null)
     }
 
@@ -199,15 +201,38 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
-        LogShow.i("onLazyInitView ", "");
+        LogShow.i("onLazyInitView ", "")
         refresh()
     }
 
 
-    override fun onQueryMore(list: MutableList<FieldListBean>?) {
-        LogShow.i(" onQuery  ", list?.size, mAdapter);
+    override fun onQueryMore(list: MutableList<TodoMoreMenuModel>?) {
+
+        list?.forEach {   LogShow.i("onQueryMore  ", it.name)  }
+        list?.let {
+
+            mPresenter.queryAttachments(todoItem, it[0]?.code.value())
+        }
+
+
+    }
+
+
+    override fun onCommitApproal(isSUccess: Boolean) {
+        commitDialog?.dismiss()
+        ToastUtil.show("审批成功")
+        EventBus.getDefault().post(RefreshTodoEvent())
+        _mActivity.finish()
+    }
+
+    override fun onQueryDetail(detailBean: TodoDetailItem?) {
+        detailBean?.let {
+            apprList = it.taskInitInfo?.data?.extendInfo?.approvalResultList
+            history = it.taskHistoryInfo
+
+        }
         refreshLayout?.postDelayed({
-            var filterList = list?.filterNot {
+            var filterList = detailBean?.fieldList?.filterNot {
                 it.fieldNote.contains("隐藏") || it.fieldNote.contains("占位") || it.controlType.contains("21") || it.controlType.contains("13")
             }
 
@@ -215,27 +240,9 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
             refreshLayout?.finishLoad()
             refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
         }, 500)
-        if (list.isNullOrEmpty()) {
+        if (detailBean?.fieldList.isNullOrEmpty()) {
             tv_recording.isVisible = false
         }
-    }
-
-    override fun onQueryHistory(taskHistory: TaskHistoryInfoBean?) {
-        taskHistory?.let {
-            history = it
-        }
-    }
-
-    override fun onQueryCommitOption(approval: MutableList<ApprovalResultListBean>?) {
-        approval?.let {
-            apprList = it
-        }
-    }
-
-    override fun onCommitApproal(isSUccess: Boolean) {
-        commitDialog?.dismiss()
-        ToastUtil.show("审批成功")
-        _mActivity.finish()
     }
 
 
@@ -247,33 +254,19 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
     fun queryTodoDetail(taskId: String, procInstId: String) {
         mDisposable = Api.getApiService().getTodoDetail(taskId, procInstId).subscribeWith(object : BaseResultObserver<BaseResult<TodoDetailItem>>() {
             override fun onResult(todoBean: BaseResult<TodoDetailItem>?) {
-                mView.onQueryMore(todoBean?.result?.fieldList)
-                mView.onQueryHistory(todoBean?.result?.taskHistoryInfo)
-                mView.onQueryCommitOption(todoBean?.result?.taskInitInfo?.data?.extendInfo?.approvalResultList)
+                mView.onQueryDetail(todoBean?.result)
             }
 
             override fun onFailure(e: Throwable, error: String) {
-                mView.onQueryMore(null)
+                mView.onQueryDetail(null)
                 ToastUtil.show(error)
             }
         })
     }
 
-    fun queryAttachments(todoItem: TodoItem?) {
-        todoItem?.let {
-            var params = mutableMapOf<String, String>().apply {
-                this["masterId"] = todoItem.masterId
-                this["formGroupCode"] = todoItem.formGroupCode
-                this["formCode"] = todoItem.type
-            }
-
-        }
-        var formGroupCode = "CustomerMgt"
-        var masterId = "98380080077602817"
-        var formCode = "BIZ_Attachments"
-        LogShow.i("queryAttachments ", todoItem.toString())
-
-        mDisposable = Api.getApiService().getAttachments(formGroupCode, formCode, masterId).subscribeWith(object : BaseResultObserver<BaseResult<List<Attachment>>>() {
+    fun queryAttachments(todoItem: TodoItem?, code: String) {
+        LogShow.i("TodoDetailFragment.kt  queryAttachments", code)
+        mDisposable = Api.getApiService().getAttachments(todoItem?.formGroupCode, code, todoItem?.masterId).subscribeWith(object : BaseResultObserver<BaseResult<List<Attachment>>>() {
             override fun onResult(todoBean: BaseResult<List<Attachment>>?) {
                 LogShow.i("queryAttachments   ", todoBean?.result)
             }
@@ -286,14 +279,12 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
 
     fun queryMore(fromGroupcode: String) {
         LogShow.i("queryMore   ", fromGroupcode);
-        mDisposable = Api.getApiService().getMoreMenu(fromGroupcode).subscribeWith(object : BaseResultObserver<BaseResult<TodoDetailItem>>() {
-            override fun onResult(todoBean: BaseResult<TodoDetailItem>?) {
-                mView.onQueryMore(todoBean?.result?.fieldList)
-
+        mDisposable = Api.getApiService().getMoreMenu(fromGroupcode).subscribeWith(object : BaseResultObserver<BaseResult<MutableList<TodoMoreMenuModel>>>() {
+            override fun onResult(todoBean: BaseResult<MutableList<TodoMoreMenuModel>>?) {
+                mView.onQueryMore(todoBean?.result)
             }
 
             override fun onFailure(e: Throwable, error: String) {
-                mView.onQueryMore(null)
                 ToastUtil.show(error)
             }
         })
@@ -320,13 +311,11 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
 
 interface TodoDetailView : BaseView2 {
 
-    fun onQueryMore(list: MutableList<FieldListBean>?)
-
-    fun onQueryHistory(history: TaskHistoryInfoBean?)
-
-    fun onQueryCommitOption(approval: MutableList<ApprovalResultListBean>?)
+    fun onQueryMore(list: MutableList<TodoMoreMenuModel>?)
 
     fun onCommitApproal(isSUccess: Boolean)
+
+    fun onQueryDetail(detailBean: TodoDetailItem?)
 
 }
 

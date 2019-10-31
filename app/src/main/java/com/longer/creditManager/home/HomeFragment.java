@@ -3,22 +3,38 @@ package com.longer.creditManager.home;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.longer.creditManager.R;
 import com.longer.creditManager.activity.ExaminationActivity;
 import com.longer.creditManager.adapter.Adapter;
+import com.longer.creditManager.buinese.detail.BusineseDetailActivity;
 import com.longer.creditManager.notice.NoticeActivity;
 import com.longer.creditManager.notice.SystemMsgActivity;
+import com.longer.creditManager.todo.RefreshTodoEvent;
 import com.longer.creditManager.todo.list.TodoActivity;
+import com.longer.creditManager.view.CircleImageView;
+import com.youth.banner.loader.ImageLoader;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
-import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.Notices;
 import hxz.www.commonbase.model.SystemMsgs;
 import hxz.www.commonbase.model.Tasks;
 import hxz.www.commonbase.model.UnreadBean;
+import hxz.www.commonbase.model.todo.buinese.BusineseTab;
+import hxz.www.commonbase.model.todo.buinese.DefaultListBean;
+import hxz.www.commonbase.model.todo.buinese.HomeListBean;
+import hxz.www.commonbase.net.constant.ApiService;
+import hxz.www.commonbase.util.ImageLoaders;
 import hxz.www.commonbase.util.log.LogShow;
 import hxz.www.commonbase.util.time.DateUtil;
 
@@ -33,10 +49,11 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
     private RelativeLayout rl_todo;
     private RelativeLayout rl_notice;
     private RelativeLayout rl_syetmMsg;
-    private TextView tv_examine,tv_todoCount,tv_noticeCount,tv_systemMsgCount;
-    private TextView tv_todoTitle,tv_noticeTitle,tv_systemMsgTitle;
-    private TextView tv_todoTime,tv_noticeTime,tv_systemMsgTime;
-
+    private LinearLayout ll_option1,ll_option2,ll_option3;
+    private TextView tv_examine, tv_todoCount, tv_noticeCount, tv_systemMsgCount;
+    private TextView tv_todoTitle, tv_noticeTitle, tv_systemMsgTitle;
+    private TextView tv_todoTime, tv_noticeTime, tv_systemMsgTime,tv_option1,tv_option2,tv_option3;
+private CircleImageView iv_icon1,iv_icon2,iv_icon3;
 
     @Override
     protected void initData() {
@@ -51,7 +68,7 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
     @Override
     protected void initView() {
 
-addToPresenters(mPresenter);
+        addToPresenters(mPresenter);
         rl_todo = mRootView.findViewById(R.id.rl_todo);
         rl_syetmMsg = mRootView.findViewById(R.id.rl_syetmMsg);
         rl_notice = mRootView.findViewById(R.id.rl_notice);
@@ -67,15 +84,36 @@ addToPresenters(mPresenter);
         tv_todoTime = mRootView.findViewById(R.id.tv_todoTime);
         tv_noticeTime = mRootView.findViewById(R.id.tv_noticeTime);
         tv_systemMsgTime = mRootView.findViewById(R.id.tv_systemMsgTime);
+        tv_option1 = mRootView.findViewById(R.id.tv_option1);
+        tv_option2 = mRootView.findViewById(R.id.tv_option2);
+        tv_option3 = mRootView.findViewById(R.id.tv_option3);
+        iv_icon1 = mRootView.findViewById(R.id.iv_icon1);
+        iv_icon2 = mRootView.findViewById(R.id.iv_icon2);
+        iv_icon3 = mRootView.findViewById(R.id.iv_icon3);
+
+        ll_option1 = mRootView.findViewById(R.id.ll_option1);
+        ll_option2 = mRootView.findViewById(R.id.ll_option2);
+        ll_option3 = mRootView.findViewById(R.id.ll_option3);
 
         rl_todo.setOnClickListener(this);
         rl_notice.setOnClickListener(this);
         rl_syetmMsg.setOnClickListener(this);
         tv_examine.setOnClickListener(this);
-        mPresenter.getUnreadCount();
+
+        ll_option1.setOnClickListener(this);
+        ll_option2.setOnClickListener(this);
+        ll_option3.setOnClickListener(this);
+        mPresenter.getTabs();
+        rl_notice.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mPresenter.getUnreadCount();
+            }
+        },300);
+
+        EventBus.getDefault().register(this);
 
     }
-
 
 
     @Override
@@ -106,59 +144,101 @@ addToPresenters(mPresenter);
         LogShow.i("HomeFragment  onClick v");
         if (v.getId() == rl_todo.getId()) {
             startActivity(new Intent(getContext(), TodoActivity.class));
-        }  else if (v.getId() == rl_notice.getId()) {
+        } else if (v.getId() == rl_notice.getId()) {
             startActivity(new Intent(getContext(), NoticeActivity.class));
         } else if (v.getId() == rl_syetmMsg.getId()) {
             mPresenter.readSystemMSg();
             startActivity(new Intent(getContext(), SystemMsgActivity.class));
         }
+        else if (v.getId() == R.id.ll_option1) {
+           jump2Busin(0);
+        }
+        else if (v.getId() == R.id.ll_option2) {
+            jump2Busin(1);
+        }
+        else if (v.getId() == R.id.ll_option3) {
+            jump2Busin(2);
+        }
     }
 
+    private void jump2Busin(int position)
+    {
+        Intent intent = new Intent(getContext(), BusineseDetailActivity.class);
+        intent.putExtra("code",tabList.get(position).getCode());
+        intent.putExtra("name",tabList.get(position).getName());
+        startActivity(intent);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+   public void refresh(RefreshTodoEvent event) {
+        mPresenter.getUnreadCount();
+        LogShow.i("HomeFragment  refresh");
+    }
 
     @Override
     public void onQueryUnread(UnreadBean unreadBean) {
-if (unreadBean!=null)
-{
-    Notices notices=unreadBean.getNotices();
-    if (Integer.valueOf(notices.getUnReadNo())>0)
-    {
-        tv_noticeCount.setVisibility(View.VISIBLE);
-        tv_noticeCount.setText(notices.getUnReadNo());
-    }
-    else
-    {
-        tv_noticeCount.setVisibility(View.GONE);
-    }
-    tv_noticeTitle.setText(notices.getTitle());
-    tv_noticeTime.setText(notices.getCreateTime());
+        if (unreadBean != null) {
+            Notices notices = unreadBean.getNotices();
+            if (Integer.valueOf(notices.getUnReadNo()) > 0) {
+                tv_noticeCount.setVisibility(View.VISIBLE);
+                tv_noticeCount.setText(notices.getUnReadNo());
+            } else {
+                tv_noticeCount.setVisibility(View.GONE);
+            }
+            tv_noticeTitle.setText(notices.getTitle());
+            tv_noticeTime.setText(notices.getCreateTime());
 
-    Tasks task=unreadBean.getTasks();
-    if (Integer.valueOf(task.getUnReadNo())>0)
-    {
-        tv_todoCount.setVisibility(View.VISIBLE);
-        tv_todoCount.setText(task.getUnReadNo());
-    }
-    else
-    {
-        tv_todoCount.setVisibility(View.GONE);
-    }
-    tv_todoTitle.setText(task.getTitle());
-    tv_todoTime.setText(DateUtil.millis2String(task.getCreateTime()));
+            Tasks task = unreadBean.getTasks();
+            if (Integer.valueOf(task.getUnReadNo()) > 0) {
+                tv_todoCount.setVisibility(View.VISIBLE);
+                tv_todoCount.setText(task.getUnReadNo());
+            } else {
+                tv_todoCount.setVisibility(View.GONE);
+            }
+            tv_todoTitle.setText(task.getTitle());
+            tv_todoTime.setText(DateUtil.millis2String(task.getCreateTime()));
 
-    SystemMsgs msgs=unreadBean.getSystemMsgs();
-    if (Integer.valueOf(msgs.getUnReadNo())>0)
-    {
-        tv_systemMsgCount.setVisibility(View.VISIBLE);
-        tv_systemMsgCount.setText(msgs.getUnReadNo());
-    }
-    else
-    {
-        tv_systemMsgCount.setVisibility(View.GONE);
-    }
-    tv_systemMsgTitle.setText(task.getTitle());
-    tv_systemMsgTime.setText(DateUtil.millis2String(msgs.getCreateTime()));
+            SystemMsgs msgs = unreadBean.getSystemMsgs();
+            if (Integer.valueOf(msgs.getUnReadNo()) > 0) {
+                tv_systemMsgCount.setVisibility(View.VISIBLE);
+                tv_systemMsgCount.setText(msgs.getUnReadNo());
+            } else {
+                tv_systemMsgCount.setVisibility(View.GONE);
+            }
+            tv_systemMsgTitle.setText(msgs.getTitle());
+            tv_systemMsgTime.setText(DateUtil.millis2String(msgs.getCreateTime()));
 
-}
+        }
+    }
+
+
+    private List<HomeListBean>tabList;
+    public void onQueryBusineseTab(BusineseTab tab) {
+        if (tab != null) {
+            if (tab.getHomeList() != null) {
+                tabList=tab.getHomeList();
+                for (int i = 0; i <tab.getHomeList().size() ; i++) {
+                    HomeListBean bean=tab.getHomeList().get(i);
+                     LogShow.i("onQueryBusineseTab ",bean.getName());
+                    if (i==0)
+                    {
+                        tv_option1.setText(bean.getName());
+                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL+bean.getIcon(),iv_icon1);
+                    }
+                    else if (i==1)
+                    {
+                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL+bean.getIcon(),iv_icon2);
+                        tv_option2.setText(bean.getName());
+                    }
+                    else if (i==3)
+                    {
+                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL+bean.getIcon(),iv_icon3);
+                        tv_option3.setText(bean.getName());
+                    }
+                }
+            }
+
+        }
     }
 }
 

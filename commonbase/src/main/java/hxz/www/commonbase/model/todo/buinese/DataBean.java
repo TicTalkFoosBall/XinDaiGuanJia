@@ -6,7 +6,6 @@ import hxz.www.commonbase.util.GsonUtil;
 
 public  class DataBean implements Serializable {
 
-
         private String Status;
         private String CREATED_TIME;
         private String BusinessNo;

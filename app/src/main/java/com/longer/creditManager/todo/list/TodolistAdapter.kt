@@ -16,7 +16,7 @@ class TodolistAdapter : BaseAdapter<TodoItem>() {
 
     override fun bindData(holder: ViewHolder, data: TodoItem, position: Int) {
          LogShow.i(" SystemMsgAdapter  ",data.toString())
-        holder.setText(R.id.tv_company,data.title)
+        holder.setText(R.id.tv_company,data.taskName)
         holder.setText(R.id.bt_time,data.timeout)
         holder.setText(R.id.tv_starttime,data.startTime)
 var startBt=holder.getView<Button>(R.id.b_1)

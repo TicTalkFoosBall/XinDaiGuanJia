@@ -7,11 +7,6 @@ import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.util.time.DateUtil
 
 
-/**
-@Author  :rickBei
-@Date    :2019/8/9 16:56
-@Descripe: From bug to bugs
- **/
 class SystemMsgAdapter : BaseAdapter<SystemMsgtem>() {
 
 

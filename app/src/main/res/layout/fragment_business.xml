@@ -43,7 +43,6 @@
                     android:layout_marginLeft="18dp"
                     android:layout_marginTop="15dp"
                     android:src="@mipmap/banner" />
-
             </LinearLayout>
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_tab"

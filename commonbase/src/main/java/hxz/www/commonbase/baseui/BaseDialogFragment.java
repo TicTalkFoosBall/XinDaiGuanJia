@@ -16,14 +16,10 @@ import org.greenrobot.eventbus.EventBus;
 
 import hxz.www.commonbase.baseui.mvp.BaseView2;
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl;
-import hxz.www.commonbase.uibase.mvp.BaseView;
 import hxz.www.commonbase.util.TUtil;
 import hxz.www.commonbase.util.fragment.FragmentHelper;
 import yokeyword.fragmentation.SupportDialogFragment;
 
-/**
- * Created by Circle on 2019-06-27
- */
 public abstract class BaseDialogFragment<T extends BasePresenterImpl> extends SupportDialogFragment implements BaseView2 {
 
     protected View rootView;

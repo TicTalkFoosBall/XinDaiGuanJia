@@ -2,18 +2,15 @@ package com.longer.creditManager.fragment;
 
 
 import android.content.Intent;
-import android.support.v4.app.Fragment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CircleCrop;
-import com.bumptech.glide.request.RequestOptions;
 import com.longer.creditManager.R;
 import com.longer.creditManager.login.LoginActivity;
+import com.longer.creditManager.view.CircleImageView;
 
 import hxz.www.commonbase.app.BaseApplication;
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
@@ -24,7 +21,8 @@ import hxz.www.commonbase.cache.Cache;
 
 public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
 
-    private ImageView iv_headportrait,iv_regard; // 头像 关于
+    private ImageView iv_regard; //  关于
+    private CircleImageView iv_headportrait;//头像
     private LinearLayout share,about; // 头像 关于
     private Button exit;
     private TextView name;
@@ -70,10 +68,6 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
         share.setOnClickListener(this);
         about.setOnClickListener(this);
         exit.setOnClickListener(this);
-
-        Glide.with(getContext()).load(R.mipmap.rng)
-                .apply(RequestOptions.bitmapTransform(new CircleCrop()))
-                .into(iv_headportrait);
 
         name.setText(Cache.getUserInfo().getFullname());
     }

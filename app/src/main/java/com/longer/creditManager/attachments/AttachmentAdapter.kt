@@ -1,20 +1,30 @@
 package com.longer.creditManager.recording
 
 import android.widget.ImageView
+import android.widget.TextView
 import com.longer.creditManager.R
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.model.Attachment
 import hxz.www.commonbase.util.log.LogShow
+import isVisible
+import value
 
 class AttachmentAdapter : BaseAdapter<Attachment>() {
 
     override fun getItemLayoutResId(data: Attachment, position: Int) = R.layout.item_attachment
 
     override fun bindData(holder: ViewHolder, data: Attachment, position: Int) {
-        LogShow.i(" AttachmentAdapter  ", data.toString())
-        holder.setText(R.id.attachment_name, data.fileName)
-        holder.getView<ImageView>(R.id.attachment_cover).setImageResource(getCover(data.fileSuffix))
+        LogShow.i(" AttachmentAdapter  ", data?.toString())
+        var title = holder.getView<TextView>(R.id.tv_title)
+        if (data.type.value() == "attachment") {
+            title.isVisible = false
+            holder.setText(R.id.attachment_name, data.fileName)
+            holder.getView<ImageView>(R.id.attachment_cover).setImageResource(getCover(data.fileSuffix))
+        } else if (data.type.value() == "name") {
+            title.isVisible = true
+            title.text = data.remark
+        }
     }
 
     private fun getCover(suffix: String): Int = when (suffix) {

@@ -22,9 +22,7 @@ import yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
 import yokeyword.fragmentation.anim.FragmentAnimator;
 import yokeyword.fragmentation_swipeback.SwipeBackFragment;
 
-/**
- * Created by Circle on 2019-06-27
- */
+
 public abstract class BaseFragment2<T extends BasePresenterImpl> extends SwipeBackFragment implements BaseView2 {
 
     private String TAG = getClass().getSimpleName();

@@ -96,6 +96,7 @@
                    android:layout_width="86dp"
                    android:layout_height="26dp"
                    android:text="身份证照片"
+                   android:visibility="gone"
                    android:layout_marginLeft="250dp"
                    android:layout_marginTop="125sp"
                    android:textColor="#398eeb"

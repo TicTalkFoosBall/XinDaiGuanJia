@@ -1,7 +1,9 @@
 package hxz.www.commonbase.model.todo.buinese;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Author :rickBei
@@ -10,22 +12,22 @@ import java.util.List;
  **/
 public class BusineseDetailBean implements Serializable {
 
-        private List<TitleBean> title;
-        private List<DataBean> data;
+        private String title ;
+        private List<Map<String,String>> data;
 
-        public List<TitleBean> getTitle() {
+        public String getTitle() {
             return title;
         }
 
-        public void setTitle(List<TitleBean> title) {
+        public void setTitle(String title) {
             this.title = title;
         }
 
-        public List<DataBean> getData() {
+        public List<Map<String,String>> getData() {
             return data;
         }
 
-        public void setData(List<DataBean> data) {
+        public void setData(List<Map<String,String>> data) {
             this.data = data;
         }
 

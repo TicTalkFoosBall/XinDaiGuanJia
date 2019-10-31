@@ -5,9 +5,11 @@ import com.longer.creditManager.login.MainModel;
 
 import hxz.www.commonbase.base.mvp.BasePresenter;
 import hxz.www.commonbase.model.UnreadBean;
+import hxz.www.commonbase.model.todo.buinese.BusineseTab;
 import hxz.www.commonbase.net.BaseResult;
 import hxz.www.commonbase.net.BaseResultObserver;
 import hxz.www.commonbase.util.ToastUtil;
+import hxz.www.commonbase.util.log.LogShow;
 import io.reactivex.disposables.Disposable;
 
 public class HomePreseenter extends BasePresenter<HomeContract.View> implements HomeContract.Presenter{
@@ -40,6 +42,26 @@ public class HomePreseenter extends BasePresenter<HomeContract.View> implements 
             mDisposable = Api.getApiService().readSystemMSg().subscribeWith( new BaseResultObserver<BaseResult>() {
                 @Override
                 protected void onResult(BaseResult unreadBean) {
+                }
+
+                @Override
+                protected void onFailure(Throwable e, String error) {
+                    ToastUtil.show(error);
+                }
+            });
+
+        }
+    }
+
+
+    public void getTabs() {
+         LogShow.i("HomePreseenter  getTabs ","");
+        if (!isNotDisposed(mDisposable)) {
+            mDisposable = Api.getApiService().getStatisticsTab().subscribeWith(new BaseResultObserver<BaseResult<BusineseTab>>() {
+                @Override
+                protected void onResult(BaseResult<BusineseTab> unreadBean) {
+                     LogShow.i("HomePreseenter  onResult ",unreadBean.getResult());
+                    mView.onQueryBusineseTab(unreadBean.getResult());
                 }
 
                 @Override

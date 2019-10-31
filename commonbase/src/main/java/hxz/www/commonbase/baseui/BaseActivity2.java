@@ -3,25 +3,18 @@ package hxz.www.commonbase.baseui;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.view.LayoutInflaterCompat;
-import android.view.LayoutInflater;
 
 import com.gyf.immersionbar.ImmersionBar;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
-
 import org.greenrobot.eventbus.EventBus;
-
-import java.lang.reflect.Field;
 
 import butterknife.ButterKnife;
 import hxz.www.commonbase.R;
 import hxz.www.commonbase.baseui.mvp.BaseView2;
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl;
-import hxz.www.commonbase.uibase.mvp.BaseView;
 import hxz.www.commonbase.util.TUtil;
 import yokeyword.fragmentation.SupportActivity;
-import yokeyword.fragmentation.SupportHelper;
 
 public abstract class BaseActivity2<T extends BasePresenterImpl> extends SupportActivity implements BaseView2 {
 

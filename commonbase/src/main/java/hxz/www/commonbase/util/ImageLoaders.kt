@@ -1,4 +1,4 @@
-
+package hxz.www.commonbase.util
 import android.graphics.drawable.Drawable
 import android.text.TextUtils
 import android.widget.ImageView
@@ -8,7 +8,7 @@ import hxz.www.commonbase.app.BaseApplication
 
 import java.io.File
 
-object ImageLoader {
+object ImageLoaders {
 
     private val THUMBNAIL = 0.5f//默认初始清晰度
     fun load(resId: Int?, imageView: ImageView) {

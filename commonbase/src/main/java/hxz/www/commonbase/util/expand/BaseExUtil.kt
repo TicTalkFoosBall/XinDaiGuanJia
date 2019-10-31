@@ -12,6 +12,7 @@ import hxz.www.commonbase.app.BaseApplication
 
 import hxz.www.commonbase.util.DisplayUtil
 import hxz.www.commonbase.util.GsonUtil
+import hxz.www.commonbase.util.ImageLoaders
 import hxz.www.commonbase.util.ToastUtil
 
 
@@ -114,7 +115,7 @@ fun ImageView.loadImg(res: Any?) {
         if (res is Int) {
             this.setImageResource(res)
         } else if (res is String)
-            ImageLoader.load(res, this)
+            ImageLoaders.load(res, this)
     } catch (ignore: Resources.NotFoundException) {
     }
 }

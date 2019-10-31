@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.longer.creditManager.R
 import hxz.www.commonbase.baseui.BaseActivity2
 import hxz.www.commonbase.util.fragment.FragmentHelper
-import hxz.www.commonbase.util.log.LogShow
 
 class NoticeActivity : BaseActivity2<Nothing>()
 {
@@ -12,6 +11,7 @@ class NoticeActivity : BaseActivity2<Nothing>()
 
     override fun initEventAndData(savedInstanceState: Bundle?) {
         loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(NoticeListFragment::class.java))
+//        loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(ClientPreviewFragment::class.java))
     }
 
     override fun showError(reqCode: Int, msg: String?) {

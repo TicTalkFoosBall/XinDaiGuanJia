@@ -38,7 +38,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
         if (v.getId() == b_login.getId()) {
             String name= e_username.getText().toString();
             String pwd= ev_pwd.getText().toString();
-            if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(pwd))
+            if (checkEnable())
             {
                 LoginBody loginBody = new LoginBody(e_username.getText().toString(),  EncryptUtil.MD5(pwd).toLowerCase());
 //                LoginBody loginBody = new LoginBody(e_username.getText().toString(),  pwd);
@@ -46,7 +46,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
             }
             else
             {
-                ToastUtil.show("請完善信息");
+                ToastUtil.show("请完善信息");
             }
 
 
@@ -76,8 +76,8 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
 //
     }
 
-    private boolean ckeckEnable() {
-        return !TextUtils.isEmpty(e_username.getText().toString()) && !TextUtils.isEmpty(ev_pwd.getText().toString());
+    private boolean checkEnable() {
+        return !TextUtils.isEmpty(e_username.getText().toString()) && !TextUtils.isEmpty(ev_pwd.getText().toString())&&!TextUtils.isEmpty(ev_company.getText().toString());
     }
 
     @Override

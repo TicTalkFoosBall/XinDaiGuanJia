@@ -12,7 +12,7 @@
         android:id="@+id/r1"
         >
 
-        <ImageView
+        <com.longer.creditManager.view.CircleImageView
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_marginLeft="30dp"
