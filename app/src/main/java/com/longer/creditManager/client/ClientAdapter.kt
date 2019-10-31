@@ -1,6 +1,6 @@
 package com.longer.creditManager.notice
 
-import hxz.www.commonbase.model.ClientModel
+import hxz.www.commonbase.model.client.ClientModel
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.util.log.LogShow

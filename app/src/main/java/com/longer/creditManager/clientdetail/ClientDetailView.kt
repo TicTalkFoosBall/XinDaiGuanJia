@@ -1,5 +1,6 @@
 package com.longer.creditManager.notice
 import hxz.www.commonbase.baseui.mvp.BaseView2
+import hxz.www.commonbase.model.client.ClientDetail
 
 
 /**
@@ -9,5 +10,5 @@ import hxz.www.commonbase.baseui.mvp.BaseView2
  **/
 interface ClientDetailView  : BaseView2 {
 
-
+fun onQueryClient(mode: ClientDetail?)
 }

@@ -12,39 +12,16 @@
        android:layout_height="match_parent"
        android:orientation="vertical"
        >
-       <android.support.v7.widget.Toolbar
+       <hxz.www.commonbase.view.KLToolbar
+           android:id="@+id/toolbar"
+           android:visibility="visible"
            android:layout_width="match_parent"
-           android:layout_height="50dp">
-           <RelativeLayout
-               android:layout_width="match_parent"
-               android:layout_height="50dp">
-               <ImageView
-                   android:layout_width="30dp"
-                   android:layout_height="30dp"
-                   android:src="@mipmap/back"
-                   android:layout_marginTop="10dp"
-                   android:layout_marginLeft="10dp"
-                   android:id="@+id/iv_back"
-                   />
-               <TextView
-                   android:layout_width="150dp"
-                   android:layout_height="30dp"
-                   android:text="客户信息"
-                   android:textSize="22sp"
-                   android:textColor="#212121"
-                   android:layout_marginLeft="150dp"
-                   android:layout_marginTop="10dp"
-                   />
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="1dp"
-                   android:background="#ffffff"
-                   android:layout_marginLeft="27dp"
-                   />
-           </RelativeLayout>
-
-
-       </android.support.v7.widget.Toolbar>
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           app:tb_leftImage="@mipmap/back"
+           app:tb_title="客户信息"
+           android:layout_height="wrap_content" />
 
        <!--body-->
        <LinearLayout
@@ -63,18 +40,18 @@
                android:background="@drawable/contact_edit_edittext_focused_lan"
                >
                <TextView
-                   android:layout_width="50dp"
-                   android:layout_height="30dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
                    android:id="@+id/tv_name"
-                   android:text="沈听白"
+                   android:text=" "
                    android:textSize="16sp"
                    android:textColor="#fefefe"
                    android:layout_marginLeft="20dp"
                    android:layout_marginTop="15sp"
                    />
                <TextView
-                   android:layout_width="100dp"
-                   android:layout_height="30dp"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
                    android:text="居民身份证号码"
                    android:textSize="12sp"
                    android:textColor="#fefefe"
@@ -82,10 +59,10 @@
                    android:layout_marginTop="50sp"
                    />
                <TextView
-                   android:layout_width="150dp"
-                   android:layout_height="30dp"
-                   android:text="320898199701032196"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
                    android:textSize="14sp"
+                   android:id="@+id/tv_idNumber"
                    android:textColor="#fefefe"
                    android:layout_marginLeft="20dp"
                    android:layout_marginTop="68sp"
@@ -105,13 +82,14 @@
                    android:src="@mipmap/tel"
                    />
                <TextView
+                   android:id="@+id/tv_phoneNumber"
                    android:layout_width="100dp"
                    android:layout_height="30dp"
                    android:textSize="12sp"
                    android:textColor="#ffffff"
                    android:layout_marginLeft="50dp"
                    android:layout_marginTop="130sp"
-                   android:text="17801135230"
+                   android:text=" "
                    />
 
                <Button
@@ -133,6 +111,22 @@
            android:layout_width="match_parent"
            android:layout_height="25dp"
            android:background="#DAD9D9"
+           />
+
+       <TextView
+           android:id="@+id/tv_clientPreview"
+           android:layout_width="match_parent"
+           android:textColor="@color/black"
+           android:text="业务一览"
+           android:textSize="14sp"
+           android:gravity="center_vertical"
+           android:paddingLeft="15dp"
+           android:layout_height="45dp"/>
+
+       <View
+           android:layout_width="match_parent"
+           android:layout_height="15dp"
+           android:background="#f2f2f2"
            />
        <LinearLayout
            android:layout_width="match_parent"
@@ -161,7 +155,7 @@
                    android:layout_alignParentRight="true"
                    android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="男"
+                   android:text=" "
                    android:gravity="center"
                    android:id="@+id/tv_sex"
                    />
@@ -196,7 +190,7 @@
                    android:layout_alignParentRight="true"
                    android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="联系地址"
+                   android:text=" "
                    android:gravity="center"
                    android:id="@+id/tv_location"
                    />
@@ -230,7 +224,7 @@
                    android:layout_alignParentRight="true"
                    android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="婚姻状况"
+                   android:text=" "
                    android:gravity="center"
                    android:id="@+id/tv_marry"
                    />
@@ -277,7 +271,7 @@
                    android:layout_alignParentRight="true"
                    android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="客户来源"
+                   android:text="-"
                    android:gravity="center"
                    android:id="@+id/tv_from"
                    />
@@ -312,7 +306,7 @@
                    android:layout_alignParentRight="true"
                    android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="客户经理"
+                   android:text=" "
                    android:gravity="center"
                    android:id="@+id/tv_manager"
                    />
@@ -347,7 +341,7 @@
                    android:layout_alignParentRight="true"
                    android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="经办部门"
+                   android:text="-"
                    android:gravity="center"
                    android:id="@+id/tv_owner"
                    />
@@ -381,7 +375,7 @@
                    android:layout_alignParentRight="true"
                    android:layout_centerVertical="true"
                    android:textColor="#212121"
-                   android:text="所属公司"
+                   android:text="-"
                    android:gravity="center"
                    android:id="@+id/tv_company"
                    />

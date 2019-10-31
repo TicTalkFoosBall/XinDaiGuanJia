@@ -1,6 +1,6 @@
 package com.longer.creditManager.notice
 import com.longer.creditManager.basemodel.Api
-import hxz.www.commonbase.model.ClientModel
+import hxz.www.commonbase.model.client.ClientModel
 import hxz.www.commonbase.net.BaseResult
 import hxz.www.commonbase.net.BaseResultObserver
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl

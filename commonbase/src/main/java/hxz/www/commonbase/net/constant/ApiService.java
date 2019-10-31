@@ -6,7 +6,8 @@ import java.util.List;
 import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.Attachment;
 import hxz.www.commonbase.model.Ba1;
-import hxz.www.commonbase.model.ClientModel;
+import hxz.www.commonbase.model.client.ClientDetail;
+import hxz.www.commonbase.model.client.ClientModel;
 import hxz.www.commonbase.model.ExamineBean;
 import hxz.www.commonbase.model.ListBody;
 import hxz.www.commonbase.model.LoginBody;
@@ -52,6 +53,10 @@ public interface ApiService {
     @GET("customer/list")
     Single<BaseResult<List<ClientModel>>> getCustomer(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount
             , @Query("keyword") String keyword);
+
+    //客户资料
+    @GET("customer/person/{customerId}")
+    Single<BaseResult<ClientDetail>> getCustomerPerson(@Path("customerId") String customerId);
 
     // 首页未读数
     @GET("return")

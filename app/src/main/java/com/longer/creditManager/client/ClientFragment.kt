@@ -11,7 +11,7 @@ import com.longer.creditManager.clientdetail.ClientDetailActivity
 import com.longer.creditManager.buinese.BaseListFragment
 import hxz.www.commonbase.adapter.ItemClickSupport
 import hxz.www.commonbase.adapter.KlDialog
-import hxz.www.commonbase.model.ClientModel
+import hxz.www.commonbase.model.client.ClientModel
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout

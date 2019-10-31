@@ -45,12 +45,7 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
         })
         mAdapter.setOnItemClickListener { view, data, position ->
 
-            startActivity(Intent(_mActivity, TodoDetailActivity::class.java).apply {
-                putExtra("params",
-                        Bundle().apply {
-                            putSerializable("todoItem",data)
-                        })
-            })
+
         }
         LogShow.i("initData   ", "");
     }

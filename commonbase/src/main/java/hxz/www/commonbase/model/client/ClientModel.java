@@ -1,4 +1,4 @@
-package hxz.www.commonbase.model;
+package hxz.www.commonbase.model.client;
 
 import android.support.annotation.NonNull;
 

@@ -59,7 +59,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:theme">
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"  android:screenOrientation="portrait"/>
 
         <!-- 头条适配 -->
         <meta-data

@@ -1,5 +1,10 @@
 package com.longer.creditManager.todo.list
+import android.content.Intent
+import android.os.Bundle
+import android.support.v4.content.ContextCompat.startActivity
+import android.widget.Button
 import com.longer.creditManager.R
+import com.longer.creditManager.todo.detail.TodoDetailActivity
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.model.todo.TodoItem
@@ -14,8 +19,13 @@ class TodolistAdapter : BaseAdapter<TodoItem>() {
         holder.setText(R.id.tv_company,data.title)
         holder.setText(R.id.bt_time,data.timeout)
         holder.setText(R.id.tv_starttime,data.startTime)
-
-
+var startBt=holder.getView<Button>(R.id.b_1)
+        startBt.setOnClickListener {  holder.context.startActivity(Intent( holder.context, TodoDetailActivity::class.java).apply {
+            putExtra("params",
+                    Bundle().apply {
+                        putSerializable("todoItem",data)
+                    })
+        }) }
     }
 
 

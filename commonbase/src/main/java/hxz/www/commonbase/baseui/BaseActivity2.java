@@ -23,9 +23,6 @@ import hxz.www.commonbase.util.TUtil;
 import yokeyword.fragmentation.SupportActivity;
 import yokeyword.fragmentation.SupportHelper;
 
-/**
- * Created by Circle on 2019-06-27
- */
 public abstract class BaseActivity2<T extends BasePresenterImpl> extends SupportActivity implements BaseView2 {
 
     protected Context mContext;

@@ -6,7 +6,7 @@ import android.os.Parcelable;
 
 /**
  * @Hide
- * Result 记录
+ * ClientDetail 记录
  * Created by YoKeyword on 16/6/2.
  */
 public final class ResultRecord implements Parcelable {
