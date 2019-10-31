@@ -7,8 +7,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.longer.creditManager.R
-import com.longer.creditManager.clientdetail.ClientDetailActivity
 import com.longer.creditManager.buinese.BaseListFragment
+import com.longer.creditManager.clientdetail.ClientDetailActivity
 import hxz.www.commonbase.adapter.ItemClickSupport
 import hxz.www.commonbase.adapter.KlDialog
 import hxz.www.commonbase.model.ClientModel
@@ -22,7 +22,7 @@ class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), Clien
     override fun bindAdapter() = ClientAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
-         LogShow.i("initRefreshLayout  ",refreshLayout);
+        LogShow.i("initRefreshLayout  ", refreshLayout);
         refreshLayout?.setLayoutManager(LinearLayoutManager(_mActivity))
         refreshLayout?.setEnableLoadMore(true)
     }
@@ -31,37 +31,36 @@ class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), Clien
         refreshLayout?.recyclerView?.let {
             ItemClickSupport.addTo(it).addOnChildClickListener(R.id.iv_call, object : ItemClickSupport.OnChildClickListener {
                 override fun onChildClicked(recyclerView: RecyclerView, position: Int, v: View) {
-                    var data=mAdapter.data[position]
+                    var data = mAdapter.data[position]
                     KlDialog.builder(_mActivity)
                             .autoDismiss()
                             .setMessage(data.mobile)
                             .setNegativeButton("取消") {}
                             .setPositiveButton("呼叫") {
-                            call(data.mobile)
+                                call(data.mobile)
                             }.show()
                 }
             })
 
-mAdapter.setOnItemClickListener{view, data, position ->
- startActivity(Intent(activity, ClientDetailActivity::class.java).apply {
-     putExtra("params",Bundle().apply { putSerializable("client",data) })
- })
-}
+            mAdapter.setOnItemClickListener { view, data, position ->
+                startActivity(Intent(activity, ClientDetailActivity::class.java).apply {
+                    putExtra("params", Bundle().apply { putSerializable("client", data) })
+                })
+            }
         }
 
         toolbar.setLeftClick(View.OnClickListener
         {
             _mActivity.finish()
         })
-         LogShow.i("initData   ","");
+        LogShow.i("initData   ", "");
     }
 
 
-    private fun call(phoneNumber:String)
-    {
-         LogShow.i("call   ",phoneNumber);
+    private fun call(phoneNumber: String) {
+        LogShow.i("call   ", phoneNumber);
         val intent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$phoneNumber"))
- startActivity(intent)
+        startActivity(intent)
     }
 
     override fun loadData(page: Int) {
@@ -69,16 +68,16 @@ mAdapter.setOnItemClickListener{view, data, position ->
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
-         LogShow.i("  onLazyInitView ","");
+        LogShow.i("  onLazyInitView ", "");
         refresh()
     }
 
     override fun queryClient(list: MutableList<ClientModel>?) {
-        list?.let {    onQuery(list) }
+        list?.let { onQuery(list) }
     }
 
     private fun onQuery(list: MutableList<ClientModel>?) {
-         LogShow.i(" onQuery  ",list?.size,mAdapter);
+        LogShow.i(" onQuery  ", list?.size, mAdapter);
         refreshLayout?.postDelayed({
             mAdapter?.data = list
             refreshLayout?.finishLoad()

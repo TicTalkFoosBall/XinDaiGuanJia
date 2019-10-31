@@ -8,11 +8,6 @@ import hxz.www.commonbase.util.ToastUtil
 import hxz.www.commonbase.util.log.LogShow
 
 
-/**
-@Author  :rickBei
-@Date    :2019/10/29 14:44
-@Descripe: From bug to bugs
- **/
 class TestPresenter : BasePresenterImpl<TestView>() {
 
     fun getBusineseDetail(code: String) {

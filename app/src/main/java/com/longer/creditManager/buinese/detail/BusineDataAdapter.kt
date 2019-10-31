@@ -4,8 +4,6 @@ import android.util.TypedValue
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.longer.creditManager.R
-import com.tencent.bugly.proguard.r
-import dp2px
 import getColor
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
@@ -16,11 +14,6 @@ import hxz.www.commonbase.util.log.LogShow
 import isVisible
 import value
 
-/**
-@Author  :rickBei
-@Date    :2019/10/29 14:46
-@Descripe: From bug to bugs
- **/
 class BusineDataAdapter : BaseAdapter<DataBean>() {
 
     var titleList: TitleListBean? = null
@@ -28,50 +21,49 @@ class BusineDataAdapter : BaseAdapter<DataBean>() {
     override fun getItemLayoutResId(data: DataBean?, position: Int) = R.layout.adapter_simple
     override fun bindData(holder: ViewHolder, data: DataBean?, position: Int) {
         var container = holder.getView<LinearLayout>(R.id.ll_container)
-        var listJson=GsonUtil.toJson(data)
+        var listJson = GsonUtil.toJson(data)
         tvList.clear()
-            for (i in 0 until container.childCount) {
-                container.getChildAt(i)?.let {
-                    tvList.add(it as TextView)
-                }
+        for (i in 0 until container.childCount) {
+            container.getChildAt(i)?.let {
+                tvList.add(it as TextView)
             }
+        }
 
-        LogShow.i("BusineDataAdaptekt  bindData   begin",data.toString())
         if (position == 0) {
             container.setBackgroundColor(R.color.gray_E5E5EA.getColor())
             titleList?.titleList?.forEachIndexed { index, titleBean ->
                 run {
-                    var tv= tvList.get(index)
-                    tv .text= titleBean.fieldNote
-                    tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,16F)
-                    tv.isVisible=true
+                    if (tvList.size > index) {
+                        var tv = tvList.get(index)
+                        tv.text = titleBean.fieldNote
+                        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16F)
+                        tv.isVisible = true
+                    }
                 }
             }
-        } else
-        {
+        } else {
             container.setBackgroundColor(R.color.white.getColor())
             titleList?.titleList?.forEachIndexed { index, titleBean ->
                 run {
-                    var tv= tvList.get(index)
-                    tv .text= titleBean.fieldNote
-                    tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,12F)
-                    tv.isVisible=true
-                    var value=listJson.substringAfter(titleBean.fieldName)
+                    if (tvList.size > index) {
+                        var tv = tvList.get(index)
+                        tv.text = titleBean.fieldNote
+                        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP, 12F)
+                        tv.isVisible = true
+                        var value = listJson.substringAfter(titleBean.fieldName)
 
-                    if (listJson.contains(titleBean.fieldName))
-                    {
-                        value=value.substringBefore(",")
-                        if (value.contains("}"))
-                        {
-                            value=value.substringBefore("}")
+                        if (listJson.contains(titleBean.fieldName)) {
+                            value = value.substringBefore(",")
+                            if (value.contains("}")) {
+                                value = value.substringBefore("}")
+                            }
+                            if (value.contains(":")) {
+                                value = value.substringAfter(":")
+                            }
+                            value = value.substring(1, value.length - 1)
+                            LogShow.i("BusineDataAdaptekt  bindData >0", value)
+                            tv.text = value.value()
                         }
-                        if (value.contains(":"))
-                        {
-                            value=value.substringAfter(":")
-                        }
-                        value=value.substring(1,value.length-1)
-                        LogShow.i("BusineDataAdaptekt  bindData >0",value)
-                        tv.text =value.value()
                     }
                 }
 
@@ -79,8 +71,7 @@ class BusineDataAdapter : BaseAdapter<DataBean>() {
         }
     }
 
-    public fun setTitleList(json:String)
-    {
+    public fun setTitleList(json: String) {
         titleList = GsonUtil.fromJson(json, TitleListBean::class.java)
     }
 }

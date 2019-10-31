@@ -7,6 +7,7 @@ import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.Attachment;
 import hxz.www.commonbase.model.Ba1;
 import hxz.www.commonbase.model.ClientModel;
+import hxz.www.commonbase.model.ClientPreviewModel;
 import hxz.www.commonbase.model.ExamineBean;
 import hxz.www.commonbase.model.ListBody;
 import hxz.www.commonbase.model.LoginBody;
@@ -14,6 +15,7 @@ import hxz.www.commonbase.model.NoticeListModel;
 import hxz.www.commonbase.model.SystemMsgModel;
 import hxz.www.commonbase.model.UnreadBean;
 import hxz.www.commonbase.model.todo.TodoBean;
+import hxz.www.commonbase.model.todo.TodoMoreMenuModel;
 import hxz.www.commonbase.model.todo.buinese.BusineseDetailBean;
 import hxz.www.commonbase.model.todo.buinese.BusineseTab;
 import hxz.www.commonbase.model.todo.detail.Approval;
@@ -48,10 +50,15 @@ public interface ApiService {
     @GET("systemMsg/list")
     Single<BaseResult<SystemMsgModel>> getSystemMsg(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);
 
+    //业务预览
+    @GET("customer/businessList")
+    Single<BaseResult<List<ClientPreviewModel>>> getCustomerPreview(@Query("customerId") String customerId);
+
     //客户列表
     @GET("customer/list")
     Single<BaseResult<List<ClientModel>>> getCustomer(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount
             , @Query("keyword") String keyword);
+
 
     // 首页未读数
     @GET("return")
@@ -78,8 +85,8 @@ public interface ApiService {
     Single<BaseResult<List<Attachment>>> getNoticeAttachments(@Path("noticeId") String noticeId);
 
     //
-    @GET(" formGroup/tabs/{formGroupCode}")
-    Single<BaseResult<TodoDetailItem>> getMoreMenu(@Path("formGroupCode") String formGroupCode);
+    @GET("formGroup/tabs/{formGroupCode}")
+    Single<BaseResult<List<TodoMoreMenuModel>>> getMoreMenu(@Path("formGroupCode") String formGroupCode);
 
 
     //提交审核

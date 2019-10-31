@@ -7,24 +7,15 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import com.longer.creditManager.R
-import com.longer.creditManager.recording.AttachmentFragment
 import hxz.www.commonbase.baseui.BaseFragment2
 import hxz.www.commonbase.model.todo.buinese.BusineseDetailBean
 import hxz.www.commonbase.model.todo.buinese.DataBean
 import hxz.www.commonbase.model.todo.buinese.TitleListBean
 import hxz.www.commonbase.util.GsonUtil
-import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import isVisible
-import kotlinx.android.synthetic.main.fragment_noticelist.*
 import kotlinx.android.synthetic.main.fragment_test.*
-import kotlinx.android.synthetic.main.fragment_test.toolbar
 
-/**
-@Author  :rickBei
-@Date    :2019/10/29 14:01
-@Descripe: From bug to bugs
- **/
 class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
 
 
@@ -34,7 +25,7 @@ class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
         var titelList=TitleListBean()
         titelList.titleList.addAll(detail.title)
         var titlejsoon = GsonUtil.toJson( titelList)
-         LogShow.i("onQuery  data ",detail.title.size);
+         LogShow.i("onQuery  data ",detail.title.size)
         adapter?.setTitleList(titlejsoon)
         var dataList= mutableListOf<DataBean>()
         dataList.addAll(detail.data)
@@ -62,7 +53,7 @@ class BusinessDetailFragment : BaseFragment2<TestPresenter>(), TestView {
                 leftList.add(value)
             }
         }
-        LogShow.i("onQuery  add   ",leftList.size);
+        LogShow.i("onQuery  add   ",leftList.size)
         adapter2?.data = leftList
     }
     private var adapter: BusineDataAdapter? = null

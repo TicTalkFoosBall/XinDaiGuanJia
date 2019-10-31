@@ -7,6 +7,7 @@ import android.view.View
 import com.longer.creditManager.R
 import com.longer.creditManager.basemodel.Api
 import com.longer.creditManager.buinese.BaseListFragment
+import com.longer.creditManager.todo.RefreshTodoEvent
 import com.longer.creditManager.todo.detail.TodoDetailActivity
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
@@ -21,6 +22,9 @@ import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_noticelist.*
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
 
 
 class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(), TodoListView {
@@ -38,7 +42,7 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
         refreshLayout?.recyclerView?.let {
 
         }
-        toolbar.setTitle("审批代办")
+        toolbar.setTitle("审批待办")
         toolbar.setLeftClick(View.OnClickListener
         {
             _mActivity.finish()
@@ -52,9 +56,15 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
                         })
             })
         }
+        EventBus.getDefault().register(this)
         LogShow.i("initData   ", "");
     }
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    internal fun refresh(event: RefreshTodoEvent) {
+        refresh()
+        LogShow.i("TodoListFragment  refresh")
+    }
     override fun loadData(page: Int) {
         mPresenter.queryodoList(page)
     }
