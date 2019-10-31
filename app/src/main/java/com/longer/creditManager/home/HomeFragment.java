@@ -157,6 +157,24 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
 
         }
     }
+
+//    @Override
+//    public void onQueryBusineseTab(BusineseTab tab) {
+//        if (tab != null) {
+//            if (tab.getDefaultList() != null) {
+//                this.tab = tab;
+//                List<DefaultListBean> list=new ArrayList<>();
+//                DefaultListBean bean=    new DefaultListBean();
+//                bean.setName("更多统计");
+//                bean.setIconRes(R.mipmap.business_ico_09);
+//                list.addAll(tab.getDefaultList());
+//                list.add(bean);
+//                adapter.setData(list);
+//
+//            }
+//
+//        }
+//    }
 }
 
 

@@ -1,6 +1,8 @@
 package hxz.www.commonbase.net.constant;
 
 
+import com.google.gson.JsonObject;
+
 import java.util.List;
 
 import hxz.www.commonbase.cache.UserInfo;
@@ -16,7 +18,6 @@ import hxz.www.commonbase.model.SystemMsgModel;
 import hxz.www.commonbase.model.UnreadBean;
 import hxz.www.commonbase.model.todo.TodoBean;
 import hxz.www.commonbase.model.todo.TodoMoreMenuModel;
-import hxz.www.commonbase.model.todo.buinese.BusineseDetailBean;
 import hxz.www.commonbase.model.todo.buinese.BusineseTab;
 import hxz.www.commonbase.model.todo.detail.Approval;
 import hxz.www.commonbase.model.todo.detail.TodoDetailItem;
@@ -100,7 +101,7 @@ public interface ApiService {
 
     //获取统计数据
     @GET("statistics/{statisticsCode}")
-    Single<BaseResult<BusineseDetailBean>> getStatisticsDetail(@Path("statisticsCode") String statisticsCode);
+    Single<BaseResult<JsonObject>> getStatisticsDetail(@Path("statisticsCode") String statisticsCode);
 
 
     @GET("lfcp-android.support.v4.app/task/list")

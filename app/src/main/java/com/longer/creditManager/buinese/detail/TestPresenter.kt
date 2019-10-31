@@ -1,6 +1,6 @@
 package com.longer.creditManager.buinese.detail
+import com.google.gson.JsonObject
 import com.longer.creditManager.basemodel.Api
-import hxz.www.commonbase.model.todo.buinese.BusineseDetailBean
 import hxz.www.commonbase.net.BaseResult
 import hxz.www.commonbase.net.BaseResultObserver
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
@@ -12,10 +12,10 @@ class TestPresenter : BasePresenterImpl<TestView>() {
 
     fun getBusineseDetail(code: String) {
 
-           Api.getApiService().getStatisticsDetail(code).subscribeWith(object : BaseResultObserver<BaseResult<BusineseDetailBean>>() {
-                override fun onResult(unreadBean: BaseResult<BusineseDetailBean>) {
-                     LogShow.i("getBusineseDetail   ",unreadBean.result.data.toString());
-                    mView.onQuery(unreadBean.result)
+           Api.getApiService().getStatisticsDetail(code).subscribeWith(object : BaseResultObserver<BaseResult<JsonObject>>() {
+                override fun onResult(unreadBean: BaseResult<JsonObject>) {
+                     LogShow.i("getBusineseDetail   ",unreadBean.result );
+//                    mView.onQuery(unreadBean.result)
                 }
 
                 override fun onFailure(e: Throwable, error: String) {
