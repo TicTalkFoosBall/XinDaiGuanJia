@@ -49,7 +49,7 @@ public class CacheUtil {
             ois = new ObjectInputStream(in);
             entity = (T) ois.readObject();
         } catch (Exception e) {
-            LogShow.e("获取数据失败=" + e.getMessage());
+            LogShow.e("获取数据失败=" + e.getMessage(),e.getStackTrace());
         } finally {
             try {
                 if (in != null) {

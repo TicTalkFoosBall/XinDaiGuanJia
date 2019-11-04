@@ -1,4 +1,4 @@
-package com.longer.creditManager.notice
+package com.longer.creditManager.buinese.more
 import com.longer.creditManager.R
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
@@ -7,7 +7,7 @@ import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.util.time.DateUtil
 
 
-class NoticelistAdapter : BaseAdapter<NoticeItem>() {
+class BusineseMoreAdapter : BaseAdapter<NoticeItem>() {
 
 
     override fun getItemLayoutResId(data: NoticeItem, position: Int) = R.layout.item_notice

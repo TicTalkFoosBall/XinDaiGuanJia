@@ -18,41 +18,47 @@
             android:paddingTop="30dp"
             android:paddingBottom="30dp">
 
-<LinearLayout
-    android:id="@+id/ll_option1"
-    android:layout_width="0dp"
-    android:layout_weight="1"
-    android:orientation="vertical"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:layout_height="wrap_content">
-    <com.longer.creditManager.view.CircleImageView
-    android:id="@+id/iv_icon1"
-    android:layout_width="40dp"
-    android:layout_height="40dp"
+            <LinearLayout
+                android:id="@+id/ll_option1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:orientation="vertical">
 
-    android:src="@mipmap/home_ico_dt" />
+                <com.longer.creditManager.view.CircleImageView
+                    android:id="@+id/iv_icon1"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
 
-    <TextView
-        android:id="@+id/tv_option1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/iv_icon1"
+                    android:src="@mipmap/home_ico_dt" />
 
-        android:layout_marginTop="10dp"
-        android:text=""
-        android:textColor="#ffffff"
-        android:gravity="center"
-        android:textSize="12sp" /></LinearLayout>
+                <TextView
+                    android:id="@+id/tv_option1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/iv_icon1"
+
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:text=""
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/ll_option2"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:gravity="center"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
 
                 <com.longer.creditManager.view.CircleImageView
                     android:id="@+id/iv_icon2"
@@ -68,19 +74,21 @@
                     android:layout_below="@id/iv_icon2"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:textSize="12sp"
-                    android:textColor="#ffffff" />
-              </LinearLayout>
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
 
             <LinearLayout
                 android:id="@+id/ll_option3"
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:gravity="center"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
 
                 <com.longer.creditManager.view.CircleImageView
                     android:id="@+id/iv_icon3"
@@ -95,10 +103,9 @@
                     android:layout_below="@id/iv_icon3"
                     android:layout_marginTop="10dp"
                     android:gravity="center"
-                    android:textSize="12sp"
-                    android:textColor="#ffffff" />
+                    android:textColor="#ffffff"
+                    android:textSize="12sp" />
             </LinearLayout>
-
 
 
         </LinearLayout>
@@ -271,10 +278,10 @@
                 <TextView
                     android:id="@+id/tv_systemMsgTitle"
                     android:layout_width="match_parent"
-                    android:layout_toLeftOf="@id/tv_systemMsgCount"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="75dp"
                     android:layout_marginTop="35dp"
+                    android:layout_toLeftOf="@id/tv_systemMsgCount"
                     android:singleLine="true"
                     android:text="最新待办审批消息提示，最新待办审批"
                     android:textColor="#858585"
@@ -296,8 +303,8 @@
                     android:layout_height="18dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
-                    android:layout_marginBottom="10dp"
                     android:layout_marginRight="10dp"
+                    android:layout_marginBottom="10dp"
                     android:background="@drawable/textcolor_red"
                     android:gravity="center"
                     android:text="4"

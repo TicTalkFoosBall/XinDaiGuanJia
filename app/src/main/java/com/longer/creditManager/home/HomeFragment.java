@@ -16,13 +16,11 @@ import com.longer.creditManager.notice.SystemMsgActivity;
 import com.longer.creditManager.todo.RefreshTodoEvent;
 import com.longer.creditManager.todo.list.TodoActivity;
 import com.longer.creditManager.view.CircleImageView;
-import com.youth.banner.loader.ImageLoader;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import hxz.www.commonbase.base.mvp.BaseMvpFragment;
@@ -31,7 +29,6 @@ import hxz.www.commonbase.model.SystemMsgs;
 import hxz.www.commonbase.model.Tasks;
 import hxz.www.commonbase.model.UnreadBean;
 import hxz.www.commonbase.model.todo.buinese.BusineseTab;
-import hxz.www.commonbase.model.todo.buinese.DefaultListBean;
 import hxz.www.commonbase.model.todo.buinese.HomeListBean;
 import hxz.www.commonbase.net.constant.ApiService;
 import hxz.www.commonbase.util.ImageLoaders;
@@ -49,15 +46,14 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
     private RelativeLayout rl_todo;
     private RelativeLayout rl_notice;
     private RelativeLayout rl_syetmMsg;
-    private LinearLayout ll_option1,ll_option2,ll_option3;
+    private LinearLayout ll_option1, ll_option2, ll_option3;
     private TextView tv_examine, tv_todoCount, tv_noticeCount, tv_systemMsgCount;
     private TextView tv_todoTitle, tv_noticeTitle, tv_systemMsgTitle;
-    private TextView tv_todoTime, tv_noticeTime, tv_systemMsgTime,tv_option1,tv_option2,tv_option3;
-private CircleImageView iv_icon1,iv_icon2,iv_icon3;
+    private TextView tv_todoTime, tv_noticeTime, tv_systemMsgTime, tv_option1, tv_option2, tv_option3;
+    private CircleImageView iv_icon1, iv_icon2, iv_icon3;
 
     @Override
     protected void initData() {
-//
     }
 
     @Override
@@ -109,7 +105,7 @@ private CircleImageView iv_icon1,iv_icon2,iv_icon3;
             public void run() {
                 mPresenter.getUnreadCount();
             }
-        },300);
+        }, 300);
 
         EventBus.getDefault().register(this);
 
@@ -143,34 +139,33 @@ private CircleImageView iv_icon1,iv_icon2,iv_icon3;
     public void onClick(View v) {
         LogShow.i("HomeFragment  onClick v");
         if (v.getId() == rl_todo.getId()) {
+            tv_todoCount.setVisibility(View.GONE);
             startActivity(new Intent(getContext(), TodoActivity.class));
         } else if (v.getId() == rl_notice.getId()) {
+            tv_noticeCount.setVisibility(View.GONE);
             startActivity(new Intent(getContext(), NoticeActivity.class));
         } else if (v.getId() == rl_syetmMsg.getId()) {
             mPresenter.readSystemMSg();
+            tv_systemMsgCount.setVisibility(View.GONE);
             startActivity(new Intent(getContext(), SystemMsgActivity.class));
-        }
-        else if (v.getId() == R.id.ll_option1) {
-           jump2Busin(0);
-        }
-        else if (v.getId() == R.id.ll_option2) {
+        } else if (v.getId() == R.id.ll_option1) {
+            jump2Busin(0);
+        } else if (v.getId() == R.id.ll_option2) {
             jump2Busin(1);
-        }
-        else if (v.getId() == R.id.ll_option3) {
+        } else if (v.getId() == R.id.ll_option3) {
             jump2Busin(2);
         }
     }
 
-    private void jump2Busin(int position)
-    {
+    private void jump2Busin(int position) {
         Intent intent = new Intent(getContext(), BusineseDetailActivity.class);
-        intent.putExtra("code",tabList.get(position).getCode());
-        intent.putExtra("name",tabList.get(position).getName());
+        intent.putExtra("code", tabList.get(position).getCode());
+        intent.putExtra("name", tabList.get(position).getName());
         startActivity(intent);
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-   public void refresh(RefreshTodoEvent event) {
+    public void refresh(RefreshTodoEvent event) {
         mPresenter.getUnreadCount();
         LogShow.i("HomeFragment  refresh");
     }
@@ -186,7 +181,8 @@ private CircleImageView iv_icon1,iv_icon2,iv_icon3;
                 tv_noticeCount.setVisibility(View.GONE);
             }
             tv_noticeTitle.setText(notices.getTitle());
-            tv_noticeTime.setText(notices.getCreateTime());
+            String noticeTime = notices.getCreateTime();
+            tv_noticeTime.setText(noticeTime.substring(0, noticeTime.length() - 2));
 
             Tasks task = unreadBean.getTasks();
             if (Integer.valueOf(task.getUnReadNo()) > 0) {
@@ -212,38 +208,32 @@ private CircleImageView iv_icon1,iv_icon2,iv_icon3;
     }
 
 
-    private List<HomeListBean>tabList;
+    private List<HomeListBean> tabList;
+
     public void onQueryBusineseTab(BusineseTab tab) {
         if (tab != null) {
             if (tab.getHomeList() != null) {
-                tabList=tab.getHomeList();
-                for (int i = 0; i <tab.getHomeList().size() ; i++) {
-                    HomeListBean bean=tab.getHomeList().get(i);
-                     LogShow.i("onQueryBusineseTab ",bean.getName(),bean.getIcon());
-                     String url=bean.getIcon();
-                     CircleImageView img=null;
-                    if (i==0)
-                    {
-                        img=iv_icon1;
+                tabList = tab.getHomeList();
+                for (int i = 0; i < tab.getHomeList().size(); i++) {
+                    HomeListBean bean = tab.getHomeList().get(i);
+                    LogShow.i("onQueryBusineseTab ", bean.getName(), bean.getIcon());
+                    String url = bean.getIcon();
+                    CircleImageView img = null;
+                    if (i == 0) {
+                        img = iv_icon1;
                         tv_option1.setText(bean.getName());
 
-                    }
-                    else if (i==1)
-                    {
-                        img=iv_icon2;
+                    } else if (i == 1) {
+                        img = iv_icon2;
                         tv_option2.setText(bean.getName());
-                    }
-                    else if (i==2)
-                    {
-                        img=iv_icon3;
+                    } else if (i == 2) {
+                        img = iv_icon3;
                         tv_option3.setText(bean.getName());
                     }
-                    if (url.isEmpty())
-                    {
-                        img.setImageResource(R.mipmap.business_ico_06);
-                    }else
-                    {
-                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL+url,img);
+                    if (url.isEmpty()) {
+                        img.setImageResource(R.mipmap.business_default);
+                    } else {
+                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL + url, img);
                     }
 
                 }

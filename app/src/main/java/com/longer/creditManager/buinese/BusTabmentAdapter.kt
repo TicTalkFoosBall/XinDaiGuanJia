@@ -17,26 +17,19 @@ class BusTabmentAdapter : BaseAdapter<DefaultListBean>() {
         LogShow.i("BusTabmentAdapter  ", data.toString())
 
         holder.setText(R.id.attachment_name, data.name)
-        var cover= holder.getView<ImageView>(R.id.attachment_cover)
-        if (data.iconRes!=0)
-        {
+        var cover = holder.getView<ImageView>(R.id.attachment_cover)
+        if (data.iconRes != 0) {
             cover.setImageResource(data.iconRes)
-        }
-        else
-        {
-            if (data.icon.isNullOrEmpty())
-            {
-                cover.setImageResource(R.mipmap.business_ico_06)
-            }
-            else
-            {
-                ImageLoaders.load(ApiService.FILE_URL+data.icon,cover )
+        } else {
+            if (data.icon.isNullOrEmpty()) {
+                cover.setImageResource(R.mipmap.business_default)
+            } else {
+                ImageLoaders.loadBusinesw(ApiService.FILE_URL + data.icon, cover)
             }
 
         }
 
     }
-
 
 
 }

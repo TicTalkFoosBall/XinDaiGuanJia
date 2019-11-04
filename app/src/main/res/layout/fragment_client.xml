@@ -4,60 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:ignore="MissingDefaultResource"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
 
     <hxz.www.commonbase.view.KLToolbar
         android:id="@+id/toolbar"
-        android:visibility="visible"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:tb_leftImage="@mipmap/back"
-        app:tb_title="客户管理"
-        android:layout_height="wrap_content" />
-<View
-    android:layout_width="wrap_content"
-    android:layout_height="10dp"
-    android:background="@color/gray_base"
-    ></View>
+        app:layout_constraintTop_toTopOf="parent"
+        app:tb_title="客户管理" />
+
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="10dp"
+        android:background="@color/gray_base"></View>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"
-        android:orientation="horizontal"
         android:background="@color/white"
+        android:orientation="horizontal"
         tools:ignore="MissingConstraints">
 
         <ImageView
+            android:id="@+id/iv_search"
             android:layout_width="36dp"
             android:layout_height="36dp"
-            android:src="@mipmap/search"
-            android:layout_marginLeft="10dp"
             android:layout_centerVertical="true"
-            android:id="@+id/iv_search"
-            android:visibility="gone"
-            />
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/search"
+            android:visibility="gone" />
+
         <EditText
-            android:background="@null"
             android:id="@+id/tv_search"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:hint="搜索内容"
-            android:textSize="15sp"
             android:layout_marginLeft="10dp"
-           android:layout_toRightOf="@id/iv_search"
+            android:layout_toRightOf="@id/iv_search"
+            android:background="@null"
+            android:gravity="center"
+            android:inputType="text"
+            android:singleLine="true"
+            android:imeOptions="actionSearch"
+            android:hint="搜索内容"
             android:textColor="#212121"
             android:textColorHint="#a6a6a6"
-            android:gravity="center"
-            />
+            android:textSize="15sp" />
+
         <TextView
             android:layout_width="2dp"
             android:layout_height="25dp"
+            android:layout_marginLeft="200dp"
+            android:gravity="center"
             android:text="|"
             android:textColor="#EBEBEB"
-            android:gravity="center"
-            android:layout_marginLeft="200dp"
 
             />
 
@@ -70,11 +73,10 @@
         android:layout_height="match_parent"
         android:layout_marginTop="10dp"
         android:background="#f2f2f2"
-        app:srlEnableLoadMore="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rl_title"
         app:layout_constraintRight_toRightOf="parent"
-     />
+        app:layout_constraintTop_toBottomOf="@id/rl_title"
+        app:srlEnableLoadMore="true" />
 
 </LinearLayout>

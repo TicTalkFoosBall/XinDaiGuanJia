@@ -11,14 +11,11 @@ import android.webkit.WebChromeClient
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import com.gyf.immersionbar.ImmersionBar
-import com.longer.creditManager.recording.AttachmentFragment
 import hxz.www.commonbase.baseui.BaseFragment2
 import hxz.www.commonbase.util.ToastUtil
-import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.dialog.LoadingDialog
 import kotlinx.android.synthetic.main.fragment_webview.*
-import toast
 
 
 class WebViewFragment : BaseFragment2<Nothing>() {
@@ -41,7 +38,7 @@ class WebViewFragment : BaseFragment2<Nothing>() {
         }
         var showToolbar = true
         var isUrl = true
-        var showRightTxt = false
+        var openSystem = false//是否启动系统浏览器
         if (len > 1) {
             showToolbar = mParams[1] as Boolean
             toolbar?.setLeftClick(navBackListener())
@@ -60,57 +57,53 @@ class WebViewFragment : BaseFragment2<Nothing>() {
         }
 
         if (len > 4) {
-            showRightTxt = mParams[4] as Boolean
-            if (showRightTxt) {
-                toolbar?.setRightText("附件")
-                toolbar?.setRightClick(View.OnClickListener {
-                    start(FragmentHelper.newInstance(AttachmentFragment::class.java))
-                })
-            }
-
         }
-        LogShow.i("WebViewFragment.kt  initEventAndData", showToolbar, isUrl)
-        initWebview()
-        webView.webChromeClient = object : WebChromeClient() {
+        LogShow.i("WebViewFragment.kt  initEventAndData", showToolbar, isUrl, isSupport(),mUrl)
 
-        }
-        webView.webViewClient = object : WebViewClient() {
+        if (isSupport()) {
+            initWebview()
+            webView.webChromeClient = object : WebChromeClient() {
 
-            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                LogShow.d("override url:$url")
-                var shouldOverride = false
-
-                return shouldOverride
             }
+            webView.webViewClient = object : WebViewClient() {
 
-            override fun onPageFinished(view: WebView?, url: String) {
-                LoadingDialog.getInstance().dismiss()
-                view?.let {
-                    LogShow.d(" title " + view.title)
-                    if (!TextUtils.isEmpty(view.title))
-                        toolbar?.setTitle(view.title)
+                override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                    LogShow.d("override url:$url")
+                    var shouldOverride = false
+
+                    return shouldOverride
+                }
+
+                override fun onPageFinished(view: WebView?, url: String) {
+                    LoadingDialog.getInstance().dismiss()
+                    view?.let {
+                        LogShow.d(" title " + view.title)
+                        if (!TextUtils.isEmpty(view.title))
+                            toolbar?.setTitle(view.title)
+                    }
+
                 }
 
             }
 
-        }
+            LoadingDialog.getInstance().show(_mActivity)
 
-        LoadingDialog.getInstance().show(_mActivity)
-
-        LogShow.d("url=$mUrl")
-
-        if (mUrl.endsWith("pdf") || mUrl.endsWith("doc") || mUrl.endsWith("xls") || mUrl.endsWith("other")) {
-            "格式不支持".toast()
-        } else {
             if (isUrl) {
                 webView.loadUrl(mUrl)
             } else {
-                webView.loadDataWithBaseURL(null, mUrl, "text/html", "utf-8", null);
+                webView.loadDataWithBaseURL(null, mUrl, "text/html", "utf-8", null)
             }
+        } else {
+            val intent = Intent()
+            intent.action = "android.intent.action.VIEW"
+            val content_url = Uri.parse(mUrl)
+            intent.data = content_url
+            startActivity(intent)
         }
 
-
     }
+
+    private fun isSupport() = !(mUrl.endsWith("pdf") || mUrl.endsWith("doc") || mUrl.endsWith("xls") || mUrl.endsWith("other"))
 
     private fun readPdf() {
         webView.setDownloadListener(object : DownloadListener {

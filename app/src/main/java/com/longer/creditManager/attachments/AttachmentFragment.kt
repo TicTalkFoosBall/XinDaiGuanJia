@@ -11,6 +11,8 @@ import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
 import hxz.www.commonbase.model.Attachment
 import hxz.www.commonbase.model.NoticeItem
+import hxz.www.commonbase.model.TodoAttachment
+import hxz.www.commonbase.model.todo.TodoItem
 import hxz.www.commonbase.net.BaseResult
 import hxz.www.commonbase.net.BaseResultObserver
 import hxz.www.commonbase.net.constant.ApiService
@@ -26,6 +28,7 @@ import kotlinx.android.synthetic.main.fragment_noticelist.*
 
 class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapter>(), AttachmentView {
 
+
     override fun bindAdapter() = AttachmentAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
@@ -36,46 +39,42 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
     }
 
     var notiItem: NoticeItem? = null
+    var todoItem: TodoItem? = null
+    var type = ""
+    var fromCode = ""
     override fun initData() {
-        refreshLayout?.recyclerView?.let {
-        }
-        notiItem = getParameter(0) as NoticeItem?
+
         toolbar.setTitle("附件")
         toolbar.setLeftClick(View.OnClickListener
         {
             pop()
         })
+        type = getParameter(0) as String
+        LogShow.i("AttachmentFragment.kt  initData type", type)
+        when (type) {
+            "notic" -> {
+                notiItem = getParameter(1) as NoticeItem?
+            }
+            "todo" -> {
+                todoItem = getParameter(1) as TodoItem?
+                fromCode = getParameter(2) as String
+                LogShow.i("AttachmentFragment.kt  initData", todoItem.toString(), fromCode)
+            }
+        }
 
         mAdapter.setOnItemClickListener { view, data, position ->
             LogShow.i("NoticeListFragment.kt  initData", data.toString())
-            start(FragmentHelper.newInstance(WebViewFragment::class.java,ApiService.FILE_URL+ data.realPath))
+            start(FragmentHelper.newInstance(WebViewFragment::class.java, ApiService.FILE_URL + data.realPath))
         }
+
     }
 
     override fun onQueryAttachment(attachment: MutableList<Attachment>?) {
         LogShow.i(" onQuery  ", attachment?.size, mAdapter);
-        var list= mutableListOf<Attachment>()
-//        attachment?.let {
-//            list.addAll(attachment)
-//        }
+        var list = mutableListOf<Attachment>()
+
         attachment?.forEachIndexed { index, attachment ->
-            if (index%2==0)
-            {
-                var att=Attachment()
-                att.type="name"
-                att.remark="哈哈哈"
-                list.add(att)
-                var att1=Attachment()
-                att.type="holder"
-                list.add(att1)
-                var att2=Attachment()
-                att.type="holder"
-                list.add(att2)
-                var att3=Attachment()
-                att.type="holder"
-                list.add(att3)
-            }
-            attachment.type="attachment"
+            attachment.type = "attachment"
             list.add(attachment)
         }
 
@@ -86,8 +85,59 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
         }, 500)
     }
 
+
+    override fun onQueryTodoAttachments(attachment: MutableList<TodoAttachment>?) {
+        var list = mutableListOf<Attachment>()
+        attachment?.forEach { parent ->
+            var bean = Attachment()
+            bean.type = "name"
+            bean.remark = parent.gropname
+            list.add(bean)
+            list.addAll(createHoldeBeanList(3))
+            parent.list.forEachIndexed { index, listBean ->
+                var bean = Attachment()
+                bean.fileName = listBean.name
+                bean.fileSuffix = "."+listBean.path.substringAfterLast(".")
+                bean.realPath = listBean.path
+                bean.type = "attachment"
+                list.add(bean)
+                 LogShow.i("AttachmentFragment.kt  onQueryTodoAttachments foreach",listBean.toString(),listBean.path.substringAfterLast("."))
+            }
+            var holderCount = 4 - parent.list.size % 4
+            list.addAll(createHoldeBeanList(holderCount))
+            LogShow.i("AttachmentFragment.kt  onQueryTodoAttachments", list.size)
+        }
+        refreshLayout?.postDelayed({
+            mAdapter?.data = list
+            refreshLayout?.finishLoad()
+            refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
+        }, 500)
+    }
+
+    private fun createHoldeBeanList(count: Int): MutableList<Attachment> {
+        LogShow.i("AttachmentFragment.kt  createHoldeBeanList begim", count)
+        var list = mutableListOf<Attachment>()
+        for (i in 0 until count) {
+            var bean = Attachment()
+            bean.type = "holder"
+            list.add(bean)
+        }
+        LogShow.i("AttachmentFragment.kt  createHoldeBeanList", list.size)
+        return list
+    }
+
     override fun loadData(page: Int) {
-        mPresenter.queryClient(notiItem?.id.toString())
+        LogShow.i("AttachmentFragment.kt  loadData", type)
+        when (type) {
+            "notic" -> {
+                mPresenter.queryNoticeATtachment(notiItem?.id.toString())
+            }
+            "todo" -> {
+                mPresenter.queryAttachments(todoItem, fromCode)
+            }
+        }
+
+
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
@@ -100,7 +150,7 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
 
 class AttachmentPresenter : BasePresenterImpl<AttachmentView>() {
     private var mDisposable: Disposable? = null
-    fun queryClient(id: String?) {
+    fun queryNoticeATtachment(id: String?) {
         LogShow.i("queryClient ", id)
         id?.let {
             mDisposable = Api.getApiService().getNoticeAttachments(id).subscribeWith(object : BaseResultObserver<BaseResult<MutableList<Attachment>>>() {
@@ -114,12 +164,26 @@ class AttachmentPresenter : BasePresenterImpl<AttachmentView>() {
                 }
             })
         }
+    }
 
+    fun queryAttachments(todoItem: TodoItem?, code: String) {
+        LogShow.i("AttachmentFragment.kt  queryAttachments", code)
+        mDisposable = Api.getApiService().getAttachments(todoItem?.formGroupCode, code, todoItem?.masterId).subscribeWith(object : BaseResultObserver<BaseResult<MutableList<TodoAttachment>>>() {
+            override fun onResult(todoBean: BaseResult<MutableList<TodoAttachment>>?) {
+                LogShow.i("queryAttachments   ", todoBean?.result)
+                mView.onQueryTodoAttachments(todoBean?.result)
+            }
+
+            override fun onFailure(e: Throwable, error: String) {
+                ToastUtil.show(error)
+            }
+        })
     }
 }
 
 interface AttachmentView : BaseView2 {
     fun onQueryAttachment(attachment: MutableList<Attachment>?)
 
+    fun onQueryTodoAttachments(attachment: MutableList<TodoAttachment>?)
 }
 

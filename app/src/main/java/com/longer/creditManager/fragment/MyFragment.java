@@ -32,13 +32,6 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
     }
 
 
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-//                             Bundle savedInstanceState) {
-//        // Inflate the layout for this fragment
-//
-//        return inflater.inflate(R.layout.fragment_my, container, false);
-//    }
 
     @Override
     public int getLayoutId() {
@@ -70,6 +63,8 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
         exit.setOnClickListener(this);
 
         name.setText(Cache.getUserInfo().getFullname());
+//        if (Cache.getUserInfo().get)
+//        ImageLoaders.INSTANCE.load(iv_headportrait);
     }
 
     @Override

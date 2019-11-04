@@ -12,7 +12,6 @@ import com.hjq.toast.style.ToastBlackStyle;
 import hxz.www.commonbase.net.HttpManger;
 import hxz.www.commonbase.net.constant.ApiService;
 
-
 public class BaseApplication extends MultiDexApplication {
     private static BaseApplication baseApplication;
     private ActivityLifecycleCallbacks mActivityLifecycleCallbacks;

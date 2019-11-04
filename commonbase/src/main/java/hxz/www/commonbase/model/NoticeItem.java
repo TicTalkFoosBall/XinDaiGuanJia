@@ -11,7 +11,7 @@ public class NoticeItem implements Serializable {
     private long id;
     private String title;
 
-    private Long createtime;
+    private Long createTime;
     private String content;
 
     public void setId(long id) {
@@ -31,11 +31,11 @@ public class NoticeItem implements Serializable {
     }
 
     public void setCreatetime(Long createtime) {
-        this.createtime = createtime;
+        this.createTime = createtime;
     }
 
     public Long getCreatetime() {
-        return createtime;
+        return createTime;
     }
 
     public void setContent(String content) {

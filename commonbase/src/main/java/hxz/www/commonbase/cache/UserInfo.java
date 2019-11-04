@@ -1,6 +1,8 @@
 package hxz.www.commonbase.cache;
 
-public class UserInfo {
+import java.io.Serializable;
+
+public class UserInfo implements Serializable {
 
     private String token;
     private Object id;

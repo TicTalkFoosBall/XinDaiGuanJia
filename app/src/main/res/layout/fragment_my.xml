@@ -18,7 +18,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="50dp"
             android:id="@+id/iv_headportrait"
-            android:src="@mipmap/rng"
+            android:src="@mipmap/logo"
             />
         <TextView
 

@@ -18,9 +18,20 @@ public class TodoItem implements Serializable {
     private String formGroupCode;
     private String procInstId;
     private String masterId;
+    private boolean canAppTodoable;
+
+    public boolean getCanAppTodoable() {
+        return canAppTodoable;
+    }
+
+    public void setCanAppTodoable(boolean canAppTodoable) {
+        this.canAppTodoable = canAppTodoable;
+    }
+
     public void setType(String type) {
         this.type = type;
     }
+
     public String getType() {
         return type;
     }
@@ -28,6 +39,7 @@ public class TodoItem implements Serializable {
     public void setTaskId(String taskId) {
         this.taskId = taskId;
     }
+
     public String getTaskId() {
         return taskId;
     }
@@ -35,6 +47,7 @@ public class TodoItem implements Serializable {
     public void setTitle(String title) {
         this.title = title;
     }
+
     public String getTitle() {
         return title;
     }
@@ -42,6 +55,7 @@ public class TodoItem implements Serializable {
     public void setTaskName(String taskName) {
         this.taskName = taskName;
     }
+
     public String getTaskName() {
         return taskName;
     }
@@ -49,6 +63,7 @@ public class TodoItem implements Serializable {
     public void setStartTime(String startTime) {
         this.startTime = startTime;
     }
+
     public String getStartTime() {
         return startTime;
     }
@@ -56,6 +71,7 @@ public class TodoItem implements Serializable {
     public void setTimeout(String timeout) {
         this.timeout = timeout;
     }
+
     public String getTimeout() {
         return timeout;
     }
@@ -63,6 +79,7 @@ public class TodoItem implements Serializable {
     public void setFormGroupCode(String formGroupCode) {
         this.formGroupCode = formGroupCode;
     }
+
     public String getFormGroupCode() {
         return formGroupCode;
     }
@@ -70,6 +87,7 @@ public class TodoItem implements Serializable {
     public void setMasterId(String masterId) {
         this.masterId = masterId;
     }
+
     public String getMasterId() {
         return masterId;
     }

@@ -33,7 +33,7 @@ public abstract class BaseResultObserver<T> extends DisposableSingleObserver<T> 
              * 处理接口返回的code码
              */
             BaseResult responseBean = (BaseResult) t;
-            if (responseBean.getCode().equals(HttpErrorCode.USER_NO_LOGIN)||responseBean.getCode().equals(HttpErrorCode.USER_NO_LOGIN)) {
+            if (responseBean.getCode().equals(HttpErrorCode.USER_NO_LOGIN)||responseBean.getCode().equals(HttpErrorCode.USER_TIMEOUT)) {
                 ToastUtil.show(responseBean.getMsg());
                 Cache.setUserInfo(null);
             }

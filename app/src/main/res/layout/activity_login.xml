@@ -4,155 +4,145 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".login.LoginActivity"
-    >
-        
+    tools:context=".login.LoginActivity">
+
     <ImageView
+        android:id="@+id/iv_logo"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:src="@mipmap/logo"
         android:layout_marginLeft="165dp"
         android:layout_marginTop="56dp"
-        android:id="@+id/iv_logo"
+        android:src="@mipmap/logo"
 
         />
 
 
     <RelativeLayout
+        android:id="@+id/r1"
         android:layout_width="313dp"
         android:layout_height="44dp"
-         android:background="@drawable/textcolor_danbaise"
         android:layout_below="@+id/iv_logo"
-        android:layout_marginTop="53dp"
         android:layout_marginLeft="32dp"
-        android:id="@+id/r1"
-        >
+        android:layout_marginTop="53dp"
+        android:background="@drawable/textcolor_danbaise">
 
         <EditText
-        android:layout_width="313dp"
-        android:layout_height="44dp"
-        android:hint="请输入公司名称"
-        android:textSize="15sp"
+            android:id="@+id/ev_company"
+            android:layout_width="313dp"
+            android:layout_height="44dp"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
+            android:hint="请输入公司名称"
+            android:text=""
             android:textColor="#212121"
             android:textColorHint="#b7b8c1"
-        android:background="@null"
-
-        android:layout_marginLeft="30dp"
-        android:id="@+id/ev_company"
-        />
+            android:textSize="15sp" />
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/r3"
         android:layout_width="313dp"
         android:layout_height="44dp"
-        android:background="@drawable/textcolor_danbaise"
         android:layout_below="@+id/r2"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="32dp"
-        android:id="@+id/r3"
-        >
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textcolor_danbaise">
 
         <EditText
+            android:id="@+id/ev_pwd"
             android:layout_width="190dp"
             android:layout_height="44dp"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
             android:hint="请输入密码"
-            android:textSize="15sp"
+            android:inputType="textPassword"
+            android:text=""
             android:textColor="#212121"
             android:textColorHint="#b7b8c1"
-            android:text="root147"
-            android:background="@null"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/ev_pwd"
-            android:inputType="textPassword"
-            />
+            android:textSize="15sp" />
+
         <ImageView
+            android:id="@+id/iv_cancel"
             android:layout_width="13dp"
             android:layout_height="13dp"
-            android:src="@mipmap/login_cancel"
-            android:id="@+id/iv_cancel"
-            android:layout_toRightOf="@+id/ev_pwd"
-            android:layout_marginTop="15dp"
             android:layout_marginLeft="25dp"
-            />
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@+id/ev_pwd"
+            android:src="@mipmap/login_cancel" />
+
         <ImageView
+            android:id="@+id/iv_estop"
             android:layout_width="21dp"
             android:layout_height="21dp"
-            android:src="@mipmap/login_hide"
-            android:id="@+id/iv_estop"
-            android:layout_toRightOf="@+id/ev_pwd"
-            android:layout_marginTop="13dp"
             android:layout_marginLeft="50dp"
+            android:layout_marginTop="13dp"
+            android:layout_toRightOf="@+id/ev_pwd"
+            android:src="@mipmap/login_hide"
 
             />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/r2"
         android:layout_width="313dp"
         android:layout_height="44dp"
-        android:background="@drawable/textcolor_danbaise"
         android:layout_below="@+id/r1"
-        android:layout_marginTop="16dp"
         android:layout_marginLeft="32dp"
-        android:id="@+id/r2"
-        >
+        android:layout_marginTop="16dp"
+        android:background="@drawable/textcolor_danbaise">
 
         <EditText
+            android:id="@+id/ev_username"
             android:layout_width="313dp"
             android:layout_height="44dp"
+            android:layout_marginLeft="30dp"
+            android:background="@null"
             android:hint="请输入用户名"
-            android:textSize="15sp"
+            android:text=""
             android:textColor="#212121"
             android:textColorHint="#b7b8c1"
-            android:text="root"
-            android:background="@null"
-            android:layout_marginLeft="30dp"
-            android:id="@+id/ev_username"
-            />
+            android:textSize="15sp" />
     </RelativeLayout>
 
 
-        <Button
-            android:id="@+id/login_btn"
-            android:layout_width="313dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="41dp"
-            android:layout_weight="1"
-            android:background="@drawable/botton_danlan"
-            android:text="登录"
-            android:textColor="#ffffff"
-            android:textSize="15dp"
-            android:layout_marginLeft="35dp"
-            android:layout_below="@+id/r3"
-            />
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="313dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/r3"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="41dp"
+        android:layout_weight="1"
+        android:background="@drawable/botton_danlan"
+        android:text="登录"
+        android:textColor="#ffffff"
+        android:textSize="15dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tv_forgetpwd"
-            android:text="忘记密码？"
-            android:textColor="#398eeb"
-            android:textSize="14sp"
-            android:layout_below="@+id/login_btn"
-            android:layout_marginLeft="160dp"
-            android:layout_marginTop="22dp"
-            />
+    <TextView
+        android:id="@+id/tv_forgetpwd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/login_btn"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="22dp"
+        android:text="忘记密码？"
+        android:textColor="#398eeb"
+        android:textSize="14sp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Copyright @ 2019 Longer Software"
-        android:textColor="#212121"
-        android:textSize="10sp"
         android:layout_below="@+id/login_btn"
         android:layout_marginLeft="110dp"
         android:layout_marginTop="152dp"
-        />
+        android:text="Copyright @ 2019 Longer Software"
+        android:textColor="#212121"
+        android:textSize="10sp" />
     <!--etPayPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());-->
     <!--} else {-->
     <!--//否则隐藏密码-->
     <!--etPayPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());-->
-
 
 
 </RelativeLayout>

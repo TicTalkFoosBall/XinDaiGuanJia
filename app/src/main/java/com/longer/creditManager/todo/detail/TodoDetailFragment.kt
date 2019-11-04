@@ -1,27 +1,20 @@
 package com.longer.creditManager.todo.detail
 
-import android.graphics.drawable.BitmapDrawable
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
-import android.view.WindowManager
-import android.view.animation.AccelerateInterpolator
-import android.view.animation.Animation
-import android.view.animation.TranslateAnimation
-import android.widget.PopupWindow
 import click
 import com.longer.creditManager.R
 import com.longer.creditManager.basemodel.Api
 import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.dialog.ExaminationDialog
 import com.longer.creditManager.dialog.OptionDialogListener
+import com.longer.creditManager.recording.AttachmentFragment
 import com.longer.creditManager.recording.RecordListFragment
 import com.longer.creditManager.todo.RefreshTodoEvent
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
-import hxz.www.commonbase.model.Attachment
 import hxz.www.commonbase.model.PopModel
 import hxz.www.commonbase.model.todo.TodoItem
 import hxz.www.commonbase.model.todo.TodoMoreMenuModel
@@ -37,13 +30,16 @@ import hxz.www.commonbase.util.ToastUtil
 import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
+import hxz.www.commonbase.view.dialog.BottomRecyclerGridViewDialog
 import hxz.www.commonbase.view.dialog.BottomRecyclerViewDialog
+import hxz.www.commonbase.view.dialog.OnBottomRecyclerGridViewListener
 import hxz.www.commonbase.view.dialog.OnBottomRecyclerViewListener
 import io.reactivex.disposables.Disposable
 import isVisible
 import kotlinx.android.synthetic.main.fragment_noticelist.toolbar
 import kotlinx.android.synthetic.main.fragment_tododetaillist.*
 import org.greenrobot.eventbus.EventBus
+import toast
 import value
 
 
@@ -66,9 +62,9 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         todoItem = getParameter(0) as TodoItem?
         taskId = todoItem?.taskId.value()
         procInstId = todoItem?.procInstId.value()
-        commitbean?.taskId = taskId
-        commitbean?.processInstanceId = procInstId
-        commitbean?.masterId = todoItem?.masterId
+        commitbean.taskId = taskId
+        commitbean.processInstanceId = procInstId
+        commitbean.masterId = todoItem?.masterId
 
         refreshLayout?.recyclerView?.let {
 
@@ -85,37 +81,42 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         {
             _mActivity.finish()
         }).setRightImage(R.mipmap.more)
-                .setRightClick(View.OnClickListener { initPopupWindow() })
-//        mPresenter.queryMore(todoItem?.formGroupCode.value())
+                .setRightClick(View.OnClickListener {
+                    mPresenter.queryMore(todoItem?.formGroupCode.value())
+                })
 
         tv_recording.click {
             start(FragmentHelper.newInstance(RecordListFragment::class.java, history))
         }
 
         bt_examine.click {
-            var modelList = mutableListOf<PopModel>()
+             LogShow.i("TodoDetailFragment.kt  initData",todoItem?.canAppTodoable )
+            if (todoItem?.canAppTodoable?:false) {
+                var modelList = mutableListOf<PopModel>()
+                apprList?.forEach { it ->
+                    modelList.add(PopModel(it.desc))
+                    LogShow.i("TodoDetailFragment.kt  initData", it.toString())
+                }
+                commitDialog = ExaminationDialog(context)
+                commitDialog?.setListener(object : OptionDialogListener {
+                    override fun onCommit(content: String) {
+                        commitbean.comment = content
+                        mPresenter.commitApproval(commitbean)
+                    }
 
-            apprList?.forEach { it ->
-                modelList.add(PopModel(it.desc))
-                LogShow.i("TodoDetailFragment.kt  initData", it.toString())
+                    override fun onResultChoose() {
+                        LogShow.i("TodoDetailFragment.kt  onResultChoose")
+                        optionUpDialog(modelList)
+                    }
+
+                })
+                commitDialog?.show()
+            } else  {
+                "请在Pc端审核".toast()
             }
-            commitDialog = ExaminationDialog(context)
-            commitDialog?.setListener(object : OptionDialogListener {
-                override fun onCommit(content: String) {
-                    commitbean?.comment = content
-                    mPresenter.commitApproval(commitbean)
-                }
 
-                override fun onResultChoose() {
-                    LogShow.i("TodoDetailFragment.kt  onResultChoose")
-                    optionUpDialog(modelList)
-                }
-
-            })
-            commitDialog?.show()
         }
-        mPresenter.queryMore(todoItem?.formGroupCode.value())
-//        mPresenter.queryAttachments(null)
+
     }
 
     var commitDialog: ExaminationDialog? = null
@@ -128,8 +129,8 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
                     .listener(object : OnBottomRecyclerViewListener {
                         override fun onContentClickAction(position: Int, data: PopModel, dialog: BottomRecyclerViewDialog) {
                             var approv = apprList?.get(position)
-                            commitbean?.result?.code = approv?.code
-                            commitbean?.result?.desc = approv?.desc
+                            commitbean.result?.code = approv?.code
+                            commitbean.result?.desc = approv?.desc
                             commitDialog?.setResult(approv?.desc)
                             dialog.dismiss()
                         }
@@ -138,54 +139,24 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         bottomRecyclerViewDialog?.show()
     }
 
-    // 弹出PopupWindow
-    private fun initPopupWindow() {
-        val view = LayoutInflater.from(context).inflate(R.layout.popuwindow, null, false)
-        var popupWindow = PopupWindow(view, WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT, true)
-        popupWindow.setBackgroundDrawable(BitmapDrawable())
-        popupWindow.setFocusable(true)
-        popupWindow.setOutsideTouchable(true)
-        lighton()
-        var animation = TranslateAnimation(Animation.RELATIVE_TO_PARENT, 0f, Animation.RELATIVE_TO_PARENT, 0f,
-                Animation.RELATIVE_TO_PARENT, 1f, Animation.RELATIVE_TO_PARENT, 0f)
-        animation.setInterpolator(AccelerateInterpolator())
-        animation.setDuration(200)
-        popupWindow.showAtLocation(view, Gravity.BOTTOM or Gravity.CENTER_HORIZONTAL, 0, 0)
-        view.startAnimation(animation)
 
-        popupWindow.setOnDismissListener(PopupWindow.OnDismissListener { lighton() })
-
-        PopupWindowOnClick(view)
+    var menuDialog: BottomRecyclerGridViewDialog? = null
+    private fun showMenuDialog(modelList: MutableList<PopModel>) {
+        if (menuDialog == null) {
+            menuDialog = BottomRecyclerGridViewDialog(_mActivity, modelList)
+                    .title("")
+                    .listener(object : OnBottomRecyclerGridViewListener {
+                        override fun onContentClickAction(position: Int, data: PopModel, dialog: BottomRecyclerGridViewDialog) {
+                            if (data.text.contains("附件")) {
+                                start(FragmentHelper.newInstance(AttachmentFragment::class.java, "todo", todoItem, data.extend))
+                            }
+                            dialog.dismiss()
+                        }
+                    })
+        }
+        menuDialog?.show()
     }
 
-
-    private fun PopupWindowOnClick(view: View) {
-        view.findViewById<View>(R.id.iv_1).setOnClickListener {
-            lighton()
-
-        }
-        view.findViewById<View>(R.id.iv_2).setOnClickListener {
-            lighton()
-        }
-        view.findViewById<View>(R.id.iv_3).setOnClickListener {
-            lighton()
-        }
-
-        view.findViewById<View>(R.id.iv_5).setOnClickListener {
-            lighton()
-        }
-
-        view.findViewById<View>(R.id.iv_6).setOnClickListener {
-            lighton()
-        }
-        view.findViewById<View>(R.id.iv_7).setOnClickListener {
-            lighton()
-        }
-        view.findViewById<View>(R.id.iv_8).setOnClickListener {
-            lighton()
-        }
-
-    }
 
     /**
      * 设置手机屏幕亮度显示正常
@@ -201,20 +172,18 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
-        LogShow.i("onLazyInitView ", "")
         refresh()
     }
 
-
+    var moreList: MutableList<TodoMoreMenuModel>? = null
     override fun onQueryMore(list: MutableList<TodoMoreMenuModel>?) {
-
-        list?.forEach {   LogShow.i("onQueryMore  ", it.name)  }
-        list?.let {
-
-            mPresenter.queryAttachments(todoItem, it[0]?.code.value())
+        var moreList = mutableListOf<PopModel>()
+        list?.forEach { it ->
+            LogShow.i("TodoDetailFragment.kt  initData", it.toString())
+            moreList.add(PopModel(text = it.name, imgUrl = it.icon, extend = it.code))
         }
 
-
+        showMenuDialog(moreList)
     }
 
 
@@ -229,7 +198,6 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         detailBean?.let {
             apprList = it.taskInitInfo?.data?.extendInfo?.approvalResultList
             history = it.taskHistoryInfo
-
         }
         refreshLayout?.postDelayed({
             var filterList = detailBean?.fieldList?.filterNot {
@@ -264,18 +232,6 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
         })
     }
 
-    fun queryAttachments(todoItem: TodoItem?, code: String) {
-        LogShow.i("TodoDetailFragment.kt  queryAttachments", code)
-        mDisposable = Api.getApiService().getAttachments(todoItem?.formGroupCode, code, todoItem?.masterId).subscribeWith(object : BaseResultObserver<BaseResult<List<Attachment>>>() {
-            override fun onResult(todoBean: BaseResult<List<Attachment>>?) {
-                LogShow.i("queryAttachments   ", todoBean?.result)
-            }
-
-            override fun onFailure(e: Throwable, error: String) {
-                ToastUtil.show(error)
-            }
-        })
-    }
 
     fun queryMore(fromGroupcode: String) {
         LogShow.i("queryMore   ", fromGroupcode);

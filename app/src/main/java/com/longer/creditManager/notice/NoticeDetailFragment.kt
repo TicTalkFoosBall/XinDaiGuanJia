@@ -23,13 +23,14 @@ class NoticeDetailFragment : BaseFragment2<NoticeDetailPresenter>(), NoticeDetai
         LogShow.i("NoticeDetailFragment.kt  initEventAndData", item.toString())
         toolbar.setTitle("公告详情")
         toolbar.setRightText("附件")
+        3 as  NoticeItem
         toolbar.setRightClick(View.OnClickListener
         {
-            start(FragmentHelper.newInstance(AttachmentFragment::class.java,item))
+            start(FragmentHelper.newInstance(AttachmentFragment::class.java, "notic", item))
         })
         toolbar.setLeftClick(View.OnClickListener
         {
-         pop()
+            pop()
         })
 
 
