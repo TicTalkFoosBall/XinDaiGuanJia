@@ -139,7 +139,6 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
     public void onClick(View v) {
         LogShow.i("HomeFragment  onClick v");
         if (v.getId() == rl_todo.getId()) {
-            tv_todoCount.setVisibility(View.GONE);
             startActivity(new Intent(getContext(), TodoActivity.class));
         } else if (v.getId() == rl_notice.getId()) {
             tv_noticeCount.setVisibility(View.GONE);

@@ -1,5 +1,6 @@
 package hxz.www.commonbase.net.constant;
 
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 
 import java.util.List;
@@ -33,8 +34,8 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
-      String BASE_URL = "http://120.79.56.152:9010/lfcp-app/";
-      String FILE_URL = "http://120.79.56.152:8010";
+    String BASE_URL = "http://120.79.56.152:9010/lfcp-app/";
+    String FILE_URL = "http://120.79.56.152:8010";
 
     @GET("dish_list.php")
     Single<Ba1> getBa1(@Query("stage_id") String stage_id, @Query("limit") String limitm, @Query("page") String page);
@@ -73,11 +74,11 @@ public interface ApiService {
     @PUT("systemMsg/read")
     Single<BaseResult> readSystemMSg();
 
-    // 代办审批
+    // 待办审批
     @GET("task/list")
     Single<BaseResult<TodoBean>> getTodoList(@Query("pageIndex") int pageIndex, @Query("pageCount") int pageCount);
 
-    // 代办详情
+    // 待办详情
     @GET("task/detailHistoryApproval")
     Single<BaseResult<TodoDetailItem>> getTodoDetail(@Query("taskId") String taskId, @Query("procInstId") String procInstId);
 
@@ -85,11 +86,19 @@ public interface ApiService {
     @GET("formGroup/formGroupCode/attachment/masterId")
     Single<BaseResult<List<TodoAttachment>>> getAttachments(@Query("formGroupCode") String formGroupCode, @Query("formCode") String formCode, @Query("masterId") String masterId);
 
+    //还款计划
+    @GET("formGroup/formGroupCode/repaymentPlan/{masterId}")
+    Single<BaseResult<JsonArray>> getRepaymentPlan(@Path("masterId") String masterId);
+
+    //报告类
+    @GET("formGroup/formGroupCode/oneToOne/masterId")
+    Single<BaseResult<JsonObject>> getReport(@Query("formGroupCode") String formGroupCode, @Query("formCode") String formCode, @Query("masterId") String masterId);
+
     //公告附件列表
     @GET("file/files/{noticeId}")
     Single<BaseResult<List<Attachment>>> getNoticeAttachments(@Path("noticeId") String noticeId);
 
-    //
+    //待办详情更多按钮
     @GET("formGroup/tabs/{formGroupCode}")
     Single<BaseResult<List<TodoMoreMenuModel>>> getMoreMenu(@Path("formGroupCode") String formGroupCode);
 

@@ -4,5 +4,5 @@ import hxz.www.commonbase.model.todo.buinese.BusineseDetailBean
 
 
 interface TestView : BaseView2 {
-    fun onQuery(detail: BusineseDetailBean)
+    fun onQuery(detail: BusineseDetailBean,name:String?="")
 }

@@ -15,7 +15,7 @@ class BusineseDetailActivity : BaseActivity2<Nothing>()
         var code=intent.getStringExtra("code")
         var name=intent.getStringExtra("name")
          LogShow.i("BusineseDetailActivity.kt  initEventAndData",code,name)
-        loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(BusinessDetailFragment::class.java,code,name))
+        loadRootFragment(R.id.fl_container,  FragmentHelper.newInstance(BusinessDetailFragment::class.java,"businese",name,code))
 
     }
 

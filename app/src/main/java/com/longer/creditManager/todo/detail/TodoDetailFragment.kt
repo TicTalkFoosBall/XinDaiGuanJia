@@ -8,10 +8,12 @@ import click
 import com.longer.creditManager.R
 import com.longer.creditManager.basemodel.Api
 import com.longer.creditManager.buinese.BaseListFragment
+import com.longer.creditManager.buinese.detail.BusinessDetailFragment
 import com.longer.creditManager.dialog.ExaminationDialog
 import com.longer.creditManager.dialog.OptionDialogListener
 import com.longer.creditManager.recording.AttachmentFragment
 import com.longer.creditManager.recording.RecordListFragment
+import com.longer.creditManager.recording.ReportFragment
 import com.longer.creditManager.todo.RefreshTodoEvent
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
@@ -44,6 +46,7 @@ import value
 
 
 class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapter>(), TodoDetailView {
+
 
     override fun bindAdapter() = TodoDetailAdapter()
 
@@ -90,8 +93,8 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         }
 
         bt_examine.click {
-             LogShow.i("TodoDetailFragment.kt  initData",todoItem?.canAppTodoable )
-            if (todoItem?.canAppTodoable?:false) {
+            LogShow.i("TodoDetailFragment.kt  initData", todoItem?.canAppTodoable)
+            if (todoItem?.canAppTodoable ?: false) {
                 var modelList = mutableListOf<PopModel>()
                 apprList?.forEach { it ->
                     modelList.add(PopModel(it.desc))
@@ -111,7 +114,7 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
 
                 })
                 commitDialog?.show()
-            } else  {
+            } else {
                 "请在Pc端审核".toast()
             }
 
@@ -149,6 +152,11 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
                         override fun onContentClickAction(position: Int, data: PopModel, dialog: BottomRecyclerGridViewDialog) {
                             if (data.text.contains("附件")) {
                                 start(FragmentHelper.newInstance(AttachmentFragment::class.java, "todo", todoItem, data.extend))
+                            } else if (data.text.contains("还款")) {
+                                start(FragmentHelper.newInstance(BusinessDetailFragment::class.java, "repay", "还款计划", todoItem))
+                            }
+                            else if (data.text.contains("报告")) {
+                                start(FragmentHelper.newInstance(ReportFragment::class.java,data.text, todoItem, data.extend))
                             }
                             dialog.dismiss()
                         }
@@ -173,6 +181,10 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
         refresh()
+    }
+
+    override fun onQueryRepay(json: String) {
+
     }
 
     var moreList: MutableList<TodoMoreMenuModel>? = null
@@ -263,6 +275,8 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
         }
 
     }
+
+
 }
 
 interface TodoDetailView : BaseView2 {
@@ -272,6 +286,8 @@ interface TodoDetailView : BaseView2 {
     fun onCommitApproal(isSUccess: Boolean)
 
     fun onQueryDetail(detailBean: TodoDetailItem?)
+
+    fun onQueryRepay(json: String)
 
 }
 

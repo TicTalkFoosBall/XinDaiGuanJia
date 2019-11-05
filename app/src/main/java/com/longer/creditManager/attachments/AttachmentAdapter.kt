@@ -15,7 +15,7 @@ class AttachmentAdapter : BaseAdapter<Attachment>() {
     override fun getItemLayoutResId(data: Attachment, position: Int) = R.layout.item_attachment
 
     override fun bindData(holder: ViewHolder, data: Attachment, position: Int) {
-        LogShow.i(" AttachmentAdapter  ", data.toString())
+        LogShow.i(" ReportAdapter  ", data.toString())
         var title = holder.getView<TextView>(R.id.tv_subTitle)
         var cover = holder.getView<ImageView>(R.id.attachment_cover)
         var name = holder.getView<TextView>(R.id.attachment_name)

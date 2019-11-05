@@ -1,5 +1,7 @@
 package com.longer.creditManager.recording
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.view.View
@@ -50,7 +52,7 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
             pop()
         })
         type = getParameter(0) as String
-        LogShow.i("AttachmentFragment.kt  initData type", type)
+        LogShow.i("Reportragment.kt  initData type", type)
         when (type) {
             "notic" -> {
                 notiItem = getParameter(1) as NoticeItem?
@@ -58,16 +60,30 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
             "todo" -> {
                 todoItem = getParameter(1) as TodoItem?
                 fromCode = getParameter(2) as String
-                LogShow.i("AttachmentFragment.kt  initData", todoItem.toString(), fromCode)
+                LogShow.i("Reportragment.kt  initData", todoItem.toString(), fromCode)
             }
         }
 
         mAdapter.setOnItemClickListener { view, data, position ->
             LogShow.i("NoticeListFragment.kt  initData", data.toString())
-            start(FragmentHelper.newInstance(WebViewFragment::class.java, ApiService.FILE_URL + data.realPath))
+            openAttachment(ApiService.FILE_URL + data.realPath)
+        }
+    }
+
+    private fun openAttachment(url: String) {
+        if (isSupport(url)) {
+            start(FragmentHelper.newInstance(WebViewFragment::class.java, url))
+        } else {
+            val intent = Intent()
+            intent.action = "android.intent.action.VIEW"
+            val content_url = Uri.parse(url)
+            intent.data = content_url
+            startActivity(intent)
         }
 
     }
+
+    private fun isSupport(url: String) = url.endsWith("jpg") || url.endsWith("png") || url.endsWith("txt")
 
     override fun onQueryAttachment(attachment: MutableList<Attachment>?) {
         LogShow.i(" onQuery  ", attachment?.size, mAdapter);
@@ -97,15 +113,15 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
             parent.list.forEachIndexed { index, listBean ->
                 var bean = Attachment()
                 bean.fileName = listBean.name
-                bean.fileSuffix = "."+listBean.path.substringAfterLast(".")
+                bean.fileSuffix = "." + listBean.path.substringAfterLast(".")
                 bean.realPath = listBean.path
                 bean.type = "attachment"
                 list.add(bean)
-                 LogShow.i("AttachmentFragment.kt  onQueryTodoAttachments foreach",listBean.toString(),listBean.path.substringAfterLast("."))
+                LogShow.i("Reportragment.kt  onQueryTodoAttachments foreach", listBean.toString(), listBean.path.substringAfterLast("."))
             }
-            var holderCount = 4 - parent.list.size % 4
+            var holderCount = 4 - if (parent.list.size == 0) 4 else parent.list.size % 4
             list.addAll(createHoldeBeanList(holderCount))
-            LogShow.i("AttachmentFragment.kt  onQueryTodoAttachments", list.size)
+            LogShow.i("Reportragment.kt  onQueryTodoAttachments", list.size)
         }
         refreshLayout?.postDelayed({
             mAdapter?.data = list
@@ -115,19 +131,19 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
     }
 
     private fun createHoldeBeanList(count: Int): MutableList<Attachment> {
-        LogShow.i("AttachmentFragment.kt  createHoldeBeanList begim", count)
+        LogShow.i("Reportragment.kt  createHoldeBeanList begim", count)
         var list = mutableListOf<Attachment>()
         for (i in 0 until count) {
             var bean = Attachment()
             bean.type = "holder"
             list.add(bean)
         }
-        LogShow.i("AttachmentFragment.kt  createHoldeBeanList", list.size)
+        LogShow.i("Reportragment.kt  createHoldeBeanList", list.size)
         return list
     }
 
     override fun loadData(page: Int) {
-        LogShow.i("AttachmentFragment.kt  loadData", type)
+        LogShow.i("Reportragment.kt  loadData", type)
         when (type) {
             "notic" -> {
                 mPresenter.queryNoticeATtachment(notiItem?.id.toString())
@@ -167,7 +183,7 @@ class AttachmentPresenter : BasePresenterImpl<AttachmentView>() {
     }
 
     fun queryAttachments(todoItem: TodoItem?, code: String) {
-        LogShow.i("AttachmentFragment.kt  queryAttachments", code)
+        LogShow.i("Reportragment.kt  queryAttachments", code)
         mDisposable = Api.getApiService().getAttachments(todoItem?.formGroupCode, code, todoItem?.masterId).subscribeWith(object : BaseResultObserver<BaseResult<MutableList<TodoAttachment>>>() {
             override fun onResult(todoBean: BaseResult<MutableList<TodoAttachment>>?) {
                 LogShow.i("queryAttachments   ", todoBean?.result)
