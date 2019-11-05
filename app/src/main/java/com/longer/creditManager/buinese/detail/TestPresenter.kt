@@ -34,10 +34,12 @@ class TestPresenter : BasePresenterImpl<TestView>() {
     fun queryRepay(todoItem: TodoItem?) {
         Api.getApiService().getRepaymentPlan(todoItem?.masterId).subscribeWith(object : BaseResultObserver<BaseResult<JsonArray>>() {
             override fun onResult(json: BaseResult<JsonArray>) {
-                var json: String = json.result[0].toString()
-                LogShow.i("queryRepay   ", json)
+                if (json.result.size() > 0) {
+                    var json: String = json.result[0].toString()
+                    LogShow.i("queryRepay   ", json)
 
-                mView.onQuery(processData(json.substringAfter("\"repaymentPlan\":")), json.substringAfter("{\"name\":\"").substrBefore(",\"repaymentPlan"))
+                    mView.onQuery(processData(json.substringAfter("\"repaymentPlan\":")), json.substringAfter("{\"name\":\"").substrBefore(",\"repaymentPlan"))
+                }
             }
 
             override fun onFailure(e: Throwable, error: String) {
@@ -47,7 +49,7 @@ class TestPresenter : BasePresenterImpl<TestView>() {
     }
 
     private fun processData(json: String): BusineseDetailBean {
-         LogShow.i("TestPresenter.kt  processData",json)
+        LogShow.i("TestPresenter.kt  processData", json)
         var bean = BusineseDetailBean()
         var titleOriStr = json.substringAfter("title\":[{")
         var titleStr = titleOriStr.substrBefore("}],\"data")
