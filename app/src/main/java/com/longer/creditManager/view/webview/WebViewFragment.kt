@@ -60,7 +60,6 @@ class WebViewFragment : BaseFragment2<Nothing>() {
         }
         LogShow.i("WebViewFragment.kt  initEventAndData", showToolbar, isUrl, isSupport(),mUrl)
 
-        if (isSupport()) {
             initWebview()
             webView.webChromeClient = object : WebChromeClient() {
 
@@ -93,13 +92,7 @@ class WebViewFragment : BaseFragment2<Nothing>() {
             } else {
                 webView.loadDataWithBaseURL(null, mUrl, "text/html", "utf-8", null)
             }
-        } else {
-            val intent = Intent()
-            intent.action = "android.intent.action.VIEW"
-            val content_url = Uri.parse(mUrl)
-            intent.data = content_url
-            startActivity(intent)
-        }
+
 
     }
 

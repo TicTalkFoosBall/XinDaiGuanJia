@@ -213,8 +213,9 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         }
         refreshLayout?.postDelayed({
             var filterList = detailBean?.fieldList?.filterNot {
-                it.fieldNote.contains("隐藏") || it.fieldNote.contains("占位") || it.controlType.contains("21") || it.controlType.contains("13")
+                 it.fieldNote.contains("隐藏") || it.fieldNote.contains("占位") || it.controlType.contains("21") || it.controlType.contains("13")|| it.controlType.contains("6")
             }
+             LogShow.i("TodoDetailFragment.kt  onQueryDetail",filterList?.size,detailBean?.fieldList?.size)
 
             mAdapter?.data = filterList
             refreshLayout?.finishLoad()

@@ -5,60 +5,58 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.widget.NestedScrollView
-
+    <hxz.www.commonbase.view.KLToolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:paddingBottom="100dp"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tb_leftImage="@mipmap/back" />
 
-        <android.support.constraint.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/skin_theme"
-            tools:ignore="MissingDefaultResource">
-
-
-            <hxz.www.commonbase.view.KLToolbar
-                android:id="@+id/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:tb_leftImage="@mipmap/back" />
-
-            <hxz.www.commonbase.view.KLRefreshLayout
-                android:id="@+id/refreshLayout"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="#f2f2f2"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/toolbar"
-                app:srlEnableLoadMore="true" />
-
-            <TextView
-                android:id="@+id/tv_recording"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:paddingLeft="15dp"
-                android:paddingTop="15dp"
-                android:paddingBottom="15dp"
-                android:text="审核记录"
-                android:textColor="@color/black_333333"
-                android:textSize="15sp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/refreshLayout"></TextView>
-
-
-        </android.support.constraint.ConstraintLayout>
-
-    </android.support.v4.widget.NestedScrollView>
 
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/skin_theme"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/ll_commit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        tools:ignore="MissingDefaultResource">
+
+
+        <hxz.www.commonbase.view.KLRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f2f2f2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srlEnableLoadMore="true" />
+
+        <TextView
+            android:id="@+id/tv_recording"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingLeft="15dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="审核记录"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/refreshLayout" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_commit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="10dp"

@@ -33,7 +33,7 @@
             android:layout_marginLeft="30dp"
             android:background="@null"
             android:hint="请输入公司名称"
-            android:text=""
+            android:text="123"
             android:textColor="#212121"
             android:textColorHint="#b7b8c1"
             android:textSize="15sp" />
@@ -56,7 +56,7 @@
             android:background="@null"
             android:hint="请输入密码"
             android:inputType="textPassword"
-            android:text=""
+            android:text="root147"
             android:textColor="#212121"
             android:textColorHint="#b7b8c1"
             android:textSize="15sp" />
@@ -99,7 +99,7 @@
             android:layout_marginLeft="30dp"
             android:background="@null"
             android:hint="请输入用户名"
-            android:text=""
+            android:text="root"
             android:textColor="#212121"
             android:textColorHint="#b7b8c1"
             android:textSize="15sp" />

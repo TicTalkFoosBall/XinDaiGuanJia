@@ -2,48 +2,56 @@ package hxz.www.commonbase.model.todo;
 
 import java.io.Serializable;
 
-public   class FieldListBean implements Serializable {
-            /**
-             * fieldName : BusinessNo
-             * fieldNote : 业务编号
-             * controlType : searchComponent
-             * value :
-             */
+import hxz.www.commonbase.util.GsonUtil;
 
-            private String fieldName;
-            private String fieldNote;
-            private String controlType;
-            private String value;
+public class FieldListBean implements Serializable {
+    /**
+     * fieldName : BusinessNo
+     * fieldNote : 业务编号
+     * controlType : searchComponent
+     * value :
+     */
 
-            public String getFieldName() {
-                return fieldName;
-            }
+    private String fieldName;
+    private String fieldNote;
+    private String controlType;
+    private String value;
 
-            public void setFieldName(String fieldName) {
-                this.fieldName = fieldName;
-            }
+    public String getFieldName() {
+        return fieldName;
+    }
 
-            public String getFieldNote() {
-                return fieldNote;
-            }
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
 
-            public void setFieldNote(String fieldNote) {
-                this.fieldNote = fieldNote;
-            }
+    public String getFieldNote() {
+        return fieldNote;
+    }
 
-            public String getControlType() {
-                return controlType;
-            }
+    public void setFieldNote(String fieldNote) {
+        this.fieldNote = fieldNote;
+    }
 
-            public void setControlType(String controlType) {
-                this.controlType = controlType;
-            }
+    public String getControlType() {
+        return controlType;
+    }
 
-            public String getValue() {
-                return value;
-            }
+    public void setControlType(String controlType) {
+        this.controlType = controlType;
+    }
 
-            public void setValue(String value) {
-                this.value = value;
-            }
-        }
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+
+    @Override
+    public String toString() {
+        return GsonUtil.toJson(this);
+    }
+}
