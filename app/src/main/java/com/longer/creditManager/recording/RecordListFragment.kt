@@ -36,15 +36,15 @@ class RecordListFragment : BaseListFragment<RecorListPresenter, RecordlistAdapte
         {
             pop()
         })
-        var history=getParameter(0) as TaskHistoryInfoBean
-         LogShow.i("initData   ",history.toString());
+        var history = getParameter(0) as TaskHistoryInfoBean
+        LogShow.i("initData   ", history.toString());
 
         onQuery(history.data)
 
     }
 
     override fun loadData(page: Int) {
-        
+
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
@@ -56,7 +56,8 @@ class RecordListFragment : BaseListFragment<RecorListPresenter, RecordlistAdapte
     override fun onQuery(list: MutableList<HistoryData>?) {
         LogShow.i("onQuery  ", list?.size, mAdapter);
         refreshLayout?.postDelayed({
-            mAdapter?.data = list
+            var dataList = list?.filterNot { it.result == null }
+            mAdapter?.data = dataList
             refreshLayout?.finishLoad()
             refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
         }, 500)

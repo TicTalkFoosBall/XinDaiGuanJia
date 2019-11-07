@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.longer.creditManager.buinese.BaseListFragment
-import com.longer.creditManager.recording.NoticeDetailFragment
+import com.longer.creditManager.recording.RichTextFragment
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.model.NoticeItem
 import hxz.www.commonbase.model.NoticeListModel
@@ -31,7 +31,7 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
 
         mAdapter.setOnItemClickListener { view, data, position ->
             LogShow.i("NoticeListFragment.kt  initData", data.content)
-            start(FragmentHelper.newInstance(NoticeDetailFragment::class.java, getHtmlData(data.content.value()),data))
+            start(FragmentHelper.newInstance(RichTextFragment::class.java, "公告详情", data.content.value(), data))
         }
         toolbar.setTitle("通知公告")
         toolbar.setLeftClick(View.OnClickListener
@@ -42,13 +42,7 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
         LogShow.i("initData   ", "")
     }
 
-    private fun getHtmlData(bodyHTML: String): String {
-        val head = ("<head>"
-                + "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"> "
-                + "<style>img{max-width: 100%; width:100%; height:auto;}*{margin:0px;}</style>"
-                + "</head>")
-        return "<html>$head<body>$bodyHTML</body></html>"
-    }
+
 
     override fun loadData(page: Int) {
         mPresenter.queryNoticeList(page)

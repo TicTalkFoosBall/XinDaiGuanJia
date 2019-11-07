@@ -15,11 +15,10 @@ class RecordlistAdapter : BaseAdapter<HistoryData>() {
         LogShow.i(" SystemMsgAdapter  ", data.toString())
         holder.setText(R.id.b_1, data.result?.desc.value())
         holder.setText(R.id.tv_company, data.name)
-        holder.setText(R.id.tv_opinion, data.result?.desc.value())
+        holder.setText(R.id.tv_opinion, data.comment.value("无"))
         holder.setText(R.id.tv_owner, data.fullname)
         holder.setText(R.id.tv_time, "审批日期:" + data.startTime.substringBefore(" "))
 
     }
-
 
 }

@@ -35,7 +35,7 @@ import retrofit2.http.Query;
 
 public interface ApiService {
     String BASE_URL = "http://120.79.56.152:9010/lfcp-app/";
-    String FILE_URL = "http://120.79.56.152:8010";
+    String FILE_URL = "http://120.79.56.152:8010/";
 
     @GET("dish_list.php")
     Single<Ba1> getBa1(@Query("stage_id") String stage_id, @Query("limit") String limitm, @Query("page") String page);

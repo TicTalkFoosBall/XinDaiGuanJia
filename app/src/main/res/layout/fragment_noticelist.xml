@@ -21,7 +21,7 @@
 
     <hxz.www.commonbase.view.KLRefreshLayout
         android:id="@+id/refreshLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="#f2f2f2"
         app:srlEnableLoadMore="true"

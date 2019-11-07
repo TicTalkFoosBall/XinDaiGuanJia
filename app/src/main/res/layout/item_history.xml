@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#f2f2f2"
-
     android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="12dp"
-        android:layout_height="144dp"
-        android:layout_marginTop="20dp"
-        android:background="#f2f2f2" />
 
-    <RelativeLayout
+    <hxz.www.commonbase.view.roundView.RoundRelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#ffffff"
-        android:paddingBottom="20dp"
+        android:layout_margin="10dp"
+        android:orientation="vertical"
         android:paddingTop="20dp"
-        android:orientation="vertical">
+        android:paddingBottom="20dp"
+        app:rv_backColor="@color/white"
+        app:rv_cornerRadius="10dp">
 
         <TextView
             android:id="@+id/tv_company"
@@ -47,12 +44,10 @@
             android:id="@+id/tv_opinion"
             android:layout_width="wrap_content"
             android:layout_height="15dp"
-         android:layout_toRightOf="@id/tv_optionTip"
             android:layout_marginTop="50dp"
+            android:layout_toRightOf="@id/tv_optionTip"
             android:text="200.000.000"
             android:textSize="12sp" />
-
-
 
 
         <TextView
@@ -75,10 +70,10 @@
             android:id="@+id/line1"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_marginLeft="20dp"
             android:layout_below="@id/tv_opinion"
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
-           android:layout_marginRight="20dp"
+            android:layout_marginRight="20dp"
             android:background="#ebebeb" />
 
         <TextView
@@ -97,8 +92,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/line1"
-            android:layout_toRightOf="@id/tv_owner_tip"
             android:layout_marginTop="20dp"
+            android:layout_toRightOf="@id/tv_owner_tip"
             android:text="2019.01.02"
             android:textColor="#2e2e2e "
             android:textSize="10sp" />
@@ -114,6 +109,6 @@
             android:text=""
             android:textColor="#2e2e2e "
             android:textSize="10sp" />
-    </RelativeLayout>
+    </hxz.www.commonbase.view.roundView.RoundRelativeLayout>
 
 </LinearLayout>

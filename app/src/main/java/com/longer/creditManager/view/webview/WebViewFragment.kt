@@ -4,12 +4,8 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.text.TextUtils
 import android.view.View
-import android.webkit.DownloadListener
-import android.webkit.WebChromeClient
-import android.webkit.WebView
-import android.webkit.WebViewClient
+import android.webkit.*
 import com.gyf.immersionbar.ImmersionBar
 import hxz.www.commonbase.baseui.BaseFragment2
 import hxz.www.commonbase.util.ToastUtil
@@ -20,7 +16,6 @@ import kotlinx.android.synthetic.main.fragment_webview.*
 
 class WebViewFragment : BaseFragment2<Nothing>() {
     private var mUrl: String = ""
-    private val delegate = DefaultDelegate()
     override fun getLayoutId(): Int {
         return com.longer.creditManager.R.layout.fragment_webview
     }
@@ -32,15 +27,19 @@ class WebViewFragment : BaseFragment2<Nothing>() {
         }
         val len = mParams.size
         if (len > 0) { //地址
-
-            mUrl = mParams[0] as String
-
+            mParams[0]?.let {
+                mUrl = it as String
+            }
         }
         var showToolbar = true
         var isUrl = true
+        var mTitle = ""
         var openSystem = false//是否启动系统浏览器
         if (len > 1) {
-            showToolbar = mParams[1] as Boolean
+            mParams[1]?.let {
+                showToolbar = it as Boolean
+            }
+
             toolbar?.setLeftClick(navBackListener())
             if (!showToolbar) {
                 toolbar?.visibility = View.GONE
@@ -48,52 +47,51 @@ class WebViewFragment : BaseFragment2<Nothing>() {
         }
 
         if (len > 2) {
-            val mTitle = mParams[2] as String
+            mParams[2]?.let {
+                mTitle = it as String
+            }
             toolbar?.setTitle(mTitle)
         }
 
         if (len > 3) {
-            isUrl = mParams[3] as Boolean
+            mParams[3]?.let {
+                isUrl = it as Boolean
+            }
         }
 
         if (len > 4) {
         }
-        LogShow.i("WebViewFragment.kt  initEventAndData", showToolbar, isUrl, isSupport(),mUrl)
+        LogShow.i("WebViewFragment.kt  initEventAndData", showToolbar, isUrl, isSupport(), mUrl, mTitle)
 
-            initWebview()
-            webView.webChromeClient = object : WebChromeClient() {
+        initWebview()
+        webView.webChromeClient = object : WebChromeClient() {
 
+        }
+        webView.webViewClient = object : WebViewClient() {
+
+            override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
+                LogShow.d("shouldOverrideUrlLoading url:$url")
+                var shouldOverride = false
+
+                return shouldOverride
             }
-            webView.webViewClient = object : WebViewClient() {
 
-                override fun shouldOverrideUrlLoading(view: WebView?, url: String?): Boolean {
-                    LogShow.d("override url:$url")
-                    var shouldOverride = false
-
-                    return shouldOverride
+            override fun onPageFinished(view: WebView?, url: String) {
+                LogShow.d("onPageFinished url:$url")
+                LoadingDialog.getInstance().dismiss()
+                view?.let {
+                    LogShow.d(" title " + view.title)
                 }
-
-                override fun onPageFinished(view: WebView?, url: String) {
-                    LoadingDialog.getInstance().dismiss()
-                    view?.let {
-                        LogShow.d(" title " + view.title)
-                        if (!TextUtils.isEmpty(view.title))
-                            toolbar?.setTitle(view.title)
-                    }
-
-                }
-
             }
+        }
 
-            LoadingDialog.getInstance().show(_mActivity)
-
-            if (isUrl) {
-                webView.loadUrl(mUrl)
-            } else {
-                webView.loadDataWithBaseURL(null, mUrl, "text/html", "utf-8", null)
-            }
-
-
+//       mUrl=getHtmlData(mUrl)
+        LoadingDialog.getInstance().show(_mActivity)
+        if (isUrl) {
+            webView.loadUrl(mUrl)
+        } else {
+            webView.loadDataWithBaseURL(null, mUrl, "text/html", "utf-8", null)
+        }
     }
 
     private fun isSupport() = !(mUrl.endsWith("pdf") || mUrl.endsWith("doc") || mUrl.endsWith("xls") || mUrl.endsWith("other"))
@@ -122,18 +120,21 @@ class WebViewFragment : BaseFragment2<Nothing>() {
         settings.saveFormData = true
         settings.setGeolocationEnabled(true)
         settings.domStorageEnabled = true
+        //不加这个图片显示不出来
+//        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
+        settings.mixedContentMode = WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+//        }
     }
 
-    private fun toLoadInnerApp(url: String) {
-        try {
-            val it = Intent(Intent.ACTION_VIEW)
-            it.data = Uri.parse(url)
-            startActivity(it)
-        } catch (e: Exception) {
-            //可能情况： 手机没有安装支付宝或者微信。或者安装支付宝或者微信但是版本过低
-        }
 
+      fun getHtmlData(bodyHTML: String):String {
+        var head = "<head>"+
+        "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"> " +
+                "<style>img{max-width: 100%; width:auto; height:auto!important;}</style>" +
+                "</head>"
+        return "<html>$head<body>$bodyHTML</body></html>"
     }
+
 
     override fun initImmersionBar() {
         super.initImmersionBar()

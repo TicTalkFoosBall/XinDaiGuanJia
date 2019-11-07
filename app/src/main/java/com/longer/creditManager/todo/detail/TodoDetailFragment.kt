@@ -46,13 +46,19 @@ import value
 
 class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapter>(), TodoDetailView {
 
-
+    private var footerView: View? = null
     override fun bindAdapter() = TodoDetailAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
         refreshLayout?.setLayoutManager(LinearLayoutManager(_mActivity))
         refreshLayout?.setEnableLoadMore(true)
         refreshLayout?.recyclerView?.addItemDecoration(VerticalItemDecoration(8))
+
+        footerView = LayoutInflater.from(context).inflate(R.layout.layout_footer_record, null)
+        mAdapter.addFooterView(footerView)
+        footerView?.click {
+            start(FragmentHelper.newInstance(RecordListFragment::class.java, history))
+        }
     }
 
     var taskId = ""
@@ -68,16 +74,6 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
         commitbean.processInstanceId = procInstId
         commitbean.masterId = todoItem?.masterId
 
-        refreshLayout?.recyclerView?.let {
-
-        }
-
-        mAdapter.setOnItemClickListener { view, data, position ->
-            //            startActivity(Intent(_mActivity, ExaminationActivity::class.java))
-        }
-        var footerView = LayoutInflater.from(context).inflate(R.layout.layout_footer_record, null)
-        footerView.click { ToastUtil.show("footer") }
-        mAdapter.addFooterView(footerView)
         toolbar.setTitle("待办详情")
         toolbar.setLeftClick(View.OnClickListener
         {
@@ -87,9 +83,6 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
                     mPresenter.queryMore(todoItem?.formGroupCode.value())
                 })
 
-        footerView.click {
-            start(FragmentHelper.newInstance(RecordListFragment::class.java, history))
-        }
 
         bt_examine.click {
             LogShow.i("TodoDetailFragment.kt  initData", todoItem?.canAppTodoable)
@@ -102,12 +95,16 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
                 commitDialog = ExaminationDialog(context)
                 commitDialog?.setListener(object : OptionDialogListener {
                     override fun onCommit(content: String) {
-                        commitbean.comment = content
-                        mPresenter.commitApproval(commitbean)
+                        if (commitbean.result.desc.isNullOrEmpty()) {
+                            ToastUtil.show("请选择审批结果")
+                        } else {
+                            commitbean.comment = content
+                            mPresenter.commitApproval(commitbean)
+                        }
+
                     }
 
                     override fun onResultChoose() {
-                        LogShow.i("TodoDetailFragment.kt  onResultChoose")
                         optionUpDialog(modelList)
                     }
 
@@ -153,9 +150,8 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
                                 start(FragmentHelper.newInstance(AttachmentFragment::class.java, "todo", todoItem, data.extend))
                             } else if (data.text.contains("还款")) {
                                 start(FragmentHelper.newInstance(BusinessDetailFragment::class.java, "repay", "还款计划", todoItem))
-                            }
-                            else if (data.text.contains("报告")) {
-                                start(FragmentHelper.newInstance(ReportFragment::class.java,data.text, todoItem, data.extend))
+                            } else if (data.text.contains("报告")) {
+                                start(FragmentHelper.newInstance(ReportFragment::class.java, data.text, todoItem, data.extend))
                             }
                             dialog.dismiss()
                         }
@@ -211,10 +207,11 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
             history = it.taskHistoryInfo
         }
         refreshLayout?.postDelayed({
+            mAdapter.addFooterView(footerView)
             var filterList = detailBean?.fieldList?.filterNot {
-                 it.fieldNote.contains("隐藏") || it.fieldNote.contains("占位") || it.controlType.contains("21") || it.controlType.contains("13")|| it.controlType.contains("6")
+                it.fieldNote.contains("隐藏") || it.fieldNote.contains("占位") || it.controlType.contains("21") || it.controlType.contains("13") || it.controlType.contains("6")
             }
-             LogShow.i("TodoDetailFragment.kt  onQueryDetail",filterList?.size,detailBean?.fieldList?.size)
+            LogShow.i("TodoDetailFragment.kt  onQueryDetail", filterList?.size, detailBean?.fieldList?.size)
 
             mAdapter?.data = filterList
             refreshLayout?.finishLoad()
@@ -269,7 +266,6 @@ class TodoDetailPresenter : BasePresenterImpl<TodoDetailView>() {
                 }
 
                 override fun onFailure(e: Throwable, error: String) {
-                    ToastUtil.show(error)
                 }
             })
         }

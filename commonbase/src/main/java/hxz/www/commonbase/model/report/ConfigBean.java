@@ -69,6 +69,11 @@ public class ConfigBean {
         public void setControlType(String controlType) {
             this.controlType = controlType;
         }
+
+        @Override
+        public String toString() {
+            return GsonUtil.toJson(this);
+        }
     }
 
 
