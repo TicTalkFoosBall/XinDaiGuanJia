@@ -8,6 +8,7 @@ import com.longer.creditManager.R
 import com.longer.creditManager.view.webview.WebViewFragment
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
+import hxz.www.commonbase.baseui.BaseActivity2
 import hxz.www.commonbase.model.report.ConfigBean
 import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
@@ -25,7 +26,7 @@ class ReportAdapter : BaseAdapter<ConfigBean>() {
         var container = holder.getView<LinearLayout>(R.id.ll_report_container)
         inflater = LayoutInflater.from(holder.context)
         title.text = data.gropname
-        var parent=holder.context as SupportFragment
+        var parent=holder.context as BaseActivity2<*>
         data.list.forEach {
             var view = inflater?.inflate(R.layout.layout_report, null)
             view?.apply {
@@ -35,15 +36,19 @@ class ReportAdapter : BaseAdapter<ConfigBean>() {
                 var valueStr=detailData?.get(it.fieldName)
                 var keyStr=it.fieldName
                 if (it.controlType.equals("richTextEditor")) {
-                    value.setText(valueStr)
-                    click { }
-                } else {
-                    value.setText("点击查看")
+                    value.setText("详细报告")
                     click {
                         parent.start(FragmentHelper.newInstance(WebViewFragment::class.java,valueStr,true,keyStr,false ))
                     }
                 }
-
+                else if (it.controlType.equals("13")) {
+                    value.setText("点击查看")
+                    click {
+                    }
+                }else {
+                    value.setText(valueStr)
+                    click { }
+                }
             }
             container.addView(view)
         }
