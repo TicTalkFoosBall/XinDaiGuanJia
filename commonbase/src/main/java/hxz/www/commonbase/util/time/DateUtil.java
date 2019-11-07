@@ -50,6 +50,7 @@ public class DateUtil {
      */
     public static final String DEFAULT_PATTERN = "yyyy-MM-dd HH:mm:ss";
     public static final String DEFAULT_PATTERN2 = "yyyy-MM-dd HH:mm";
+    public static final String DEFAULT_PATTERN3 = "yyyy-MM-dd";
     public static final String PATTERN_UTC = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 
     /**

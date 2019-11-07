@@ -37,7 +37,6 @@ import hxz.www.commonbase.view.dialog.BottomRecyclerViewDialog
 import hxz.www.commonbase.view.dialog.OnBottomRecyclerGridViewListener
 import hxz.www.commonbase.view.dialog.OnBottomRecyclerViewListener
 import io.reactivex.disposables.Disposable
-import isVisible
 import kotlinx.android.synthetic.main.fragment_noticelist.toolbar
 import kotlinx.android.synthetic.main.fragment_tododetaillist.*
 import org.greenrobot.eventbus.EventBus
@@ -88,7 +87,7 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
                     mPresenter.queryMore(todoItem?.formGroupCode.value())
                 })
 
-        tv_recording.click {
+        footerView.click {
             start(FragmentHelper.newInstance(RecordListFragment::class.java, history))
         }
 
@@ -221,9 +220,9 @@ class TodoDetailFragment : BaseListFragment<TodoDetailPresenter, TodoDetailAdapt
             refreshLayout?.finishLoad()
             refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
         }, 500)
-        if (detailBean?.fieldList.isNullOrEmpty()) {
-            tv_recording.isVisible = false
-        }
+//        if (detailBean?.fieldList.isNullOrEmpty()) {
+//            footerView.isVisible = false
+//        }
     }
 
 

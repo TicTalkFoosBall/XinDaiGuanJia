@@ -1,5 +1,6 @@
 package com.longer.creditManager.recording
 
+import android.graphics.Typeface
 import android.view.LayoutInflater
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -9,6 +10,7 @@ import com.longer.creditManager.view.webview.WebViewFragment
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.model.report.ConfigBean
+import hxz.www.commonbase.util.DisplayUtil
 import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import yokeyword.fragmentation.SupportFragment
@@ -25,29 +27,29 @@ class ReportAdapter : BaseAdapter<ConfigBean>() {
         var container = holder.getView<LinearLayout>(R.id.ll_report_container)
         inflater = LayoutInflater.from(holder.context)
         title.text = data.gropname
-        var parent=holder.context as SupportFragment
+        var parent = holder.context as SupportFragment
         data.list.forEach {
             var view = inflater?.inflate(R.layout.layout_report, null)
             view?.apply {
                 var title = this.findViewById<TextView>(R.id.tv_reportTitle)
                 var value = this.findViewById<TextView>(R.id.tv_reportValue)
                 title.setText(it.fieldNote)
-                var valueStr=detailData?.get(it.fieldName)
-                var keyStr=it.fieldName
+                var valueStr = detailData?.get(it.fieldName)
+                var keyStr = it.fieldName
                 if (it.controlType.equals("richTextEditor")) {
+                    value.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD))
                     value.setText(valueStr)
+                    value.textSize= DisplayUtil.dp2px(16F).toFloat()
                     click { }
                 } else {
+                    value.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL))
+                    value.textSize= DisplayUtil.dp2px(13F).toFloat()
                     value.setText("点击查看")
-                    click {
-                        parent.start(FragmentHelper.newInstance(WebViewFragment::class.java,valueStr,true,keyStr,false ))
-                    }
+                    click { parent.start(FragmentHelper.newInstance(WebViewFragment::class.java, valueStr, true, keyStr, false)) }
                 }
-
             }
             container.addView(view)
         }
-
     }
 
     fun setData(data: MutableMap<String, String>) {

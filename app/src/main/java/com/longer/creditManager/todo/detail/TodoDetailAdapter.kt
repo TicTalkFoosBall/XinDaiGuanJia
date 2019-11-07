@@ -6,6 +6,7 @@ import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.model.todo.FieldListBean
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.util.time.DateUtil
+import hxz.www.commonbase.util.time.DateUtil.DEFAULT_PATTERN3
 
 class TodoDetailAdapter : BaseAdapter<FieldListBean>() {
 
@@ -17,7 +18,7 @@ class TodoDetailAdapter : BaseAdapter<FieldListBean>() {
         if (data.fieldName.contains("Date") || data.fieldName.contains("Time")) {
             try {
                 var time = data.value.toLong()
-                holder.setText(R.id.tv_content, DateUtil.millis2String(time))
+                holder.setText(R.id.tv_content, DateUtil.millis2String(time,DEFAULT_PATTERN3))
             } catch (e: Exception) {
                 holder.setText(R.id.tv_content, data.value)
             }
