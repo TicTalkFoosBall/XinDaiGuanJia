@@ -30,6 +30,69 @@ class RichTextFragment : BaseFragment2<NoticeDetailPresenter>(), NoticeDetailVie
                 start(FragmentHelper.newInstance(AttachmentFragment::class.java, "notic", item))
             })
         }
+//        url = "<html><head><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, user-scalable=no\"> <style>img{max-width: 100%; width:100%; height:auto;}*{margin:0px;}</style></head><body><p>31231111111</p>\n" +
+//                "    <table style=\"border-collapse: collapse; width: 100%;\" border=\"1\">\n" +
+//                "    <tbody>\n" +
+//                "    <tr>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    </tr>\n" +
+//                "    <tr>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    </tr>\n" +
+//                "    <tr>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    </tr>\n" +
+//                "    <tr>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    </tr>\n" +
+//                "    <tr>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\"><img src=\"static/js/plugins/tinymce4.7.5/plugins/emoticons/img/smiley-innocent.gif\" alt=\"innocent\" /></td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    <td style=\"width: 14.2857%;\">&nbsp;</td>\n" +
+//                "    </tr>\n" +
+//                "    </tbody>\n" +
+//                "    </table></body></html>\n"
+
+//        url="<!DOCTYPE html>\n" +
+//                "<html>\n" +
+//                "<head> \n" +
+//                "<meta charset=\"utf-8\"> \n" +
+//                "<title>菜鸟教程(runoob.com)</title> \n" +
+//                "</head>\n" +
+//                "<body>\n" +
+//                "\n" +
+//                "<img src=\"http://g.hiphotos.baidu.com/image/h%3D300/sign=b5e4c905865494ee982209191df4e0e1/c2cec3fdfc03924590b2a9b58d94a4c27d1e2500.jpg\" alt=\"Smiley face\" width=\"42\" height=\"42\">\n" +
+//                "\n" +
+//                "</body>\n" +
+//                "</html>"
         url = getHtmlData(url)
         LogShow.i("RichTextFragment initEventAndData", url)
 
