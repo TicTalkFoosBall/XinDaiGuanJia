@@ -9,7 +9,6 @@ import com.longer.creditManager.R
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.baseui.BaseActivity2
-import hxz.www.commonbase.model.NoticeItem
 import hxz.www.commonbase.model.report.ConfigBean
 import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
@@ -43,7 +42,7 @@ class ReportAdapter : BaseAdapter<ConfigBean>() {
                     value.setText("详细报告")
                     click {
 //                        parent.start(FragmentHelper.newInstance(WebViewFragment::class.java, valueStr, true, keyStr, false))
-                        parent.start(FragmentHelper.newInstance(RichTextFragment::class.java, keyStr,valueStr, NoticeItem()))
+                        parent.start(FragmentHelper.newInstance(RichTextFragment::class.java, keyStr,valueStr))
                     }
                 } else if (it.controlType.equals("13")) {
                     value.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD))

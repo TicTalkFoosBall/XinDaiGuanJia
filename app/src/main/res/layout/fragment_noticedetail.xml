@@ -16,8 +16,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:tb_leftImage="@mipmap/back"
-        app:tb_rightText="附件" />
+        app:tb_leftImage="@mipmap/back" />
 
     <com.longer.creditManager.view.webview.KLWebView
         android:id="@+id/webView"
