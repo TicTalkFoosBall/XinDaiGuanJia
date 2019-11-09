@@ -52,7 +52,7 @@ class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), Clien
         }
 
 
-        tv_search.setOnEditorActionListener(object :TextView.OnEditorActionListener {
+        tv_search.setOnEditorActionListener(object : TextView.OnEditorActionListener {
             override fun onEditorAction(v: TextView?, actionId: Int, event: KeyEvent?): Boolean {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                     searchData()
@@ -66,10 +66,11 @@ class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), Clien
     }
 
 
-    private fun searchData()
-    {
-        var key=tv_search.getTextStr();
-        var resultList=oriList?.filter { it.name.contains(key) }
+    private fun searchData() {
+        var key = tv_search.getTextStr()
+        LogShow.i("ClientFragment.kt  searchData", key)
+        var resultList = oriList?.filter { it.name.contains(key) }
+        LogShow.i("ClientFragment.kt  searchData", key,oriList?.size,resultList?.size)
         mAdapter?.data = resultList
     }
 
@@ -93,9 +94,10 @@ class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), Clien
         list?.let { onQuery(list) }
     }
 
-    private var oriList: MutableList<ClientModel>?=null
+    private var oriList: MutableList<ClientModel>? = null
     private fun onQuery(list: MutableList<ClientModel>?) {
-        LogShow.i(" onQuery  ", list?.size, mAdapter);
+        LogShow.i(" onQuery  ", list?.size, mAdapter)
+        oriList=list
         updateData(list)
     }
 

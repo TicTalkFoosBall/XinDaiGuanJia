@@ -9,6 +9,7 @@ import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
 import hxz.www.commonbase.model.todo.detail.HistoryData
 import hxz.www.commonbase.model.todo.detail.TaskHistoryInfoBean
+import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
@@ -54,9 +55,12 @@ class RecordListFragment : BaseListFragment<RecorListPresenter, RecordlistAdapte
 
     override fun onQuery(list: MutableList<HistoryData>?) {
         LogShow.i("onQuery  ", list?.size, mAdapter);
-        updateData(list)
+        refreshLayout?.postDelayed({
+            mAdapter?.data = list
+            refreshLayout?.finishLoad()
+            refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
+        }, 500)
     }
-
     override fun getLayoutId() = R.layout.fragment_noticelist
 }
 
