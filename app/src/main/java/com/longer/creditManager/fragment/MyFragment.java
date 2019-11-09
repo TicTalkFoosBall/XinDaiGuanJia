@@ -19,18 +19,17 @@ import hxz.www.commonbase.base.mvp.IBaseView;
 import hxz.www.commonbase.cache.Cache;
 
 
-public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
+public class MyFragment extends BaseMvpFragment implements View.OnClickListener {
 
     private ImageView iv_regard; //  关于
     private CircleImageView iv_headportrait;//头像
-    private LinearLayout share,about; // 头像 关于
+    private LinearLayout share, about; // 头像 关于
     private Button exit;
     private TextView name;
 
     public MyFragment() {
         // Required empty public constructor
     }
-
 
 
     @Override
@@ -79,19 +78,14 @@ public class MyFragment extends BaseMvpFragment implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == iv_regard.getId()){
+        if (v.getId() == iv_regard.getId()) {
             startActivity(new Intent(getContext(), com.longer.creditManager.activity.RegardsActivity.class));
-        }
-        else
-        if (v.getId() == share.getId()){
-        }
-        else
-        if (v.getId() == about.getId()){
+        } else if (v.getId() == share.getId()) {
+        } else if (v.getId() == about.getId()) {
             startActivity(new Intent(getContext(), com.longer.creditManager.activity.RegardsActivity.class));
-        }
-        else
-        if (v.getId() == exit.getId()){
+        } else if (v.getId() == exit.getId()) {
             Cache.setUserInfo(null);
+            Cache.setBaseUrl(null);
             BaseApplication.getInstance().tokenExpire();
             Intent intent = new Intent(getContext(), LoginActivity.class);
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

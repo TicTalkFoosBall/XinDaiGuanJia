@@ -8,6 +8,7 @@ import java.util.List;
 import hxz.www.commonbase.cache.UserInfo;
 import hxz.www.commonbase.model.Attachment;
 import hxz.www.commonbase.model.Ba1;
+import hxz.www.commonbase.model.BaseUrlModel;
 import hxz.www.commonbase.model.ClientPreviewModel;
 import hxz.www.commonbase.model.ExamineBean;
 import hxz.www.commonbase.model.ListBody;
@@ -34,15 +35,17 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiService {
-    String BASE_URL = "http://120.79.56.152:9010/lfcp-app/";
-    String FILE_URL = "http://120.79.56.152:8010/";
 
     @GET("dish_list.php")
     Single<Ba1> getBa1(@Query("stage_id") String stage_id, @Query("limit") String limitm, @Query("page") String page);
 
+    //获取baseurl
+    @GET("appAdmin/config")
+    Single<BaseResult<BaseUrlModel>> getBaseUrl(@Query("orgName") String pageIndex);
 
     // 登录
     @POST("auth")
+
     Single<BaseResult<UserInfo>> getLoginBeae(@Body LoginBody loginBody);
 
     // 通知公告

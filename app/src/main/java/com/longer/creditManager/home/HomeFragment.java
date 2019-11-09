@@ -2,6 +2,7 @@ package com.longer.creditManager.home;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -30,10 +31,11 @@ import hxz.www.commonbase.model.Tasks;
 import hxz.www.commonbase.model.UnreadBean;
 import hxz.www.commonbase.model.todo.buinese.BusineseTab;
 import hxz.www.commonbase.model.todo.buinese.HomeListBean;
-import hxz.www.commonbase.net.constant.ApiService;
 import hxz.www.commonbase.util.ImageLoaders;
 import hxz.www.commonbase.util.log.LogShow;
 import hxz.www.commonbase.util.time.DateUtil;
+
+import static hxz.www.commonbase.net.HttpManger.FILE_URL;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -179,9 +181,15 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
             } else {
                 tv_noticeCount.setVisibility(View.GONE);
             }
-            tv_noticeTitle.setText(notices.getTitle());
+            if (!TextUtils.isEmpty(notices.getTitle()))
+            {
+                tv_noticeTitle.setText(notices.getTitle());
+            }
+
             String noticeTime = notices.getCreateTime();
-            tv_noticeTime.setText(noticeTime.substring(0, noticeTime.length() - 2));
+            if (noticeTime != null && noticeTime.length() > 2) {
+                tv_noticeTime.setText(noticeTime.substring(0, noticeTime.length() - 2));
+            }
 
             Tasks task = unreadBean.getTasks();
             if (Integer.valueOf(task.getUnReadNo()) > 0) {
@@ -190,7 +198,11 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
             } else {
                 tv_todoCount.setVisibility(View.GONE);
             }
-            tv_todoTitle.setText(task.getTitle());
+            if (!TextUtils.isEmpty(task.getTitle()))
+            {
+                tv_todoTitle.setText(task.getTitle());
+            }
+
             tv_todoTime.setText(DateUtil.millis2String(task.getCreateTime()));
 
             SystemMsgs msgs = unreadBean.getSystemMsgs();
@@ -200,7 +212,11 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
             } else {
                 tv_systemMsgCount.setVisibility(View.GONE);
             }
-            tv_systemMsgTitle.setText(msgs.getTitle());
+
+            if (!TextUtils.isEmpty(msgs.getTitle()))
+            {
+                tv_systemMsgTitle.setText(msgs.getTitle());
+            }
             tv_systemMsgTime.setText(DateUtil.millis2String(msgs.getCreateTime()));
 
         }
@@ -232,7 +248,7 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
                     if (url.isEmpty()) {
                         img.setImageResource(R.mipmap.business_default);
                     } else {
-                        ImageLoaders.INSTANCE.load(ApiService.FILE_URL + url, img);
+                        ImageLoaders.INSTANCE.loadBusinesw(FILE_URL + url, img);
                     }
 
                 }
@@ -240,6 +256,12 @@ public class HomeFragment extends BaseMvpFragment<HomePreseenter> implements Ada
 
         }
     }
+
+//    1、首页-通知公告的时间需要处理，如果没有数据的话，给出提示：暂无数据
+//2、系统消息显示不全
+//3、审批待办显示不全（与web端比较，少了最后2条）
+//            4、审批待办列表，缺少：开始时间
+//5、客户--业务一览，点击报错，无法查看数据
 }
 
 

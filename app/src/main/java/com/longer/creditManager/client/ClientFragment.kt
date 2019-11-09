@@ -16,7 +16,6 @@ import getTextStr
 import hxz.www.commonbase.adapter.ItemClickSupport
 import hxz.www.commonbase.adapter.KlDialog
 import hxz.www.commonbase.model.client.ClientModel
-import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
 import kotlinx.android.synthetic.main.fragment_client.*
@@ -97,12 +96,7 @@ class ClientFragment : BaseListFragment<ClientPresenter, ClientAdapter>(), Clien
     private var oriList: MutableList<ClientModel>?=null
     private fun onQuery(list: MutableList<ClientModel>?) {
         LogShow.i(" onQuery  ", list?.size, mAdapter);
-        refreshLayout?.postDelayed({
-            oriList=list
-            mAdapter?.data = list
-            refreshLayout?.finishLoad()
-            refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
-        }, 500)
+        updateData(list)
     }
 
     override fun getLayoutId() = R.layout.fragment_client

@@ -5,7 +5,7 @@ import com.longer.creditManager.R
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.model.todo.buinese.OtherListBean
-import hxz.www.commonbase.net.constant.ApiService
+import hxz.www.commonbase.net.HttpManger.FILE_URL
 import hxz.www.commonbase.util.ImageLoaders
 import hxz.www.commonbase.util.log.LogShow
 
@@ -21,7 +21,7 @@ class BusTabmentMoreAdapter : BaseAdapter<OtherListBean>() {
         if (data.icon.isNullOrEmpty()) {
             cover.setImageResource(R.mipmap.business_default)
         } else {
-            ImageLoaders.loadBusinesw(ApiService.FILE_URL + data.icon, cover)
+            ImageLoaders.loadBusinesw(FILE_URL + data.icon, cover)
         }
     }
 

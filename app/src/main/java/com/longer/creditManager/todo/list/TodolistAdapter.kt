@@ -15,10 +15,10 @@ class TodolistAdapter : BaseAdapter<TodoItem>() {
     override fun getItemLayoutResId(data: TodoItem, position: Int) = R.layout.item_examine
 
     override fun bindData(holder: ViewHolder, data: TodoItem, position: Int) {
-        LogShow.i(" SystemMsgAdapter  ", data.toString())
+        LogShow.i(" TodolistAdapter  ", data.toString())
         holder.setText(R.id.tv_company, data.taskName)
         holder.setText(R.id.bt_time, data.timeout)
-        holder.setText(R.id.tv_starttime, data.startTime)
+        holder.setText(R.id.tv_starttime, "开始时间:"+data.startTime)
         var startBt = holder.getView<Button>(R.id.b_1)
         startBt.setOnClickListener {
             holder.context.startActivity(Intent(holder.context, TodoDetailActivity::class.java).apply {

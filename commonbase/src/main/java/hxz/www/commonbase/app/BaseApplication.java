@@ -9,8 +9,9 @@ import com.hjq.bar.style.TitleBarLightStyle;
 import com.hjq.toast.ToastUtils;
 import com.hjq.toast.style.ToastBlackStyle;
 
+import hxz.www.commonbase.cache.Cache;
 import hxz.www.commonbase.net.HttpManger;
-import hxz.www.commonbase.net.constant.ApiService;
+import hxz.www.commonbase.util.log.LogShow;
 
 public class BaseApplication extends MultiDexApplication {
     private static BaseApplication baseApplication;
@@ -22,24 +23,39 @@ public class BaseApplication extends MultiDexApplication {
         baseApplication = this;
         registerActivityListener();
         initLunZiUi();
-        initHttp();
-
+        LogShow.i("BaseApplication  onCreate");
+        initHttp(Cache.getBAseUrl().getServiceUrl());
     }
 
     /**
      * 初始化网络请求
      */
-    private void initHttp() {
+    public void initHttp(String baseUrl) {
+        LogShow.i("BaseApplication  initHttp", baseUrl);
+//        if (TextUtils.isEmpty(baseUrl)) {
+//            HttpManger.getInstance()
+//                    .setOriOkHttpClient(HttpManger.getInstance().createDefaultClient())
+//                    .setOriRetrofit(HttpManger.getInstance().createOriRetrofit());
+//
+//        } else {
+//            HttpManger.getInstance()
+//                    .setBaseUrl(baseUrl)
+//                    .setOkHttpClient(HttpManger.getInstance().createDefaultClient())
+//                    .setRetrofit(HttpManger.getInstance().createRetrofit());
+//        }
 
         HttpManger.getInstance()
-                .setBaseUrl(ApiService.BASE_URL)
+                .setOriOkHttpClient(HttpManger.getInstance().createDefaultClient())
+                .setOriRetrofit(HttpManger.getInstance().createOriRetrofit());
+
+        HttpManger.getInstance()
+                .setBaseUrl(baseUrl)
                 .setOkHttpClient(HttpManger.getInstance().createDefaultClient())
                 .setRetrofit(HttpManger.getInstance().createRetrofit());
     }
 
-
-    /***
-     *  初始化轮子全家桶
+    /**
+     * 初始化轮子全家桶
      */
     private void initLunZiUi() {
         /**
@@ -57,15 +73,14 @@ public class BaseApplication extends MultiDexApplication {
         return baseApplication;
     }
 
-    public void reloadApp(){
+    public void reloadApp() {
 
     }
 
     /**
      * token过期
-
      */
-    public void tokenExpire (){
+    public void tokenExpire() {
         AppManager.getInstance().finishAllActivity();
     }
 
@@ -117,8 +132,6 @@ public class BaseApplication extends MultiDexApplication {
             }
         });
     }
-
-
 
 
 }

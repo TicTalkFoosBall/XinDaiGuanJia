@@ -5,7 +5,7 @@ import android.view.View
 import hxz.www.commonbase.baseui.BaseFragment2
 import hxz.www.commonbase.baseui.mvp.BaseView2
 import hxz.www.commonbase.model.NoticeItem
-import hxz.www.commonbase.net.constant.ApiService.FILE_URL
+import hxz.www.commonbase.net.HttpManger.FILE_URL
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow

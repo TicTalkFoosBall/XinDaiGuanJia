@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="160dp"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="175dp"
-        android:orientation="horizontal"
         android:background="#f2f2f2"
-        >
+        android:orientation="horizontal">
+
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="12dp"
             android:layout_height="144dp"
-            android:background="#f2f2f2"
-            />
+            android:layout_marginTop="20dp"
+            android:background="#f2f2f2" />
+
         <RelativeLayout
             android:layout_width="351dp"
             android:layout_height="144dp"
-            android:orientation="vertical"
             android:background="#ffffff"
-            >
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tv_company"
                 android:layout_width="wrap_content"
@@ -32,66 +31,63 @@
                 android:text="南京龙戈软件有限公司"
                 android:textColor="#212121"
                 android:textSize="16sp" />
+
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:src="@mipmap/next"
                 android:layout_marginLeft="320dp"
-                android:visibility="gone"
                 android:layout_marginTop="16dp"
-                />
+                android:src="@mipmap/next"
+                android:visibility="gone" />
+
             <TextView
                 android:layout_width="50dp"
                 android:layout_height="30dp"
+                android:layout_marginLeft="240dp"
+                android:layout_marginTop="7dp"
+                android:gravity="bottom"
                 android:text="发起人："
                 android:textSize="10sp"
-                android:gravity="bottom"
-                android:layout_marginTop="7dp"
-                android:visibility="gone"
-                android:layout_marginLeft="240dp"
-                />
+                android:visibility="gone" />
+
             <TextView
+                android:id="@+id/tv_name"
                 android:layout_width="50dp"
                 android:layout_height="30dp"
-                android:text="张国旺"
-                android:visibility="gone"
-                android:textSize="10sp"
-                android:gravity="bottom"
-                android:layout_marginTop="7dp"
                 android:layout_marginLeft="285dp"
-                android:id="@+id/tv_name"
-                />
-
+                android:layout_marginTop="7dp"
+                android:gravity="bottom"
+                android:text="张国旺"
+                android:textSize="10sp"
+                android:visibility="gone" />
 
 
             <TextView
                 android:layout_width="70dp"
                 android:layout_height="15dp"
-                android:layout_marginTop="50dp"
-                android:visibility="gone"
                 android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
                 android:text="借款金额："
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <TextView
                 android:layout_width="10dp"
                 android:layout_height="18dp"
                 android:layout_marginLeft="70dp"
-                android:visibility="gone"
                 android:layout_marginTop="50dp"
                 android:text="￥"
-                />
+                android:visibility="gone" />
 
             <TextView
+                android:id="@+id/tv_money"
                 android:layout_width="wrap_content"
                 android:layout_height="15dp"
-                android:layout_marginTop="50dp"
                 android:layout_marginLeft="85dp"
-                android:visibility="gone"
+                android:layout_marginTop="50dp"
                 android:text="200.000.000"
                 android:textSize="12sp"
-                android:id="@+id/tv_money"
-                />
+                android:visibility="gone" />
 
 
             <TextView
@@ -101,8 +97,8 @@
                 android:layout_alignStart="@+id/tv_company"
                 android:layout_marginBottom="-95dp"
                 android:text="业务品种："
-                android:visibility="gone"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/tv_variety"
@@ -111,61 +107,59 @@
                 android:layout_marginLeft="70dp"
                 android:layout_marginTop="80dp"
                 android:text="小额贷款"
-                android:visibility="gone"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:visibility="gone" />
 
             <Button
+                android:id="@+id/b_1"
                 android:layout_width="wrap_content"
                 android:layout_height="26dp"
-                android:layout_marginTop="70dp"
 
                 android:layout_marginLeft="250dp"
-                android:text="待审批"
+                android:layout_marginTop="70dp"
                 android:background="@drawable/bottonyuanj"
-                android:id="@+id/b_1"
-                android:textColor="#f1f1f1"
-                />
+                android:text="待审批"
+                android:textColor="#f1f1f1" />
+
             <TextView
                 android:layout_width="341dp"
                 android:layout_height="1dp"
-                android:background="#ebebeb"
+                android:layout_marginLeft="10dp"
                 android:layout_marginTop="110dp"
-                android:layout_marginLeft="10dp"
-                />
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:textSize="10sp"
-                android:visibility="gone"
-                android:text="开始时间： "
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="125dp"
-                android:textColor="#2e2e2e "
-                />
-            <TextView
-                android:layout_width="100dp"
-                android:layout_height="20dp"
-                android:textSize="10sp"
-                android:visibility="gone"
-                android:text="2019.01.02"
-                android:layout_marginLeft="65dp"
-                android:layout_marginTop="125dp"
-                android:textColor="#2e2e2e "
+                android:background="#ebebeb" />
 
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="125dp"
+                android:text="开始时间： "
+                android:textColor="#2e2e2e "
+                android:textSize="10sp"
+                android:visibility="gone" />
+
+            <TextView
                 android:id="@+id/tv_starttime"
-                />
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="125dp"
+                android:text="2019.01.02"
+                android:textColor="@color/gray_EEEEEE"
+                android:textSize="10sp"
+                android:visibility="visible" />
 
             <Button
-                android:layout_width="72dp"
-                android:layout_height="20dp"
-                android:layout_marginTop="120dp"
-                android:layout_marginLeft="260dp"
-                android:background="@drawable/button_biankuang"
                 android:id="@+id/bt_time"
-                android:textColor="#f6822b"
-                android:textSize="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="120dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/button_biankuang"
                 android:text="3天6时前"
-                />
+                android:textColor="#f6822b"
+                android:textSize="10dp" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

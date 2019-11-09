@@ -58,11 +58,7 @@ class ClientPreviewFragment : BaseListFragment<ClientPreviewPresenter, ClientPre
 
       override fun onQueryPreview(list: MutableList<ClientPreviewModel>?) {
         LogShow.i(" onQuery  ", list?.size, mAdapter);
-        refreshLayout?.postDelayed({
-            mAdapter?.data = list
-            refreshLayout?.finishLoad()
-            refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
-        }, 500)
+          updateData(list)
     }
 
     override fun getLayoutId() = R.layout.fragment_client_preview

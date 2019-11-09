@@ -164,7 +164,7 @@
                     android:layout_marginTop="35dp"
                     android:layout_toLeftOf="@id/tv_todoCount"
                     android:singleLine="true"
-                    android:text="最新待办审批消息提示，最新待办审批"
+                    android:text="暂无数据"
                     android:textColor="#858585"
                     android:textSize="13sp" />
 
@@ -174,7 +174,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="10dp"
-                    android:text="上午 08:18"
+                    android:text=""
                     android:textColor="#858585"
                     android:textSize="11sp" />
 
@@ -189,6 +189,7 @@
                     android:background="@drawable/textcolor_red"
                     android:gravity="center"
                     android:text="4"
+                    android:visibility="gone"
                     android:textColor="#ffffff"
                     android:textSize="11sp" />
 
@@ -229,7 +230,7 @@
                     android:layout_marginTop="35dp"
                     android:layout_toLeftOf="@id/tv_noticeTime"
                     android:singleLine="true"
-                    android:text="最新待办审批消息提示，最新待办审批"
+                    android:text="暂无数据"
                     android:textColor="#858585"
                     android:textSize="13sp" />
 
@@ -239,13 +240,14 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="10dp"
-                    android:text="上午 08:18"
+                    android:text=""
                     android:textColor="#858585"
                     android:textSize="11sp" />
 
                 <TextView
                     android:id="@+id/tv_noticeCount"
                     android:layout_width="18dp"
+                    android:visibility="gone"
                     android:layout_height="18dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
@@ -294,7 +296,7 @@
                     android:layout_marginTop="35dp"
                     android:layout_toLeftOf="@id/tv_systemMsgCount"
                     android:singleLine="true"
-                    android:text="最新待办审批消息提示，最新待办审批"
+                    android:text="暂无数据"
                     android:textColor="#858585"
                     android:textSize="13sp" />
 
@@ -304,7 +306,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_marginTop="10dp"
-                    android:text="上午 08:18"
+                    android:text=""
                     android:textColor="#858585"
                     android:textSize="11sp" />
 
@@ -315,6 +317,7 @@
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="10dp"
+                    android:visibility="gone"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/textcolor_red"
                     android:gravity="center"

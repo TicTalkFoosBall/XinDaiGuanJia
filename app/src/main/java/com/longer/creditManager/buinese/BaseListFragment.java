@@ -24,7 +24,7 @@ import hxz.www.commonbase.view.KLRefreshLayout;
 
 
 public abstract class BaseListFragment<T extends BasePresenterImpl, A extends BaseAdapter> extends BaseFragment2<T> {
-    
+
     @Nullable
     @BindView(R.id.refreshLayout)
     public KLRefreshLayout refreshLayout;
@@ -91,7 +91,7 @@ public abstract class BaseListFragment<T extends BasePresenterImpl, A extends Ba
         }
 
         if (isCanLoadMore()) {
-            refreshLayout.setEnableLoadMore(false);
+            refreshLayout.setEnableLoadMore(true);
             refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
                 @Override
                 public void onLoadMore(@NonNull RefreshLayout refreshLayout) {

@@ -10,7 +10,7 @@ import hxz.www.commonbase.R
 import hxz.www.commonbase.adapter.BaseAdapter
 import hxz.www.commonbase.adapter.ViewHolder
 import hxz.www.commonbase.model.PopModel
-import hxz.www.commonbase.net.constant.ApiService
+import hxz.www.commonbase.net.HttpManger.FILE_URL
 import hxz.www.commonbase.util.FastClickUtil
 import hxz.www.commonbase.util.ImageLoaders
 import hxz.www.commonbase.util.log.LogShow
@@ -91,7 +91,7 @@ class BottomRecyclerGridViewAdapter : BaseAdapter<PopModel>() {
         holder.getView<TextView>(R.id.tvContent).background = ContextCompat.getDrawable(holder.context, R.drawable.sc_bottom_item)
         var cover = holder.getView<ImageView>(R.id.iv_cover)
         if (data.imgUrl.isNullOrEmpty()) {
-            ImageLoaders.load(ApiService.FILE_URL + data.imgUrl, cover)
+            ImageLoaders.load(FILE_URL + data.imgUrl, cover)
         } else {
             cover.setImageResource(R.mipmap.default_bg)
         }

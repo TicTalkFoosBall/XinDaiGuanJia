@@ -1,25 +1,22 @@
 package com.longer.creditManager.buinese.more
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.longer.creditManager.buinese.BaseListFragment
-import com.longer.creditManager.buinese.detail.BusineseDetailActivity
-import com.longer.creditManager.recording.BusTabmentMoreAdapter
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
-import hxz.www.commonbase.model.todo.buinese.OtherListBean
-import hxz.www.commonbase.model.todo.buinese.OtherListBeanSeri
+import hxz.www.commonbase.model.NoticeItem
+import hxz.www.commonbase.model.NoticeListModel
 import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
 import kotlinx.android.synthetic.main.fragment_noticelist.*
 
 
-class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusTabmentMoreAdapter>()  {
+class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusineseMoreAdapter>(), BusineseMoreView {
 
-    override fun bindAdapter() = BusTabmentMoreAdapter()
+    override fun bindAdapter() = BusineseMoreAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
         LogShow.i("initRefreshLayout  ", refreshLayout);
@@ -29,17 +26,9 @@ class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusTabmentM
     }
 
     override fun initData() {
-        var otherList: MutableList<OtherListBean>? = null
-        getParameter(0)?.let {
-            it as OtherListBeanSeri
-            otherList = it.otherListBeans
-            onQuery(otherList)
-        }
+
         mAdapter.setOnItemClickListener { view, data, position ->
-            val intent = Intent(context, BusineseDetailActivity::class.java)
-            intent.putExtra("code", data.getCode())
-            intent.putExtra("name",data.getName())
-            startActivity(intent)
+            LogShow.i("NoticeListFragment.kt  initData", data.content)
         }
         toolbar.setTitle("更多统计")
         toolbar.setLeftClick(View.OnClickListener
@@ -51,7 +40,6 @@ class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusTabmentM
     }
 
     override fun loadData(page: Int) {
-
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {
@@ -59,8 +47,11 @@ class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusTabmentM
         refresh()
     }
 
+    override fun onQueryBlackList(list: NoticeListModel?) {
+        list?.let { onQuery(list.list) }
+    }
 
-    private fun onQuery(list: MutableList<OtherListBean>?) {
+    private fun onQuery(list: MutableList<NoticeItem>?) {
         LogShow.i(" onQuery  ", list?.size, mAdapter);
         refreshLayout?.postDelayed({
             mAdapter?.data = list
@@ -75,6 +66,6 @@ class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusTabmentM
 
 
 interface BusineseMoreView : BaseView2 {
-
+   fun  onQueryBlackList(model:NoticeListModel?)
 
 }

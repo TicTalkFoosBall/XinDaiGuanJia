@@ -89,6 +89,7 @@ class ReportFragment : BaseListFragment<ReportPresenter, ReportAdapter>(), Repor
 
 
     override fun onQueryReport(report: ReportBean?) {
+
         report?.let {
             refreshLayout?.postDelayed({
                 mAdapter.setData(report.data)

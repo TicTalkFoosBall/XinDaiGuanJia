@@ -18,6 +18,7 @@ import com.longer.creditManager.activity.ForgetThePasswordActivity;
 import hxz.www.commonbase.base.mvp.BaseMvpActivity;
 import hxz.www.commonbase.cache.Cache;
 import hxz.www.commonbase.cache.UserInfo;
+import hxz.www.commonbase.model.BaseUrlModel;
 import hxz.www.commonbase.model.LoginBody;
 import hxz.www.commonbase.util.EncryptUtil;
 import hxz.www.commonbase.util.ToastUtil;
@@ -27,7 +28,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
 
     private EditText e_username, ev_pwd, ev_company;
     private Button b_login;
-    private ImageView iv_cancel, iv_estop,iv_logo;
+    private ImageView iv_cancel, iv_estop, iv_logo;
     private TextView tv_forgetpwd;
     private boolean flag = true;
     //  private Token token;
@@ -36,16 +37,12 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
     @Override
     public void onClick(View v) {
         if (v.getId() == b_login.getId()) {
-            String name= e_username.getText().toString();
-            String pwd= ev_pwd.getText().toString();
-            if (checkEnable())
-            {
-                LoginBody loginBody = new LoginBody(e_username.getText().toString(),  EncryptUtil.MD5(pwd).toLowerCase());
-//                LoginBody loginBody = new LoginBody(e_username.getText().toString(),  pwd);
-                mPresenter.getLoginBeae(loginBody);
-            }
-            else
-            {
+
+            if (checkEnable()) {
+
+                mPresenter.getBaseUrl(ev_company.getText().toString());
+
+            } else {
                 ToastUtil.show("请完善信息");
             }
 
@@ -77,7 +74,7 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
     }
 
     private boolean checkEnable() {
-        return !TextUtils.isEmpty(e_username.getText().toString()) && !TextUtils.isEmpty(ev_pwd.getText().toString())&&!TextUtils.isEmpty(ev_company.getText().toString());
+        return !TextUtils.isEmpty(e_username.getText().toString()) && !TextUtils.isEmpty(ev_pwd.getText().toString()) && !TextUtils.isEmpty(ev_company.getText().toString());
     }
 
     @Override
@@ -133,10 +130,20 @@ public class LoginActivity extends BaseMvpActivity<LoginPreseenter> implements V
         if (userInfo != null) {
 
             Cache.setUserInfo(userInfo);
-            LogShow.i("LoginActivity  showData",e_username.getText().toString());
+            LogShow.i("LoginActivity  showData", e_username.getText().toString());
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
+        }
+    }
+
+    @Override
+    public void onQueryBaseUrl(BaseUrlModel model) {
+        if (model != null) {
+            String name = e_username.getText().toString();
+            String pwd = ev_pwd.getText().toString();
+            LoginBody loginBody = new LoginBody(name, EncryptUtil.MD5(pwd).toLowerCase());
+            mPresenter.getLoginBeae(loginBody);
         }
     }
 
