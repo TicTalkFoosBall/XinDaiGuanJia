@@ -58,7 +58,7 @@ public interface ApiService {
 
     //业务预览
     @GET("customer/businessList")
-    Single<BaseResult<List<ClientPreviewModel>>> getCustomerPreview(@Query("customerId") String customerId);
+    Single<BaseResult<List<ClientPreviewModel>>> getCustomerPreview(@Query("customId") String customerId);
 
     //客户列表
     @GET("customer/list")

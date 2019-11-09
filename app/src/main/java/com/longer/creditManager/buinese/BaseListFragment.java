@@ -125,9 +125,10 @@ public abstract class BaseListFragment<T extends BasePresenterImpl, A extends Ba
         } else {
             mAdapter.addAll(list);
         }
+        LogShow.i("BaseListFragment  updateData",mPage);
         refreshLayout.finishLoad();
         if (isCanLoadMore()) {
-            if (ListUtil.getSize(list) <= 5) {
+            if (ListUtil.getSize(list) < 20) {
                 refreshLayout.setEnableLoadMore(false);
             } else {
                 mPage++;

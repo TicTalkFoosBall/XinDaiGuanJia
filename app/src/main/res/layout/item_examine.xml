@@ -145,7 +145,7 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="125dp"
                 android:text="2019.01.02"
-                android:textColor="@color/gray_EEEEEE"
+                android:textColor="@color/gray_999999"
                 android:textSize="10sp"
                 android:visibility="visible" />
 
