@@ -56,7 +56,8 @@ class RecordListFragment : BaseListFragment<RecorListPresenter, RecordlistAdapte
     override fun onQuery(list: MutableList<HistoryData>?) {
         LogShow.i("onQuery  ", list?.size, mAdapter);
         refreshLayout?.postDelayed({
-            mAdapter?.data = list
+            var recordList=list?.filter { !it.result?.desc.isNullOrEmpty() }
+            mAdapter?.data = recordList
             refreshLayout?.finishLoad()
             refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
         }, 500)
