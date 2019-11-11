@@ -21,7 +21,7 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public final class HttpManger {
 
-    public static String FILE_URL = "";
+    public static String FILE_URL = Cache.getBAseUrl().getResourceUrl();
 
     private Retrofit mRetrofit;
     private Retrofit mOriRetrofit;

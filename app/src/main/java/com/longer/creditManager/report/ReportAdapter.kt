@@ -27,37 +27,41 @@ class ReportAdapter : BaseAdapter<ConfigBean>() {
         title.text = data.gropname
         var parent = holder.context as BaseActivity2<*>
         data.list.forEach {
-            LogShow.i("ReportAdapter.kt  foreach", it.toString())
-            var view = inflater?.inflate(R.layout.layout_report, null)
-            view?.apply {
-                var title = this.findViewById<TextView>(R.id.tv_reportTitle)
-                var value = this.findViewById<TextView>(R.id.tv_reportValue)
-                title.setText(it.fieldNote)
-                var valueStr = detailData?.get(it.fieldName)
-                var keyStr = it.fieldNote
-                LogShow.i("ReportAdapter.kt  value", it.toString(), valueStr)
-                if (it.controlType.equals("richTextEditor")) {
-                    value.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD))
-                    value.textSize = 16F
-                    value.setText("详细报告")
-                    click {
-//                        parent.start(FragmentHelper.newInstance(WebViewFragment::class.java, valueStr, true, keyStr, false))
-                        parent.start(FragmentHelper.newInstance(RichTextFragment::class.java, keyStr,valueStr))
+            var valueStr = detailData?.get(it.fieldName)
+            var keyStr = it.fieldNote
+            LogShow.i("ReportAdapter.kt  foreach", it.toString(),valueStr,valueStr == "null")
+            if (!valueStr.isNullOrEmpty()) {
+                var view = inflater?.inflate(R.layout.layout_report, null)
+                view?.apply {
+                    var title = this.findViewById<TextView>(R.id.tv_reportTitle)
+                    var value = this.findViewById<TextView>(R.id.tv_reportValue)
+                    title.text = it.fieldNote
+                    valueStr = if (valueStr == "null") "" else valueStr
+                    LogShow.i("ReportAdapter.kt  value", it.toString(), valueStr, valueStr == "null")
+                    if (it.controlType.equals("richTextEditor")) {
+                        value.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+                        value.textSize = 16F
+                        value.text = "详细报告"
+                        click {
+                            //                        parent.start(FragmentHelper.newInstance(WebViewFragment::class.java, valueStr, true, keyStr, false))
+                            parent.start(FragmentHelper.newInstance(RichTextFragment::class.java, keyStr, valueStr))
+                        }
+                    } else if (it.controlType.equals("13")) {
+                        value.typeface = Typeface.defaultFromStyle(Typeface.BOLD)
+                        value.textSize = 16F
+                        value.text = "点击查看"
+                        click {
+                        }
+                    } else {
+                        value.typeface = Typeface.defaultFromStyle(Typeface.NORMAL)
+                        value.textSize = 13F
+                        value.text = valueStr
+                        click { }
                     }
-                } else if (it.controlType.equals("13")) {
-                    value.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD))
-                    value.textSize = 16F
-                    value.setText("点击查看")
-                    click {
-                    }
-                } else {
-                    value.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL))
-                    value.textSize = 13F
-                    value.setText(valueStr)
-                    click { }
                 }
+                container.addView(view)
             }
-            container.addView(view)
+
         }
 
     }

@@ -64,7 +64,7 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
         }
 
         mAdapter.setOnItemClickListener { view, data, position ->
-            LogShow.i("NoticeListFragment.kt  initData", data.toString())
+            LogShow.i("NoticeListFragment.kt  initData", FILE_URL, data.toString())
             openAttachment(FILE_URL + data.realPath)
         }
     }
@@ -82,6 +82,7 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
 
     }
 
+    override fun isCanLoadMore() = false
     private fun isSupport(url: String) = url.endsWith("jpg") || url.endsWith("png") || url.endsWith("txt")
 
     override fun onQueryAttachment(attachment: MutableList<Attachment>?) {
