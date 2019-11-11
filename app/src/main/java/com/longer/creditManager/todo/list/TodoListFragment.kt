@@ -1,6 +1,5 @@
 package com.longer.creditManager.todo.list
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
@@ -8,14 +7,12 @@ import com.longer.creditManager.R
 import com.longer.creditManager.basemodel.Api
 import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.todo.RefreshTodoEvent
-import com.longer.creditManager.todo.detail.TodoDetailActivity
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.baseui.mvp.BaseView2
 import hxz.www.commonbase.model.todo.TodoBean
 import hxz.www.commonbase.model.todo.TodoItem
 import hxz.www.commonbase.net.BaseResult
 import hxz.www.commonbase.net.BaseResultObserver
-import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.ToastUtil
 import hxz.www.commonbase.util.log.LogShow
@@ -72,11 +69,8 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
 
     override fun onQuery(list: MutableList<TodoItem>?) {
         LogShow.i(" onQuery  ", list?.size, mAdapter);
-        refreshLayout?.postDelayed({
-            mAdapter?.data = list
-            refreshLayout?.finishLoad()
-            refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
-        }, 500)
+        updateData(list)
+
     }
 
     override fun getLayoutId() = R.layout.fragment_noticelist
@@ -85,7 +79,7 @@ class TodoListFragment : BaseListFragment<TodoListPresenter, TodolistAdapter>(),
 class TodoListPresenter : BasePresenterImpl<TodoListView>() {
     private var mDisposable: Disposable? = null
     fun queryodoList(page: Int) {
-        LogShow.i("queryodoList ", page);
+        LogShow.i("queryodoList ", page)
         mDisposable = Api.getApiService().getTodoList(page, 20).subscribeWith(object : BaseResultObserver<BaseResult<TodoBean>>() {
             override fun onResult(todoBean: BaseResult<TodoBean>?) {
                 LogShow.i("queryodoList   ", todoBean?.result?.list?.size);

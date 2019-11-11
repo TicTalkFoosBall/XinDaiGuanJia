@@ -43,7 +43,7 @@ class ReportFragment : BaseListFragment<ReportPresenter, ReportAdapter>(), Repor
     var fromCode = ""
     override fun initData() {
 
-        toolbar.setTitle( getParameter(0) as String)
+        toolbar.setTitle(getParameter(0) as String)
         toolbar.setLeftClick(View.OnClickListener
         {
             pop()
@@ -55,6 +55,8 @@ class ReportFragment : BaseListFragment<ReportPresenter, ReportAdapter>(), Repor
             LogShow.i("NoticeListFragment.kt  initData", data.toString())
         }
     }
+
+    override fun isCanLoadMore() = false
 
 
 //    override fun onQueryTodoAttachments(attachment: MutableList<TodoAttachment>?) {
@@ -89,6 +91,7 @@ class ReportFragment : BaseListFragment<ReportPresenter, ReportAdapter>(), Repor
 
 
     override fun onQueryReport(report: ReportBean?) {
+
         report?.let {
             refreshLayout?.postDelayed({
                 mAdapter.setData(report.data)
@@ -124,11 +127,11 @@ class ReportPresenter : BasePresenterImpl<ReportView>() {
                 }
                 var titleStr = json.substringAfter("\"config\":")
                 var gsonStr = "{\n" +
-                        "  \"config\":"+titleStr
+                        "  \"config\":" + titleStr
                 LogShow.i("getReport  map ", gsonStr)
                 var bean = GsonUtil.fromJson(gsonStr, ReportBean::class.java)
-                bean.data=dataMap
-                LogShow.i("getReport bean  ", bean.config,bean.data.size)
+                bean.data = dataMap
+                LogShow.i("getReport bean  ", bean.config, bean.data.size)
                 mView.onQueryReport(bean)
             }
 

@@ -1,11 +1,14 @@
 package hxz.www.commonbase.net;
 
 
+import android.text.TextUtils;
+
 import java.io.IOException;
 import java.net.Proxy;
 import java.util.concurrent.TimeUnit;
 
 import hxz.www.commonbase.cache.Cache;
+import hxz.www.commonbase.util.log.LogShow;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
@@ -18,9 +21,14 @@ import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 public final class HttpManger {
 
+    public static String FILE_URL = Cache.getBAseUrl().getResourceUrl();
+
     private Retrofit mRetrofit;
-    private String mBaseUrl;
+    private Retrofit mOriRetrofit;
+    private String mBaseUrl = "http://1234/";
+    private String mOriBaseUrl = "http://longersoftdb.vicp.cc:8000/";
     private OkHttpClient mOkHttpClient;
+    private OkHttpClient mOriOkHttpClient;
     private Boolean debug;
 
     public HttpManger() {
@@ -35,7 +43,11 @@ public final class HttpManger {
      * @return
      */
     public HttpManger setBaseUrl(String mBaseUrl) {
-        this.mBaseUrl = mBaseUrl;
+        LogShow.i("HttpManger  setBaseUrl",mBaseUrl,this.mBaseUrl);
+        if (!TextUtils.isEmpty(mBaseUrl)) {
+            this.mBaseUrl = mBaseUrl;
+        }
+        LogShow.i("HttpManger  setBaseUrl 2",this.mBaseUrl);
         return Holder.INSTANCE;
     }
 
@@ -50,6 +62,18 @@ public final class HttpManger {
         return Holder.INSTANCE;
     }
 
+    /**
+     * 设置 OkHttpClient
+     *
+     * @param mOkHttpClient
+     * @return
+     */
+    public HttpManger setOriOkHttpClient(OkHttpClient mOkHttpClient) {
+        LogShow.i("HttpManger  setOriOkHttpClient");
+        this.mOriOkHttpClient = mOkHttpClient;
+        return Holder.INSTANCE;
+    }
+
 
     /**
      * 设置retrofit
@@ -60,6 +84,17 @@ public final class HttpManger {
     public void setRetrofit(Retrofit mRetrofit) {
         this.mRetrofit = mRetrofit;
     }
+    /**
+     * 设置retrofit
+     *
+     * @param mRetrofit
+     * @return
+     */
+    public void setOriRetrofit(Retrofit mRetrofit) {
+        this.mOriRetrofit = mRetrofit;
+    }
+
+
 
 
     /**
@@ -82,12 +117,34 @@ public final class HttpManger {
     }
 
     /**
+     * @return mRetrofit.create(clazz)
+     */
+    public <T> T getoriApiService(Class<T> clazz) {
+        return mOriRetrofit.create(clazz);
+    }
+
+    /**
      * 自带创建retrofit
      */
     public Retrofit createRetrofit() {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(mBaseUrl)
                 .client(mOkHttpClient)
+                .addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .addCallAdapterFactory(ObserveFactory.createMainScheduler())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.createWithScheduler(Schedulers.io()));
+        return builder.build();
+    }
+
+
+    /**
+     * 自带创建retrofit
+     */
+    public Retrofit createOriRetrofit() {
+        Retrofit.Builder builder = new Retrofit.Builder()
+                .baseUrl(mOriBaseUrl)
+                .client(mOriOkHttpClient)
                 .addConverterFactory(ScalarsConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(ObserveFactory.createMainScheduler())
@@ -106,6 +163,7 @@ public final class HttpManger {
                 .writeTimeout(timeOut, TimeUnit.SECONDS)
                 .addInterceptor(new LoggerInterceptor("HttpManger", true))
                 .addInterceptor(new NetCheckInterceptor())
+//                .addInterceptor(new BaseUrlInterceptor())
                 .addInterceptor(headerIntercepteor)
 
                 //请求失败重试

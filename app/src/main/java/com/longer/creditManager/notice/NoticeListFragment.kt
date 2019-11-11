@@ -8,7 +8,6 @@ import com.longer.creditManager.recording.RichTextFragment
 import hxz.www.commonbase.adapter.VerticalItemDecoration
 import hxz.www.commonbase.model.NoticeItem
 import hxz.www.commonbase.model.NoticeListModel
-import hxz.www.commonbase.state.MultiStateView
 import hxz.www.commonbase.util.fragment.FragmentHelper
 import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
@@ -59,11 +58,7 @@ class NoticeListFragment : BaseListFragment<NoticePresenter, NoticelistAdapter>(
 
     private fun onQuery(list: MutableList<NoticeItem>?) {
         LogShow.i(" onQuery  ", list?.size, mAdapter);
-        refreshLayout?.postDelayed({
-            mAdapter?.data = list
-            refreshLayout?.finishLoad()
-            refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
-        }, 500)
+        updateData(list)
     }
 
     override fun getLayoutId() = com.longer.creditManager.R.layout.fragment_noticelist

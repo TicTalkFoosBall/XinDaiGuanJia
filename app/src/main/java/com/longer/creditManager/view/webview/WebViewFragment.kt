@@ -34,7 +34,6 @@ class WebViewFragment : BaseFragment2<Nothing>() {
         var showToolbar = true
         var isUrl = true
         var mTitle = ""
-        var openSystem = false//是否启动系统浏览器
         if (len > 1) {
             mParams[1]?.let {
                 showToolbar = it as Boolean

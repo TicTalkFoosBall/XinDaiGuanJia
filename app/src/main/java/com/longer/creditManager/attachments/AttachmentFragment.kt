@@ -17,8 +17,7 @@ import hxz.www.commonbase.model.TodoAttachment
 import hxz.www.commonbase.model.todo.TodoItem
 import hxz.www.commonbase.net.BaseResult
 import hxz.www.commonbase.net.BaseResultObserver
-import hxz.www.commonbase.net.constant.ApiService
-import hxz.www.commonbase.state.MultiStateView
+import hxz.www.commonbase.net.HttpManger.FILE_URL
 import hxz.www.commonbase.uibase.mvp.BasePresenterImpl
 import hxz.www.commonbase.util.ToastUtil
 import hxz.www.commonbase.util.fragment.FragmentHelper
@@ -26,6 +25,7 @@ import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_noticelist.*
+import value
 
 
 class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapter>(), AttachmentView {
@@ -65,8 +65,12 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
         }
 
         mAdapter.setOnItemClickListener { view, data, position ->
-            LogShow.i("NoticeListFragment.kt  initData", data.toString())
-            openAttachment(ApiService.FILE_URL + data.realPath)
+            LogShow.i("NoticeListFragment.kt  initData", FILE_URL, data.toString())
+            if (data.type.value() == "attachment")
+            {
+                openAttachment(FILE_URL + data.realPath)
+            }
+
         }
     }
 
@@ -83,6 +87,7 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
 
     }
 
+    override fun isCanLoadMore() = false
     private fun isSupport(url: String) = url.endsWith("jpg") || url.endsWith("png") || url.endsWith("txt")
 
     override fun onQueryAttachment(attachment: MutableList<Attachment>?) {
@@ -94,11 +99,7 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
             list.add(attachment)
         }
 
-        refreshLayout?.postDelayed({
-            mAdapter?.data = list
-            refreshLayout?.finishLoad()
-            refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
-        }, 500)
+        updateData(list)
     }
 
 
@@ -123,11 +124,7 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
             list.addAll(createHoldeBeanList(holderCount))
             LogShow.i("Reportragment.kt  onQueryTodoAttachments", list.size)
         }
-        refreshLayout?.postDelayed({
-            mAdapter?.data = list
-            refreshLayout?.finishLoad()
-            refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
-        }, 500)
+        updateData(list)
     }
 
     private fun createHoldeBeanList(count: Int): MutableList<Attachment> {

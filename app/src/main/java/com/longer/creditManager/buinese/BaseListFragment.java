@@ -24,14 +24,14 @@ import hxz.www.commonbase.view.KLRefreshLayout;
 
 
 public abstract class BaseListFragment<T extends BasePresenterImpl, A extends BaseAdapter> extends BaseFragment2<T> {
-    
+
     @Nullable
     @BindView(R.id.refreshLayout)
     public KLRefreshLayout refreshLayout;
 
     protected A mAdapter;
 
-    protected int mPage = 0;
+    protected int mPage = 1;
 
     protected abstract A bindAdapter();
 
@@ -72,7 +72,7 @@ public abstract class BaseListFragment<T extends BasePresenterImpl, A extends Ba
         refreshLayout.setOnRetryClick(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPage = 0;
+                mPage = 1;
                 refresh(false);
             }
         });
@@ -91,7 +91,7 @@ public abstract class BaseListFragment<T extends BasePresenterImpl, A extends Ba
         }
 
         if (isCanLoadMore()) {
-            refreshLayout.setEnableLoadMore(false);
+            refreshLayout.setEnableLoadMore(true);
             refreshLayout.setOnLoadMoreListener(new OnLoadMoreListener() {
                 @Override
                 public void onLoadMore(@NonNull RefreshLayout refreshLayout) {
@@ -110,7 +110,7 @@ public abstract class BaseListFragment<T extends BasePresenterImpl, A extends Ba
 
 
     protected void refresh(boolean isPostRefresh) {
-        mPage = 0;
+        mPage = 1;
         if (!isPostRefresh)
             refreshLayout.setMultiStateView(MultiStateView.VIEW_STATE_LOADING);
         loadData(mPage);
@@ -120,14 +120,15 @@ public abstract class BaseListFragment<T extends BasePresenterImpl, A extends Ba
         if (refreshLayout == null) {
             return;
         }
-        if (mPage == 0) {
+        if (mPage == 1) {
             mAdapter.setData(list);
         } else {
             mAdapter.addAll(list);
         }
+        LogShow.i("BaseListFragment  updateData",mPage);
         refreshLayout.finishLoad();
         if (isCanLoadMore()) {
-            if (ListUtil.getSize(list) <= 5) {
+            if (ListUtil.getSize(list) < 20) {
                 refreshLayout.setEnableLoadMore(false);
             } else {
                 mPage++;

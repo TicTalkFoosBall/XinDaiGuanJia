@@ -2,7 +2,7 @@ package com.longer.creditManager.buinese.more
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.view.View
 import com.longer.creditManager.buinese.BaseListFragment
 import com.longer.creditManager.buinese.detail.BusineseDetailActivity
@@ -17,30 +17,34 @@ import hxz.www.commonbase.view.KLRefreshLayout
 import kotlinx.android.synthetic.main.fragment_noticelist.*
 
 
-class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusTabmentMoreAdapter>()  {
+class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusTabmentMoreAdapter>(), BusineseMoreView {
 
     override fun bindAdapter() = BusTabmentMoreAdapter()
 
     override fun initRefreshLayout(refreshLayout: KLRefreshLayout?) {
-        LogShow.i("initRefreshLayout  ", refreshLayout);
-        refreshLayout?.setLayoutManager(LinearLayoutManager(_mActivity))
+        LogShow.i("initRefreshLayout  ", refreshLayout)
+        val manager = GridLayoutManager(context, 3)
+        refreshLayout?.setLayoutManager(manager)
         refreshLayout?.recyclerView?.addItemDecoration(VerticalItemDecoration(8))
         refreshLayout?.setEnableLoadMore(true)
+        mAdapter.setOnItemClickListener { view, model, position ->
+            LogShow.i("BusineseMoreFragment  initRecycleview", position)
+            val intent = Intent(context, BusineseDetailActivity::class.java)
+            intent.putExtra("code", model.getCode())
+            intent.putExtra("name", model.getName())
+            startActivity(intent)
+
+        }
+
     }
 
     override fun initData() {
-        var otherList: MutableList<OtherListBean>? = null
+        var otherBeans: OtherListBeanSeri? = null
         getParameter(0)?.let {
-            it as OtherListBeanSeri
-            otherList = it.otherListBeans
-            onQuery(otherList)
+            otherBeans = it as OtherListBeanSeri
+            onQuery(otherBeans?.otherListBeans)
         }
-        mAdapter.setOnItemClickListener { view, data, position ->
-            val intent = Intent(context, BusineseDetailActivity::class.java)
-            intent.putExtra("code", data.getCode())
-            intent.putExtra("name",data.getName())
-            startActivity(intent)
-        }
+        LogShow.i("BusineseMoreFragment.kt  initData", otherBeans?.otherListBeans?.size)
         toolbar.setTitle("更多统计")
         toolbar.setLeftClick(View.OnClickListener
         {
@@ -51,7 +55,6 @@ class BusineseMoreFragment : BaseListFragment<BusineseMorePresenter, BusTabmentM
     }
 
     override fun loadData(page: Int) {
-
     }
 
     override fun onLazyInitView(savedInstanceState: Bundle?) {

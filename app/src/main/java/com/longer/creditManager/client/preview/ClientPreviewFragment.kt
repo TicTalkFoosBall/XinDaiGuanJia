@@ -38,7 +38,7 @@ class ClientPreviewFragment : BaseListFragment<ClientPreviewPresenter, ClientPre
         {
             _mActivity.finish()
         })
-        var id=getParameter(0) as String
+        var id = getParameter(0) as String
         LogShow.i("initData   ", id)
         mPresenter.queryClient(id)
     }
@@ -53,11 +53,13 @@ class ClientPreviewFragment : BaseListFragment<ClientPreviewPresenter, ClientPre
         refresh()
     }
 
+    override fun isCanLoadMore(): Boolean {
+        return false;
+    }
 
 
-
-      override fun onQueryPreview(list: MutableList<ClientPreviewModel>?) {
-        LogShow.i(" onQuery  ", list?.size, mAdapter);
+    override fun onQueryPreview(list: MutableList<ClientPreviewModel>?) {
+        LogShow.i(" onQuery  ", list?.size, mAdapter)
         refreshLayout?.postDelayed({
             mAdapter?.data = list
             refreshLayout?.finishLoad()

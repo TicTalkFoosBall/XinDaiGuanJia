@@ -56,13 +56,11 @@ class RecordListFragment : BaseListFragment<RecorListPresenter, RecordlistAdapte
     override fun onQuery(list: MutableList<HistoryData>?) {
         LogShow.i("onQuery  ", list?.size, mAdapter);
         refreshLayout?.postDelayed({
-            var dataList = list?.filterNot { it.result == null }
-            mAdapter?.data = dataList
+            mAdapter?.data = list
             refreshLayout?.finishLoad()
             refreshLayout?.setMultiStateView(if (mAdapter.dataCount == 0) MultiStateView.VIEW_STATE_EMPTY else MultiStateView.VIEW_STATE_CONTENT)
         }, 500)
     }
-
     override fun getLayoutId() = R.layout.fragment_noticelist
 }
 

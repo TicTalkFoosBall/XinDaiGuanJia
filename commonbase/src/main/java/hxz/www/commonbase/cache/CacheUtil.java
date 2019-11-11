@@ -15,7 +15,7 @@ import hxz.www.commonbase.util.log.LogShow;
 public class CacheUtil {
 
     public static <T> void saveCache(String key, T t) {
-
+        LogShow.i("CacheUtil  saveCache", key);
         ObjectOutputStream oos = null;
         FileOutputStream fos = null;
         try {
@@ -32,7 +32,7 @@ public class CacheUtil {
                     oos.close();
                 }
             } catch (Exception e) {
-               LogShow.i("CacheUtil  saveCache ",e.getMessage());
+                LogShow.i("CacheUtil  saveCache ", e.getMessage());
             }
         }
 
@@ -49,7 +49,7 @@ public class CacheUtil {
             ois = new ObjectInputStream(in);
             entity = (T) ois.readObject();
         } catch (Exception e) {
-            LogShow.e("获取数据失败=" + e.getMessage(),e.getStackTrace());
+            LogShow.e("获取数据失败=" + e.getMessage(), e.getStackTrace());
         } finally {
             try {
                 if (in != null) {
@@ -66,7 +66,6 @@ public class CacheUtil {
     }
 
     public static boolean deleteCache(String key) {
-         LogShow.i("CacheUtil  deleteCache ",BaseApplication.getInstance() );
         File file = new File(BaseApplication.getInstance().getFilesDir().getPath() + File.separator + key);
         if (file.exists()) {
             return file.delete();
