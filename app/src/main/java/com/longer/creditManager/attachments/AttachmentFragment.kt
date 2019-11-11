@@ -25,6 +25,7 @@ import hxz.www.commonbase.util.log.LogShow
 import hxz.www.commonbase.view.KLRefreshLayout
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.fragment_noticelist.*
+import value
 
 
 class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapter>(), AttachmentView {
@@ -65,7 +66,11 @@ class AttachmentFragment : BaseListFragment<AttachmentPresenter, AttachmentAdapt
 
         mAdapter.setOnItemClickListener { view, data, position ->
             LogShow.i("NoticeListFragment.kt  initData", FILE_URL, data.toString())
-            openAttachment(FILE_URL + data.realPath)
+            if (data.type.value() == "attachment")
+            {
+                openAttachment(FILE_URL + data.realPath)
+            }
+
         }
     }
 

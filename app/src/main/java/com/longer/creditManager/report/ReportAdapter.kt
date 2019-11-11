@@ -26,11 +26,11 @@ class ReportAdapter : BaseAdapter<ConfigBean>() {
         inflater = LayoutInflater.from(holder.context)
         title.text = data.gropname
         var parent = holder.context as BaseActivity2<*>
+        container.removeAllViews()
         data.list.forEach {
             var valueStr = detailData?.get(it.fieldName)
             var keyStr = it.fieldNote
-            LogShow.i("ReportAdapter.kt  foreach", it.toString(),valueStr,valueStr == "null")
-            if (!valueStr.isNullOrEmpty()) {
+            LogShow.i("ReportAdapter.kt  foreach", it.toString(),valueStr,valueStr.isNullOrEmpty(),valueStr == "null")
                 var view = inflater?.inflate(R.layout.layout_report, null)
                 view?.apply {
                     var title = this.findViewById<TextView>(R.id.tv_reportTitle)
@@ -60,7 +60,6 @@ class ReportAdapter : BaseAdapter<ConfigBean>() {
                     }
                 }
                 container.addView(view)
-            }
 
         }
 
